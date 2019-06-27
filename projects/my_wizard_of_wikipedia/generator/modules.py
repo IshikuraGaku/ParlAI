@@ -64,10 +64,6 @@ class ContextKnowledgeEncoder(nn.Module):
 
     def forward(self, src_tokens, know_tokens, ck_mask, cs_ids, use_cs_ids):
         # encode the context, pretty basic
-        print("src_tokens")
-        print(src_tokens.size())
-        print("know_tokens")
-        print(know_tokens.size())
 
         context_encoded, context_mask = self.transformer(src_tokens)
 
@@ -92,10 +88,11 @@ class ContextKnowledgeEncoder(nn.Module):
         if not use_cs_ids:
             # if we're not given the true chosen_sentence (test time), pick our
             # best guess
-            print("cs_ids.size")
-            print(cs_ids.size())
-            _, cs_ids = ck_attn.max(1)
+            _, fcs_ids = ck_attn.max(1)
+            _, cs_ids = self.second_max(ck_attn, 1)
 
+        print("max, second")
+        print(fcs_ids, cs_ids)
         # pick the true chosen sentence. remember that TransformerEncoder outputs
         #   (batch, time, embed)
         # but because know_encoded is a flattened, it's really
@@ -113,6 +110,34 @@ class ContextKnowledgeEncoder(nn.Module):
         # also return the knowledge selection mask for the loss
         return full_enc, full_mask, ck_attn
 
+    def second_max(self, target_tensor, axis):
+        #todo make axis != 1 
+        #target_tensor (1,N) 
+        #return (second_val, second_idx)
+        first_idx = th.tensor(0.0, device=target_tensor.device)
+        second_idx = th.tensor(0.0, device=target_tensor.device)
+        first_tmp = th.tensor(0.0, device=target_tensor.device)
+        second_tmp = th.tensor(0.0, device=target_tensor.device)
+        #print(target_tensor.size())
+        #print(target_tensor)
+     
+        for i, val in enumerate(target_tensor[0]):
+            print(val.data)
+            print(first_tmp.data) 
+            print(second_tmp.data)           
+
+            if first_tmp.data < val.data:
+                second_idx = first_idx
+                second_tmp = first_tmp
+                first_idx = i
+                first_tmp = val
+            elif second_tmp.data < val.data:
+                second_tmp = val
+                second_idx = i
+            second_idx = th.tensor([second_idx], device=target_tensor.device).float
+            second_tmp = th.tensor([second_tmp], device=target_tensor.device).float
+        return (second_tmp,second_idx)
+
 
 class ContextKnowledgeDecoder(nn.Module):
     def __init__(self, transformer):
@@ -121,6 +146,7 @@ class ContextKnowledgeDecoder(nn.Module):
 
     def forward(self, input, encoder_state, incr_state=None):
         # our CK Encoder returns an extra output which the Transformer decoder
+
         # doesn't expect (the knowledge selection mask). Just chop it off
         encoder_output, encoder_mask, _ = encoder_state
         return self.transformer(input, (encoder_output, encoder_mask), incr_state)
