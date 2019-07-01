@@ -110,7 +110,7 @@ class ContextKnowledgeEncoder(nn.Module):
         # also return the knowledge selection mask for the loss
         return full_enc, full_mask, ck_attn
 
-    def second_max(self, target_tensor, axis):
+   def second_max(self, target_tensor, axis):
         #todo make axis != 1 
         #target_tensor (1,N) 
         #return (second_val, second_idx)
