@@ -11,7 +11,7 @@ if __name__ == '__main__':
     parser.set_defaults(
         task='wizard_of_wikipedia:generator:random_split',
         model='projects.my_wizard_of_wikipedia.generator.agents:EndToEndAgent',
-        model_file='/tmp/my_end2end_generator/model',
+        model_file='tmp/my_end2end_generator/model',
         dict_lower=True,
         dict_tokenizer='bpe',
         n_layers=5,

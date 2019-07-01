@@ -88,11 +88,10 @@ class ContextKnowledgeEncoder(nn.Module):
         if not use_cs_ids:
             # if we're not given the true chosen_sentence (test time), pick our
             # best guess
-            _, fcs_ids = ck_attn.max(1)
+            # cs_idsが使われるやつ
+            #_, cs_ids = ck_attn.max(1)
             _, cs_ids = self.second_max(ck_attn, 1)
 
-        print("max, second")
-        print(fcs_ids, cs_ids)
         # pick the true chosen sentence. remember that TransformerEncoder outputs
         #   (batch, time, embed)
         # but because know_encoded is a flattened, it's really
@@ -114,17 +113,14 @@ class ContextKnowledgeEncoder(nn.Module):
         #todo make axis != 1 
         #target_tensor (1,N) 
         #return (second_val, second_idx)
-        first_idx = th.tensor(0.0, device=target_tensor.device)
-        second_idx = th.tensor(0.0, device=target_tensor.device)
-        first_tmp = th.tensor(0.0, device=target_tensor.device)
-        second_tmp = th.tensor(0.0, device=target_tensor.device)
+        first_idx = 0
+        second_idx = 0
+        first_tmp = th.tensor(-99.0, device=target_tensor.device)
+        second_tmp = th.tensor(-99.0, device=target_tensor.device)
         #print(target_tensor.size())
         #print(target_tensor)
      
         for i, val in enumerate(target_tensor[0]):
-            print(val.data)
-            print(first_tmp.data) 
-            print(second_tmp.data)           
 
             if first_tmp.data < val.data:
                 second_idx = first_idx
@@ -134,9 +130,9 @@ class ContextKnowledgeEncoder(nn.Module):
             elif second_tmp.data < val.data:
                 second_tmp = val
                 second_idx = i
-            second_idx = th.tensor([second_idx], device=target_tensor.device).float
-            second_tmp = th.tensor([second_tmp], device=target_tensor.device).float
-        return (second_tmp,second_idx)
+        second_idx = th.tensor([second_idx], device=target_tensor.device)
+        second_tmp = th.tensor([second_tmp], device=target_tensor.device).float
+        return second_tmp, second_idx
 
 
 class ContextKnowledgeDecoder(nn.Module):

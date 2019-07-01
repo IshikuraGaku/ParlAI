@@ -18,6 +18,7 @@ See below for documentation on each specific tool.
 """
 
 from abc import ABC, abstractmethod
+from copy import deepcopy
 from collections import deque
 import json
 import random
@@ -103,7 +104,7 @@ class Batch(AttrDict):
         candidate_vecs=None,
         image=None,
         observations=None,
-        **kwargs
+        **kwargs,
     ):
         super().__init__(
             text_vec=text_vec,
@@ -116,7 +117,7 @@ class Batch(AttrDict):
             candidate_vecs=candidate_vecs,
             image=image,
             observations=observations,
-            **kwargs
+            **kwargs,
         )
 
 
@@ -391,6 +392,19 @@ class TorchAgent(ABC, Agent):
     def add_cmdline_args(cls, argparser):
         """Add the default commandline args we expect most agents to want."""
         agent = argparser.add_argument_group('TorchAgent Arguments')
+        agent.add_argument(
+            '-i',
+            '--interactive-mode',
+            type='bool',
+            default=False,
+            help='Whether in full interactive mode or not,  which means generating text or'
+            ' retrieving from a full set of candidates, which is necessary to actually'
+            ' do full dialogue. However, during training or quick validation (e.g. PPL for'
+            ' generation or ranking a few candidates for ranking models) you might want these'
+            ' set to off.'
+            ' Typically, scripts can set their preferred default behavior at the start,'
+            ' e.g. eval scripts.',
+        )
         # pretrained embedding arguments
         agent.add_argument(
             '-emb',
@@ -689,6 +703,8 @@ class TorchAgent(ABC, Agent):
         self.is_training = False  # track whether model is training
         self.rank_candidates = opt['rank_candidates']
         self.add_person_tokens = opt.get('person_tokens', False)
+        # set interactive mode or not according to options.
+        self.set_interactive_mode(opt['interactive_mode'], shared)
 
     def build_dictionary(self):
         """
@@ -699,8 +715,8 @@ class TorchAgent(ABC, Agent):
         """
         d = self.dictionary_class()(self.opt)
         if self.opt.get('person_tokens'):
-            d[self.P1_TOKEN] = 999999999
-            d[self.P2_TOKEN] = 999999998
+            d[self.P1_TOKEN] = 999_999_999
+            d[self.P2_TOKEN] = 999_999_998
         return d
 
     def _get_init_model(self, opt, shared):
@@ -786,14 +802,12 @@ class TorchAgent(ABC, Agent):
             print('WARNING: not loading optim state since optim class changed.')
         elif optim_states:
             # check for any fp16/fp32 conversions we need to do
-            optimstate_fp16 = ('loss_scaler' in optim_states)
+            optimstate_fp16 = 'loss_scaler' in optim_states
             if self.fp16 and optimstate_fp16:
                 # previously trained in fp16, now we're training in fp16.
                 # ideally no action needed, but APEX broke backwards
                 # compatibility and this is the hack around it.
-                optim_states['loss_scaler'] = (
-                    self.optimizer.state_dict()['loss_scaler']
-                )
+                optim_states['loss_scaler'] = self.optimizer.state_dict()['loss_scaler']
             elif optimstate_fp16 and not self.fp16:
                 # old optimizer was fp16 but now we're doing fp32,
                 # drop the fp16 wrapper from the state_dict and just load
@@ -828,12 +842,17 @@ class TorchAgent(ABC, Agent):
         :param bool hard_reset: If true, the LR scheduler should ignore the
             state dictionary.
         """
+        # first make sure there are no null pointers
+        if states is None:
+            states = {}
         optimizer = self.optimizer
         if self.fp16:
             # lr schedulers don't work with apex, they expect the "real" optimizer
             optimizer = optimizer.optimizer
 
-        if self.opt.get('warmup_updates', -1) > 0:
+        warmup_updates = self.opt.get('warmup_updates', -1)
+        updates_so_far = states.get('number_training_updates', 0)
+        if warmup_updates > 0 and (updates_so_far < warmup_updates or hard_reset):
 
             def _warmup_lr(step):
                 start = self.opt['warmup_rate']
@@ -884,15 +903,13 @@ class TorchAgent(ABC, Agent):
             )
 
         # time to load LR state from the checkpoint, if possible.
-        if states is None:
-            # first make sure there are no null pointers
-            states = {}
-
         if (
             # there is already an old LR scheduler saved on disk
-            states and
+            states
+            and
             # and the old LR scheduler is different
-            states.get('lr_scheduler_type') != self.opt['lr_scheduler'] and
+            states.get('lr_scheduler_type') != self.opt['lr_scheduler']
+            and
             # and we're not already using a fresh scheduler
             not hard_reset
         ):
@@ -1084,12 +1101,25 @@ class TorchAgent(ABC, Agent):
         Subclasses will likely want to share their model as well.
         """
         shared = super().share()
-        shared['opt'] = self.opt
         shared['dict'] = self.dict
+        if hasattr(self, 'model'):
+            shared['model'] = self.model
+        shared['opt'] = self.opt
         shared['replies'] = self.replies
         return shared
 
     def _add_start_end_tokens(self, vec, add_start=False, add_end=False):
+        """ Can handle both a 1D tensor and a list
+        """
+        if isinstance(vec, torch.Tensor):
+            if len(vec.shape) != 1:
+                raise Exception('_add_start_end_tokens expects a 1D tensor')
+            tensors = [vec]
+            if add_start:
+                tensors.insert(0, vec.new_tensor([self.START_IDX]))
+            if add_end:
+                tensors.append(vec.new_tensor([self.END_IDX]))
+            return torch.cat(tensors, 0)
         if add_start:
             vec.insert(0, self.START_IDX)
         if add_end:
@@ -1434,8 +1464,11 @@ class TorchAgent(ABC, Agent):
         """
         # if the last observation was the end of an episode,
         # then we shouldn't use it as history
-        if (use_reply == 'none' or not self.observation or
-                self.observation['episode_done']):
+        if (
+            use_reply == 'none'
+            or not self.observation
+            or self.observation['episode_done']
+        ):
             return None
 
         if use_reply == 'label':
@@ -1531,7 +1564,12 @@ class TorchAgent(ABC, Agent):
                 with open(path + '.opt', 'w', encoding='utf-8') as handle:
                     if hasattr(self, 'model_version'):
                         self.opt['model_version'] = self.model_version()
-                    json.dump(self.opt, handle)
+                    saved_opts = deepcopy(self.opt)
+                    if 'interactive_mode' in saved_opts:
+                        # We do not save the state of interactive mode, it is only decided
+                        # by scripts or command line.
+                        del saved_opts['interactive_mode']
+                    json.dump(saved_opts, handle)
                     # for convenience of working with jq, make sure there's a newline
                     handle.write('\n')
 
@@ -1613,6 +1651,11 @@ class TorchAgent(ABC, Agent):
     @abstractmethod
     def eval_step(self, batch):
         """[Abstract] Process one batch but do not train on it."""
+        pass
+
+    def set_interactive_mode(self, mode, shared):
+        """ Set interactive mode on or off."""
+        # Base class is a no-op.
         pass
 
     def backward(self, loss):
