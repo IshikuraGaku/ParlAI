@@ -88,6 +88,7 @@ class ContextKnowledgeEncoder(nn.Module):
         if not use_cs_ids:
             # if we're not given the true chosen_sentence (test time), pick our
             # best guess
+            # cs_idsが使われるやつ
             _, fcs_ids = ck_attn.max(1)
             _, cs_ids = self.second_max(ck_attn, 1)
 
