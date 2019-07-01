@@ -9,7 +9,8 @@ import torch as th
 import torch.nn as nn
 
 from parlai.core.utils import neginf
-from parlai.agents.transformer.modules import TransformerGeneratorModel
+from projects.my_wizard_of_wikipedia.generator.transformer.modules import TransformerGeneratorModel
+
 
 
 def universal_sentence_embedding(sentences, mask, sqrt=True):
