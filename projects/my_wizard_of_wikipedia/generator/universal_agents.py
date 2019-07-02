@@ -11,6 +11,7 @@ from itertools import chain
 from functools import lru_cache
 
 import torch as th
+#th.multiprocessing.set_start_method("spawn")
 import numpy as np
 
 from parlai.core.utils import padded_tensor, round_sigfigs
@@ -33,7 +34,7 @@ DEFAULT_OPTS = {
     "embedding_size": 256,
     "n_heads": 2,
     "dropout": 0.2,
-    "n_layers": 5,
+    "n_layers": 6,
     "betas": "0.9,0.98",
     "truncate": 128,
     "dict_textfields": "text,labels,chosen_topic,checked_sentence,knowledge,title",

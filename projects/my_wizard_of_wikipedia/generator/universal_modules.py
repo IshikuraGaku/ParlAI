@@ -90,8 +90,8 @@ class ContextKnowledgeEncoder(nn.Module):
             # if we're not given the true chosen_sentence (test time), pick our
             # best guess
             # cs_idsが使われるやつ
-            #_, cs_ids = ck_attn.max(1)
-            _, cs_ids = self.second_max(ck_attn, 1)
+            _, cs_ids = ck_attn.max(1)
+            #_, cs_ids = self.second_max(ck_attn, 1)
 
         # pick the true chosen sentence. remember that TransformerEncoder outputs
         #   (batch, time, embed)

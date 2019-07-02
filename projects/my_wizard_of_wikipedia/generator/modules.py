@@ -89,8 +89,8 @@ class ContextKnowledgeEncoder(nn.Module):
             # if we're not given the true chosen_sentence (test time), pick our
             # best guess
             # cs_idsが使われるやつ
-            #_, cs_ids = ck_attn.max(1)
-            _, cs_ids = self.second_max(ck_attn, 1)
+            _, cs_ids = ck_attn.max(1)
+            #_, cs_ids = self.second_max(ck_attn, 1)
 
         # pick the true chosen sentence. remember that TransformerEncoder outputs
         #   (batch, time, embed)
@@ -109,7 +109,7 @@ class ContextKnowledgeEncoder(nn.Module):
         # also return the knowledge selection mask for the loss
         return full_enc, full_mask, ck_attn
 
-   def second_max(self, target_tensor, axis):
+    def second_max(self, target_tensor, axis):
         #todo make axis != 1 
         #target_tensor (1,N) 
         #return (second_val, second_idx)

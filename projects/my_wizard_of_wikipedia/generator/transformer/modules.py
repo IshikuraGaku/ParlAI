@@ -15,7 +15,7 @@ https://arxiv.org/abs/1810.04805), and a few different variations seen in the
 literature (BERT and XLM; https://arxiv.org/abs/1901.07291).
 """
 
-import torch
+import torch as th
 import torch.nn as nn
 import torch.nn.functional as F
 
@@ -109,7 +109,7 @@ def gelu(tensor):
 
     c.f. https://arxiv.org/abs/1606.08415
     """
-    return 0.5 * tensor * (1.0 + torch.erf(tensor / math.sqrt(2.0)))
+    return 0.5 * tensor * (1.0 + th.erf(tensor / math.sqrt(2.0)))
 
 
 def get_n_positions_from_options(opt):
@@ -264,8 +264,8 @@ def create_position_codes(n_pos, dim, out):
         ]
     )
 
-    out[:, 0::2] = torch.FloatTensor(np.sin(position_enc)).type_as(out)
-    out[:, 1::2] = torch.FloatTensor(np.cos(position_enc)).type_as(out)
+    out[:, 0::2] = th.FloatTensor(np.sin(position_enc)).type_as(out)
+    out[:, 1::2] = th.FloatTensor(np.cos(position_enc)).type_as(out)
     out.detach_()
     out.requires_grad = False
 
@@ -350,6 +350,7 @@ class TransformerEncoder(nn.Module):
         variant='aiayn',
         n_segments=0,
         output_scaling=1.0,
+        act=False
     ):
         super(TransformerEncoder, self).__init__()
 
@@ -420,14 +421,13 @@ class TransformerEncoder(nn.Module):
 
         if self.n_segments >= 1:
             self.segment_embeddings = nn.Embedding(self.n_segments, self.dim)
+        
+        self.act = act
+        if(self.act):
+            self.act_fn = ACT_basic(self.dim)
 
         # build the model
-        self.layers = nn.ModuleList()
-
-        #Todo ACT
-        #レイヤーは1つこれに何度も通す
-        self.layers.append(
-            TransformerEncoderLayer(
+        self.enc = TransformerEncoderLayer(
                 n_heads,
                 embedding_size,
                 ffn_size,
@@ -437,8 +437,6 @@ class TransformerEncoder(nn.Module):
                 variant=variant,
                 activation=activation,
             )
-        )
-
         self.output_scaling = output_scaling
 
     def forward(self, input, positions=None, segments=None):
@@ -454,7 +452,7 @@ class TransformerEncoder(nn.Module):
         """
         mask = input != self.padding_idx
         if positions is None:
-            positions = (mask.cumsum(dim=1, dtype=torch.int64) - 1).clamp_(min=0)
+            positions = (mask.cumsum(dim=1, dtype=th.int64) - 1).clamp_(min=0)
         #未確認tensror[batch,secLen,emb]
         tensor = self.embeddings(input)
         if self.embeddings_scale:
@@ -471,7 +469,7 @@ class TransformerEncoder(nn.Module):
 
         if self.n_segments >= 1:
             if segments is None:
-                segments = torch.zeros_like(input)
+                segments = th.zeros_like(input)
             tensor = tensor + self.segment_embeddings(segments)
 
         if self.variant == 'xlm':
@@ -481,12 +479,17 @@ class TransformerEncoder(nn.Module):
         tensor = self.dropout(tensor)
 
         tensor *= mask.unsqueeze(-1).type_as(tensor)
-        ##ここでループここにPosとTimEmbedding
-        for i in range(self.n_layers):
-            #tensorの形がわかんねえ予想(b, s, emb)
-            tensor = tensor + self.position_embeddings(positions).expand_as(tensor)#[s,emb]
-            tensor = tensor + self.timing_embeddings(i).expand_as(tensor)#emb
-            tensor = self.layers[0](tensor, mask)
+
+        if(self.act):
+            tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
+            #return tensor, (remainders, n_updates)
+        else:
+            ##ここでループここにPosとTimEmbedding
+            for i in range(self.n_layers):
+                #tensorの形がわかんねえ予想(b, s, emb)
+                tensor = tensor + self.position_embeddings(positions).expand_as(tensor)#[s,emb]
+                tensor = tensor + self.timing_embeddings(th.tensor([i], device=input.device)).expand_as(tensor)#emb
+                tensor = self.enc(tensor, mask)
 
         tensor *= self.output_scaling
         if self.reduction_type == 'first':
@@ -592,6 +595,7 @@ class TransformerDecoder(nn.Module):
         n_segments=0,
         variant='aiayn',
         activation='relu',
+        act=False    #add ACT
     ):
         super().__init__()
         self.embedding_size = embedding_size
@@ -638,11 +642,14 @@ class TransformerDecoder(nn.Module):
             )
         else:
             nn.init.normal_(self.position_embeddings.weight, 0, embedding_size ** -0.5)
+        
+        self.act = act
+        if(self.act):
+            self.act_fn = ACT_basic(self.dim)
 
         # build the model
-        self.layers = nn.ModuleList()
-        self.layers.append(
-            TransformerDecoderLayer(
+        self.dec =  TransformerDecoderLayer(
+                n_layers,
                 n_heads,
                 embedding_size,
                 ffn_size,
@@ -652,7 +659,6 @@ class TransformerDecoder(nn.Module):
                 activation=activation,
                 variant=variant,
             )
-        )
 
     def forward(self, input, encoder_state, incr_state=None):
         """
@@ -669,7 +675,7 @@ class TransformerDecoder(nn.Module):
 
         seq_len = input.size(1)
         positions = input.new(seq_len).long()
-        positions = torch.arange(seq_len, out=positions).unsqueeze(0)
+        positions = th.arange(seq_len, out=positions).unsqueeze(0)
         tensor = self.embeddings(input)
         if self.embeddings_scale:
             tensor = tensor * np.sqrt(self.dim)
@@ -685,13 +691,17 @@ class TransformerDecoder(nn.Module):
         tensor = tensor + self.position_embeddings(positions).expand_as(tensor)
         tensor = self.dropout(tensor)  # --dropout
 
-        for i in range(self.n_layers):
-            #tensorの形がわかんねえ予想(b, s, emb)
-            tensor = tensor + self.position_embeddings(positions).expand_as(tensor)#[s,emb]
-            tensor = tensor + self.timing_embeddings(i).expand_as(tensor)#emb
-            tensor = self.layers[0](tensor, encoder_output, encoder_mask)
+        if (self.act):
+            tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+            return tensor, (remainders, n_updates)
+        else:
+            for i in range(self.n_layers):
+                #tensorの形がわかんねえ予想(b, s, emb)
+                tensor = tensor + self.position_embeddings(positions).expand_as(tensor)#[s,emb]
+                tensor = tensor + self.timing_embeddings(th.tensor([i], device=input.device)).expand_as(tensor)#emb
+                tensor = self.dec(tensor, encoder_output, encoder_mask)
 
-        return tensor, None
+            return tensor, None
 
 
 class TransformerDecoderLayer(nn.Module):
@@ -706,6 +716,7 @@ class TransformerDecoderLayer(nn.Module):
 
     def __init__(
         self,
+        n_layers,
         n_heads,
         embedding_size,
         ffn_size,
@@ -716,6 +727,7 @@ class TransformerDecoderLayer(nn.Module):
         variant='aiayn',
     ):
         super().__init__()
+        self.n_layers = n_layers
         self.dim = embedding_size
         self.ffn_dim = ffn_size
         self.variant = variant
@@ -739,7 +751,6 @@ class TransformerDecoderLayer(nn.Module):
 
     def forward(self, x, encoder_output, encoder_mask):
         """Forward pass."""
-        print("OK")
         decoder_mask = self._create_selfattn_mask(x)
         # first self attn
         residual = x
@@ -771,7 +782,7 @@ class TransformerDecoderLayer(nn.Module):
         bsz = x.size(0)
         time = x.size(1)
         # make sure that we don't look into the future
-        mask = torch.tril(x.new(time, time).fill_(1))
+        mask = th.tril(x.new(time, time).fill_(1))
         # broadcast across batch
         mask = mask.unsqueeze(0).expand(bsz, -1, -1)
         return mask
@@ -827,10 +838,10 @@ class TransformerGeneratorModel(TorchGeneratorModel):
         See ``TorchGeneratorModel.reorder_encoder_states`` for a description.
         """
         enc, mask = encoder_states
-        if not torch.is_tensor(indices):
-            indices = torch.LongTensor(indices).to(enc.device)
-        enc = torch.index_select(enc, 0, indices)
-        mask = torch.index_select(mask, 0, indices)
+        if not th.is_tensor(indices):
+            indices = th.LongTensor(indices).to(enc.device)
+        enc = th.index_select(enc, 0, indices)
+        mask = th.index_select(mask, 0, indices)
         return enc, mask
 
     def reorder_decoder_incremental_state(self, incremental_state, inds):
@@ -873,7 +884,7 @@ class BasicAttention(nn.Module):
         if self.attn == 'cosine':
             l1 = self.cosine(xs, ys).unsqueeze(self.dim - 1)
         else:
-            l1 = torch.bmm(xs, ys.transpose(1, 2))
+            l1 = th.bmm(xs, ys.transpose(1, 2))
             if self.attn == 'sqrt':
                 d_k = ys.size(-1)
                 l1 = l1 / math.sqrt(d_k)
@@ -882,7 +893,7 @@ class BasicAttention(nn.Module):
             attn_mask = attn_mask.repeat(1, x_len, 1)
             l1.masked_fill_(attn_mask, -float('inf'))
         l2 = self.softmax(l1)
-        lhs_emb = torch.bmm(l2, ys)
+        lhs_emb = th.bmm(l2, ys)
 
         # # add back the query
         if self.residual:
@@ -1015,3 +1026,86 @@ class TransformerFFN(nn.Module):
         x = self.relu_dropout(x)  # --relu-dropout
         x = self.lin2(x)
         return x
+
+### CONVERTED FROM https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/research/universal_transformer_util.py#L1062
+class ACT_basic(nn.Module):
+    def __init__(self, hidden_size):
+        super(ACT_basic, self).__init__()
+        self.sigma = nn.Sigmoid()
+        self.p = nn.Linear(hidden_size,1)  
+        self.p.bias.data.fill_(1) 
+        self.threshold = 1 - 0.1
+
+    def forward(self, tensor, inputs, mask, fn, time_enc, pos_enc, max_hop, encoder_output=None):
+        # init_hdd
+        ## [B, S]
+        halting_probability = th.zeros(inputs.shape[0],inputs.shape[1]).cuda()
+        ## [B, S
+        remainders = th.zeros(inputs.shape[0],inputs.shape[1]).cuda()
+        ## [B, S]
+        n_updates = th.zeros(inputs.shape[0],inputs.shape[1]).cuda()
+        ## [B, S, HDD]
+        previous_tensor = th.zeros_like(inputs).type(th.FloatTensor).cuda()
+        step = 0
+
+        seq_len = inputs.size(1)
+        positions = inputs.new(seq_len).long()
+        positions = th.arange(seq_len, out=positions).unsqueeze(0)
+        # for l in range(self.num_layers):
+        while( ((halting_probability<self.threshold) & (n_updates < max_hop)).byte().any()):
+            # Add timing signal
+            tensor = tensor + pos_enc(positions).expand_as(tensor)#[s,emb]
+            tensor = tensor + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb
+
+            p = self.sigma(self.p(tensor)).squeeze(-1)
+            # Mask for inputs which have not halted yet
+            still_running = (halting_probability < 1.0).float()
+
+            # Mask of inputs which halted at this step
+            new_halted = (halting_probability + p * still_running > self.threshold).float() * still_running
+
+            # Mask of inputs which haven't halted, and didn't halt this step
+            still_running = (halting_probability + p * still_running <= self.threshold).float() * still_running
+
+            # Add the halting probability for this step to the halting
+            # probabilities for those input which haven't halted yet
+            halting_probability = halting_probability + p * still_running
+
+            # Compute remainders for the inputs which halted at this step
+            remainders = remainders + new_halted * (1 - halting_probability)
+
+            # Add the remainders to those inputs which halted at this step
+            halting_probability = halting_probability + new_halted * remainders
+
+            # Increment n_updates for all inputs which are still running
+            n_updates = n_updates + still_running + new_halted
+
+            # Compute the weight to be applied to the new tensor and output
+            # 0 when the input has already halted
+            # p when the input hasn't halted yet
+            # the remainders when it halted this step
+            update_weights = (p * still_running + new_halted * remainders).cuda()
+
+
+            if(encoder_output is not None):
+                tensor = fn(tensor, encoder_output, mask)
+            else:
+                # apply transformation on the tensor
+                tensor = fn(tensor, mask)
+
+            # update running part in the weighted tensor and keep the rest
+            tensor_tmp = (tensor * update_weights.unsqueeze(-1))
+            if tensor.size() == previous_tensor.size():
+                previous_tensor_tmp = (previous_tensor * (1 - update_weights.unsqueeze(-1)))
+            else:
+                previous_tensor_tmp = (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
+            previous_tensor = tensor_tmp * previous_tensor_tmp
+
+
+            #previous_tensor = ((tensor * update_weights.unsqueeze(-1)) + (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1))))
+            #previous_tensor = ((tensor * update_weights.unsqueeze(-1)) + (previous_tensor * (1 - update_weights.unsqueeze(-1))).expand(tensor))
+            ## previous_tensor is actually the new_tensor at end of hte loop 
+            ## to save a line I assigned to previous_tensor so in the next 
+            ## iteration is correct. Notice that indeed we return previous_tensor
+            step+=1
+        return previous_tensor, (remainders,n_updates)
