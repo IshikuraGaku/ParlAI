@@ -1099,7 +1099,7 @@ class ACT_basic(nn.Module):
                 previous_tensor_tmp = (previous_tensor * (1 - update_weights.unsqueeze(-1)))
             else:
                 previous_tensor_tmp = (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
-            previous_tensor = tensor_tmp * previous_tensor_tmp
+            previous_tensor = tensor_tmp + previous_tensor_tmp
 
 
             #previous_tensor = ((tensor * update_weights.unsqueeze(-1)) + (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1))))
