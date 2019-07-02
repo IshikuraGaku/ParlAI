@@ -350,7 +350,7 @@ class TransformerEncoder(nn.Module):
         variant='aiayn',
         n_segments=0,
         output_scaling=1.0,
-        act=False
+        act=True
     ):
         super(TransformerEncoder, self).__init__()
 
@@ -595,7 +595,7 @@ class TransformerDecoder(nn.Module):
         n_segments=0,
         variant='aiayn',
         activation='relu',
-        act=False    #add ACT
+        act=True    #add ACT
     ):
         super().__init__()
         self.embedding_size = embedding_size
@@ -1040,7 +1040,7 @@ class ACT_basic(nn.Module):
         # init_hdd
         ## [B, S]
         halting_probability = th.zeros(inputs.shape[0],inputs.shape[1]).cuda()
-        ## [B, S
+        ## [B, S]
         remainders = th.zeros(inputs.shape[0],inputs.shape[1]).cuda()
         ## [B, S]
         n_updates = th.zeros(inputs.shape[0],inputs.shape[1]).cuda()
