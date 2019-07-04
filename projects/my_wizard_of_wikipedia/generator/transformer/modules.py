@@ -1086,7 +1086,7 @@ class ACT_basic(nn.Module):
             # the remainders when it halted this step
             update_weights = (p * still_running + new_halted * remainders).cuda()
 
-
+            #dec
             if(encoder_output is not None):
                 tensor = fn(tensor, encoder_output, mask)
             else:
@@ -1100,12 +1100,8 @@ class ACT_basic(nn.Module):
             else:
                 previous_tensor_tmp = (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
             previous_tensor = tensor_tmp * previous_tensor_tmp
-
-
-            #previous_tensor = ((tensor * update_weights.unsqueeze(-1)) + (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1))))
-            #previous_tensor = ((tensor * update_weights.unsqueeze(-1)) + (previous_tensor * (1 - update_weights.unsqueeze(-1))).expand(tensor))
             ## previous_tensor is actually the new_tensor at end of hte loop 
             ## to save a line I assigned to previous_tensor so in the next 
             ## iteration is correct. Notice that indeed we return previous_tensor
             step+=1
-        return previous_tensor, (remainders,n_updates)
+        return previous_tensor, (remainders, n_updates)
