@@ -146,6 +146,7 @@ class EndToEndAgent(_GenericWizardAgent):
                 (1 - self.knowledge_alpha) * token_loss +
                 self.knowledge_alpha * know_loss
             )
+
         if return_output:
             return (loss, model_output)
         else:
