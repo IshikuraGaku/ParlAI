@@ -699,13 +699,16 @@ class TransformerDecoder(nn.Module):
         if (self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
+            
             self.num += len(n_update)
             self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
-            print("num")
-            print(self.num)
-            print("num_of_layer")
-            print(self.num_of_layer_list)
-
+            average = self.num_of_layer_list.sum() / self.num
+            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            print("平均層数")
+            print(average)
+            print("分散")
+            print(variance)
+            
             return tensor, (remainders, n_updates)
 
 
@@ -1116,7 +1119,7 @@ class ACT_basic(nn.Module):
                 previous_tensor_tmp = (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
             previous_tensor = tensor_tmp + previous_tensor_tmp
 
-            
+
             #previous_tensor = ((tensor * update_weights.unsqueeze(-1)) + (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1))))
             #previous_tensor = ((tensor * update_weights.unsqueeze(-1)) + (previous_tensor * (1 - update_weights.unsqueeze(-1))).expand(tensor))
             ## previous_tensor is actually the new_tensor at end of hte loop 
