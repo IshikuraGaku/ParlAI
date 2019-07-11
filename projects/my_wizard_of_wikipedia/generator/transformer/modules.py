@@ -660,6 +660,9 @@ class TransformerDecoder(nn.Module):
                 variant=variant,
             )
 
+        self.num = 0
+        self.num_of_layer_list = th.tensor([]).cuda()
+
     def forward(self, input, encoder_state, incr_state=None):
         """
         Forward pass.
@@ -691,9 +694,21 @@ class TransformerDecoder(nn.Module):
         tensor = tensor + self.position_embeddings(positions).expand_as(tensor)
         tensor = self.dropout(tensor)  # --dropout
 
+        self.num_of_layer_list.to
+
         if (self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+            n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
+            self.num += len(n_update)
+            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
+            print("num")
+            print(self.num)
+            print("num_of_layer")
+            print(self.num_of_layer_list)
+
             return tensor, (remainders, n_updates)
+
+
         else:
             for i in range(self.n_layers):
                 #tensorの形がわかんねえ予想(b, s, emb)
