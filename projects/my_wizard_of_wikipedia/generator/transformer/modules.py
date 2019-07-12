@@ -439,6 +439,9 @@ class TransformerEncoder(nn.Module):
             )
         self.output_scaling = output_scaling
 
+        self.num = 0
+        self.num_of_layer_list = th.tensor([]).cuda()
+
     def forward(self, input, positions=None, segments=None):
         """
         Forward pass.
@@ -483,6 +486,16 @@ class TransformerEncoder(nn.Module):
         if(self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
             #return tensor, (remainders, n_updates)
+                        
+            self.num += len(n_update)
+            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
+            average = self.num_of_layer_list.sum() / self.num
+            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            print("enc 平均層数")
+            print(average)
+            print("enc 分散")
+            print(variance)
+
         else:
             ##ここでループここにPosとTimEmbedding
             for i in range(self.n_layers):
@@ -704,9 +717,9 @@ class TransformerDecoder(nn.Module):
             self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
             average = self.num_of_layer_list.sum() / self.num
             variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
-            print("平均層数")
+            print("dec 平均層数")
             print(average)
-            print("分散")
+            print("dec 分散")
             print(variance)
             
             return tensor, (remainders, n_updates)
