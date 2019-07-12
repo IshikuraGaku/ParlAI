@@ -1,5 +1,3 @@
-git branch -a
-
 git remote add upstream https://github.com/facebookresearch/ParlAI.git
 
 git fetch upstream
