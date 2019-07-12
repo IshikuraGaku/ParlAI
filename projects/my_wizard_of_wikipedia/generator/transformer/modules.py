@@ -439,6 +439,9 @@ class TransformerEncoder(nn.Module):
             )
         self.output_scaling = output_scaling
 
+        self.num = 0
+        self.num_of_layer_list = th.tensor([]).cuda()
+
     def forward(self, input, positions=None, segments=None):
         """
         Forward pass.
@@ -483,6 +486,16 @@ class TransformerEncoder(nn.Module):
         if(self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
             #return tensor, (remainders, n_updates)
+                        
+            self.num += len(n_update)
+            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
+            average = self.num_of_layer_list.sum() / self.num
+            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            print("enc 平均層数")
+            print(average)
+            print("enc 分散")
+            print(variance)
+
         else:
             ##ここでループここにPosとTimEmbedding
             for i in range(self.n_layers):
@@ -660,6 +673,9 @@ class TransformerDecoder(nn.Module):
                 variant=variant,
             )
 
+        self.num = 0
+        self.num_of_layer_list = th.tensor([]).cuda()
+
     def forward(self, input, encoder_state, incr_state=None):
         """
         Forward pass.
@@ -691,9 +707,24 @@ class TransformerDecoder(nn.Module):
         tensor = tensor + self.position_embeddings(positions).expand_as(tensor)
         tensor = self.dropout(tensor)  # --dropout
 
+        self.num_of_layer_list.to
+
         if (self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+            n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
+            
+            self.num += len(n_update)
+            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
+            average = self.num_of_layer_list.sum() / self.num
+            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            print("dec 平均層数")
+            print(average)
+            print("dec 分散")
+            print(variance)
+            
             return tensor, (remainders, n_updates)
+
+
         else:
             for i in range(self.n_layers):
                 #tensorの形がわかんねえ予想(b, s, emb)
@@ -1086,7 +1117,7 @@ class ACT_basic(nn.Module):
             # the remainders when it halted this step
             update_weights = (p * still_running + new_halted * remainders).cuda()
 
-
+            #dec
             if(encoder_output is not None):
                 tensor = fn(tensor, encoder_output, mask)
             else:
@@ -1099,13 +1130,10 @@ class ACT_basic(nn.Module):
                 previous_tensor_tmp = (previous_tensor * (1 - update_weights.unsqueeze(-1)))
             else:
                 previous_tensor_tmp = (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
+
             previous_tensor = tensor_tmp + previous_tensor_tmp
-
-
-            #previous_tensor = ((tensor * update_weights.unsqueeze(-1)) + (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1))))
-            #previous_tensor = ((tensor * update_weights.unsqueeze(-1)) + (previous_tensor * (1 - update_weights.unsqueeze(-1))).expand(tensor))
             ## previous_tensor is actually the new_tensor at end of hte loop 
             ## to save a line I assigned to previous_tensor so in the next 
             ## iteration is correct. Notice that indeed we return previous_tensor
             step+=1
-        return previous_tensor, (remainders,n_updates)
+        return previous_tensor, (remainders, n_updates)
