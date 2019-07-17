@@ -62,6 +62,8 @@ class ContextKnowledgeEncoder(nn.Module):
         self.embeddings = transformer.embeddings
         self.embed_dim = transformer.embeddings.embedding_dim
         self.transformer = transformer
+        self.soft_attention = True
+        self.n_use_knowlege = 5 #使う知識数
 
     def forward(self, src_tokens, know_tokens, ck_mask, cs_ids, use_cs_ids):
         # encode the context, pretty basic
@@ -86,29 +88,60 @@ class ContextKnowledgeEncoder(nn.Module):
         # fill with near -inf
         ck_attn.masked_fill_(~ck_mask, neginf(context_encoded.dtype))
 
-        if not use_cs_ids:
-            # if we're not given the true chosen_sentence (test time), pick our
-            # best guess
-            # cs_idsが使われるやつ
-            _, cs_ids = ck_attn.max(1)
-            #_, cs_ids = self.second_max(ck_attn, 1)
+        if self.soft_attention:
+            if not use_cs_ids:
+                # if we're not given the true chosen_sentence (test time), pick our
+                # best guess
+                soft_cs_ids = self.sort_knowledge(ck_attn.clone())
+            # pick the true chosen sentence. remember that TransformerEncoder outputs
+            #   (batch, time, embed)
+            # but because know_encoded is a flattened, it's really
+            #   (N * K, T, D)
+            # We need to compute the offsets of the chosen_sentences
+            cs_encoded = None
+            for i in range(self.n_use_knowlege):
+                cs_offsets = th.arange(N, device=cs_ids.device) * K + soft_cs_ids[i]
+                tmp_cs_encoded = know_encoded[cs_offsets]
+                # but padding is (N * K, T)
+                if cs_encoded is None:
+                    cs_encoded = tmp_cs_encoded
+                else:
+                    cs_encoded += tmp_cs_encoded
+            
+            cs_encoded /= self.n_use_knowlege
+            cs_mask = know_mask[cs_offsets] #全部１っぽい
 
-        # pick the true chosen sentence. remember that TransformerEncoder outputs
-        #   (batch, time, embed)
-        # but because know_encoded is a flattened, it's really
-        #   (N * K, T, D)
-        # We need to compute the offsets of the chosen_sentences
-        cs_offsets = th.arange(N, device=cs_ids.device) * K + cs_ids
-        cs_encoded = know_encoded[cs_offsets]
-        # but padding is (N * K, T)
-        cs_mask = know_mask[cs_offsets]
+            # finally, concatenate it all
+            full_enc = th.cat([cs_encoded, context_encoded], dim=1)
+            full_mask = th.cat([cs_mask, context_mask], dim=1)
 
-        # finally, concatenate it all
-        full_enc = th.cat([cs_encoded, context_encoded], dim=1)
-        full_mask = th.cat([cs_mask, context_mask], dim=1)
+            # also return the knowledge selection mask for the loss
+            return full_enc, full_mask, ck_attn
+        
+        else:
+            if not use_cs_ids:
+                # if we're not given the true chosen_sentence (test time), pick our
+                # best guess
+                # cs_idsが使われるやつ
+                _, cs_ids = ck_attn.max(1)
+                #_, cs_ids = self.second_max(ck_attn, 1)
 
-        # also return the knowledge selection mask for the loss
-        return full_enc, full_mask, ck_attn
+            # pick the true chosen sentence. remember that TransformerEncoder outputs
+            #   (batch, time, embed)
+            # but because know_encoded is a flattened, it's really
+            #   (N * K, T, D)
+            # We need to compute the offsets of the chosen_sentences
+            cs_offsets = th.arange(N, device=cs_ids.device) * K + cs_ids
+            cs_encoded = know_encoded[cs_offsets]
+            # but padding is (N * K, T)
+            cs_mask = know_mask[cs_offsets]
+
+            # finally, concatenate it all
+            full_enc = th.cat([cs_encoded, context_encoded], dim=1)
+            full_mask = th.cat([cs_mask, context_mask], dim=1)
+
+            # also return the knowledge selection mask for the loss
+            return full_enc, full_mask, ck_attn
 
     def second_max(self, target_tensor, axis):
         #todo make axis != 1 
@@ -118,8 +151,6 @@ class ContextKnowledgeEncoder(nn.Module):
         second_idx = 0
         first_tmp = th.tensor(-99.0, device=target_tensor.device)
         second_tmp = th.tensor(-99.0, device=target_tensor.device)
-        #print(target_tensor.size())
-        #print(target_tensor)
      
         for i, val in enumerate(target_tensor[0]):
 
@@ -134,6 +165,36 @@ class ContextKnowledgeEncoder(nn.Module):
         second_idx = th.tensor([second_idx], device=target_tensor.device)
         second_tmp = th.tensor([second_tmp], device=target_tensor.device).float
         return second_tmp, second_idx
+
+    def sort_knowledge(self, target_tensor):
+        #類似度の高い順に並んだインデックス番号のTensorリストを返す
+        #targettensor 後で使うかもしれんし
+        target_taple_list = [(i, val) for i, val in enumerate(target_tensor[0])]
+        self.merge_sort(target_taple_list)
+        sorted_target_id = th.tensor([i for i, _ in target_taple_list], device=target_tensor.device)
+
+        return sorted_target_id
+
+    def merge_sort(self, target_taple_list):
+        if(len(target_taple_list) > 1):
+            m = int(len(target_taple_list) / 2) 
+            #n = int(len(target_taple_list) - m)
+            a1 = target_taple_list[:m]
+            a2 = target_taple_list[m:]
+            self.merge_sort(a1)
+            self.merge_sort(a2)
+            self.merge(a1, a2, target_taple_list)
+
+    def merge(self, a1, a2, a):
+        i = 0
+        j = 0
+        while(i < len(a1) or j < len(a2)):
+            if(j >= len(a2) or (i<len(a1) and a1[i][1] > a2[j][1])):
+                a[i+j] = a1[i]
+                i += 1
+            else:
+                a[i+j] = a2[j]
+                j += 1
 
 
 class ContextKnowledgeDecoder(nn.Module):

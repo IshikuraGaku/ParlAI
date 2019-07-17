@@ -491,10 +491,12 @@ class TransformerEncoder(nn.Module):
             self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
             average = self.num_of_layer_list.sum() / self.num
             variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            """
             print("enc 平均層数")
             print(average)
             print("enc 分散")
             print(variance)
+            """
 
         else:
             ##ここでループここにPosとTimEmbedding
@@ -674,7 +676,8 @@ class TransformerDecoder(nn.Module):
             )
 
         self.num = 0
-        self.num_of_layer_list = th.tensor([]).cuda()
+        #self.num_of_layer_list = th.tensor([]).cuda()
+        self.num_of_layer_list = np.array([])
 
     def forward(self, input, encoder_state, incr_state=None):
         """
@@ -707,20 +710,29 @@ class TransformerDecoder(nn.Module):
         tensor = tensor + self.position_embeddings(positions).expand_as(tensor)
         tensor = self.dropout(tensor)  # --dropout
 
-        self.num_of_layer_list.to
 
         if (self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
+            #print(n_update)decは全部（ほぼ）1
             
+            """
             self.num += len(n_update)
             self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
-            average = self.num_of_layer_list.sum() / self.num
+            """
+            
+            n_update = n_update.cpu().numpy()
+            self.num += 1
+            self.num_of_layer_list = np.append(self.num_of_layer_list, n_update[-1])
+
+            average = self.num_of_layer_list.mean()
             variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            """
             print("dec 平均層数")
             print(average)
             print("dec 分散")
             print(variance)
+            """
             
             return tensor, (remainders, n_updates)
 
@@ -1065,7 +1077,7 @@ class ACT_basic(nn.Module):
         self.sigma = nn.Sigmoid()
         self.p = nn.Linear(hidden_size,1)  
         self.p.bias.data.fill_(1) 
-        self.threshold = 1 - 0.1
+        self.threshold = 1 - 0.01
 
     def forward(self, tensor, inputs, mask, fn, time_enc, pos_enc, max_hop, encoder_output=None):
         # init_hdd
@@ -1084,6 +1096,8 @@ class ACT_basic(nn.Module):
         positions = th.arange(seq_len, out=positions).unsqueeze(0)
         # for l in range(self.num_layers):
         while( ((halting_probability<self.threshold) & (n_updates < max_hop)).byte().any()):
+            #any() 1つでも0以外があればTrue
+            #while(((n_updates < max_hop)).byte().any()):なぜかError
             # Add timing signal
             tensor = tensor + pos_enc(positions).expand_as(tensor)#[s,emb]
             tensor = tensor + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb
@@ -1136,4 +1150,6 @@ class ACT_basic(nn.Module):
             ## to save a line I assigned to previous_tensor so in the next 
             ## iteration is correct. Notice that indeed we return previous_tensor
             step+=1
+            #print("step")
+            #print(step)
         return previous_tensor, (remainders, n_updates)
