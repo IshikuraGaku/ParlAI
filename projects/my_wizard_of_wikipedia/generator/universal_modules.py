@@ -64,6 +64,7 @@ class ContextKnowledgeEncoder(nn.Module):
         self.transformer = transformer
         self.soft_attention = True
         self.n_use_knowlege = 5 #使う知識数
+        self.knowledge_lamda = 1
 
     def forward(self, src_tokens, know_tokens, ck_mask, cs_ids, use_cs_ids):
         # encode the context, pretty basic
@@ -92,23 +93,24 @@ class ContextKnowledgeEncoder(nn.Module):
             if not use_cs_ids:
                 # if we're not given the true chosen_sentence (test time), pick our
                 # best guess
-                soft_cs_ids = self.sort_knowledge(ck_attn.clone())
+                soft_cs_ids, soft_cs_value = self.sort_knowledge(ck_attn.clone())
             # pick the true chosen sentence. remember that TransformerEncoder outputs
             #   (batch, time, embed)
             # but because know_encoded is a flattened, it's really
             #   (N * K, T, D)
             # We need to compute the offsets of the chosen_sentences
             cs_encoded = None
-            for i in range(self.n_use_knowlege):
+            softmax_cs_weight = th.nn.functional.softmax((soft_cs_value * self.knowledge_lamda).type(th.FloatTensor), dim=0)
+            for i in range(len(soft_cs_ids)):
                 cs_offsets = th.arange(N, device=cs_ids.device) * K + soft_cs_ids[i]
                 tmp_cs_encoded = know_encoded[cs_offsets]
                 # but padding is (N * K, T)
                 if cs_encoded is None:
-                    cs_encoded = tmp_cs_encoded
+                    cs_encoded = tmp_cs_encoded * softmax_cs_weight[i]
                 else:
-                    cs_encoded += tmp_cs_encoded
+                    cs_encoded += tmp_cs_encoded * softmax_cs_weight[i]
             
-            cs_encoded /= self.n_use_knowlege
+            cs_encoded /= softmax_cs_weight.sum()
             cs_mask = know_mask[cs_offsets] #全部１っぽい
 
             # finally, concatenate it all
@@ -172,8 +174,9 @@ class ContextKnowledgeEncoder(nn.Module):
         target_taple_list = [(i, val) for i, val in enumerate(target_tensor[0])]
         self.merge_sort(target_taple_list)
         sorted_target_id = th.tensor([i for i, _ in target_taple_list], device=target_tensor.device)
+        sorted_target_value = th.tensor([i for _, i in target_taple_list], device=target_tensor.device)
 
-        return sorted_target_id
+        return (sorted_target_id, sorted_target_value)
 
     def merge_sort(self, target_taple_list):
         if(len(target_taple_list) > 1):

@@ -733,7 +733,7 @@ class TransformerDecoder(nn.Module):
             print("dec 分散")
             print(variance)
             """
-            
+
             return tensor, (remainders, n_updates)
 
 
@@ -1077,7 +1077,7 @@ class ACT_basic(nn.Module):
         self.sigma = nn.Sigmoid()
         self.p = nn.Linear(hidden_size,1)  
         self.p.bias.data.fill_(1) 
-        self.threshold = 1 - 0.01
+        self.threshold = 1 - 0.1
 
     def forward(self, tensor, inputs, mask, fn, time_enc, pos_enc, max_hop, encoder_output=None):
         # init_hdd

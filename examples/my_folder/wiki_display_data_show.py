@@ -16,8 +16,6 @@ if __name__=="__main__":
         outputList1 = re.findall(r"\[wizard_of_wikipedia\]\:[^\[]*", inputTexts)
         outputList2 = re.findall(r"\[EndToEnd\]\:[^\~]*", inputTexts)
         #print(outputList[0]) ("[wizard_of_wikipedia]: Gardening\nI like Gardening, even when I've only been doing it for a short time.\n", '')
-        #print(outputList1)
-        #print(outputList2)
         lines = ""
         for line1, line2 in zip(outputList1,outputList2):
              lines += line1
