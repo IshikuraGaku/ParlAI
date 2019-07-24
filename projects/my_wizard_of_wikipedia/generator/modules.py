@@ -63,7 +63,7 @@ class ContextKnowledgeEncoder(nn.Module):
         self.transformer = transformer
         self.soft_attention = True
         self.n_use_knowlege = 5 #使う知識数
-        self.knowledge_lamda = 10
+        self.knowledge_lamda = 1
 
     def forward(self, src_tokens, know_tokens, ck_mask, cs_ids, use_cs_ids):
         # encode the context, pretty basic
