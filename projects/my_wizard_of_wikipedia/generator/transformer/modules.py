@@ -1077,7 +1077,7 @@ class ACT_basic(nn.Module):
         self.sigma = nn.Sigmoid()
         self.p = nn.Linear(hidden_size,1)  
         self.p.bias.data.fill_(1) 
-        self.threshold = 1 - 0.1
+        self.threshold = 1 - 0.01
 
     def forward(self, tensor, inputs, mask, fn, time_enc, pos_enc, max_hop, encoder_output=None):
         # init_hdd
