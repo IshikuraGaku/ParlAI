@@ -68,7 +68,7 @@ class ContextKnowledgeEncoder(nn.Module):
     def forward(self, src_tokens, know_tokens, ck_mask, cs_ids, use_cs_ids):
         # encode the context, pretty basic
 
-                context_encoded, context_mask = self.transformer(src_tokens)
+        context_encoded, context_mask = self.transformer(src_tokens)
 
         # make all the knowledge into a 2D matrix to encode
         N, K, Tk = know_tokens.size()
