@@ -266,8 +266,6 @@ class EndToEndAgent(_GenericWizardAgent):
         batch['cs_ids'] = cs_ids
         batch['use_cs_ids'] = is_training
         batch['knowledge'] = np.array(flattened_knowledge).reshape(N, K)
-        #print("\n\n\n--------------------------------------------------------------\n\n\n")
-        #print(batch)
         return batch
 
     @classmethod
