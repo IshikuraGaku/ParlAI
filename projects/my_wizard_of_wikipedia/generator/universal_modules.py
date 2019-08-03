@@ -63,7 +63,7 @@ class ContextKnowledgeEncoder(nn.Module):
         self.embed_dim = transformer.embeddings.embedding_dim
         self.transformer = transformer
         self.soft_attention = True
-        self.n_use_knowlege = 5 #使う知識数
+        #self.n_use_knowlege = 5 #使う知識数
         self.knowledge_lamda = 1
 
     def forward(self, src_tokens, know_tokens, ck_mask, cs_ids, use_cs_ids):
@@ -73,17 +73,15 @@ class ContextKnowledgeEncoder(nn.Module):
 
         # make all the knowledge into a 2D matrix to encode
         N, K, Tk = know_tokens.size()
-        know_flat = know_tokens.reshape(-1, Tk)
-        know_encoded, know_mask = self.transformer(know_flat)
+        know_encoded, know_mask = self.transformer(know_tokens.reshape(-1, Tk))
 
         # compute our sentence embeddings for context and knowledge
         context_use = universal_sentence_embedding(context_encoded, context_mask)
         know_use = universal_sentence_embedding(know_encoded, know_mask)
 
         # remash it back into the shape we need
-        know_use = know_use.reshape(N, know_tokens.size(1), self.embed_dim)
+        know_use = know_use.reshape(N, know_tokens.size(1), self.embed_dim) / np.sqrt(self.embed_dim)
         context_use /= np.sqrt(self.embed_dim)
-        know_use /= np.sqrt(self.embed_dim)
 
         ck_attn = th.bmm(know_use, context_use.unsqueeze(-1)).squeeze(-1)
         # fill with near -inf
@@ -96,17 +94,11 @@ class ContextKnowledgeEncoder(nn.Module):
             # but because know_encoded is a flattened, it's really
             #   (N * K, T, D)
             # We need to compute the offsets of the chosen_sentences
-            cs_encoded = None
             #print(ck_attn)
-            softmax_cs_weight = th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1)
             _, T, D = know_encoded.size()
-            know_encoded = know_encoded.reshape((N*K, -1))
-            softmax_cs_weight = softmax_cs_weight.reshape(-1,1).expand(N*K, T*D)
-            cs_encoded = (know_encoded * softmax_cs_weight).reshape((N,K,T,D)).sum(dim=1)
-            cs_mask = know_mask[th.arange(N, device=cs_ids.device) * K] #全部１っぽい
             # finally, concatenate it all
-            full_enc = th.cat([cs_encoded, context_encoded], dim=1)
-            full_mask = th.cat([cs_mask, context_mask], dim=1)
+            full_enc = th.cat([(know_encoded.reshape((N*K, -1)) * th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1).reshape(-1,1).expand(N*K, T*D)).reshape((N,K,T,D)).sum(dim=1), context_encoded], dim=1)
+            full_mask = th.cat([know_mask[th.arange(N, device=cs_ids.device) * K], context_mask], dim=1)
 
             # also return the knowledge selection mask for the loss
             return full_enc, full_mask, ck_attn

@@ -1099,8 +1099,7 @@ class ACT_basic(nn.Module):
             #any() 1つでも0以外があればTrue
             #while(((n_updates < max_hop)).byte().any()):なぜかError
             # Add timing signal
-            tensor = tensor + pos_enc(positions).expand_as(tensor)#[s,emb]
-            tensor = tensor + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb
+            tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
 
             p = self.sigma(self.p(tensor)).squeeze(-1)
             # Mask for inputs which have not halted yet
@@ -1139,13 +1138,11 @@ class ACT_basic(nn.Module):
                 tensor = fn(tensor, mask)
 
             # update running part in the weighted tensor and keep the rest
-            tensor_tmp = (tensor * update_weights.unsqueeze(-1))
             if tensor.size() == previous_tensor.size():
-                previous_tensor_tmp = (previous_tensor * (1 - update_weights.unsqueeze(-1)))
+                previous_tensor = (tensor * update_weights.unsqueeze(-1)) + (previous_tensor * (1 - update_weights.unsqueeze(-1)))
             else:
-                previous_tensor_tmp = (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
+                previous_tensor = (tensor * update_weights.unsqueeze(-1)) + (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
 
-            previous_tensor = tensor_tmp + previous_tensor_tmp
             ## previous_tensor is actually the new_tensor at end of hte loop 
             ## to save a line I assigned to previous_tensor so in the next 
             ## iteration is correct. Notice that indeed we return previous_tensor
