@@ -707,8 +707,7 @@ class TransformerDecoder(nn.Module):
                     x=positions.max().item(), y=self.n_positions
                 )
             )
-        tensor = tensor + self.position_embeddings(positions).expand_as(tensor)
-        tensor = self.dropout(tensor)  # --dropout
+        tensor = self.dropout(tensor + self.position_embeddings(positions).expand_as(tensor))
 
 
         if (self.act):
