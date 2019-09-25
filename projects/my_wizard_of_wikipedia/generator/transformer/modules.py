@@ -484,13 +484,13 @@ class TransformerEncoder(nn.Module):
         tensor *= mask.unsqueeze(-1).type_as(tensor)
 
         if(self.act):
-            tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
+            tensor, (_, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
             #return tensor, (remainders, n_updates)
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
-            self.num += len(n_update)
-            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
-            average = self.num_of_layer_list.sum() / self.num
-            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            #self.num += len(n_update)
+            #self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
+            #average = self.num_of_layer_list.sum() / self.num
+            #variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
             """
             print("enc 平均層数")
             print(average)
@@ -722,11 +722,11 @@ class TransformerDecoder(nn.Module):
             """
             
             n_update = n_update.cpu().numpy()
-            self.num += 1
-            self.num_of_layer_list = np.append(self.num_of_layer_list, n_update[-1])
+            #self.num += 1
+            #self.num_of_layer_list = np.append(self.num_of_layer_list, n_update[-1])
 
-            average = self.num_of_layer_list.mean()
-            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            #average = self.num_of_layer_list.mean()
+            #variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
             """
             print("dec 平均層数")
             print(average)
@@ -1099,8 +1099,7 @@ class ACT_basic(nn.Module):
             #any() 1つでも0以外があればTrue
             #while(((n_updates < max_hop)).byte().any()):なぜかError
             # Add timing signal
-            tensor = tensor + pos_enc(positions).expand_as(tensor)#[s,emb]
-            tensor = tensor + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb
+            tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
 
             p = self.sigma(self.p(tensor)).squeeze(-1)
             # Mask for inputs which have not halted yet
@@ -1139,13 +1138,11 @@ class ACT_basic(nn.Module):
                 tensor = fn(tensor, mask)
 
             # update running part in the weighted tensor and keep the rest
-            tensor_tmp = (tensor * update_weights.unsqueeze(-1))
             if tensor.size() == previous_tensor.size():
-                previous_tensor_tmp = (previous_tensor * (1 - update_weights.unsqueeze(-1)))
+                previous_tensor = (tensor * update_weights.unsqueeze(-1)) + (previous_tensor * (1 - update_weights.unsqueeze(-1)))
             else:
-                previous_tensor_tmp = (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
+                previous_tensor = (tensor * update_weights.unsqueeze(-1)) + (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
 
-            previous_tensor = tensor_tmp + previous_tensor_tmp
             ## previous_tensor is actually the new_tensor at end of hte loop 
             ## to save a line I assigned to previous_tensor so in the next 
             ## iteration is correct. Notice that indeed we return previous_tensor
