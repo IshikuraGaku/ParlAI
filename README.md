@@ -1,6 +1,6 @@
 <p align="center"><img width="70%" src="docs/source/\_static/img/parlai.png" /></p>
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebookresearch/ParlAI/blob/master/LICENSE) [![CircleCI](https://circleci.com/gh/facebookresearch/ParlAI.svg?style=shield)](https://circleci.com/gh/facebookresearch/ParlAI/tree/master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/facebookresearch/ParlAI/blob/master/CONTRIBUTING.md)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebookresearch/ParlAI/blob/master/LICENSE) [![CircleCI](https://circleci.com/gh/facebookresearch/ParlAI.svg?style=shield)](https://circleci.com/gh/facebookresearch/ParlAI/tree/master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/facebookresearch/ParlAI/blob/master/CONTRIBUTING.md) [![Twitter](https://img.shields.io/twitter/follow/parlai_parley?label=Twitter&style=social)](https://twitter.com/parlai_parley)
 
 --------------------------------------------------------------------------------
 
@@ -25,7 +25,9 @@ See the [news page](https://github.com/facebookresearch/ParlAI/blob/master/NEWS.
 
 ## Installing ParlAI
 
-ParlAI currently requires Python3. Dependencies of the core modules are listed in `requirement.txt`. Some models included (in `parlai/agents`) have additional requirements.
+ParlAI currently requires Python3 and [Pytorch](https://pytorch.org) 1.1 or
+newer. Dependencies of the core modules are listed in `requirement.txt`. Some
+models included (in `parlai/agents`) have additional requirements.
 
 Run the following commands to clone the repository and install ParlAI:
 
