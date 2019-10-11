@@ -14,7 +14,9 @@ in non-distributed mode.
 
 import builtins
 import pickle
+import contextlib
 
+# from parlai.core.logging_utils import logger # TODO: Uncomment before completion of #2044
 try:
     import torch.version
     import torch.distributed as dist
@@ -73,13 +75,14 @@ def is_primary_worker():
     return not is_distributed() or dist.get_rank() == 0
 
 
+@contextlib.contextmanager
 def override_print(suppress=False, prefix=None):
     """
-    Override the builtin print to mute or annotate the output with a given prefix.
-
+    Context manager to override the print to suppress or modify output.
     Recommended usage is to call this with suppress=True for all non-primary workers,
-    or call with with a prefix of rank on all workers.
-
+    or call with a prefix of rank on all workers.
+    >>> with override_print(prefix="rank{}".format(rank)):
+    ...     my_computation()
     :param bool suppress:
         if true, all future print statements are noops.
     :param str prefix:
@@ -97,7 +100,42 @@ def override_print(suppress=False, prefix=None):
             # default to normal print
             return builtin_print(*args, **kwargs)
 
+    # override the print for now
     builtins.print = new_print
+    yield
+    # bring it back at the end of the context
+    builtins.print = builtin_print
+
+
+# # TODO: Replace override_print with this version before completing #2044
+# # TODO: Uncomment import statement at the top
+# # TODO: IDEA: Pass logger object as parameter to thi function
+# @contextlib.contextmanager
+# def override_print(suppress=False, prefix=None):
+#     """
+#     Context manager to override the logger to suppress or modify output.
+#
+#     Recommended usage is to call this with suppress=True for all non-primary workers,
+#     or call with a prefix of rank on all workers.
+#
+#     >>> with override_print(prefix="rank{}".format(rank)):
+#     ...     my_computation()
+#
+#     :param bool suppress:
+#         if true, all future log statements are noops.
+#     :param str prefix:
+#         if not None, this string is prefixed to all future log statements.
+#     """
+#     Alternative implementation: To be used when switched to all-logging
+#     if suppress:
+#         logger.disabled = True
+#     elif prefix:
+#         logger.add_format_prefix(prefix)
+#     else:
+#         pass  # do nothing
+#     yield
+#     logger.disabled = False
+#     logger.reset_formatters()
 
 
 def all_gather_list(data, max_size=16384):
@@ -216,3 +254,30 @@ def sync_object(data, max_size=16384):
             )
 
     return data
+
+
+def check_synced_parameters(model):
+    """
+    Check that all parameters across all workers are the same.
+
+    Always returns True, or raises an AssertionError if they are not
+    synchronized.
+
+    :param torch.nn.Module model: A pytorch model.
+    :return: True
+    """
+    if not is_distributed():
+        # if things aren't distributed, of course things are in sync
+        return True
+
+    # compute the local norm:
+    norm2 = sum((p.data ** 2).sum().float() for p in model.parameters()).item()
+    all_versions = all_gather_list(norm2)
+    if not all(n == norm2 for n in all_versions):
+        raise AssertionError(
+            "Some models parameters were out of sync. Got the following norms: {}".format(
+                " ".join(str(x) for x in all_versions)
+            )
+        )
+
+    return True

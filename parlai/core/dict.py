@@ -9,6 +9,7 @@ from parlai.core.build_data import modelzoo_path
 from .agents import Agent
 from .build_data import make_dir
 from collections import defaultdict
+from .gpt2_helper import Gpt2BpeHelper
 import codecs
 import copy
 import numpy as np
@@ -189,7 +190,7 @@ class DictionaryAgent(Agent):
             default=DictionaryAgent.default_tok,
             help='Which tokenizer to use. Defaults to "split", which splits '
             'on whitespace as well as recognizing basic punctuation. '
-            'Other options include nltk and spacy.',
+            'Other options include nltk, spacy and gpt2.',
             hidden=True,
         )
         dictionary.add_argument(
@@ -315,7 +316,21 @@ class DictionaryAgent(Agent):
             if not opt.get('dict_file'):
                 raise RuntimeError('--dict-file is mandatory.')
             self.bpehelper = _BPEHelper(opt.get('dict_file') + '.codecs')
+        elif self.tokenizer == 'gpt2':
+            if self.lower:
+                raise ValueError(
+                    'Only use --dict-lower false with --dict-tokenizer gpt2'
+                )
+            if self.maxtokens > 0 or self.minfreq > 0:
+                raise ValueError(
+                    'You should not filter vocabulary with using --dict-tokenizer gpt2'
+                    ' (no --dict-minfreq or --dict-maxtokens).'
+                )
 
+            self.gpt2_bpe = Gpt2BpeHelper(opt)
+            for each_token in self.gpt2_bpe.list_tokens():
+                self.add_token(each_token)
+                self.freq[each_token] = 1
         if not shared:
             if self.null_token:
                 # fix count for null token to one billion and three
@@ -447,6 +462,10 @@ class DictionaryAgent(Agent):
             for token in self.word_tok.tokenize(sent)
         )
 
+    def gpt2_tokenize(self, text):
+        """Tokenize using Gpt2 BPE tokenizer."""
+        return self.gpt2_bpe.encode(text)
+
     @staticmethod
     def re_tokenize(text):
         r"""
@@ -479,6 +498,11 @@ class DictionaryAgent(Agent):
             .replace('?', ' ? ')
             .split()
         )
+
+    @staticmethod
+    def space_tokenize(text):
+        """Tokenize exactly on spaces. Useful when text is pre-tokenized."""
+        return text.strip().split(' ')
 
     def span_tokenize(self, text):
         """Tokenize and find  starting index of each token in the original string."""
@@ -607,6 +631,9 @@ class DictionaryAgent(Agent):
                 self.bpehelper.copy_codecs_file(filename + '.codecs')
             if sort:
                 self.sort(trim=False)
+        elif self.tokenizer == 'gpt2':
+            # never remove or sort tokens from gpt2
+            pass
         elif sort:
             self.sort(trim=True)
 
@@ -636,6 +663,8 @@ class DictionaryAgent(Agent):
         :param bool trim:
             If True, truncate the dictionary based on minfreq and maxtokens.
         """
+        if trim and self.tokenizer == 'gpt2':
+            raise RuntimeError("You should not trim the dictionary when using gpt-2.")
         # sort first by count, then alphabetically
         if trim:
             self.remove_tail(self.minfreq)
@@ -692,6 +721,9 @@ class DictionaryAgent(Agent):
         Converts a vector (iterable of ints) into a string, with each token
         separated by the delimiter (default ``' '``).
         """
+        if self.tokenizer == 'gpt2' and not self.opt.get('bpe_debug', False):
+            return self.gpt2_bpe.decode(vector)
+        # if we want to debug into this gpt2 bpe, you will get next line
         text = delimiter.join(self[int(idx)] for idx in vector)
         # if we used a BPE tokenizer we need to rejoin the encodings
         if self.tokenizer == 'bpe' and not self.opt.get('bpe_debug', False):
@@ -820,6 +852,9 @@ class _BPEHelper(object):
             num_symbols = 30000
         if minfreq <= 0:
             minfreq = 2
+
+        codec_dir, _ = os.path.split(self.codecs)
+        os.makedirs(codec_dir, exist_ok=True)
         with open(self.codecs, 'w', encoding='utf-8') as outstream:
             learn_bpe.learn_bpe(
                 dictionary,

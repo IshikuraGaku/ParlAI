@@ -44,7 +44,7 @@ class Packet:
         Create a packet to be used for holding information before it is
         sent through the socket
         id:               Unique ID to distinguish this packet from others
-        type:             TYPE of packet (ACK, ALIVE, MESSAGE, HEARTBEAT)
+        type:             TYPE of packet (ACK, ALIVE, MESSAGE)
         sender_id:        Sender ID for this packet
         receiver_id:      Recipient ID for this packet
         assignment_id:    Assignment ID for this packet
@@ -198,8 +198,7 @@ class SocketManager:
         self.send_thread = None
         self.sending_queue = PriorityQueue()
         self.open_channels = set()
-        self.threads = {}
-        self.last_sent_ping_time = 0  # time of last heartbeat sent
+        self.last_sent_ping_time = 0  # time of last ping send
         self.pings_without_pong = 0
         self.processed_packets = set()
         self.packet_map = {}
@@ -373,7 +372,7 @@ class SocketManager:
 
         def on_message(*args):
             """Incoming message handler for SERVER_PONG, MESSAGE_BATCH,
-            AGENT_DISCONNECT, SNS_MESSAGE, STATIC_MESSAGE, AGENT_ALIVE
+            AGENT_DISCONNECT, SNS_MESSAGE, SUBMIT_MESSAGE, AGENT_ALIVE
             """
             packet_dict = json.loads(args[1])
             if packet_dict['type'] == 'conn_success':  # TODO make socket func
@@ -415,7 +414,7 @@ class SocketManager:
             elif packet_type == data_model.SNS_MESSAGE:
                 # Treated as a regular message
                 self.message_callback(packet)
-            elif packet_type == data_model.STATIC_MESSAGE:
+            elif packet_type == data_model.SUBMIT_MESSAGE:
                 # Treated as a regular message
                 self.message_callback(packet)
 

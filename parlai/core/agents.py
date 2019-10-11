@@ -131,6 +131,49 @@ class Agent(object):
         """Perform any final cleanup if needed."""
         pass
 
+    @classmethod
+    def upgrade_opt(cls, opt_from_disk):
+        """
+        Upgrade legacy options when loading an opt file from disk.
+
+        This is primarily made available to provide a safe space to handle
+        backwards-compatible behavior. For example, perhaps we introduce a
+        new option today, which wasn't previously available. We can have the
+        argument have a new default, but fall back to the "legacy" compatibility
+        behavior if the option doesn't exist.
+
+        ``upgrade_opt`` provides an opportunity for such checks for backwards
+        compatibility. It is called shortly after loading the opt file from
+        disk, and is called before the Agent is initialized.
+
+        Other possible examples include:
+
+            1. Renaming an option,
+            2. Deprecating an old option,
+            3. Splitting coupled behavior, etc.
+
+        Implementations of ``upgrade_opt`` should conform to high standards,
+        due to the risk of these methods becoming complicated and difficult to
+        reason about. We recommend the following behaviors:
+
+            1. ``upgrade_opt`` should only be used to provide backwards
+            compatibility.  Other behavior should find a different location.
+            2. Children should always call the parent's ``upgrade_opt`` first.
+            3. ``upgrade_opt`` should always warn when an option was overwritten.
+            4. Include comments annotating the date and purpose of each upgrade.
+            5. Add an integration test which ensures your old work behaves
+            appropriately.
+
+        :param Opt opt_from_disk:
+            The opt file, as loaded from the ``.opt`` file on disk.
+        :return:
+            The modified options
+        :rtype:
+            Opt
+        """
+        # 2019-07-11: currently a no-op.
+        return opt_from_disk
+
 
 class Teacher(Agent):
     """
@@ -367,7 +410,14 @@ def compare_init_model_opts(opt, curr_opt):
 
     extra_opts = {}
     different_opts = {}
-    exempt_opts = ['model_file', 'dict_file', 'override', 'starttime', 'init_model']
+    exempt_opts = [
+        'model_file',
+        'dict_file',
+        'override',
+        'starttime',
+        'init_model',
+        'batchindex',
+    ]
 
     # search through init model opts
     for k, v in init_model_opt.items():
@@ -445,23 +495,7 @@ def load_agent_module(opt):
                         "previously: {} )]".format(k, v, new_opt.get(k, None))
                     )
                 new_opt[k] = v
-        # add model arguments to new_opt if they aren't in new_opt already
-        for k, v in opt.items():
-            if k not in new_opt:
-                new_opt[k] = v
-        new_opt['model_file'] = model_file
-        if not new_opt.get('dict_file'):
-            new_opt['dict_file'] = model_file + '.dict'
-        elif new_opt.get('dict_file') and not os.path.isfile(new_opt['dict_file']):
-            old_dict_file = new_opt['dict_file']
-            new_opt['dict_file'] = model_file + '.dict'
-        if not os.path.isfile(new_opt['dict_file']):
-            warn_once(
-                'WARNING: Neither the specified dict file ({}) nor the '
-                '`model_file`.dict file ({}) exists, check to make sure either '
-                'is correct. This may manifest as a shape mismatch later '
-                'on.'.format(old_dict_file, new_opt['dict_file'])
-            )
+
         model_class = get_agent_module(new_opt['model'])
 
         # check for model version
@@ -486,6 +520,27 @@ def load_agent_module(opt):
                     raise RuntimeError(
                         m.format(m='modelname', v=curr_version, c='ModelAgent')
                     )
+
+        if hasattr(model_class, 'upgrade_opt'):
+            new_opt = model_class.upgrade_opt(new_opt)
+
+        # add model arguments to new_opt if they aren't in new_opt already
+        for k, v in opt.items():
+            if k not in new_opt:
+                new_opt[k] = v
+        new_opt['model_file'] = model_file
+        if not new_opt.get('dict_file'):
+            new_opt['dict_file'] = model_file + '.dict'
+        elif new_opt.get('dict_file') and not os.path.isfile(new_opt['dict_file']):
+            old_dict_file = new_opt['dict_file']
+            new_opt['dict_file'] = model_file + '.dict'
+        if not os.path.isfile(new_opt['dict_file']):
+            warn_once(
+                'WARNING: Neither the specified dict file ({}) nor the '
+                '`model_file`.dict file ({}) exists, check to make sure either '
+                'is correct. This may manifest as a shape mismatch later '
+                'on.'.format(old_dict_file, new_opt['dict_file'])
+            )
 
         # if we want to load weights from --init-model, compare opts with
         # loaded ones
@@ -783,44 +838,3 @@ def create_task_agent_from_taskname(opt):
         if type(task_agents) != list:
             task_agents = [task_agents]
         return task_agents
-
-
-def _create_task_agents(opt):
-    """
-    Create task agent(s) for the given task name.
-
-    It does this by calling the create_agent function in agents.py of the
-    given task.
-    If create_agents function does not exist, it just looks for
-    the teacher (agent) class defined by the task name directly.
-    (This saves the task creator bothering to define the
-    create_agents function when it is not needed.)
-    """
-    sp = opt['task'].strip()
-    repo = 'parlai'
-    if sp.startswith('internal:'):
-        # To switch to local repo, useful for non-public projects
-        # (make a directory called 'parlai_internal' with your private agents)
-        repo = 'parlai_internal'
-        sp = sp[9:]
-    sp = sp.split(':')
-    if '.' in sp[0]:
-        # The case of opt['task'] = 'parlai.tasks.squad.agents:DefaultTeacher'
-        # (i.e. specifying your own path directly)
-        module_name = sp[0]
-    elif sp[0] == 'pytorch_teacher':
-        module_name = 'parlai.core.pytorch_data_teacher'
-    else:
-        task = sp[0].lower()
-        module_name = "%s.tasks.%s.agents" % (repo, task)
-    my_module = importlib.import_module(module_name)
-    try:
-        # Tries to call the create_agent function in agents.py
-        task = sp[0].lower()
-        task_agents = my_module.create_agents(opt, task)
-    except AttributeError:
-        # Create_agent not found, so try to create the teacher directly.
-        return create_task_agent_from_taskname(opt)
-    if type(task_agents) != list:
-        task_agents = [task_agents]
-    return task_agents
