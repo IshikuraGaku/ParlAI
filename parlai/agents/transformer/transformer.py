@@ -1,7 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
-
+"""Transformer Agents."""
 from parlai.core.agents import Agent
 from parlai.core.utils import warn_once
 from parlai.core.utils import padded_3d
@@ -14,15 +14,8 @@ from .modules import TransformerGeneratorModel
 import torch
 
 
-warn_once(
-    "Public release transformer models are currently in beta. The name of "
-    "command line options may change or disappear before a stable release. We "
-    "welcome your feedback. Please file feedback as issues at "
-    "https://github.com/facebookresearch/ParlAI/issues/new"
-)
-
-
 def add_common_cmdline_args(argparser):
+    """Add common command line args."""
     argparser.add_argument(
         '-esz',
         '--embedding-size',
@@ -102,7 +95,8 @@ def add_common_cmdline_args(argparser):
 
 
 class Transformer(Agent):
-    """
+    """Placeholder Transformer Agent.
+
     Placeholder class, which just throws an error telling the user to specify
     whether they want the ranker or the generator.
     """
@@ -115,6 +109,11 @@ class Transformer(Agent):
 
 
 class TransformerRankerAgent(TorchRankerAgent):
+    """Transformer Ranker Agent.
+
+    Implementation of a TorchRankerAgent, where the model is a Transformer
+    """
+
     @classmethod
     def add_cmdline_args(cls, argparser):
         """Add command-line arguments specifically for this agent."""
@@ -196,12 +195,15 @@ class TransformerRankerAgent(TorchRankerAgent):
             )
 
     def build_model(self, states=None):
-        self.model = TransformerMemNetModel(self.opt, self.dict)
+        """Build and return model."""
+        model = TransformerMemNetModel(self.opt, self.dict)
         if self.opt['embedding_type'] != 'random':
-            self._copy_embeddings(
-                self.model.embeddings.weight, self.opt['embedding_type']
-            )
-        return self.model
+            self._copy_embeddings(model.embeddings.weight, self.opt['embedding_type'])
+        return model
+
+    def build_criterion(self):
+        """Build and return criterion, favoring average instead of sum for the loss."""
+        return torch.nn.CrossEntropyLoss(reduction='mean')
 
     def batchify(self, obs_batch, sort=False):
         """Override so that we can add memories to the Batch object."""
@@ -222,6 +224,7 @@ class TransformerRankerAgent(TorchRankerAgent):
         )
 
     def vectorize(self, *args, **kwargs):
+        """Override to include vectorization of memories."""
         kwargs['add_start'] = False
         kwargs['add_end'] = False
         obs = super().vectorize(*args, **kwargs)
@@ -230,11 +233,13 @@ class TransformerRankerAgent(TorchRankerAgent):
         return obs
 
     def encode_candidates(self, padded_cands):
+        """Encode candidates."""
         _, cands = self.model(xs=None, mems=None, cands=padded_cands)
 
         return cands
 
     def score_candidates(self, batch, cand_vecs, cand_encs=None):
+        """Score candidates."""
         # convoluted check that not all memories are empty
         if (
             self.opt['use_memories']
@@ -261,6 +266,11 @@ class TransformerRankerAgent(TorchRankerAgent):
 
 
 class TransformerGeneratorAgent(TorchGeneratorAgent):
+    """TransformerGeneratorAgent.
+
+    Implementation of TorchGeneratorAgent, where the model is a Transformer
+    """
+
     @classmethod
     def add_cmdline_args(cls, argparser):
         """Add command-line arguments specifically for this agent."""
@@ -272,11 +282,10 @@ class TransformerGeneratorAgent(TorchGeneratorAgent):
         return agent
 
     def build_model(self, states=None):
-        self.model = TransformerGeneratorModel(self.opt, self.dict)
+        """Build and return model."""
+        model = TransformerGeneratorModel(self.opt, self.dict)
         if self.opt['embedding_type'] != 'random':
             self._copy_embeddings(
-                self.model.encoder.embeddings.weight, self.opt['embedding_type']
+                model.encoder.embeddings.weight, self.opt['embedding_type']
             )
-        if self.use_cuda:
-            self.model.cuda()
-        return self.model
+        return model

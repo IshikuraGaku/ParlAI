@@ -68,6 +68,7 @@ class ContextKnowledgeEncoder(nn.Module):
 
     def forward(self, src_tokens, know_tokens, ck_mask, cs_ids, use_cs_ids):
         # encode the context, pretty basic
+        #N:バッチサイズ, K:知識数, T:時間, D:埋め込みサイズ, Tk:
 
         context_encoded, context_mask = self.transformer(src_tokens)
 
@@ -87,14 +88,15 @@ class ContextKnowledgeEncoder(nn.Module):
         # fill with near -inf
         ck_attn.masked_fill_(~ck_mask, neginf(context_encoded.dtype))
 
-        #print(use_cs_ids)
         if self.soft_attention:
             # pick the true chosen sentence. remember that TransformerEncoder outputs
             #   (batch, time, embed)
             # but because know_encoded is a flattened, it's really
             #   (N * K, T, D)
             # We need to compute the offsets of the chosen_sentences
-            #print(ck_attn)
+            cs_encoded = None
+            softmax_cs_weight = th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1)
+
             _, T, D = know_encoded.size()
             # finally, concatenate it all
             full_enc = th.cat([(know_encoded.reshape((N*K, -1)) * th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1).reshape(-1,1).expand(N*K, T*D)).reshape((N,K,T,D)).sum(dim=1), context_encoded], dim=1)

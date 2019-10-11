@@ -109,6 +109,8 @@ class InteractiveRetrievalAgent(Agent):
             'legacy': True,
             'no_cuda': True,
             'encode_candidate_vecs': True,
+            'batchsize': 1,
+            'interactive_mode': True,
         }
         for k, v in override_opts.items():
             responder_opts[k] = v
@@ -278,9 +280,9 @@ class InteractiveRetrievalAgent(Agent):
         responder_act = self.responder.act()
         if self.debug:
             print('DEBUG: Responder is acting:\n{}'.format(responder_act))
-        responder_act['id'] = 'WizardRetrievalInteractiveAgent'
+        responder_act.force_set('id', 'WizardRetrievalInteractiveAgent')
         if self.get_unique:
-            responder_act['text'] = self.get_unique_reply(responder_act)
+            responder_act.force_set('text', self.get_unique_reply(responder_act))
         return responder_act
 
     def share(self):

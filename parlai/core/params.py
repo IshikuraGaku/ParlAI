@@ -12,10 +12,36 @@ import pickle
 import json
 import sys as _sys
 import datetime
+import parlai
+import git
+
 from parlai.core.agents import get_agent_module, get_task_module
 from parlai.core.build_data import modelzoo_path
 from parlai.tasks.tasks import ids_to_tasks
 from parlai.core.utils import Opt, load_opt_file
+
+from typing import List, Optional
+
+
+def print_git_commit():
+    """Print the current git commit of ParlAI and parlai_internal."""
+    root = os.path.dirname(os.path.dirname(parlai.__file__))
+    internal_root = os.path.join(root, 'parlai_internal')
+    try:
+        git_ = git.Git(root)
+        current_commit = git_.rev_parse('HEAD')
+        print(f'[ Current ParlAI commit: {current_commit} ]')
+    except git.GitCommandNotFound:
+        pass
+    except git.GitCommandError:
+        pass
+
+    try:
+        git_ = git.Git(internal_root)
+        internal_commit = git_.rev_parse('HEAD')
+        print(f'[ Current internal commit: {internal_commit} ]')
+    except git.GitCommandNotFound:
+        pass
 
 
 def print_announcements(opt):
@@ -83,16 +109,8 @@ def get_model_name(opt):
             model_file = modelzoo_path(opt.get('datapath'), model_file)
             optfile = model_file + '.opt'
             if os.path.isfile(optfile):
-                try:
-                    # try json first
-                    with open(optfile, 'r', encoding='utf-8') as handle:
-                        new_opt = json.load(handle)
-                        model = new_opt.get('model', None)
-                except UnicodeDecodeError:
-                    # oops it's pickled
-                    with open(optfile, 'rb') as handle:
-                        new_opt = pickle.load(handle)
-                        model = new_opt.get('model', None)
+                new_opt = load_opt_file(optfile)
+                model = new_opt.get('model', None)
     return model
 
 
@@ -212,7 +230,6 @@ class ParlaiParser(argparse.ArgumentParser):
         self.add_arg = self.add_argument
 
         # remember which args were specified on the command line
-        self.cli_args = _sys.argv[1:]
         self.overridable = {}
 
         if add_parlai_args:
@@ -415,6 +432,11 @@ class ParlaiParser(argparse.ArgumentParser):
             default=None,
             help='Specify location to use for scratch builds and such.',
         )
+
+        # it helps to indicate to agents that they're in interactive mode, and
+        # can avoid some otherwise troublesome behavior (not having candidates,
+        # sharing self.replies, etc).
+        mturk.set_defaults(interactive_mode=True)
 
         mturk.set_defaults(is_sandbox=True)
         mturk.set_defaults(is_debug=False)
@@ -834,9 +856,10 @@ class ParlaiParser(argparse.ArgumentParser):
 
     def _load_known_opts(self, optfile, parsed):
         """
-        _load_known_opts is called before args are parsed, to pull in the cmdline args
-        for the proper models/tasks/etc.
-        _load_opts (below) is for actually overriding opts after they are parsed.
+        Pull in CLI args for proper models/tasks/etc.
+
+        Called before args are parsed; ``_load_opts`` is used for actually
+        overriding opts after they are parsed.
         """
         new_opt = load_opt_file(optfile)
         for key, value in new_opt.items():
@@ -881,16 +904,7 @@ class ParlaiParser(argparse.ArgumentParser):
 
         return opt
 
-    def parse_args(self, args=None, namespace=None, print_args=True):
-        """
-        Parse the provided arguments and returns a dictionary of the ``args``.
-
-        We specifically remove items with ``None`` as values in order
-        to support the style ``opt.get(key, default)``, which would otherwise
-        return ``None``.
-        """
-        self.add_extra_args(args)
-        self.args = super().parse_args(args=args)
+    def _process_args_to_opts(self, args_that_override: Optional[List[str]] = None):
         self.opt = Opt(vars(self.args))
 
         # custom post-parsing
@@ -911,14 +925,20 @@ class ParlaiParser(argparse.ArgumentParser):
                         elif '_StoreFalseAction' in str(type(a)):
                             store_false.append(option)
 
-        for i in range(len(self.cli_args)):
-            if self.cli_args[i] in option_strings_dict:
-                if self.cli_args[i] in store_true:
-                    self.overridable[option_strings_dict[self.cli_args[i]]] = True
-                elif self.cli_args[i] in store_false:
-                    self.overridable[option_strings_dict[self.cli_args[i]]] = False
-                elif i < len(self.cli_args) - 1 and self.cli_args[i + 1][:1] != '-':
-                    key = option_strings_dict[self.cli_args[i]]
+        if args_that_override is None:
+            args_that_override = _sys.argv[1:]
+
+        for i in range(len(args_that_override)):
+            if args_that_override[i] in option_strings_dict:
+                if args_that_override[i] in store_true:
+                    self.overridable[option_strings_dict[args_that_override[i]]] = True
+                elif args_that_override[i] in store_false:
+                    self.overridable[option_strings_dict[args_that_override[i]]] = False
+                elif (
+                    i < len(args_that_override) - 1
+                    and args_that_override[i + 1][:1] != '-'
+                ):
+                    key = option_strings_dict[args_that_override[i]]
                     self.overridable[key] = self.opt[key]
         self.opt['override'] = self.overridable
 
@@ -949,8 +969,34 @@ class ParlaiParser(argparse.ArgumentParser):
         # add start time of an experiment
         self.opt['starttime'] = datetime.datetime.today().strftime('%b%d_%H-%M')
 
+    def parse_and_process_known_args(self, args=None):
+        """
+        Parse provided arguments and return parlai opts and unknown arg list.
+
+        Runs the same arg->opt parsing that parse_args does, but doesn't
+        throw an error if the args being parsed include additional command
+        line arguments that parlai doesn't know what to do with.
+        """
+        self.args, unknowns = super().parse_known_args(args=args)
+        self._process_args_to_opts(args)
+        return self.opt, unknowns
+
+    def parse_args(self, args=None, namespace=None, print_args=True):
+        """
+        Parse the provided arguments and returns a dictionary of the ``args``.
+
+        We specifically remove items with ``None`` as values in order
+        to support the style ``opt.get(key, default)``, which would otherwise
+        return ``None``.
+        """
+        self.add_extra_args(args)
+        self.args = super().parse_args(args=args)
+
+        self._process_args_to_opts(args)
+
         if print_args:
             self.print_args()
+            print_git_commit()
             print_announcements(self.opt)
 
         return self.opt

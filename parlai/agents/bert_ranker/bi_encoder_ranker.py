@@ -46,7 +46,7 @@ class BiEncoderRankerAgent(TorchRankerAgent):
         super().__init__(opt, shared)
         # it's easier for now to use DataParallel when
         self.data_parallel = opt.get('data_parallel') and self.use_cuda
-        if self.data_parallel:
+        if self.data_parallel and shared is None:
             self.model = torch.nn.DataParallel(self.model)
         if is_distributed():
             raise ValueError('Cannot combine --data-parallel and distributed mode')
@@ -57,7 +57,7 @@ class BiEncoderRankerAgent(TorchRankerAgent):
         self.rank_loss = torch.nn.CrossEntropyLoss(reduce=True, size_average=True)
 
     def build_model(self):
-        self.model = BiEncoderModule(self.opt)
+        return BiEncoderModule(self.opt)
 
     @staticmethod
     def dictionary_class():
@@ -155,8 +155,15 @@ class BiEncoderRankerAgent(TorchRankerAgent):
     def _set_text_vec(self, *args, **kwargs):
         obs = super()._set_text_vec(*args, **kwargs)
         # concatenate the [CLS] and [SEP] tokens
-        if obs is not None and 'text_vec' in obs:
-            obs['text_vec'] = surround(obs['text_vec'], self.START_IDX, self.END_IDX)
+        if (
+            obs is not None
+            and 'text_vec' in obs
+            and 'added_start_end_tokens' not in obs
+        ):
+            obs.force_set(
+                'text_vec', surround(obs['text_vec'], self.START_IDX, self.END_IDX)
+            )
+            obs['added_start_end_tokens'] = True
         return obs
 
     def score_candidates(self, batch, cand_vecs, cand_encs=None):
