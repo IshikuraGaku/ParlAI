@@ -117,17 +117,21 @@ class EndToEndAgent(_GenericWizardAgent):
 
     def compute_loss(self, batch, return_output=False):
         # first compute our regular forced decoding loss
+        #torch_generator_agent.py
+        #model_output = self.model(*self._model_input(batch), ys=batch.label_vec)
+        #scores, preds, *_ = model_output
+        
         token_loss, model_output = super().compute_loss(batch, return_output=True)
         notnull = batch.label_vec.ne(self.NULL_IDX)
         num_tokens = notnull.long().sum().item()
 
-        encoder_states = model_output[2]
+        encoder_states = model_output[2]#todo model_outputの中身が何か
         ctx_know_attn = encoder_states[2]
 
         if self.knowledge_alpha == 0.0:
             loss = token_loss
         else:
-            _, know_pred = ctx_know_attn.max(1)
+            _, know_pred = ctx_know_attn.max(1)#これやばくね？lossをどう出すかまあいいか
             know_acc = (know_pred == batch.cs_ids).float().sum().item()
             know_chance = batch.ck_mask.sum(1).float().reciprocal().sum().item()
             self.metrics['know_chance'] += know_chance
@@ -146,6 +150,7 @@ class EndToEndAgent(_GenericWizardAgent):
                 (1 - self.knowledge_alpha) * token_loss +
                 self.knowledge_alpha * know_loss
             )
+            #todo
 
         if return_output:
             return (loss, model_output)
