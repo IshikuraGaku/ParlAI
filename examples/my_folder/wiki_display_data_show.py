@@ -13,7 +13,7 @@ if __name__=="__main__":
 
     with open(args.input_file, "r") as inputF, open(args.output_file, "w") as outputF:
         inputTexts = inputF.read()
-        outputList1 = re.findall(r"\[wizard_of_wikipedia\]\:[^\[]*", inputTexts)
+        outputList1 = re.findall(r"\[WizTeacher\]\:[^\[]*", inputTexts)
         outputList2 = re.findall(r"\[EndToEnd\]\:[^\~]*", inputTexts)
         #print(outputList[0]) ("[wizard_of_wikipedia]: Gardening\nI like Gardening, even when I've only been doing it for a short time.\n", '')
         lines = ""
