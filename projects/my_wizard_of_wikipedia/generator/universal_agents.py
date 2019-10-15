@@ -17,9 +17,8 @@ import numpy as np
 from parlai.core.utils import padded_tensor, round_sigfigs
 
 from projects.my_wizard_of_wikipedia.generator.transformer.transformer import TransformerGeneratorAgent
-
 from .universal_modules import EndToEndModel
-from .universal_modules import ContextKnowledgeEncoder
+
 from parlai.tasks.wizard_of_wikipedia.agents import TOKEN_KNOWLEDGE
 
 TOKEN_DIALOG = '__dialog__'
@@ -157,7 +156,7 @@ class EndToEndAgent(_GenericWizardAgent):
             self.metrics['know_chance'] += know_chance
             self.metrics['bsz'] += batch.text_vec.size(0)
             self.metrics['know_acc'] += know_acc
-            #self.metrics['out_loss'] += out_loss
+            self.metrics['out_loss'] += out_loss
             know_loss = th.nn.functional.cross_entropy(
                 ctx_know_attn,
                 batch.cs_ids,
