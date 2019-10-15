@@ -184,8 +184,8 @@ class ContextKnowledgeEncoder(nn.Module):
         for temp in true_ids_weight:
             temp[0] = 1
         loss = th.abs(softmax_cs_weight - true_ids_weight)
-        loss *= loss
-        loss = loss.sum()
+        loss = loss * loss
+        loss = th.sum(loss, 0)
         #RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation: [torch.cuda.FloatTensor [4, 2]], which is output 0 of AbsBackward, is at version 1; expected version 0 instead. Hint: enable anomaly detection to find the operation that failed to compute its gradient, with torch.autograd.set_detect_anomaly(True).
 
         print(loss)

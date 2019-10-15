@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "タスク-display_data",
+      "appliesTo": "examples/display_data.py",
+      "type": "launch"
+    }
+  ]
+}
