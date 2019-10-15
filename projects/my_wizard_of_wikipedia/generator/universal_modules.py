@@ -183,10 +183,36 @@ class ContextKnowledgeEncoder(nn.Module):
         true_ids_weight = th.zeros(softmax_cs_weight.shape, device=softmax_cs_weight.device, dtype=softmax_cs_weight.dtype)
         for temp in true_ids_weight:
             temp[0] = 1
-        loss = th.sqrt((softmax_cs_weight - true_ids_weight).pow(2))
+        """
+        loss = softmax_cs_weight - true_ids_weight
+        loss = loss * loss
         loss = th.sum(loss)
-        
-        # print(loss)
+        """
+        """
+        loss = softmax_cs_weight - true_ids_weight
+        loss = loss * loss
+        print(loss)
+        loss2 = th.sum(loss)
+        print(loss2)
+        if th.isnan(loss[0][0]):
+            print(loss)
+            loss = th.sum(loss)
+            print(loss)
+            return loss
+        else:
+            loss = th.sqrt(loss)
+            loss = th.sum(loss)
+            print("OK")
+            return loss
+        """
+        loss = softmax_cs_weight - true_ids_weight
+        loss = loss * loss
+        loss[loss == 0] = 0.0001
+        loss = th.sqrt(loss)
+        #loss[th.isnan(loss)] = 0
+        loss = th.sum(loss)
+
+        #print(loss)
 
         self.know_tokens = None
         self.ck_mask = None
