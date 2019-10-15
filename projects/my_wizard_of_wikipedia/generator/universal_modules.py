@@ -66,9 +66,22 @@ class ContextKnowledgeEncoder(nn.Module):
         #self.n_use_knowlege = 5 #使う知識数
         self.knowledge_lamda = 1
 
+        self.know_tokens = None
+        self.ck_mask = None
+        self.cs_ids = None
+        self.use_cs_ids =None
+
     def forward(self, src_tokens, know_tokens, ck_mask, cs_ids, use_cs_ids):
         # encode the context, pretty basic
         #N:バッチサイズ, K:知識数, T:時間, D:埋め込みサイズ, Tk:
+        #src_tokens torch.Size([B, T])
+        #cs_ids tensor([0, 0, 0, 0], device='cuda:0')
+        #use_cs_ids trainならTrue
+
+        self.know_tokens = know_tokens
+        self.ck_mask = ck_mask
+        self.cs_ids = cs_ids
+        self.use_cs_ids = use_cs_ids
 
         context_encoded, context_mask = self.transformer(src_tokens)
 
@@ -96,7 +109,13 @@ class ContextKnowledgeEncoder(nn.Module):
             # We need to compute the offsets of the chosen_sentences
             cs_encoded = None
             softmax_cs_weight = th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1)
+            #add
+            true_ids_weight = th.zeros(softmax_cs_weight.shape, device=softmax_cs_weight.device, dtype=softmax_cs_weight.dtype)
+            for temp in true_ids_weight:
+                temp[0] = 1
 
+            weight_abs = th.abs(softmax_cs_weight - true_ids_weight)
+            weight_abs *= weight_abs
             _, T, D = know_encoded.size()
             # finally, concatenate it all
             full_enc = th.cat([(know_encoded.reshape((N*K, -1)) * th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1).reshape(-1,1).expand(N*K, T*D)).reshape((N,K,T,D)).sum(dim=1), context_encoded], dim=1)
@@ -129,6 +148,54 @@ class ContextKnowledgeEncoder(nn.Module):
 
             # also return the knowledge selection mask for the loss
             return full_enc, full_mask, ck_attn
+    
+    def output_choose_knowledge(self, out_tokens):
+        #outputと知識をsoftmaxして正解知識を選べるか
+        # encode the context, pretty basic
+        #N:バッチサイズ, K:知識数, T:時間, D:埋め込みサイズ, Tk:
+        context_encoded, context_mask = self.transformer(out_tokens)
+
+        # make all the knowledge into a 2D matrix to encode
+        N, K, Tk = self.know_tokens.size()
+        know_encoded, know_mask = self.transformer(self.know_tokens.reshape(-1, Tk))
+
+        # compute our sentence embeddings for context and knowledge
+        context_use = universal_sentence_embedding(context_encoded, context_mask)
+        know_use = universal_sentence_embedding(know_encoded, know_mask)
+
+        # remash it back into the shape we need
+        know_use = know_use.reshape(N, self.know_tokens.size(1), self.embed_dim) / np.sqrt(self.embed_dim)
+        context_use /= np.sqrt(self.embed_dim)
+
+        ck_attn = th.bmm(know_use, context_use.unsqueeze(-1)).squeeze(-1)
+        # fill with near -inf
+        #~はInvert-2^(N-1) to 2^(N-1)-1
+        ck_attn.masked_fill_(~self.ck_mask, neginf(context_encoded.dtype))
+
+        # pick the true chosen sentence. remember that TransformerEncoder outputs
+        #   (batch, time, embed)
+        # but because know_encoded is a flattened, it's really
+        #   (N * K, T, D)
+        # We need to compute the offsets of the chosen_sentences
+        cs_encoded = None
+        softmax_cs_weight = th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1)
+        #cs_idは0 softmax_cs_weightは(B,knowledge)
+        true_ids_weight = th.zeros(softmax_cs_weight.shape, device=softmax_cs_weight.device, dtype=softmax_cs_weight.dtype)
+        for temp in true_ids_weight:
+            temp[0] = 1
+        loss = th.abs(softmax_cs_weight - true_ids_weight)
+        loss = loss * loss
+        loss = th.sum(loss, 0)
+        #RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation: [torch.cuda.FloatTensor [4, 2]], which is output 0 of AbsBackward, is at version 1; expected version 0 instead. Hint: enable anomaly detection to find the operation that failed to compute its gradient, with torch.autograd.set_detect_anomaly(True).
+
+        print(loss)
+
+        self.know_tokens = None
+        self.ck_mask = None
+        self.cs_ids = None
+        self.use_cs_ids = None
+        # also return the knowledge selection mask for the loss
+        return loss
 
     def second_max(self, target_tensor, axis):
         #todo make axis != 1 

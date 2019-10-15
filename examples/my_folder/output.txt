@@ -1,19 +1,25 @@
-[wizard_of_wikipedia]: Gardening
+[WizTeacher]: Gardening
 I like Gardening, even when I've only been doing it for a short time.
-[EndToEnd]: I have a lot of people . I love to go to a lot of people .
-[wizard_of_wikipedia]: Gardening
+
+=======
+[EndToEnd]: I love to go to a short time . It ' s a short time .
+[WizTeacher]: Gardening
 I like Gardening, even when I've only been doing it for a short time.
 I live on a farm, we garden all year long, it is very relaxing.
 That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-[EndToEnd]: I ' ve been a big fan of the beach . I ' ve been a lot of people to go to the plants .
-[wizard_of_wikipedia]: Gardening
+[EndToEnd]: I ' m not sure but I ' m not sure but I ' m not sure but I ' m not sure but I ' m not sure .
+[WizTeacher]: Gardening
+>>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
 I like Gardening, even when I've only been doing it for a short time.
 I live on a farm, we garden all year long, it is very relaxing.
 That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
 I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic, and potatoes mostly.
 Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-[EndToEnd]: I like to cook , but I like to eat the water .
-[wizard_of_wikipedia]: Gardening
+
+=======
+[EndToEnd]: I have never been to a farm , but I ' ve never been to a lot of vegetables .
+[WizTeacher]: Gardening
+>>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
 I like Gardening, even when I've only been doing it for a short time.
 I live on a farm, we garden all year long, it is very relaxing.
 That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
@@ -21,24 +27,32 @@ I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, 
 Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
 yes i do. Cows, chickens, Micro pigs, Guinneas, We also do forest growing also. we plants large pine trees.
 Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
-[EndToEnd]: I like the Mexico , but I like the South America .
+=======
+[EndToEnd]: They are so cute ! I ' m not sure but I ' m not sure but I ' m not sure what I ' m not sure .
+>>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
 - - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Bob Ross
+[WizTeacher]: Bob Ross
 I would like to know more about bob ross
-[EndToEnd]: I ' m not sure about that . I know he was born in 1994 .
-[wizard_of_wikipedia]: Bob Ross
+
+=======
+[EndToEnd]: Yes , I know that it is a great idea about the time .
+[WizTeacher]: Bob Ross
 I would like to know more about bob ross
 Ross was an American painter and television host
 thats cool what else?
-[EndToEnd]: It was founded in 1994 in 1994
-[wizard_of_wikipedia]: Bob Ross
+[EndToEnd]: It is a great painter .
+[WizTeacher]: Bob Ross
+>>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
 I would like to know more about bob ross
 Ross was an American painter and television host
 thats cool what else?
 He created the show "The Joy of Painting"
 yes I like to watch that some times
-[EndToEnd]: He was a great actor
-[wizard_of_wikipedia]: Bob Ross
+
+=======
+[EndToEnd]: He was a great painter .
+[WizTeacher]: Bob Ross
+>>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
 I would like to know more about bob ross
 Ross was an American painter and television host
 thats cool what else?
@@ -46,14 +60,6 @@ He created the show "The Joy of Painting"
 yes I like to watch that some times
 The show aired from 1983 to 1994 on PBS.
 it ran for a long time
-[EndToEnd]: It was a lot of people who started in the early 1980s in the United States .
-- - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Stamp collecting
-[EndToEnd]: I love to play collecting . It is a type of stamps .
-[wizard_of_wikipedia]: Stamp collecting
-the hobby of stamp collecting involves collecting stamps and related objects
-I have always wondered how this works... grabbing popcorn this will be good
-[EndToEnd]: It is a series of fiction and is a series of science fiction .
 
 =================================================================================================================
 
@@ -178,3 +184,13 @@ I have always wondered how this works... grabbing popcorn this will be good
 ===============================================================================================================================
 
 Fasttext Universal Transfomer
+=======
+[EndToEnd]: It was a great show . It was a great writer .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Stamp collecting
+[EndToEnd]: I love to go to a lot of people .
+[WizTeacher]: Stamp collecting
+the hobby of stamp collecting involves collecting stamps and related objects
+I have always wondered how this works... grabbing popcorn this will be good
+[EndToEnd]: I have never been to be good for a long time .
+>>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
