@@ -19,6 +19,7 @@ from parlai.core.utils import padded_tensor, round_sigfigs
 from projects.my_wizard_of_wikipedia.generator.transformer.transformer import TransformerGeneratorAgent
 
 from .universal_modules import EndToEndModel
+from .universal_modules import ContextKnowledgeEncoder
 from parlai.tasks.wizard_of_wikipedia.agents import TOKEN_KNOWLEDGE
 
 TOKEN_DIALOG = '__dialog__'
@@ -117,22 +118,46 @@ class EndToEndAgent(_GenericWizardAgent):
 
     def compute_loss(self, batch, return_output=False):
         # first compute our regular forced decoding loss
+        #torch_generator_agent.py
+        #model_output = self.model(*self._model_input(batch), ys=batch.label_vec)
+        #scores, preds, *_ = model_output
+        
         token_loss, model_output = super().compute_loss(batch, return_output=True)
+        #インスタンス化が必要
+        out_loss = self.model.encoder.output_choose_knowledge(model_output[1])
+        #token_lossはtensorで値は１つ
+        #model_outputはタプル長さは3，Bではない？
+        #model_output[0]は(B,T,単語数) scores?
+        #model_output[1]は(B,T) preds?
+        #[2]はタプルencoder_statesらしい
+        #[2][0]は(B,T,256) [2][1]は(B,T)全部１マスク？ [2][2]はctx_know_attn?
+        """
+        print("model_output")
+        print(len(model_output))
+        print(model_output[0].size())
+        print(model_output[1].size())
+        print(model_output[2][0].size())
+        print(model_output[2][1].size())
+        print(model_output[2][2].size())
+        print(model_output[1])
+        """
+
         notnull = batch.label_vec.ne(self.NULL_IDX)
         num_tokens = notnull.long().sum().item()
 
-        encoder_states = model_output[2]
+        encoder_states = model_output[2]#todo model_outputの中身が何か
         ctx_know_attn = encoder_states[2]
 
         if self.knowledge_alpha == 0.0:
             loss = token_loss
         else:
-            _, know_pred = ctx_know_attn.max(1)
+            _, know_pred = ctx_know_attn.max(1)#これやばくね？lossをどう出すかまあいいか
             know_acc = (know_pred == batch.cs_ids).float().sum().item()
             know_chance = batch.ck_mask.sum(1).float().reciprocal().sum().item()
             self.metrics['know_chance'] += know_chance
             self.metrics['bsz'] += batch.text_vec.size(0)
             self.metrics['know_acc'] += know_acc
+            #self.metrics['out_loss'] += out_loss
             know_loss = th.nn.functional.cross_entropy(
                 ctx_know_attn,
                 batch.cs_ids,
@@ -143,9 +168,10 @@ class EndToEndAgent(_GenericWizardAgent):
             # know_loss and token_loss
             know_loss /= num_tokens
             loss = (
-                (1 - self.knowledge_alpha) * token_loss +
+                (1 - self.knowledge_alpha) * token_loss + (1 - self.knowledge_alpha) * out_loss +
                 self.knowledge_alpha * know_loss
             )
+            #todo
 
         if return_output:
             return (loss, model_output)
@@ -158,11 +184,12 @@ class EndToEndAgent(_GenericWizardAgent):
         self.metrics['know_acc'] = 0.0
         self.metrics['know_loss'] = 0.0
         self.metrics['know_chance'] = 0.0
+        self.metrics['out_loss'] = 0.0
 
     def report(self):
         r = super().report()
         bsz = max(self.metrics['bsz'], 1)
-        for k in ['know_loss', 'know_acc', 'know_chance']:
+        for k in ['know_loss', 'know_acc', 'know_chance', 'out_loss']:
             # round and average across all items since last report
             r[k] = round_sigfigs(self.metrics[k] / bsz, 4)
         return r

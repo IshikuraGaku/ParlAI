@@ -83,7 +83,7 @@ class TorchClassifierAgent(TorchAgent):
         )
 
     def __init__(self, opt, shared=None):
-        init_model, _ = self._get_init_model(opt, shared)
+        init_model, self.is_finetune = self._get_init_model(opt, shared)
         super().__init__(opt, shared)
 
         # set up classes
@@ -125,24 +125,29 @@ class TorchClassifierAgent(TorchAgent):
             self.threshold = None
 
         # set up model and optimizers
-        weight_tensor = torch.FloatTensor(self.class_weights)
-        self.classifier_loss = torch.nn.CrossEntropyLoss(weight_tensor)
+
         if shared:
             self.model = shared['model']
         else:
-            self.build_model()
+            self.model = self.build_model()
+            self.criterion = self.build_criterion()
+            if self.model is None or self.criterion is None:
+                raise AttributeError(
+                    'build_model() and build_criterion() need to return the model or criterion'
+                )
+            if self.use_cuda:
+                self.model.cuda()
+                self.criterion.cuda()
             if init_model:
                 print('Loading existing model parameters from ' + init_model)
                 self.load(init_model)
-        if self.use_cuda:
-            self.model.cuda()
-            self.classifier_loss.cuda()
-            if self.opt['data_parallel']:
-                if is_distributed():
-                    raise ValueError(
-                        'Cannot combine --data-parallel and distributed mode'
-                    )
-                self.model = torch.nn.DataParallel(self.model)
+            if self.use_cuda:
+                if self.opt['data_parallel']:
+                    if is_distributed():
+                        raise ValueError(
+                            'Cannot combine --data-parallel and distributed mode'
+                        )
+                    self.model = torch.nn.DataParallel(self.model)
         if shared:
             # We don't use get here because hasattr is used on optimizer later.
             if 'optimizer' in shared:
@@ -152,13 +157,16 @@ class TorchClassifierAgent(TorchAgent):
             self.init_optim(optim_params)
             self.build_lr_scheduler()
 
+    def build_criterion(self):
+        weight_tensor = torch.FloatTensor(self.class_weights)
+        return torch.nn.CrossEntropyLoss(weight_tensor)
+
     def share(self):
         """Share model parameters."""
         shared = super().share()
         shared['class_dict'] = self.class_dict
         shared['class_list'] = self.class_list
         shared['class_weights'] = self.class_weights
-        shared['metrics'] = self.metrics
         shared['model'] = self.model
         shared['optimizer'] = self.optimizer
         return shared
@@ -215,7 +223,7 @@ class TorchClassifierAgent(TorchAgent):
         # calculate loss
         labels = self._get_labels(batch)
         scores = self.score(batch)
-        loss = self.classifier_loss(scores, labels)
+        loss = self.criterion(scores, labels)
         loss.backward()
         self.update_params()
 
@@ -252,7 +260,7 @@ class TorchClassifierAgent(TorchAgent):
                 preds = self._format_interactive_output(probs, prediction_id)
         else:
             labels = self._get_labels(batch)
-            loss = self.classifier_loss(scores, labels)
+            loss = self.criterion(scores, labels)
             self.metrics['loss'] += loss.item()
             self.metrics['examples'] += len(batch.text_vec)
             self._update_confusion_matrix(batch, preds)
@@ -261,7 +269,6 @@ class TorchClassifierAgent(TorchAgent):
 
     def reset_metrics(self):
         """Reset metrics."""
-        self.metrics = {}
         super().reset_metrics()
         self.metrics['confusion_matrix'] = defaultdict(int)
         self.metrics['examples'] = 0
@@ -351,7 +358,3 @@ class TorchClassifierAgent(TorchAgent):
             class.
         """
         raise NotImplementedError('Abstract class: user must implement score()')
-
-    def build_model(self):
-        """Build a new model (implemented by children classes)."""
-        raise NotImplementedError('Abstract class: user must implement build_model()')
