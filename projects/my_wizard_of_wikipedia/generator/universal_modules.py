@@ -207,7 +207,7 @@ class ContextKnowledgeEncoder(nn.Module):
         """
         loss = softmax_cs_weight - true_ids_weight
         loss = loss * loss
-        loss[loss == 0] = 0.0001
+        loss[loss == 0] = 0.000001
         loss = th.sqrt(loss)
         #loss[th.isnan(loss)] = 0
         loss = th.sum(loss)
@@ -232,7 +232,6 @@ class ContextKnowledgeEncoder(nn.Module):
      
      #target_tensor(B,N)
         for i, val in enumerate(target_tensor[0]):
-
             if first_tmp.data < val.data:
                 second_idx = first_idx
                 second_tmp = first_tmp
