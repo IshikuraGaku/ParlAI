@@ -33,7 +33,7 @@ DEFAULT_OPTS = {
     "ffn_size": 512,
     "embedding_size": 256,
     "n_heads": 2,
-    "dropout": 0.2,
+    "dropout": 0.0,
     "n_layers": 6,
     "betas": "0.9,0.98",
     "truncate": 128,
@@ -130,16 +130,6 @@ class EndToEndAgent(_GenericWizardAgent):
         #model_output[1]は(B,T) preds?
         #[2]はタプルencoder_statesらしい
         #[2][0]は(B,T,256) [2][1]は(B,T)全部１マスク？ [2][2]はctx_know_attn?
-        """
-        print("model_output")
-        print(len(model_output))
-        print(model_output[0].size())
-        print(model_output[1].size())
-        print(model_output[2][0].size())
-        print(model_output[2][1].size())
-        print(model_output[2][2].size())
-        print(model_output[1])
-        """
 
         notnull = batch.label_vec.ne(self.NULL_IDX)
         num_tokens = notnull.long().sum().item()
