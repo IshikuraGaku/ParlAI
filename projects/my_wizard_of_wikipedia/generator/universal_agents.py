@@ -33,7 +33,7 @@ DEFAULT_OPTS = {
     "ffn_size": 512,
     "embedding_size": 256,
     "n_heads": 2,
-    "dropout": 0.0,
+    "dropout": 0.2,
     "n_layers": 6,
     "betas": "0.9,0.98",
     "truncate": 128,
