@@ -185,10 +185,10 @@ class ContextKnowledgeEncoder(nn.Module):
             temp[0] = 1
 
         loss = softmax_cs_weight - true_ids_weight
-        loss = loss * loss / N
+        loss = loss * loss 
         loss[loss == 0] = 0.000001
         loss = th.sqrt(loss)
-        loss = th.sum(loss)
+        loss = th.sum(loss) / N
         #print(loss)
 
         self.know_tokens = None
