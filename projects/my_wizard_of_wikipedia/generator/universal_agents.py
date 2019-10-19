@@ -156,8 +156,12 @@ class EndToEndAgent(_GenericWizardAgent):
             # in the original paper the loss was scaled by num_tokens for both
             # know_loss and token_loss
             know_loss /= num_tokens
+            
+            self.knowledge_alpha = 0.1
+            self.knowledge_beta = 0.1
             loss = (
-                (1 - self.knowledge_alpha) * token_loss + (1 - self.knowledge_alpha) * out_loss +
+                (1 - self.knowledge_alpha - self.knowledge_beta) * token_loss + 
+                self.knowledge_beta * out_loss +
                 self.knowledge_alpha * know_loss
             )
             #todo
