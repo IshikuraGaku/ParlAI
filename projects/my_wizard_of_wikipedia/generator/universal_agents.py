@@ -34,7 +34,7 @@ DEFAULT_OPTS = {
     "embedding_size": 256,
     "n_heads": 2,
     "dropout": 0.2,
-    "n_layers": 6,
+    "n_layers": 5,
     "betas": "0.9,0.98",
     "truncate": 128,
     "dict_textfields": "text,labels,chosen_topic,checked_sentence,knowledge,title",
@@ -146,7 +146,7 @@ class EndToEndAgent(_GenericWizardAgent):
             self.metrics['know_chance'] += know_chance
             self.metrics['bsz'] += batch.text_vec.size(0)
             self.metrics['know_acc'] += know_acc
-            self.metrics['out_loss'] += out_loss
+            self.metrics['out_loss'] += out_loss * batch.text_vec.size(0)
             know_loss = th.nn.functional.cross_entropy(
                 ctx_know_attn,
                 batch.cs_ids,
@@ -156,7 +156,7 @@ class EndToEndAgent(_GenericWizardAgent):
             # in the original paper the loss was scaled by num_tokens for both
             # know_loss and token_loss
             know_loss /= num_tokens
-            
+
             self.knowledge_alpha = 0.1
             self.knowledge_beta = 0.1
             loss = (
