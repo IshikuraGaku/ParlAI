@@ -117,6 +117,8 @@ class EndToEndAgent(_GenericWizardAgent):
     def compute_loss(self, batch, return_output=False):
         # first compute our regular forced decoding loss
         token_loss, model_output = super().compute_loss(batch, return_output=True)
+        out_loss = self.model.encoder.output_choose_knowledge(model_output[1])
+        
         notnull = batch.label_vec.ne(self.NULL_IDX)
         num_tokens = notnull.long().sum().item()
 
@@ -132,6 +134,7 @@ class EndToEndAgent(_GenericWizardAgent):
             self.metrics['know_chance'] += know_chance
             self.metrics['bsz'] += batch.text_vec.size(0)
             self.metrics['know_acc'] += know_acc
+            self.metrics['out_loss'] += out_loss * batch.text_vec.size(0)
             know_loss = th.nn.functional.cross_entropy(
                 ctx_know_attn,
                 batch.cs_ids,
@@ -141,8 +144,12 @@ class EndToEndAgent(_GenericWizardAgent):
             # in the original paper the loss was scaled by num_tokens for both
             # know_loss and token_loss
             know_loss /= num_tokens
+
+            self.knowledge_alpha = 0.1
+            self.knowledge_beta = 0.1
             loss = (
-                (1 - self.knowledge_alpha) * token_loss +
+                (1 - self.knowledge_alpha - self.knowledge_beta) * token_loss + 
+                self.knowledge_beta * out_loss +
                 self.knowledge_alpha * know_loss
             )
         if return_output:
@@ -156,11 +163,12 @@ class EndToEndAgent(_GenericWizardAgent):
         self.metrics['know_acc'] = 0.0
         self.metrics['know_loss'] = 0.0
         self.metrics['know_chance'] = 0.0
+        self.metrics["out_loss"] = 0.0
 
     def report(self):
         r = super().report()
         bsz = max(self.metrics['bsz'], 1)
-        for k in ['know_loss', 'know_acc', 'know_chance']:
+        for k in ['know_loss', 'know_acc', 'know_chance', "out_loss"]:
             # round and average across all items since last report
             r[k] = round_sigfigs(self.metrics[k] / bsz, 4)
         return r
