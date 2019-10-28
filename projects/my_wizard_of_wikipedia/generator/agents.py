@@ -98,6 +98,7 @@ class EndToEndAgent(_GenericWizardAgent):
     def __init__(self, opt, shared=None):
         super().__init__(opt, shared)
         self._vectorize_text = lru_cache(int(2 ** 20))(self._vectorize_text)
+        self.outloss = False
 
         # knowledge truncate defaults to the same as --truncate
         self.knowledge_truncate = opt.get('knowledge_truncate')
@@ -145,14 +146,19 @@ class EndToEndAgent(_GenericWizardAgent):
             # know_loss and token_loss
             know_loss /= num_tokens
 
-            self.knowledge_alpha = self.knowledge_alpha / 2
-            self.knowledge_beta = self.knowledge_alpha
-            
-            loss = (
-                (1 - self.knowledge_alpha - self.knowledge_beta) * token_loss + 
-                self.knowledge_beta * out_loss +
-                self.knowledge_alpha * know_loss
-            )
+            if self.outloss:
+                self.knowledge_alpha = self.knowledge_alpha / 2
+                self.knowledge_beta = self.knowledge_alpha
+                loss = (
+                    (1 - self.knowledge_alpha - self.knowledge_beta) * token_loss + 
+                    self.knowledge_beta * out_loss +
+                    self.knowledge_alpha * know_loss
+                )
+            else:
+                loss = (
+                    (1 - self.knowledge_alpha) * token_loss + 
+                    self.knowledge_alpha * know_loss
+                    )
         if return_output:
             return (loss, model_output)
         else:
