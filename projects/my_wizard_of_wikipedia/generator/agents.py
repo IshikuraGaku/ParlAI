@@ -147,7 +147,7 @@ class EndToEndAgent(_GenericWizardAgent):
                 reduction='mean',
             )
             self.metrics['know_loss'] += know_loss.item() * batch.text_vec.size(0)            
-            self.metrics['out_loss'] += out_loss.item * batch.text_vec.size(0)
+            self.metrics['out_loss'] += out_loss.item() * batch.text_vec.size(0)
             # in the original paper the loss was scaled by num_tokens for both
             # know_loss and token_loss
             know_loss /= num_tokens
