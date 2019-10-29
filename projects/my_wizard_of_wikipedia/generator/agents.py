@@ -119,6 +119,7 @@ class EndToEndAgent(_GenericWizardAgent):
         # first compute our regular forced decoding loss
         token_loss, model_output = super().compute_loss(batch, return_output=True)
         out_loss = self.model.encoder.output_choose_knowledge(model_output[1])
+
         
         notnull = batch.label_vec.ne(self.NULL_IDX)
         num_tokens = notnull.long().sum().item()
@@ -146,7 +147,6 @@ class EndToEndAgent(_GenericWizardAgent):
             # know_loss and token_loss
             know_loss /= num_tokens
 
-            """
             if self.use_outloss:
                 self.knowledge_alpha = self.knowledge_alpha / 2
                 self.knowledge_beta = self.knowledge_alpha
@@ -156,15 +156,8 @@ class EndToEndAgent(_GenericWizardAgent):
                     self.knowledge_alpha * know_loss
                 )
             else:
-                loss = (
-                    (1 - self.knowledge_alpha) * token_loss + 
-                    self.knowledge_alpha * know_loss
-                    )
-            """
-            loss = (
-                (1 - self.knowledge_alpha) * token_loss + 
+                loss = (1 - self.knowledge_alpha) * token_loss + 
                 self.knowledge_alpha * know_loss
-                )
 
         if return_output:
             return (loss, model_output)
