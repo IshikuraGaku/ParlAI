@@ -187,7 +187,7 @@ class ContextKnowledgeEncoder(nn.Module):
         self.use_cs_ids = None
         # also return the knowledge selection mask for the loss
         """
-        return loss
+        return softmax_cs_weight
 
 class ContextKnowledgeDecoder(nn.Module):
     def __init__(self, transformer):
