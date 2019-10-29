@@ -124,7 +124,7 @@ class EndToEndAgent(_GenericWizardAgent):
         
         token_loss, model_output = super().compute_loss(batch, return_output=True)
         #インスタンス化が必要
-        out_loss = self.model.encoder.output_choose_knowledge(model_output[1])
+        ctx_out_attn = self.model.encoder.output_choose_knowledge(model_output[1])
         #token_lossはtensorで値は１つ
         #model_outputはタプル長さは3，Bではない？
         #model_output[0]は(B,T,単語数) scores?
@@ -147,30 +147,30 @@ class EndToEndAgent(_GenericWizardAgent):
             self.metrics['know_chance'] += know_chance
             self.metrics['bsz'] += batch.text_vec.size(0)
             self.metrics['know_acc'] += know_acc
-            self.metrics['out_loss'] += out_loss * batch.text_vec.size(0)
+
             know_loss = th.nn.functional.cross_entropy(
                 ctx_know_attn,
                 batch.cs_ids,
                 reduction='mean',
             )
+            out_loss = th.nn.functional.cross_entropy(
+                ctx_out_attn,
+                batch.cs_ids,
+                reduction='mean',
+            )
             self.metrics['know_loss'] += know_loss.item() * batch.text_vec.size(0)
+            self.metrics['out_loss'] += out_loss.item() * batch.text_vec.size(0)
             # in the original paper the loss was scaled by num_tokens for both
             # know_loss and token_loss
             know_loss /= num_tokens
+            out_loss /= num_tokens
 
             if self.use_outloss:
                 self.knowledge_alpha = self.knowledge_alpha / 2
                 self.knowledge_beta = self.knowledge_alpha
-                loss = (
-                    (1 - self.knowledge_alpha - self.knowledge_beta) * token_loss + 
-                    self.knowledge_beta * out_loss +
-                    self.knowledge_alpha * know_loss
-                )
+                loss = (1 - self.knowledge_alpha - self.knowledge_beta) * token_loss + self.knowledge_beta * out_loss + self.knowledge_alpha * know_loss
             else:
-                loss = (
-                    (1 - self.knowledge_alpha) * token_loss + 
-                    self.knowledge_alpha * know_loss
-                    )
+                loss = (1 - self.knowledge_alpha) * token_loss + self.knowledge_alpha * know_loss
             #todo
 
         if return_output:
