@@ -168,6 +168,7 @@ class ContextKnowledgeEncoder(nn.Module):
         # We need to compute the offsets of the chosen_sentences
         cs_encoded = None
         softmax_cs_weight = th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1)
+        """
         #cs_idは0 softmax_cs_weightは(B,knowledge)
         true_ids_weight = th.zeros(softmax_cs_weight.shape, device=softmax_cs_weight.device, dtype=softmax_cs_weight.dtype)
         for temp in true_ids_weight:
@@ -185,6 +186,7 @@ class ContextKnowledgeEncoder(nn.Module):
         self.cs_ids = None
         self.use_cs_ids = None
         # also return the knowledge selection mask for the loss
+        """
         return loss
 
 class ContextKnowledgeDecoder(nn.Module):
