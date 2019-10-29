@@ -146,6 +146,7 @@ class EndToEndAgent(_GenericWizardAgent):
             # know_loss and token_loss
             know_loss /= num_tokens
 
+            """
             if self.use_outloss:
                 self.knowledge_alpha = self.knowledge_alpha / 2
                 self.knowledge_beta = self.knowledge_alpha
@@ -159,6 +160,15 @@ class EndToEndAgent(_GenericWizardAgent):
                     (1 - self.knowledge_alpha) * token_loss + 
                     self.knowledge_alpha * know_loss
                     )
+            """
+            self.knowledge_alpha = self.knowledge_alpha / 2
+            self.knowledge_beta = self.knowledge_alpha
+            loss = (
+                (1 - self.knowledge_alpha - self.knowledge_beta) * token_loss + 
+                self.knowledge_beta * out_loss +
+                self.knowledge_alpha * know_loss
+            )
+
         if return_output:
             return (loss, model_output)
         else:
