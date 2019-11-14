@@ -1,22 +1,25 @@
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-[EndToEnd]: I love gardening , I love gardening , it is considered by many people to be a relaxing activity .
-[wizard_of_wikipedia]: That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-[EndToEnd]: I ' m not sure but I live in the US . I ' ve been doing it for a long time .
-[wizard_of_wikipedia]: Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-[EndToEnd]: I ' ve never been to a farm , but I ' m not sure about gardening , but I ' m not sure if you ' re doing it .
-[wizard_of_wikipedia]: Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
-[EndToEnd]: They are very smart ! I ' m not sure , but they are very intelligent .
+[wizard_of_wikipedia]: Green
+My favortie color is green because it makes my eyes pop.
+[EndToEnd]: I love the color blue . It ' s a great song .
+[wizard_of_wikipedia]: I used to use blue and yellow paint to make green, so that makes sense
+[EndToEnd]: I think it ' s a lot of creatures that are adapted to their environments .
+[wizard_of_wikipedia]: Thats pretty cool, like a chameleon?
+[EndToEnd]: It was used in the Middle Ages , the color of merchants and bankers .
+[wizard_of_wikipedia]: I never knew that.  Is that why money is green?
+[EndToEnd]: It ' s a color of Ireland and Gaelic culture .
 - - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-[EndToEnd]: I ' m not sure about that . Robert Ross was an American painter , art instructor , art instructor , art instructor , art instructor , art instructor , and television host .
-[wizard_of_wikipedia]: thats cool what else?
-[EndToEnd]: He was the creator and host of " The Joy of Painting " , an instructional television program that aired from 1983 to 1994 on PBS in the US
-[wizard_of_wikipedia]: yes I like to watch that some times
-[EndToEnd]: He was the creator and host of " The Joy of Painting " , an instructional television program that aired from 1983 to 1994 on PBS in the US
-[wizard_of_wikipedia]: it ran for a long time
-[EndToEnd]: He went from being a public - television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century .
+[wizard_of_wikipedia]: Gone with the Wind (film)
+Have you seen the film Gone with the Wind?
+[EndToEnd]: Yes , I have seen it . It was a great movie .
+[wizard_of_wikipedia]: I have not seen it. I have heard it has some Confederate bias. Is that true? I have relatives that fought for the Confederacy so it likely will not bother me.
+[EndToEnd]: It was based on the British war of the American war of the American Civil War .
+[wizard_of_wikipedia]: What kind of personality does Scarlett O'Hara have?
+[EndToEnd]: Yes , it was based on the British war of the American war of the American Civil War .
+[wizard_of_wikipedia]: I imagine she changes throughout the film. Would you say it is for the better or for the worse?
+[EndToEnd]: Yes , it ' s a great idea . It ' s a romantic relationship that is a romantic relationship .
 - - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Stamp collecting
-[EndToEnd]: Stamp collecting is the collecting of postage stamps and related objects .
+[wizard_of_wikipedia]: Dog
+I have a dog named Barney
+[EndToEnd]: I have a dog named the genus " Canis " . " is a member of the genus "
+[wizard_of_wikipedia]: What's it favorite food?
+[EndToEnd]: Dogs are closely related to the wolf

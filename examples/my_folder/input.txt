@@ -1,159 +1,155 @@
-[chosen_topic]: Gardening
-[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of horticulture.
-Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use.
-Gardening Gardening is considered by many people to be a relaxing activity.
-Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
-Gardening Gardening may be very specialized, with only one type of plant grown, ...
-there had been several other notable gardening magazines in circulation, including the "Gardeners' Chronicle" and "Gardens Illustrated", but these were tailored more for the professional gardener.
+[chosen_topic]: Green
+[knowledge]: Green Green is the color between blue and yellow on the visible spectrum.
+Green It is evoked by light which has a dominant wavelength of roughly 495570 nm.
+Green In subtractive color systems, used in painting and color printing, it is created by a combination of yellow and blue, or yellow and cyan; in the RGB color model, used on television and computer screens, it is one of the additive primary colors, along with red and blue, which are mixed in different combinations to create all other colors.
+Green By far the largest contributor to green in nature is chlorophyll, the chemical by which plants photosynthesize and convert sunlight into chemical energy.
+Green Many creatures have adapted to their green environments by taking on a green hue themselves as camouflage.
+Green Several minerals ...
+Truffles lost the vote, he still cameos in some episodes.
+List of Happy Tree Friends characters Cuddles is a laser yellow male rabbit with pink cheeks, or a blush along with pink bunny slippers.
 
-[title]: Gardening
-[checked_sentence]: Gardening is considered by many people to be a relaxing activity.
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-[label_candidates: OK what's the history?|Right, thats cool. I had no idea they still did the DVD thing, What is Netflix's highest rated show? do you know? |I will definitely check his first album out as he sounds interesting.|I don't know a whole lot about it. I was raised Catholic but don't practice anything now.|Well , this was a good conversation. |...and 95 more]
-[eval_labels: I live on a farm, we garden all year long, it is very relaxing.]
-   [EndToEnd]: I love gardening , I love gardening , it is considered by many people to be a relaxing activity .
+[title]: Green
+[checked_sentence]: Green is the color between blue and yellow on the visible spectrum.
+[wizard_of_wikipedia]: Green
+My favortie color is green because it makes my eyes pop.
+[eval_labels: Green is the color between blue and yellow on the spectrum. It's so pretty.]
+[label_candidates: No, I do not hunt. It is not for me. I am an animal lover and could not do that. Do you hunt?|from what I understand, Cardigans have buttons, to distinguish from others|Yes I remember them. Do you know their band line up?|Did it? That's really cool!|My other one is purple, red doesn't look good with my skin tone. Red used to be the color of nobility though!|...and 95 more]
+   [EndToEnd]: I love the color blue . It ' s a great song .
 ~~
-[chosen_topic]: Gardening
-[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of horticulture.
-Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use.
-Gardening Gardening is considered by many people to be a relaxing activity.
-Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
-Gardening Gardening may be very specialized, with only one type of plant grown, ...
-of viral self-promotion (such as phoning record companies pretending to be other bands who'd heard an interesting band called Karma To Burn), Karma To Burn was signed to Roadrunner Records in 1996.
+[chosen_topic]: Green
+[knowledge]: Green Green is the color between blue and yellow on the visible spectrum.
+Green It is evoked by light which has a dominant wavelength of roughly 495570 nm.
+Green In subtractive color systems, used in painting and color printing, it is created by a combination of yellow and blue, or yellow and cyan; in the RGB color model, used on television and computer screens, it is one of the additive primary colors, along with red and blue, which are mixed in different combinations to create all other colors.
+Green By far the largest contributor to green in nature is chlorophyll, the chemical by which plants photosynthesize and convert sunlight into chemical energy.
+Green Many creatures have adapted to their green environments by taking on a green hue themselves as camouflage.
+Green Several minerals ...
+basis for Schopenhauer's color theory comes from Goethe's chapter on physiological colors, which discusses three principal pairs of contrasting colors: red/green, orange/blue, and yellow/violet.
 
-[title]: Gardening
-[checked_sentence]: Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
-[wizard_of_wikipedia]: That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-[label_candidates: No he wasnt but he was with daniel day lewis in Gnags of New York but it was titanic 1997 whne he gained public recognition|The laws do seem to vary around the world but most countries do require the sanction of the courts to help resolve a lot of the issues that come up.|I like to grow useful plants, like leafy greens, herbs, and tomatoes. It's rewarding! |yea telenovela are very popular in latin america|Never been to Italy, but the Basque Country is nice, my mother is actually from Mallorca|...and 95 more]
-[eval_labels: I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic, and potatoes mostly.]
-   [EndToEnd]: I ' m not sure but I live in the US . I ' ve been doing it for a long time .
+[title]: Green
+[checked_sentence]: Many creatures have adapted to their green environments by taking on a green hue themselves as camouflage.
+[wizard_of_wikipedia]: I used to use blue and yellow paint to make green, so that makes sense
+[eval_labels: Many creatures have adapted to green environments by turning green themselves.]
+[label_candidates: I'm not sure but it was founded by Dylan Lauren, daughter of fashion designer Ralph Lauren.|i have never heard of Luca Pacioli, so he came up with accounting?|Do you like American football?|Yes and the species I am hunting is called prey or game and is often mammals or birds|it is incredible that such a huge tv organization like ESP would promote ir|...and 95 more]
+   [EndToEnd]: I think it ' s a lot of creatures that are adapted to their environments .
 ~~
-[chosen_topic]: Gardening
-[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of horticulture.
-Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use.
-Gardening Gardening is considered by many people to be a relaxing activity.
-Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
-Gardening Gardening may be very specialized, with only one type of plant grown, ...
-and American influences, in line with the major waves of influence that had enriched the cultures of the archipelago, as well as others adapted to indigenous ingredients and the local palate.
+[chosen_topic]: Green
+[knowledge]: Green Green is the color between blue and yellow on the visible spectrum.
+Green It is evoked by light which has a dominant wavelength of roughly 495570 nm.
+Green In subtractive color systems, used in painting and color printing, it is created by a combination of yellow and blue, or yellow and cyan; in the RGB color model, used on television and computer screens, it is one of the additive primary colors, along with red and blue, which are mixed in different combinations to create all other colors.
+Green By far the largest contributor to green in nature is chlorophyll, the chemical by which plants photosynthesize and convert sunlight into chemical energy.
+Green Many creatures have adapted to their green environments by taking on a green hue themselves as camouflage.
+Green Several minerals ...
+in Primeval In 2007 Character Options announced they would create "Primeval" action figures, including both a flying Rex and a large plush toy Rex, Future Predators, "Hesperornis" and dodos.
 
-[title]: Gardening
-[checked_sentence]: Forest gardening, a forest-based food production system, is the world's oldest form of gardening.
-[wizard_of_wikipedia]: Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-[label_candidates: Well, they're not very big, but they are very tasty!|Oh, it is nice to hear. Very glad to know about iceland.|I loved Accords! I liked the sixth generation Accord, especially the two door coupe|Consistent employment is very important. I miss my old job.|Well he used a lot of drugs and was involved romantically with a lot of women, but that comes with the rock star lifestyle.|...and 95 more]
-[eval_labels: yes i do. Cows, chickens, Micro pigs, Guinneas, We also do forest growing also. we plants large pine trees.]
-   [EndToEnd]: I ' ve never been to a farm , but I ' m not sure about gardening , but I ' m not sure if you ' re doing it .
+[title]: Green
+[checked_sentence]: In the Middle Ages and Renaissance, green was the color commonly associated with merchants, bankers and the gentry, while red was reserved for the nobility.
+[wizard_of_wikipedia]: Thats pretty cool, like a chameleon?
+[eval_labels: Exactly. In the Middle Ages green was the color associated with merchants and bankers.]
+[label_candidates: I was not aware Facebook now owns instagram|Blue, red, and orange are definitely there. Apparently green can be made by a combination of yellow and blue|Neat! I have always heard good things about Apple and Tesla. Amazon would have been great to get into 10 years ago!|I live in a frequently-cold climate, so I am experienced with the cold.  Are you?|Yes I love him!  JK Rowling did a great job writing the books|...and 95 more]
+   [EndToEnd]: It was used in the Middle Ages , the color of merchants and bankers .
 ~~
-[chosen_topic]: Gardening
-[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of horticulture.
-Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use.
-Gardening Gardening is considered by many people to be a relaxing activity.
-Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
-Gardening Gardening may be very specialized, with only one type of plant grown, ...
-is a popular topic in ecology because of its problematic growth and spread in South Africa for the past 150 years after being imported into the region at the end of the 17th century (1685-1693).
+[chosen_topic]: Green
+[knowledge]: Green Green is the color between blue and yellow on the visible spectrum.
+Green It is evoked by light which has a dominant wavelength of roughly 495570 nm.
+Green In subtractive color systems, used in painting and color printing, it is created by a combination of yellow and blue, or yellow and cyan; in the RGB color model, used on television and computer screens, it is one of the additive primary colors, along with red and blue, which are mixed in different combinations to create all other colors.
+Green By far the largest contributor to green in nature is chlorophyll, the chemical by which plants photosynthesize and convert sunlight into chemical energy.
+Green Many creatures have adapted to their green environments by taking on a green hue themselves as camouflage.
+Green Several minerals ...
+many of the world's nations, is celebrated religiously by a majority of Christians, as well as culturally by many non-Christians, and forms an integral part of the holiday season centered around it.
 
-[title]: Gardening
-[checked_sentence]: In the gradual process of families improving their immediate environment, useful tree and vine species were identified, protected and improved while undesirable species were eliminated.
-[wizard_of_wikipedia]: Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
-[label_candidates: It surely seems like it, not to mention all the bad effects, such as getting in risky situations like drinking and driving or unsafe physical encounters|I bet that is beautiful. What type of architecture was your koi pond built|Ok when was it founded?|I think that you get to see quite a bit of rugged countryside that way.|the only thing i kind of dislike about equestrian is the waiting time on the horse rider change|...and 95 more]
-[eval_labels: yes they are. they are extremely smart. most people buy them for inside pets. you can train the to use a litter box just like a cat. When families started using vines and trees to build their houses out of there was several species of trees and vines that were eliminated by them.]
-   [EndToEnd]: They are very smart ! I ' m not sure , but they are very intelligent .
+[title]: Green
+[checked_sentence]: It also has a long historical tradition as the color of Ireland and of Gaelic culture.
+[wizard_of_wikipedia]: I never knew that.  Is that why money is green?
+[eval_labels: It definitely contributed to money being green. There is also a long tradition of green being the color of Ireland.]
+[label_candidates: YEah, in other words, when Nirvana was formed ?|I was just trying to imagine what the first skier must have looked like. The first picture of a skier with two poles was back in 1741.|Dylan's Candy Bar was actually founded by Dylan Lauren, the daughter of designer Ralph Lauren.|That's so interesting! The fact that his style was so new and unique must be why he became the legend he was.|I see, I'll check it out sometime|...and 95 more]
+   [EndToEnd]: It ' s a color of Ireland and Gaelic culture .
 - - - - - - - - - - - - - - - - - - - - -
 ~~
-[chosen_topic]: Bob Ross
-[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
-Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
-Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress, respectively), and raised in Orlando, Florida.
-Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including an armadillo, snake, and ...
-Association.
-Edgar Ross (communist) He was sporting editor for the Geelong-based "Industrial Advocate" and wrote book reviews for the "Socialist", both of which were edited by his father.
+[chosen_topic]: Gone with the Wind (film)
+[knowledge]: Gone with the Wind (film) Gone with the Wind is a 1939 American epic historical romance film, adapted from Margaret Mitchell's 1936 novel of the same name.
+Gone with the Wind (film) The film was produced by David O. Selznick of Selznick International Pictures and directed by Victor Fleming.
+Gone with the Wind (film) Set in the American South against the backdrop of the American Civil War and the Reconstruction era, the film tells the story of Scarlett O'Hara, the strong-willed daughter of a Georgia plantation owner, from her romantic pursuit of Ashley Wilkes, who is married to his cousin, Melanie Hamilton, to her marriage to Rhett Butler.
+Gone with the Wind (film) The leading roles are played by Vivien Leigh (Scarlett), Clark Gable (Rhett), Leslie Howard (Ashley), and Olivia de Havilland ...
+"The Manning River Times".
+Danilo Jovanovitch He won a poetry competition in 1981.
+Danilo Jovanovitch He is considered by fans of his work as the "living Henry Lawson", Australia's most famous poet.
 
-[title]: Bob Ross
-[checked_sentence]: Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-[label_candidates: Oh!  I didn't know that is what a building superintendent did!  Do you have to have a college degree for that position?|I feel like Tool was never the same after they replaced their original bassist Paul D'Amour with Justin Chancellor in 1995.|He grew up in Queens but then went to Pennsylvania to get an economics degree from Wharton, so he's at least well educated. |yeah, and eating meat is unsafe! it'll go bad and rot in just hours and you can get infections from it|No but I have always wanted to visit. Can you tell me more about Canada?|...and 95 more]
-[eval_labels: Ross was an American painter and television host]
-   [EndToEnd]: I ' m not sure about that . Robert Ross was an American painter , art instructor , art instructor , art instructor , art instructor , art instructor , and television host .
+[title]: Gone with the Wind (film)
+[checked_sentence]: Gone with the Wind is a 1939 American epic historical romance film, adapted from Margaret Mitchell's 1936 novel of the same name.
+[wizard_of_wikipedia]: Gone with the Wind (film)
+Have you seen the film Gone with the Wind?
+[eval_labels: I have but it has been many years. It's a classic, epic historical romance from 1939!]
+   [EndToEnd]: Yes , I have seen it . It was a great movie .
 ~~
-[chosen_topic]: Bob Ross
-[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
-Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
-Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress, respectively), and raised in Orlando, Florida.
-Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including an armadillo, snake, and ...
-(painter) Bill Alexander was born in East Prussia, but his family fled to Berlin during World War I. Apprenticed as a carriage maker, Alexander was drafted into the Wehrmacht during World War II.
+[chosen_topic]: Gone with the Wind (film)
+[knowledge]: Gone with the Wind (film) Gone with the Wind is a 1939 American epic historical romance film, adapted from Margaret Mitchell's 1936 novel of the same name.
+Gone with the Wind (film) The film was produced by David O. Selznick of Selznick International Pictures and directed by Victor Fleming.
+Gone with the Wind (film) Set in the American South against the backdrop of the American Civil War and the Reconstruction era, the film tells the story of Scarlett O'Hara, the strong-willed daughter of a Georgia plantation owner, from her romantic pursuit of Ashley Wilkes, who is married to his cousin, Melanie Hamilton, to her marriage to Rhett Butler.
+Gone with the Wind (film) The leading roles are played by Vivien Leigh (Scarlett), Clark Gable (Rhett), Leslie Howard (Ashley), and Olivia de Havilland ...
+I (1700-1740 AD) and his second wife Mastani.
+Bajirao Mastani Conceived as early as the 1990s, Bhansali announced the film in 2003 but production was delayed several times due to its changing cast.
 
-[title]: Bob Ross
-[checked_sentence]: He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-[wizard_of_wikipedia]: thats cool what else?
-[label_candidates: Surprisingly it didn't reach the top spot on the TV season ratings until the 8th season.|It was in 2007 that Netflix started putting out streaming media, but they kept the DVD and Blu-ray rental system.|I didn't realize it was so popular - it has 54 million users that are registered as members!|Yes -- all dairy products make you have gas or indigestion; however, there are things you can do about it.|I have a tattoo.  Do you?  There is a difference between an arm tattoo and a full sleeve.|...and 95 more]
-[eval_labels: He created the show "The Joy of Painting"]
-   [EndToEnd]: He was the creator and host of " The Joy of Painting " , an instructional television program that aired from 1983 to 1994 on PBS in the US
+[title]: Gone with the Wind (film)
+[checked_sentence]: Set in the American South against the backdrop of the American Civil War and the Reconstruction era, the film tells the story of Scarlett O'Hara, the strong-willed daughter of a Georgia plantation owner, from her romantic pursuit of Ashley Wilkes, who is married to his cousin, Melanie Hamilton, to her marriage to Rhett Butler.
+[wizard_of_wikipedia]: I have not seen it. I have heard it has some Confederate bias. Is that true? I have relatives that fought for the Confederacy so it likely will not bother me.
+[eval_labels: I am not really sure about bias exactly. It was set in the American South during the Civil War. Scarlett O'Hara is the main character, the daughter of a plantation owner.]
+   [EndToEnd]: It was based on the British war of the American war of the American Civil War .
 ~~
-[chosen_topic]: Bob Ross
-[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
-Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
-Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress, respectively), and raised in Orlando, Florida.
-Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including an armadillo, snake, and ...
-and, eventually, vice versa.
-Western painting Initially serving imperial, private, civic, and religious patronage, Western painting later found audiences in the aristocracy and the middle class.
+[chosen_topic]: Gone with the Wind (film)
+[knowledge]: Gone with the Wind (film) Gone with the Wind is a 1939 American epic historical romance film, adapted from Margaret Mitchell's 1936 novel of the same name.
+Gone with the Wind (film) The film was produced by David O. Selznick of Selznick International Pictures and directed by Victor Fleming.
+Gone with the Wind (film) Set in the American South against the backdrop of the American Civil War and the Reconstruction era, the film tells the story of Scarlett O'Hara, the strong-willed daughter of a Georgia plantation owner, from her romantic pursuit of Ashley Wilkes, who is married to his cousin, Melanie Hamilton, to her marriage to Rhett Butler.
+Gone with the Wind (film) The leading roles are played by Vivien Leigh (Scarlett), Clark Gable (Rhett), Leslie Howard (Ashley), and Olivia de Havilland ...
+but which quickly gravitated around the breakout character "Blueberry" as the main and central character after the first two stories, causing the series to continue under his name later on.
 
-[title]: Bob Ross
-[checked_sentence]: He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-[wizard_of_wikipedia]: yes I like to watch that some times
-[label_candidates:  It has 21 stages and is held over three weeks. That’s a long time! |Ive never been to Algeria, But I find it cool how The capital and most populous city is Algiers which is located in the far north part of the country.|Well its good to bulk to gain maximum gains possible when working out|It's dangerous for other people. You might be safe wearing a helmet and pads, but what about the person you run into on the sidewalk?|pretty good? They are amazing, tell me why you think they are so bad.|...and 95 more]
-[eval_labels: The show aired from 1983 to 1994 on PBS.]
-   [EndToEnd]: He was the creator and host of " The Joy of Painting " , an instructional television program that aired from 1983 to 1994 on PBS in the US
+[title]: Gone with the Wind (film)
+[checked_sentence]: Set in the American South against the backdrop of the American Civil War and the Reconstruction era, the film tells the story of Scarlett O'Hara, the strong-willed daughter of a Georgia plantation owner, from her romantic pursuit of Ashley Wilkes, who is married to his cousin, Melanie Hamilton, to her marriage to Rhett Butler.
+[wizard_of_wikipedia]: What kind of personality does Scarlett O'Hara have?
+[eval_labels: Scarlett is very strong-willed and spoiled, at least at the beginning. ]
+   [EndToEnd]: Yes , it was based on the British war of the American war of the American Civil War .
 ~~
-[chosen_topic]: Bob Ross
-[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
-Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
-Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress, respectively), and raised in Orlando, Florida.
-Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including an armadillo, snake, and ...
-held July 15 to August 31, 2011 in Chicago, New York, San Francisco, Los Angeles, Houston, Atlanta, Nashville, and Orlando.
-The Voice (U.S. season 2) All four coaches return for their second season.
+[chosen_topic]: Gone with the Wind (film)
+[knowledge]: Gone with the Wind (film) Gone with the Wind is a 1939 American epic historical romance film, adapted from Margaret Mitchell's 1936 novel of the same name.
+Gone with the Wind (film) The film was produced by David O. Selznick of Selznick International Pictures and directed by Victor Fleming.
+Gone with the Wind (film) Set in the American South against the backdrop of the American Civil War and the Reconstruction era, the film tells the story of Scarlett O'Hara, the strong-willed daughter of a Georgia plantation owner, from her romantic pursuit of Ashley Wilkes, who is married to his cousin, Melanie Hamilton, to her marriage to Rhett Butler.
+Gone with the Wind (film) The leading roles are played by Vivien Leigh (Scarlett), Clark Gable (Rhett), Leslie Howard (Ashley), and Olivia de Havilland ...
+have gained a reputation for producing a fair number of intellectuals and several noted lawyers.
+Melanie Hamilton For several generations they have intermarried with the like-minded Wilkes family.
 
-[title]: Bob Ross
-[checked_sentence]: Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
-[wizard_of_wikipedia]: it ran for a long time
-[label_candidates: Hi, how are you? Something interesting about me is my father is a preacher.|Do you know you score points at it.?|It is pretty. Violet is pretty as well but Purple just seems more rich to me.|And that must have been waaaaay back. Aren't dogs basically descended from wolves?|Hi there. Do you know anything about Philip Larkin?|...and 95 more]
-[eval_labels: He is very popular on YouTube even into this century]
-   [EndToEnd]: He went from being a public - television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century .
+[title]: Gone with the Wind (novel)
+[checked_sentence]: It depicts the struggles of young Scarlett O'Hara, the spoiled daughter of a well-to-do plantation owner, who must use every means at her disposal to claw her way out of poverty following Sherman's destructive "March to the Sea".
+[wizard_of_wikipedia]: I imagine she changes throughout the film. Would you say it is for the better or for the worse?
+[eval_labels: She changes for the better, for sure. She has to claw her way out of poverty during and after the Civil War, after being a super spoiled girl. ]
+   [EndToEnd]: Yes , it ' s a great idea . It ' s a romantic relationship that is a romantic relationship .
 - - - - - - - - - - - - - - - - - - - - -
 ~~
-[chosen_topic]: Stamp collecting
-[knowledge]: Stamp collecting Stamp collecting is the collecting of postage stamps and related objects.
-Stamp collecting It is related to philately which is the study of stamps.
-Stamp collecting It has been one of the world's most popular hobbies since the late nineteenth century with the rapid growth of the postal service.
-Stamp collecting Stamp collecting proved to be an almost perfect hobby for collectors because there was a never ending stream of new stamps as each country sought to advertise its distinctiveness through its stamps.
-Stamp collecting Stamp collecting is generally accepted as one of the areas that make up the wider subject of philately, which is the study of stamps.
-Stamp collecting A philatelist may, but does not have to, collect stamps.
-Stamp collecting It is not uncommon for the ...
-stamps are often collected for their historical value and geographical aspects and also for the many subjects depicted on them, ranging from ships, horses, and birds to kings, queens and presidents.
+[chosen_topic]: Dog
+[knowledge]: Dog The domestic dog ("Canis lupus familiaris" or "Canis familiaris") is a member of the genus "Canis" (canines), which forms part of the wolf-like canids, and is the most widely abundant terrestrial carnivore.
+Dog The dog and the extant gray wolf are sister taxa as modern wolves are not closely related to the wolves that were first domesticated, which implies that the direct ancestor of the dog is extinct.
+Dog The dog was the first species to be domesticated and has been selectively bred over millennia for various behaviors, sensory capabilities, and physical attributes.
+Dog Their long association with humans has led dogs to be uniquely attuned to human behavior and they are able to thrive on a starch-rich diet that would be inadequate for other canid species.
+Dog New research seems to ...
+there have been several dogs, cats, tortoises, and parrots, and horses Joe And Simon.
+Blue Peter pets The current animals on the show are Shelley the tortoise and Iggy the trainee guide dog puppy.
 
-[title]: Stamp collecting
-[checked_sentence]: Stamp collecting is the collecting of postage stamps and related objects.
-[wizard_of_wikipedia]: Stamp collecting
-[label_candidates: Well, specialized hospitals are available to potentially reduce healthcare costs.|Have you ever been to nashville tennesee? It is a nice place, my brother has been there|That's amazing! What else can you tell me about beer?|I love Starbucks coffee|I've been getting into the strokes as of late. Do you like them?|...and 95 more]
-[eval_labels: the hobby of stamp collecting involves collecting stamps and related objects]
-   [EndToEnd]: Stamp collecting is the collecting of postage stamps and related objects .
+[title]: Dog
+[checked_sentence]: The domestic dog ("Canis lupus familiaris" or "Canis familiaris") is a member of the genus "Canis" (canines), which forms part of the wolf-like canids, and is the most widely abundant terrestrial carnivore.
+[wizard_of_wikipedia]: Dog
+I have a dog named Barney
+[eval_labels: domestic dog ("Canis lupus familiaris" or "Canis familiaris") is a member of the genus "Canis" (canines)]
+   [EndToEnd]: I have a dog named the genus " Canis " . " is a member of the genus "
 ~~
-[chosen_topic]: Stamp collecting
-[knowledge]: Stamp collecting Stamp collecting is the collecting of postage stamps and related objects.
-Stamp collecting It is related to philately which is the study of stamps.
-Stamp collecting It has been one of the world's most popular hobbies since the late nineteenth century with the rapid growth of the postal service.
-Stamp collecting Stamp collecting proved to be an almost perfect hobby for collectors because there was a never ending stream of new stamps as each country sought to advertise its distinctiveness through its stamps.
-Stamp collecting Stamp collecting is generally accepted as one of the areas that make up the wider subject of philately, which is the study of stamps.
-Stamp collecting A philatelist may, but does not have to, collect stamps.
-Stamp collecting It is not uncommon for the ...
-Red Initially, some of the same plates that were used to print the Penny Black were used to print the Penny Red and about 21 billion Penny Reds were printed by Messrs. Perkins, Bacon & Co.
+[chosen_topic]: Dog
+[knowledge]: Dog The domestic dog ("Canis lupus familiaris" or "Canis familiaris") is a member of the genus "Canis" (canines), which forms part of the wolf-like canids, and is the most widely abundant terrestrial carnivore.
+Dog The dog and the extant gray wolf are sister taxa as modern wolves are not closely related to the wolves that were first domesticated, which implies that the direct ancestor of the dog is extinct.
+Dog The dog was the first species to be domesticated and has been selectively bred over millennia for various behaviors, sensory capabilities, and physical attributes.
+Dog Their long association with humans has led dogs to be uniquely attuned to human behavior and they are able to thrive on a starch-rich diet that would be inadequate for other canid species.
+Dog New research seems to ...
+golden jackal ("C. aureus"), Ethiopian wolf ("C. simensis"), black-backed jackal ("C. mesomelas"), side-striped jackal ("C. adustus"), dhole ("Cuon alpinus"), and African wild dog ("Lycaon pictus").
 
-[title]: Stamp collecting
-[checked_sentence]: It has been one of the world's most popular hobbies since the late nineteenth century with the rapid growth of the postal service.
-[wizard_of_wikipedia]: I have always wondered how this works... grabbing popcorn this will be good
-[label_candidates: THey sure our little theives they always hide stuff under the furniture.|So you are a gamer?|What fair do you go to? I love a corn dog deep fried with a thick layer of batter.|I think earl gray is the best in my opinion|I love to eat vegetarian|...and 95 more]
-[eva
+[title]: Dog
+[checked_sentence]: The dog and the extant gray wolf are sister taxa as modern wolves are not closely related to the wolves that were first domesticated, which implies that the direct ancestor of the dog is extinct.
+[wizard_of_wikipedia]: What's it favorite food?
+[eval_labels: Better bites! dog and the extant gray wolf are sister taxa as modern wolves are not closely related to the wolves that were first domesticated]
+   [EndToEnd]: Dogs are closely related to the wolf
+~~
