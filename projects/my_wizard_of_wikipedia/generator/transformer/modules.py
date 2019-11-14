@@ -483,10 +483,12 @@ class TransformerEncoder(nn.Module):
 
         tensor *= mask.unsqueeze(-1).type_as(tensor)
 
+        average = 0
+        variance = 0
         if(self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
             #return tensor, (remainders, n_updates)
-            
+
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
             self.num += len(n_update)
             self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
@@ -713,8 +715,8 @@ class TransformerDecoder(nn.Module):
 
         if (self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
-            #tensor, (remainders, n_updates)
-            
+
+            #tensor, (remainders, n_updates)            
             #print(n_update)decは全部（ほぼ）1
 
             #n_update = n_update.cpu().numpy()
@@ -732,7 +734,6 @@ class TransformerDecoder(nn.Module):
             print(average)
             print("dec variance")
             print(variance)
-
             return tensor, (remainders, n_updates)
             #return tensor, None
 
