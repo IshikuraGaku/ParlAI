@@ -483,20 +483,20 @@ class TransformerEncoder(nn.Module):
 
         tensor *= mask.unsqueeze(-1).type_as(tensor)
 
+        average = 0
+        variance = 0
         if(self.act):
-            tensor, _ = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
+            tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
             #return tensor, (remainders, n_updates)
-            #n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
-            #self.num += len(n_update)
-            #self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
-            #average = self.num_of_layer_list.sum() / self.num
-            #variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
-            """
-            print("enc 平均層数")
+            n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
+            self.num += len(n_update)
+            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
+            average = self.num_of_layer_list.sum() / self.num
+            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            print("enc ave")
             print(average)
-            print("enc 分散")
+            print("enc var")
             print(variance)
-            """
 
         else:
             ##ここでループここにPosとTimEmbedding
@@ -711,31 +711,30 @@ class TransformerDecoder(nn.Module):
 
 
         if (self.act):
-            tensor, _ = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+            tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+            
+            
             #tensor, (remainders, nupdates)
             #n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
             #print(n_update)decは全部（ほぼ）1
             
-            """
-            self.num += len(n_update)
-            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
-            """
+            self.num += len(n_updates)
+            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_updates))
             
             #n_update = n_update.cpu().numpy()
             #self.num += 1
             #self.num_of_layer_list = np.append(self.num_of_layer_list, n_update[-1])
 
-            #average = self.num_of_layer_list.mean()
-            #variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
-            """
-            print("dec 平均層数")
-            print(average)
-            print("dec 分散")
-            print(variance)
-            """
+            average = self.num_of_layer_list.mean()
+            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
 
-            #return tensor, (remainders, n_updates)
-            return tensor, None
+            print("dec ave")
+            print(average)
+            print("dec var")
+            print(variance)
+            
+            return tensor, (remainders, n_updates)
+            #return tensor, None
 
         else:
             for i in range(self.n_layers):
