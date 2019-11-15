@@ -440,7 +440,7 @@ class TransformerEncoder(nn.Module):
         self.output_scaling = output_scaling
 
         self.num = 0
-        self.num_of_layer_list = th.tensor([]).cuda()
+        self.num_of_layer_list = th.tensor([0,0,0,0,0,0]).cuda()
 
     def forward(self, input, positions=None, segments=None):
         """
@@ -497,10 +497,18 @@ class TransformerEncoder(nn.Module):
             """
             
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
-            average = (num * average + n_update.sum())
+            average = (self.num * average + n_update.sum())
             self.num += len(n_update)
             average /= self.num
-            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+            for i in range(self.n_layers):
+                self.num_of_layer_list[i] += th.sum((n_update == th.tensor([i+1]).cuda()).int())
+            variance = 0
+            for i in range(self.n_layers):
+                variance += ((i+1 - average) * (i+1 - average) * num_of_layer_list[i])
+            variance /= self.num
+            #variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
+
+
 
             print("enc average")
             print(average)
