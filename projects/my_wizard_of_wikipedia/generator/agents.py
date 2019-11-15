@@ -98,6 +98,7 @@ class EndToEndAgent(_GenericWizardAgent):
     def __init__(self, opt, shared=None):
         super().__init__(opt, shared)
         self._vectorize_text = lru_cache(int(2 ** 20))(self._vectorize_text)
+        self.use_outloss = True
 
         # knowledge truncate defaults to the same as --truncate
         self.knowledge_truncate = opt.get('knowledge_truncate')
@@ -117,6 +118,8 @@ class EndToEndAgent(_GenericWizardAgent):
     def compute_loss(self, batch, return_output=False):
         # first compute our regular forced decoding loss
         token_loss, model_output = super().compute_loss(batch, return_output=True)
+        ctx_out_attn = self.model.encoder.output_choose_knowledge(model_output[1])
+
         notnull = batch.label_vec.ne(self.NULL_IDX)
         num_tokens = notnull.long().sum().item()
 
@@ -132,19 +135,31 @@ class EndToEndAgent(_GenericWizardAgent):
             self.metrics['know_chance'] += know_chance
             self.metrics['bsz'] += batch.text_vec.size(0)
             self.metrics['know_acc'] += know_acc
+
             know_loss = th.nn.functional.cross_entropy(
                 ctx_know_attn,
                 batch.cs_ids,
                 reduction='mean',
             )
-            self.metrics['know_loss'] += know_loss.item() * batch.text_vec.size(0)
+            out_loss = th.nn.functional.cross_entropy(
+                ctx_out_attn,
+                batch.cs_ids,
+                reduction='mean',
+            )
+            self.metrics['know_loss'] += know_loss.item() * batch.text_vec.size(0)            
+            self.metrics['out_loss'] += out_loss.item() * batch.text_vec.size(0)
             # in the original paper the loss was scaled by num_tokens for both
             # know_loss and token_loss
             know_loss /= num_tokens
-            loss = (
-                (1 - self.knowledge_alpha) * token_loss +
-                self.knowledge_alpha * know_loss
-            )
+            out_loss /= num_tokens
+
+            if self.use_outloss:
+                self.knowledge_alpha = self.knowledge_alpha / 2
+                self.knowledge_beta = self.knowledge_alpha
+                loss = (1 - self.knowledge_alpha - self.knowledge_beta) * token_loss + self.knowledge_beta * out_loss + self.knowledge_alpha * know_loss
+            else:
+                loss = (1 - self.knowledge_alpha) * token_loss + self.knowledge_alpha * know_loss
+
         if return_output:
             return (loss, model_output)
         else:
@@ -156,11 +171,12 @@ class EndToEndAgent(_GenericWizardAgent):
         self.metrics['know_acc'] = 0.0
         self.metrics['know_loss'] = 0.0
         self.metrics['know_chance'] = 0.0
+        self.metrics["out_loss"] = 0.0
 
     def report(self):
         r = super().report()
         bsz = max(self.metrics['bsz'], 1)
-        for k in ['know_loss', 'know_acc', 'know_chance']:
+        for k in ['know_loss', 'know_acc', 'know_chance', "out_loss"]:
             # round and average across all items since last report
             r[k] = round_sigfigs(self.metrics[k] / bsz, 4)
         return r

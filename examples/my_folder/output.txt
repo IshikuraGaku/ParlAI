@@ -1,196 +1,52 @@
-[WizTeacher]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-
-=======
-[EndToEnd]: I love to go to a short time . It ' s a short time .
-[WizTeacher]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-I live on a farm, we garden all year long, it is very relaxing.
-That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-[EndToEnd]: I ' m not sure but I ' m not sure but I ' m not sure but I ' m not sure but I ' m not sure .
-[WizTeacher]: Gardening
->>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
-I like Gardening, even when I've only been doing it for a short time.
-I live on a farm, we garden all year long, it is very relaxing.
-That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic, and potatoes mostly.
-Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-
-=======
-[EndToEnd]: I have never been to a farm , but I ' ve never been to a lot of vegetables .
-[WizTeacher]: Gardening
->>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
-I like Gardening, even when I've only been doing it for a short time.
-I live on a farm, we garden all year long, it is very relaxing.
-That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic, and potatoes mostly.
-Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-yes i do. Cows, chickens, Micro pigs, Guinneas, We also do forest growing also. we plants large pine trees.
-Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
-=======
-[EndToEnd]: They are so cute ! I ' m not sure but I ' m not sure but I ' m not sure what I ' m not sure .
->>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
+<<<<<<< HEAD
+[wizard_of_wikipedia]: Green
+My favortie color is green because it makes my eyes pop.
+[EndToEnd]: I love the color blue . It ' s a great song .
+[wizard_of_wikipedia]: I used to use blue and yellow paint to make green, so that makes sense
+[EndToEnd]: I think it ' s a lot of creatures that are adapted to their environments .
+[wizard_of_wikipedia]: Thats pretty cool, like a chameleon?
+[EndToEnd]: It was used in the Middle Ages , the color of merchants and bankers .
+[wizard_of_wikipedia]: I never knew that.  Is that why money is green?
+[EndToEnd]: It ' s a color of Ireland and Gaelic culture .
 - - - - - - - - - - - - - - - - - - - - -
-[WizTeacher]: Bob Ross
-I would like to know more about bob ross
-
+[wizard_of_wikipedia]: Gone with the Wind (film)
+Have you seen the film Gone with the Wind?
+[EndToEnd]: Yes , I have seen it . It was a great movie .
+[wizard_of_wikipedia]: I have not seen it. I have heard it has some Confederate bias. Is that true? I have relatives that fought for the Confederacy so it likely will not bother me.
+[EndToEnd]: It was based on the British war of the American war of the American Civil War .
+[wizard_of_wikipedia]: What kind of personality does Scarlett O'Hara have?
+[EndToEnd]: Yes , it was based on the British war of the American war of the American Civil War .
+[wizard_of_wikipedia]: I imagine she changes throughout the film. Would you say it is for the better or for the worse?
+[EndToEnd]: Yes , it ' s a great idea . It ' s a romantic relationship that is a romantic relationship .
+- - - - - - - - - - - - - - - - - - - - -
+[wizard_of_wikipedia]: Dog
+I have a dog named Barney
+[EndToEnd]: I have a dog named the genus " Canis " . " is a member of the genus "
+[wizard_of_wikipedia]: What's it favorite food?
+[EndToEnd]: Dogs are closely related to the wolf
 =======
-[EndToEnd]: Yes , I know that it is a great idea about the time .
-[WizTeacher]: Bob Ross
-I would like to know more about bob ross
-Ross was an American painter and television host
-thats cool what else?
-[EndToEnd]: It is a great painter .
-[WizTeacher]: Bob Ross
->>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
-I would like to know more about bob ross
-Ross was an American painter and television host
-thats cool what else?
-He created the show "The Joy of Painting"
-yes I like to watch that some times
-
-=======
-[EndToEnd]: He was a great painter .
-[WizTeacher]: Bob Ross
->>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
-I would like to know more about bob ross
-Ross was an American painter and television host
-thats cool what else?
-He created the show "The Joy of Painting"
-yes I like to watch that some times
-The show aired from 1983 to 1994 on PBS.
-it ran for a long time
-
-=================================================================================================================
-
-Fasttext Transformer
 [wizard_of_wikipedia]: Gardening
 I like Gardening, even when I've only been doing it for a short time.
-[EndToEnd]: I love to garden . I love to garden . I love to garden .
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-I live on a farm, we garden all year long, it is very relaxing.
-That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-[EndToEnd]: I ' m not sure , but I ' m not sure that I ' m not sure that I ' m not sure that they are a lot of plants .
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-I live on a farm, we garden all year long, it is very relaxing.
-That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic, and potatoes mostly.
-Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-[EndToEnd]: I ' m not sure , but I ' m not sure that it is a plant that is a plant that is a plant .
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-I live on a farm, we garden all year long, it is very relaxing.
-That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic, and potatoes mostly.
-Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-yes i do. Cows, chickens, Micro pigs, Guinneas, We also do forest growing also. we plants large pine trees.
-Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
-[EndToEnd]: I ' m not sure , but I ' m not sure that they are a lot of different types of the size of the white .
+[EndToEnd]: i love gardening , it is considered a relaxing activity .
+[wizard_of_wikipedia]: That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
+[EndToEnd]: i plant plant plant plant plant plant plant plant plant plant , but i have a plant plant plant plant plant plant and a plant plant .
+[wizard_of_wikipedia]: Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
+[EndToEnd]: i do not like them , but i do know that there are a variety of different types of plant plants , vegetables , and even a variety of different types of plant .
+[wizard_of_wikipedia]: Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
+[EndToEnd]: i ' m not sure , but i know that they are the first - time breeding of animal husbandry , and breeding .
 - - - - - - - - - - - - - - - - - - - - -
 [wizard_of_wikipedia]: Bob Ross
 I would like to know more about bob ross
-[EndToEnd]: I do not know that he was born in the 19th century .
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-Ross was an American painter and television host
-thats cool what else?
-[EndToEnd]: It was founded in the United States
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-Ross was an American painter and television host
-thats cool what else?
-He created the show "The Joy of Painting"
-yes I like to watch that some times
-[EndToEnd]: He was born in the United States
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-Ross was an American painter and television host
-thats cool what else?
-He created the show "The Joy of Painting"
-yes I like to watch that some times
-The show aired from 1983 to 1994 on PBS.
-it ran for a long time
-[EndToEnd]: It was a popular series of the series of the series of the world
+[EndToEnd]: he was born in the late 19th century . he was an american painter , painter , television host , television host , television host , television , television , television , television , television , television , television , and television host .
+[wizard_of_wikipedia]: thats cool what else?
+[EndToEnd]: he was created in 1994 and aired on pbs in 1994 .
+[wizard_of_wikipedia]: yes I like to watch that some times
+[EndToEnd]: he was on pbs and host the joy of painting
+[wizard_of_wikipedia]: it ran for a long time
+[EndToEnd]: he was on pbs and host the joy of painting
 - - - - - - - - - - - - - - - - - - - - -
 [wizard_of_wikipedia]: Stamp collecting
-[EndToEnd]: I love collecting stamps . I love stamps .
-[wizard_of_wikipedia]: Stamp collecting
-the hobby of stamp collecting involves collecting stamps and related objects
-I have always wondered how this works... grabbing popcorn this will be good
-[EndToEnd]: I love the show . It is a comic series of the show .
-
-========================================================================================================================
-
-Random Universal Transformer
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-[EndToEnd]: I love gardening , it is the practice of cultivating , processing , and distributing food in or around a village , town , town , and distributing food in or around a village , town , town , town , town , town , town , town , and distributing food in a village , town , town , town , town , and distributing food in a village , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town , town
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-I live on a farm, we garden all year long, it is very relaxing.
-That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-[EndToEnd]: Urban agriculture is the practice of cultivating , processing , and distributing food in or around a village , town , town , and distributing food in or around a village , town , town , town , town , and distributing food in or around a village , town , town , town , and distributing food .
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-I live on a farm, we garden all year long, it is very relaxing.
-That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic, and potatoes mostly.
-Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-[EndToEnd]: I have a lot of vegetables , and distributing food in or around a village , town , and distributing food in or around a village , town , town , and distributing food in or around a village , town , town , town , town , and distributing food in a village , town , town , town , town , and distributing food in or town , town , town , town , town , and distributing food .
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-I live on a farm, we garden all year long, it is very relaxing.
-That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic, and potatoes mostly.
-Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-yes i do. Cows, chickens, Micro pigs, Guinneas, We also do forest growing also. we plants large pine trees.
-Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
-[EndToEnd]: I ' m not sure , but I do love to grow vegetables , leaf vegetables , and leaf vegetables .
-- - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-[EndToEnd]: Bob Ross was born in New York City .
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-Ross was an American painter and television host
-thats cool what else?
-[EndToEnd]: Jerry Ross is an American painter .
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-Ross was an American painter and television host
-thats cool what else?
-He created the show "The Joy of Painting"
-yes I like to watch that some times
-[EndToEnd]: Yes , Michelle Williams was a song called " Journey " .
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-Ross was an American painter and television host
-thats cool what else?
-He created the show "The Joy of Painting"
-yes I like to watch that some times
-The show aired from 1983 to 1994 on PBS.
-it ran for a long time
-[EndToEnd]: The Voice premiered on February 5 , so it premiered on February 5 , 000 years ago
-- - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Stamp collecting
-[EndToEnd]: Stamp collecting is the collecting of postage stamps and related objects .
-[wizard_of_wikipedia]: Stamp collecting
-the hobby of stamp collecting involves collecting stamps and related objects
-I have always wondered how this works... grabbing popcorn this will be good
-[EndToEnd]: They have collected certain amount of stamps , they can be a certain amount of stamps , they can be a certain amount of stamps .
-
-===============================================================================================================================
-
-Fasttext Universal Transfomer
-=======
-[EndToEnd]: It was a great show . It was a great writer .
-- - - - - - - - - - - - - - - - - - - - -
-[WizTeacher]: Stamp collecting
-[EndToEnd]: I love to go to a lot of people .
-[WizTeacher]: Stamp collecting
-the hobby of stamp collecting involves collecting stamps and related objects
-I have always wondered how this works... grabbing popcorn this will be good
-[EndToEnd]: I have never been to be good for a long time .
->>>>>>> cacd7d20671cb9e23defb8da9c556a437691b666
+[EndToEnd]: stamp collecting is a hobby . it ' s a hobby that proved to be a perfect hobby to collect new stamps .
+[wizard_of_wikipedia]: I have always wondered how this works... grabbing popcorn this will be good
+[EndToEnd]: i like stamps too . they are often collected for their historical value and historical aspects .
+>>>>>>> 855fe0557ce9ce65eed4fb84f3a11f7e14c8ee04
