@@ -1095,7 +1095,7 @@ class ACT_basic(nn.Module):
         positions = inputs.new(seq_len).long()
         positions = th.arange(seq_len, out=positions).unsqueeze(0)
         # for l in range(self.num_layers):
-        while( ((halting_probability<self.threshold) & (n_updates < max_hop)).byte().any()):
+        while( ((halting_probability < self.threshold) & (n_updates < max_hop)).byte().any()):
             #any() 1つでも0以外があればTrue
             #while(((n_updates < max_hop)).byte().any()):なぜかError
             # Add timing signal
