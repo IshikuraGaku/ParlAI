@@ -504,7 +504,7 @@ class TransformerEncoder(nn.Module):
                 self.num_of_layer_list[i] += th.sum((n_update == th.tensor([i+1]).cuda()).int())
             variance = 0
             for i in range(self.n_layers):
-                variance += ((i+1 - average) * (i+1 - average) * num_of_layer_list[i])
+                variance += ((i+1 - average) * (i+1 - average) * self.num_of_layer_list[i])
             variance /= self.num
             #variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
 
