@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [wizard_of_wikipedia]: Green
 My favortie color is green because it makes my eyes pop.
 [EndToEnd]: I love the color blue . It ' s a great song .
@@ -23,3 +24,29 @@ I have a dog named Barney
 [EndToEnd]: I have a dog named the genus " Canis " . " is a member of the genus "
 [wizard_of_wikipedia]: What's it favorite food?
 [EndToEnd]: Dogs are closely related to the wolf
+=======
+[wizard_of_wikipedia]: Gardening
+I like Gardening, even when I've only been doing it for a short time.
+[EndToEnd]: i love gardening , it is considered a relaxing activity .
+[wizard_of_wikipedia]: That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
+[EndToEnd]: i plant plant plant plant plant plant plant plant plant plant , but i have a plant plant plant plant plant plant and a plant plant .
+[wizard_of_wikipedia]: Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
+[EndToEnd]: i do not like them , but i do know that there are a variety of different types of plant plants , vegetables , and even a variety of different types of plant .
+[wizard_of_wikipedia]: Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
+[EndToEnd]: i ' m not sure , but i know that they are the first - time breeding of animal husbandry , and breeding .
+- - - - - - - - - - - - - - - - - - - - -
+[wizard_of_wikipedia]: Bob Ross
+I would like to know more about bob ross
+[EndToEnd]: he was born in the late 19th century . he was an american painter , painter , television host , television host , television host , television , television , television , television , television , television , television , and television host .
+[wizard_of_wikipedia]: thats cool what else?
+[EndToEnd]: he was created in 1994 and aired on pbs in 1994 .
+[wizard_of_wikipedia]: yes I like to watch that some times
+[EndToEnd]: he was on pbs and host the joy of painting
+[wizard_of_wikipedia]: it ran for a long time
+[EndToEnd]: he was on pbs and host the joy of painting
+- - - - - - - - - - - - - - - - - - - - -
+[wizard_of_wikipedia]: Stamp collecting
+[EndToEnd]: stamp collecting is a hobby . it ' s a hobby that proved to be a perfect hobby to collect new stamps .
+[wizard_of_wikipedia]: I have always wondered how this works... grabbing popcorn this will be good
+[EndToEnd]: i like stamps too . they are often collected for their historical value and historical aspects .
+>>>>>>> 855fe0557ce9ce65eed4fb84f3a11f7e14c8ee04

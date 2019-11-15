@@ -61,7 +61,8 @@ class ContextKnowledgeEncoder(nn.Module):
         self.embeddings = transformer.embeddings
         self.embed_dim = transformer.embeddings.embedding_dim
         self.transformer = transformer
-        self.soft_attention = True
+        self.soft_attention = False
+
         #self.n_use_knowlege = 5 #使う知識数
         self.knowledge_lamda = 1
 
@@ -167,6 +168,7 @@ class ContextKnowledgeEncoder(nn.Module):
         # We need to compute the offsets of the chosen_sentences
         cs_encoded = None
         softmax_cs_weight = th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1)
+        """
         #cs_idは0 softmax_cs_weightは(B,knowledge)
         true_ids_weight = th.zeros(softmax_cs_weight.shape, device=softmax_cs_weight.device, dtype=softmax_cs_weight.dtype)
         for temp in true_ids_weight:
@@ -184,61 +186,8 @@ class ContextKnowledgeEncoder(nn.Module):
         self.cs_ids = None
         self.use_cs_ids = None
         # also return the knowledge selection mask for the loss
-        return loss
-
-    def second_max(self, target_tensor, axis):
-        #todo make axis != 1 
-        #target_tensor (1,N) 
-        #return (second_val, second_idx)
-        first_idx = 0
-        second_idx = 0
-        first_tmp = th.tensor(-99.0, device=target_tensor.device)
-        second_tmp = th.tensor(-99.0, device=target_tensor.device)
-     
-        for i, val in enumerate(target_tensor[0]):
-
-            if first_tmp.data < val.data:
-                second_idx = first_idx
-                second_tmp = first_tmp
-                first_idx = i
-                first_tmp = val
-            elif second_tmp.data < val.data:
-                second_tmp = val
-                second_idx = i
-        second_idx = th.tensor([second_idx], device=target_tensor.device)
-        second_tmp = th.tensor([second_tmp], device=target_tensor.device).float
-        return second_tmp, second_idx
-
-    def sort_knowledge(self, target_tensor):
-        #類似度の高い順に並んだインデックス番号のTensorリストを返す
-        #targettensor 後で使うかもしれんし
-        target_taple_list = [(i, val) for i, val in enumerate(target_tensor[0])]
-        self.merge_sort(target_taple_list)
-        sorted_target_id = th.tensor([i for i, _ in target_taple_list], device=target_tensor.device)
-        sorted_target_value = th.tensor([i for _, i in target_taple_list], device=target_tensor.device)
-
-        return (sorted_target_id, sorted_target_value)
-
-    def merge_sort(self, target_taple_list):
-        if(len(target_taple_list) > 1):
-            m = int(len(target_taple_list) / 2) 
-            #n = int(len(target_taple_list) - m)
-            a1 = target_taple_list[:m]
-            a2 = target_taple_list[m:]
-            self.merge_sort(a1)
-            self.merge_sort(a2)
-            self.merge(a1, a2, target_taple_list)
-
-    def merge(self, a1, a2, a):
-        i = 0
-        j = 0
-        while(i < len(a1) or j < len(a2)):
-            if(j >= len(a2) or (i<len(a1) and a1[i][1] > a2[j][1])):
-                a[i+j] = a1[i]
-                i += 1
-            else:
-                a[i+j] = a2[j]
-                j += 1
+        """
+        return softmax_cs_weight
 
 class ContextKnowledgeDecoder(nn.Module):
     def __init__(self, transformer):
