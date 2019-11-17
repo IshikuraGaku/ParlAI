@@ -1,161 +1,289 @@
+[chosen_topic]: Gardening                                                                           
+[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of hortic
+ulture.                                                                                             
+Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appea
+rance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for con
+sumption, for use as dyes, or for medicinal or cosmetic use.                                        
+Gardening Gardening is considered by many people to be a relaxing activity.                         
+Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or mor
+e different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and 
+foundation plantings, to plants in large or small containers grown inside or outside.               
+Gardening Gardening may be very specialized, with only one type of plant grown, ...                 
+there had been several other notable gardening magazines in circulation, including the "Gardeners' C
+hronicle" and "Gardens Illustrated", but these were tailored more for the professional gardener.    
+                                                                                                    
+[title]: Gardening                                                                                  
+[checked_sentence]: Gardening is considered by many people to be a relaxing activity.               
+[wizard_of_wikipedia]: Gardening                                                                    
+I like Gardening, even when I've only been doing it for a short time.                               
+[eval_labels: I live on a farm, we garden all year long, it is very relaxing.]                      
+[label_candidates: OK what's the history?|Right, thats cool. I had no idea they still did the DVD th
+ing, What is Netflix's highest rated show? do you know? |I will definitely check his first album out
+ as he sounds interesting.|I don't know a whole lot about it. I was raised Catholic but don't practi
+ce anything now.|Well , this was a good conversation. |...and 95 more]                              
+   [EndToEnd]: Gardening is considered by many people to be a relaxing activity .                   
+~~    
 [chosen_topic]: Gardening
-[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of horticulture.
-Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use.
+[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of hortic
+ulture.
+Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appea
+rance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for con
+sumption, for use as dyes, or for medicinal or cosmetic use.
 Gardening Gardening is considered by many people to be a relaxing activity.
-Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
+Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or mor
+e different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and
+foundation plantings, to plants in large or small containers grown inside or outside.
 Gardening Gardening may be very specialized, with only one type of plant grown, ...
-there had been several other notable gardening magazines in circulation, including the "Gardeners' Chronicle" and "Gardens Illustrated", but these were tailored more for the professional gardener.
+of viral self-promotion (such as phoning record companies pretending to be other bands who'd heard a
+n interesting band called Karma To Burn), Karma To Burn was signed to Roadrunner Records in 1996.
 
 [title]: Gardening
-[checked_sentence]: Gardening is considered by many people to be a relaxing activity.
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-[eval_labels: I live on a farm, we garden all year long, it is very relaxing.]
-[label_candidates: OK what's the history?|Right, thats cool. I had no idea they still did the DVD thing, What is Netflix's highest rated show? do you know? |I will definitely check his first album out as he sounds interesting.|I don't know a whole lot about it. I was raised Catholic but don't practice anything now.|Well , this was a good conversation. |...and 95 more]
-   [EndToEnd]: i love gardening , it is considered a relaxing activity .
+[checked_sentence]: Gardening ranges in scale from fruit orchards, to long boulevard plantings with
+one or more different types of shrubs, trees, and herbaceous plants, to residential yards including
+lawns and foundation plantings, to plants in large or small containers grown inside or outside.
+[wizard_of_wikipedia]: That sounds great.  I've always thought that I would love living in a farm, b
+ut I;ve always lived in the city.  What do you mostly plant?
+[eval_labels: I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic
+, and potatoes mostly.]
+[label_candidates: No he wasnt but he was with daniel day lewis in Gnags of New York but it was tita
+nic 1997 whne he gained public recognition|The laws do seem to vary around the world but most countr
+ies do require the sanction of the courts to help resolve a lot of the issues that come up.|I like t
+o grow useful plants, like leafy greens, herbs, and tomatoes. It's rewarding! |yea telenovela are ve
+ry popular in latin america|Never been to Italy, but the Basque Country is nice, my mother is actual
+ly from Mallorca|...and 95 more]
+   [EndToEnd]: Gardening ranges in scale from fruit orchards , to long boulevard plantings with one
+or more different types of shrubs , trees , and herbaceous plants .
 ~~
 [chosen_topic]: Gardening
-[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of horticulture.
-Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use.
+[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of hortic
+ulture.
+Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appea
+rance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for con
+sumption, for use as dyes, or for medicinal or cosmetic use.
 Gardening Gardening is considered by many people to be a relaxing activity.
-Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
+Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or mor
+e different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and
+foundation plantings, to plants in large or small containers grown inside or outside.
 Gardening Gardening may be very specialized, with only one type of plant grown, ...
-of viral self-promotion (such as phoning record companies pretending to be other bands who'd heard an interesting band called Karma To Burn), Karma To Burn was signed to Roadrunner Records in 1996.
+and American influences, in line with the major waves of influence that had enriched the cultures of
+ the archipelago, as well as others adapted to indigenous ingredients and the local palate.
 
 [title]: Gardening
-[checked_sentence]: Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
-[wizard_of_wikipedia]: That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-[eval_labels: I have planted several fruits trees, tomatoes, jalepenos, bell peppers, onions, Garlic, and potatoes mostly.]
-[label_candidates: No he wasnt but he was with daniel day lewis in Gnags of New York but it was titanic 1997 whne he gained public recognition|The laws do seem to vary around the world but most countries do require the sanction of the courts to help resolve a lot of the issues that come up.|I like to grow useful plants, like leafy greens, herbs, and tomatoes. It's rewarding! |yea telenovela are very popular in latin america|Never been to Italy, but the Basque Country is nice, my mother is actually from Mallorca|...and 95 more]
-   [EndToEnd]: i plant plant plant plant plant plant plant plant plant plant , but i have a plant plant plant plant plant plant and a plant plant .
+[checked_sentence]: Forest gardening, a forest-based food production system, is the world's oldest f
+orm of gardening.
+[wizard_of_wikipedia]: Great, I love the idea of growing my own vegetables and fruits! Do you have a
+nimals in the farm?
+[eval_labels: yes i do. Cows, chickens, Micro pigs, Guinneas, We also do forest growing also. we pla
+nts large pine trees.]
+[label_candidates: Well, they're not very big, but they are very tasty!|Oh, it is nice to hear. Very
+ glad to know about iceland.|I loved Accords! I liked the sixth generation Accord, especially the tw
+o door coupe|Consistent employment is very important. I miss my old job.|Well he used a lot of drugs
+ and was involved romantically with a lot of women, but that comes with the rock star lifestyle.|...
+and 95 more]
+   [EndToEnd]: I have a farm farm farm farm . Forest gardening is the world ' s oldest form of garde
+ning .
 ~~
 [chosen_topic]: Gardening
-[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of horticulture.
-Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use.
+[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of hortic
+ulture.
+Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appea
+rance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for con
+sumption, for use as dyes, or for medicinal or cosmetic use.
 Gardening Gardening is considered by many people to be a relaxing activity.
-Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
+Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or mor
+e different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and
+foundation plantings, to plants in large or small containers grown inside or outside.
 Gardening Gardening may be very specialized, with only one type of plant grown, ...
-and American influences, in line with the major waves of influence that had enriched the cultures of the archipelago, as well as others adapted to indigenous ingredients and the local palate.
+is a popular topic in ecology because of its problematic growth and spread in South Africa for the p
+ast 150 years after being imported into the region at the end of the 17th century (1685-1693).
 
 [title]: Gardening
-[checked_sentence]: Forest gardening, a forest-based food production system, is the world's oldest form of gardening.
-[wizard_of_wikipedia]: Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-[eval_labels: yes i do. Cows, chickens, Micro pigs, Guinneas, We also do forest growing also. we plants large pine trees.]
-[label_candidates: Well, they're not very big, but they are very tasty!|Oh, it is nice to hear. Very glad to know about iceland.|I loved Accords! I liked the sixth generation Accord, especially the two door coupe|Consistent employment is very important. I miss my old job.|Well he used a lot of drugs and was involved romantically with a lot of women, but that comes with the rock star lifestyle.|...and 95 more]
-   [EndToEnd]: i do not like them , but i do know that there are a variety of different types of plant plants , vegetables , and even a variety of different types of plant .
-~~
-[chosen_topic]: Gardening
-[knowledge]: Gardening Gardening is the practice of growing and cultivating plants as part of horticulture.
-Gardening In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use.
-Gardening Gardening is considered by many people to be a relaxing activity.
-Gardening Gardening ranges in scale from fruit orchards, to long boulevard plantings with one or more different types of shrubs, trees, and herbaceous plants, to residential yards including lawns and foundation plantings, to plants in large or small containers grown inside or outside.
-Gardening Gardening may be very specialized, with only one type of plant grown, ...
-is a popular topic in ecology because of its problematic growth and spread in South Africa for the past 150 years after being imported into the region at the end of the 17th century (1685-1693).
-
-[title]: Gardening
-[checked_sentence]: In the gradual process of families improving their immediate environment, useful tree and vine species were identified, protected and improved while undesirable species were eliminated.
-[wizard_of_wikipedia]: Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
-[eval_labels: yes they are. they are extremely smart. most people buy them for inside pets. you can train the to use a litter box just like a cat. When families started using vines and trees to build their houses out of there was several species of trees and vines that were eliminated by them.]
-[label_candidates: It surely seems like it, not to mention all the bad effects, such as getting in risky situations like drinking and driving or unsafe physical encounters|I bet that is beautiful. What type of architecture was your koi pond built|Ok when was it founded?|I think that you get to see quite a bit of rugged countryside that way.|the only thing i kind of dislike about equestrian is the waiting time on the horse rider change|...and 95 more]
-   [EndToEnd]: i ' m not sure , but i know that they are the first - time breeding of animal husbandry , and breeding .
+[checked_sentence]: In the gradual process of families improving their immediate environment, useful
+ tree and vine species were identified, protected and improved while undesirable species were elimin
+ated.
+[wizard_of_wikipedia]: Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be
+well behaved?
+[eval_labels: yes they are. they are extremely smart. most people buy them for inside pets. you can
+train the to use a litter box just like a cat. When families started using vines and trees to build
+their houses out of there was several species of trees and vines that were eliminated by them.]
+[label_candidates: It surely seems like it, not to mention all the bad effects, such as getting in r
+isky situations like drinking and driving or unsafe physical encounters|I bet that is beautiful. Wha
+t type of architecture was your koi pond built|Ok when was it founded?|I think that you get to see q
+uite a bit of rugged countryside that way.|the only thing i kind of dislike about equestrian is the
+waiting time on the horse rider change|...and 95 more]
+   [EndToEnd]: I ' m not sure but I know that in the process of families maintain their environment
+, useful tree and vine species were eliminated .
 - - - - - - - - - - - - - - - - - - - - -
 ~~
 [chosen_topic]: Bob Ross
-[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
-Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
-Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress, respectively), and raised in Orlando, Florida.
-Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including an armadillo, snake, and ...
+[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 _ July 4, 1995) was an American painter,
+art instructor, and television host.
+Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program t
+hat aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, an
+d Europe.
+Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Int
+ernet celebrity in the 21st century, popular with fans on YouTube and many other websites.
+Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress,
+respectively), and raised in Orlando, Florida.
+Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including a
+n armadillo, snake, and ...
 Association.
-Edgar Ross (communist) He was sporting editor for the Geelong-based "Industrial Advocate" and wrote book reviews for the "Socialist", both of which were edited by his father.
+Edgar Ross (communist) He was sporting editor for the Geelong-based "Industrial Advocate" and wrote
+book reviews for the "Socialist", both of which were edited by his father.
 
 [title]: Bob Ross
-[checked_sentence]: Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
+[checked_sentence]: Robert Norman Ross (October 29, 1942 _ July 4, 1995) was an American painter, ar
+t instructor, and television host.
 [wizard_of_wikipedia]: Bob Ross
 I would like to know more about bob ross
 [eval_labels: Ross was an American painter and television host]
-[label_candidates: Oh!  I didn't know that is what a building superintendent did!  Do you have to have a college degree for that position?|I feel like Tool was never the same after they replaced their original bassist Paul D'Amour with Justin Chancellor in 1995.|He grew up in Queens but then went to Pennsylvania to get an economics degree from Wharton, so he's at least well educated. |yeah, and eating meat is unsafe! it'll go bad and rot in just hours and you can get infections from it|No but I have always wanted to visit. Can you tell me more about Canada?|...and 95 more]
-   [EndToEnd]: he was born in the late 19th century . he was an american painter , painter , television host , television host , television host , television , television , television , television , television , television , television , and television host .
+[label_candidates: Oh!  I didn't know that is what a building superintendent did!  Do you have to ha
+ve a college degree for that position?|I feel like Tool was never the same after they replaced their
+ original bassist Paul D'Amour with Justin Chancellor in 1995.|He grew up in Queens but then went to
+ Pennsylvania to get an economics degree from Wharton, so he's at least well educated. |yeah, and ea
+ting meat is unsafe! it'll go bad and rot in just hours and you can get infections from it|No but I
+have always wanted to visit. Can you tell me more about Canada?|...and 95 more]
+   [EndToEnd]: Robert Norman Ross was an American painter , art instructor , and television host .
 ~~
 [chosen_topic]: Bob Ross
-[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
-Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
-Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress, respectively), and raised in Orlando, Florida.
-Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including an armadillo, snake, and ...
-(painter) Bill Alexander was born in East Prussia, but his family fled to Berlin during World War I. Apprenticed as a carriage maker, Alexander was drafted into the Wehrmacht during World War II.
+[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 _ July 4, 1995) was an American painter,
+art instructor, and television host.
+Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program t
+hat aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, an
+d Europe.
+Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Int
+ernet celebrity in the 21st century, popular with fans on YouTube and many other websites.
+Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress,
+respectively), and raised in Orlando, Florida.
+Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including a
+n armadillo, snake, and ...
+(painter) Bill Alexander was born in East Prussia, but his family fled to Berlin during World War I.
+ Apprenticed as a carriage maker, Alexander was drafted into the Wehrmacht during World War II.
 
 [title]: Bob Ross
-[checked_sentence]: He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
+[checked_sentence]: He was the creator and host of "The Joy of Painting", an instructional televisio
+n program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin
+America, and Europe.
 [wizard_of_wikipedia]: thats cool what else?
 [eval_labels: He created the show "The Joy of Painting"]
-[label_candidates: Surprisingly it didn't reach the top spot on the TV season ratings until the 8th season.|It was in 2007 that Netflix started putting out streaming media, but they kept the DVD and Blu-ray rental system.|I didn't realize it was so popular - it has 54 million users that are registered as members!|Yes -- all dairy products make you have gas or indigestion; however, there are things you can do about it.|I have a tattoo.  Do you?  There is a difference between an arm tattoo and a full sleeve.|...and 95 more]
-   [EndToEnd]: he was created in 1994 and aired on pbs in 1994 .
+[label_candidates: Surprisingly it didn't reach the top spot on the TV season ratings until the 8th
+season.|It was in 2007 that Netflix started putting out streaming media, but they kept the DVD and B
+lu-ray rental system.|I didn't realize it was so popular - it has 54 million users that are register
+ed as members!|Yes -- all dairy products make you have gas or indigestion; however, there are things
+ you can do about it.|I have a tattoo.  Do you?  There is a difference between an arm tattoo and a f
+ull sleeve.|...and 95 more]
+   [EndToEnd]: The Joy of Painting was the creator and host of " The Joy of Painting "
 ~~
 [chosen_topic]: Bob Ross
-[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
-Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
-Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress, respectively), and raised in Orlando, Florida.
-Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including an armadillo, snake, and ...
+[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 _ July 4, 1995) was an American painter,
+art instructor, and television host.
+Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program t
+hat aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, an
+d Europe.
+Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Int
+ernet celebrity in the 21st century, popular with fans on YouTube and many other websites.
+Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress,
+respectively), and raised in Orlando, Florida.
+Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including a
+n armadillo, snake, and ...
 and, eventually, vice versa.
-Western painting Initially serving imperial, private, civic, and religious patronage, Western painting later found audiences in the aristocracy and the middle class.
+Western painting Initially serving imperial, private, civic, and religious patronage, Western painti
+ng later found audiences in the aristocracy and the middle class.
 
 [title]: Bob Ross
-[checked_sentence]: He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
+[checked_sentence]: He was the creator and host of "The Joy of Painting", an instructional televisio
+n program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin
+America, and Europe.
 [wizard_of_wikipedia]: yes I like to watch that some times
 [eval_labels: The show aired from 1983 to 1994 on PBS.]
-[label_candidates:  It has 21 stages and is held over three weeks. That’s a long time! |Ive never been to Algeria, But I find it cool how The capital and most populous city is Algiers which is located in the far north part of the country.|Well its good to bulk to gain maximum gains possible when working out|It's dangerous for other people. You might be safe wearing a helmet and pads, but what about the person you run into on the sidewalk?|pretty good? They are amazing, tell me why you think they are so bad.|...and 95 more]
-   [EndToEnd]: he was on pbs and host the joy of painting
+[label_candidates:  It has 21 stages and is held over three weeks. That_s a long time! |Ive never be
+en to Algeria, But I find it cool how The capital and most populous city is Algiers which is located
+ in the far north part of the country.|Well its good to bulk to gain maximum gains possible when wor
+king out|It's dangerous for other people. You might be safe wearing a helmet and pads, but what abou
+t the person you run into on the sidewalk?|pretty good? They are amazing, tell me why you think they
+ are so bad.|...and 95 more]
+   [EndToEnd]: The Joy of Painting was the creator and host of " The Joy of Painting "
 ~~
 [chosen_topic]: Bob Ross
-[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter, art instructor, and television host.
-Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program that aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, and Europe.
-Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
-Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress, respectively), and raised in Orlando, Florida.
-Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including an armadillo, snake, and ...
-held July 15 to August 31, 2011 in Chicago, New York, San Francisco, Los Angeles, Houston, Atlanta, Nashville, and Orlando.
+[knowledge]: Bob Ross Robert Norman Ross (October 29, 1942 _ July 4, 1995) was an American painter,
+art instructor, and television host.
+Bob Ross He was the creator and host of "The Joy of Painting", an instructional television program t
+hat aired from 1983 to 1994 on PBS in the United States, and also aired in Canada, Latin America, an
+d Europe.
+Bob Ross Ross went from being a public-television personality in the 1980s and 1990s to being an Int
+ernet celebrity in the 21st century, popular with fans on YouTube and many other websites.
+Bob Ross Ross was born in Daytona Beach, Florida, to Jack and Ollie Ross (a carpenter and waitress,
+respectively), and raised in Orlando, Florida.
+Bob Ross As a child, Ross entertained himself by caring for injured animals, purportedly including a
+n armadillo, snake, and ...
+held July 15 to August 31, 2011 in Chicago, New York, San Francisco, Los Angeles, Houston, Atlanta,
+Nashville, and Orlando.
 The Voice (U.S. season 2) All four coaches return for their second season.
 
 [title]: Bob Ross
-[checked_sentence]: Ross went from being a public-television personality in the 1980s and 1990s to being an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites.
+[checked_sentence]: Ross went from being a public-television personality in the 1980s and 1990s to b
+eing an Internet celebrity in the 21st century, popular with fans on YouTube and many other websites
+.
 [wizard_of_wikipedia]: it ran for a long time
 [eval_labels: He is very popular on YouTube even into this century]
-[label_candidates: Hi, how are you? Something interesting about me is my father is a preacher.|Do you know you score points at it.?|It is pretty. Violet is pretty as well but Purple just seems more rich to me.|And that must have been waaaaay back. Aren't dogs basically descended from wolves?|Hi there. Do you know anything about Philip Larkin?|...and 95 more]
-   [EndToEnd]: he was on pbs and host the joy of painting
+[label_candidates: Hi, how are you? Something interesting about me is my father is a preacher.|Do yo
+u know you score points at it.?|It is pretty. Violet is pretty as well but Purple just seems more ri
+ch to me.|And that must have been waaaaay back. Aren't dogs basically descended from wolves?|Hi ther
+e. Do you know anything about Philip Larkin?|...and 95 more]
+   [EndToEnd]: Bob Ross went from being a public - television personality in the 1980s and 1990s to
+being an internet celebrity in the 21st century
 - - - - - - - - - - - - - - - - - - - - -
 ~~
 [chosen_topic]: Stamp collecting
-[knowledge]: Stamp collecting Stamp collecting is the collecting of postage stamps and related objects.
+[knowledge]: Stamp collecting Stamp collecting is the collecting of postage stamps and related objec
+ts.
 Stamp collecting It is related to philately which is the study of stamps.
-Stamp collecting It has been one of the world's most popular hobbies since the late nineteenth century with the rapid growth of the postal service.
-Stamp collecting Stamp collecting proved to be an almost perfect hobby for collectors because there was a never ending stream of new stamps as each country sought to advertise its distinctiveness through its stamps.
-Stamp collecting Stamp collecting is generally accepted as one of the areas that make up the wider subject of philately, which is the study of stamps.
+Stamp collecting It has been one of the world's most popular hobbies since the late nineteenth centu
+ry with the rapid growth of the postal service.
+Stamp collecting Stamp collecting proved to be an almost perfect hobby for collectors because there
+was a never ending stream of new stamps as each country sought to advertise its distinctiveness thro
+ugh its stamps.
+Stamp collecting Stamp collecting is generally accepted as one of the areas that make up the wider s
+ubject of philately, which is the study of stamps.
 Stamp collecting A philatelist may, but does not have to, collect stamps.
 Stamp collecting It is not uncommon for the ...
-stamps are often collected for their historical value and geographical aspects and also for the many subjects depicted on them, ranging from ships, horses, and birds to kings, queens and presidents.
+stamps are often collected for their historical value and geographical aspects and also for the many
+ subjects depicted on them, ranging from ships, horses, and birds to kings, queens and presidents.
 
 [title]: Stamp collecting
 [checked_sentence]: Stamp collecting is the collecting of postage stamps and related objects.
 [wizard_of_wikipedia]: Stamp collecting
 [eval_labels: the hobby of stamp collecting involves collecting stamps and related objects]
-[label_candidates: Well, specialized hospitals are available to potentially reduce healthcare costs.|Have you ever been to nashville tennesee? It is a nice place, my brother has been there|That's amazing! What else can you tell me about beer?|I love Starbucks coffee|I've been getting into the strokes as of late. Do you like them?|...and 95 more]
-   [EndToEnd]: stamp collecting is a hobby . it ' s a hobby that proved to be a perfect hobby to collect new stamps .
+[label_candidates: Well, specialized hospitals are available to potentially reduce healthcare costs.
+|Have you ever been to nashville tennesee? It is a nice place, my brother has been there|That's amaz
+ing! What else can you tell me about beer?|I love Starbucks coffee|I've been getting into the stroke
+s as of late. Do you like them?|...and 95 more]
+   [EndToEnd]: Stamp collecting is the collecting of postage stamps and related objects .
 ~~
 [chosen_topic]: Stamp collecting
-[knowledge]: Stamp collecting Stamp collecting is the collecting of postage stamps and related objects.
+[knowledge]: Stamp collecting Stamp collecting is the collecting of postage stamps and related objec
+ts.
 Stamp collecting It is related to philately which is the study of stamps.
-Stamp collecting It has been one of the world's most popular hobbies since the late nineteenth century with the rapid growth of the postal service.
-Stamp collecting Stamp collecting proved to be an almost perfect hobby for collectors because there was a never ending stream of new stamps as each country sought to advertise its distinctiveness through its stamps.
-Stamp collecting Stamp collecting is generally accepted as one of the areas that make up the wider subject of philately, which is the study of stamps.
+Stamp collecting It has been one of the world's most popular hobbies since the late nineteenth centu
+ry with the rapid growth of the postal service.
+Stamp collecting Stamp collecting proved to be an almost perfect hobby for collectors because there
+was a never ending stream of new stamps as each country sought to advertise its distinctiveness thro
+ugh its stamps.
+Stamp collecting Stamp collecting is generally accepted as one of the areas that make up the wider s
+ubject of philately, which is the study of stamps.
 Stamp collecting A philatelist may, but does not have to, collect stamps.
 Stamp collecting It is not uncommon for the ...
-Red Initially, some of the same plates that were used to print the Penny Black were used to print the Penny Red and about 21 billion Penny Reds were printed by Messrs. Perkins, Bacon & Co.
+Red Initially, some of the same plates that were used to print the Penny Black were used to print th
+e Penny Red and about 21 billion Penny Reds were printed by Messrs. Perkins, Bacon & Co.
 
 [title]: Stamp collecting
-[checked_sentence]: It has been one of the world's most popular hobbies since the late nineteenth century with the rapid growth of the postal service.
+[checked_sentence]: It has been one of the world's most popular hobbies since the late nineteenth ce
+ntury with the rapid growth of the postal service.
 [wizard_of_wikipedia]: I have always wondered how this works... grabbing popcorn this will be good
 [eval_labels: its actually one of the world's most popular hobbies since the late 19th century]
-[label_candidates: THey sure our little theives they always hide stuff under the furniture.|So you are a gamer?|What fair do you go to? I love a corn dog deep fried with a thick layer of batter.|I think earl gray is the best in my opinion|I love to eat vegetarian|...and 95 more]
-   [EndToEnd]: i like stamps too . they are often collected for their historical value and historical aspects .
+[label_candidates: THey sure our little theives they always hide stuff under the furniture.|So you a
+re a gamer?|What fair do you go to? I love a corn dog deep fried with a thick layer of batter.|I thi
+nk earl gray is the best in my opinion|I love to eat vegetarian|...and 95 more]
+   [EndToEnd]: Stamp collecting has been one of the world ' s most popular hobbies since the late ni
+neteenth century
 ~~
