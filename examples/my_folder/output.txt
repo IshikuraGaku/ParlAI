@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [wizard_of_wikipedia]: Gardening                                                                    
 I like Gardening, even when I've only been doing it for a short time.                               
 [EndToEnd]: Gardening is considered by many people to be a relaxing activity .                   
@@ -13,6 +14,44 @@ ning .
 well behaved?
 [EndToEnd]: I ' m not sure but I know that in the process of families maintain their environment
 , useful tree and vine species were eliminated .
+=======
+<<<<<<< HEAD
+[wizard_of_wikipedia]: Green
+My favortie color is green because it makes my eyes pop.
+[EndToEnd]: I love the color blue . It ' s a great song .
+[wizard_of_wikipedia]: I used to use blue and yellow paint to make green, so that makes sense
+[EndToEnd]: I think it ' s a lot of creatures that are adapted to their environments .
+[wizard_of_wikipedia]: Thats pretty cool, like a chameleon?
+[EndToEnd]: It was used in the Middle Ages , the color of merchants and bankers .
+[wizard_of_wikipedia]: I never knew that.  Is that why money is green?
+[EndToEnd]: It ' s a color of Ireland and Gaelic culture .
+- - - - - - - - - - - - - - - - - - - - -
+[wizard_of_wikipedia]: Gone with the Wind (film)
+Have you seen the film Gone with the Wind?
+[EndToEnd]: Yes , I have seen it . It was a great movie .
+[wizard_of_wikipedia]: I have not seen it. I have heard it has some Confederate bias. Is that true? I have relatives that fought for the Confederacy so it likely will not bother me.
+[EndToEnd]: It was based on the British war of the American war of the American Civil War .
+[wizard_of_wikipedia]: What kind of personality does Scarlett O'Hara have?
+[EndToEnd]: Yes , it was based on the British war of the American war of the American Civil War .
+[wizard_of_wikipedia]: I imagine she changes throughout the film. Would you say it is for the better or for the worse?
+[EndToEnd]: Yes , it ' s a great idea . It ' s a romantic relationship that is a romantic relationship .
+- - - - - - - - - - - - - - - - - - - - -
+[wizard_of_wikipedia]: Dog
+I have a dog named Barney
+[EndToEnd]: I have a dog named the genus " Canis " . " is a member of the genus "
+[wizard_of_wikipedia]: What's it favorite food?
+[EndToEnd]: Dogs are closely related to the wolf
+=======
+[wizard_of_wikipedia]: Gardening
+I like Gardening, even when I've only been doing it for a short time.
+[EndToEnd]: i love gardening , it is considered a relaxing activity .
+[wizard_of_wikipedia]: That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
+[EndToEnd]: i plant plant plant plant plant plant plant plant plant plant , but i have a plant plant plant plant plant plant and a plant plant .
+[wizard_of_wikipedia]: Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
+[EndToEnd]: i do not like them , but i do know that there are a variety of different types of plant plants , vegetables , and even a variety of different types of plant .
+[wizard_of_wikipedia]: Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
+[EndToEnd]: i ' m not sure , but i know that they are the first - time breeding of animal husbandry , and breeding .
+>>>>>>> a9aba10cda1b1b09e8df9f2adbbd9cd7a86ab20f
 - - - - - - - - - - - - - - - - - - - - -
 [wizard_of_wikipedia]: Bob Ross
 I would like to know more about bob ross
@@ -28,5 +67,10 @@ being an internet celebrity in the 21st century
 [wizard_of_wikipedia]: Stamp collecting
 [EndToEnd]: Stamp collecting is the collecting of postage stamps and related objects .
 [wizard_of_wikipedia]: I have always wondered how this works... grabbing popcorn this will be good
+<<<<<<< HEAD
 [EndToEnd]: Stamp collecting has been one of the world ' s most popular hobbies since the late ni
 neteenth century
+=======
+[EndToEnd]: i like stamps too . they are often collected for their historical value and historical aspects .
+>>>>>>> 855fe0557ce9ce65eed4fb84f3a11f7e14c8ee04
+>>>>>>> a9aba10cda1b1b09e8df9f2adbbd9cd7a86ab20f

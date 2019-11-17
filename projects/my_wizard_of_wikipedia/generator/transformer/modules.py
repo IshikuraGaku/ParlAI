@@ -440,7 +440,7 @@ class TransformerEncoder(nn.Module):
         self.output_scaling = output_scaling
 
         self.num = 0
-        self.num_of_layer_list = th.tensor([]).cuda()
+        self.num_of_layer_list = th.tensor([0,0,0,0,0,0]).cuda()
 
     def forward(self, input, positions=None, segments=None):
         """
@@ -483,23 +483,31 @@ class TransformerEncoder(nn.Module):
 
         tensor *= mask.unsqueeze(-1).type_as(tensor)
 
-        average = 0
-        variance = 0
         if(self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
             #return tensor, (remainders, n_updates)
-
+            
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
-            self.num += len(n_update)
-            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
-            average = self.num_of_layer_list.sum() / self.num
-            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
 
+            self.num += len(n_update)
+            for i in range(self.n_layers):
+                self.num_of_layer_list[i] += th.sum((n_update == th.tensor([i+1]).float().cuda()).int())
+            
+            average = 0
+            for i in range(self.n_layers):
+                average += (i+1) * self.num_of_layer_list[i]
+                print(average)
+            average /= self.num
+            
+            variance = 0
+            for i in range(self.n_layers):
+                variance += ((i+1 - average) * (i+1 - average) * self.num_of_layer_list[i])
+            variance /= self.num
+            print(self.num_of_layer_list)
             print("enc average")
             print(average)
             print("enc variance")
             print(variance)
-            
 
         else:
             ##ここでループここにPosとTimEmbedding
@@ -679,8 +687,7 @@ class TransformerDecoder(nn.Module):
             )
 
         self.num = 0
-        self.num_of_layer_list = th.tensor([]).cuda()
-        #self.num_of_layer_list = np.array([])
+        self.num_of_layer_list = th.tensor([0,0,0,0,0,0]).cuda()
 
     def forward(self, input, encoder_state, incr_state=None):
         """
@@ -712,28 +719,32 @@ class TransformerDecoder(nn.Module):
             )
         tensor = self.dropout(tensor + self.position_embeddings(positions).expand_as(tensor))
 
-
         if (self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
 
             #tensor, (remainders, n_updates)            
-            #print(n_update)decは全部（ほぼ）1
-
-            #n_update = n_update.cpu().numpy()
-            #self.num += 1
-            #self.num_of_layer_list = np.append(self.num_of_layer_list, n_updates[-1])
-            
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
-            self.num += len(n_update)
-            self.num_of_layer_list = th.cat((self.num_of_layer_list, n_update))
-            
-            average = self.num_of_layer_list.mean()
-            variance = ((self.num_of_layer_list - average) * (self.num_of_layer_list - average)).sum() / self.num
 
+            self.num += len(n_update)
+            for i in range(self.n_layers):
+                self.num_of_layer_list[i] += th.sum((n_update == th.tensor([i+1]).float().cuda()).int())
+            
+            average = 0
+            for i in range(self.n_layers):
+                average += (i+1) * self.num_of_layer_list[i]
+            average /= self.num
+            
+            variance = 0
+            for i in range(self.n_layers):
+                variance += ((i+1 - average) * (i+1 - average) * self.num_of_layer_list[i])
+            variance /= self.num
+            
+            print(self.num_of_layer_list)
             print("dec average")
             print(average)
             print("dec variance")
             print(variance)
+
             return tensor, (remainders, n_updates)
             #return tensor, None
 
@@ -1095,7 +1106,7 @@ class ACT_basic(nn.Module):
         positions = inputs.new(seq_len).long()
         positions = th.arange(seq_len, out=positions).unsqueeze(0)
         # for l in range(self.num_layers):
-        while( ((halting_probability<self.threshold) & (n_updates < max_hop)).byte().any()):
+        while( ((halting_probability < self.threshold) & (n_updates < max_hop)).byte().any()):
             #any() 1つでも0以外があればTrue
             #while(((n_updates < max_hop)).byte().any()):なぜかError
             # Add timing signal

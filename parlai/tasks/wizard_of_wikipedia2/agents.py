@@ -168,6 +168,7 @@ class WizardOfWikipediaTeacher(FixedDialogTeacher):
         return shared
 
 
+
 ###############################################################
 #                                                             #
 # Dialog Teachers                                             #
