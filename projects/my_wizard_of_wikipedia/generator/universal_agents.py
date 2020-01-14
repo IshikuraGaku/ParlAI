@@ -14,7 +14,9 @@ import torch as th
 #th.multiprocessing.set_start_method("spawn")
 import numpy as np
 
-from parlai.core.utils import padded_tensor, round_sigfigs
+#from parlai.core.utils import padded_tensor, round_sigfigs
+from parlai.utils.torch import padded_tensor
+from parlai.utils.misc import round_sigfigs
 
 from projects.my_wizard_of_wikipedia.generator.transformer.transformer import TransformerGeneratorAgent
 from .universal_modules import EndToEndModel
