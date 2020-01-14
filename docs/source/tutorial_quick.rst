@@ -1,8 +1,3 @@
-..
-  Copyright (c) Facebook, Inc. and its affiliates.
-  This source code is licensed under the MIT license found in the
-  LICENSE file in the root directory of this source tree.
-
 ParlAI Quick-start
 ==================
 **Authors**: Alexander Holden Miller, Margaret Li
@@ -102,13 +97,13 @@ The Twitter task is quite large, and validation is run by default after each epo
 but we want to save our model more frequently so we set validation to run once an hour with ``-vtim 3600``.
 
 This train model script evaluates the model on the valid and test sets at the end of training, but if we wanted to evaluate a saved model -
-perhaps to compare the results of our newly trained Transformer against a pretrained seq2seq baseline from our `Model Zoo <http://parl.ai/docs/zoo.html>`_,
+perhaps to compare the results of our newly trained Transformer against a pretrained ``convai2`` seq2seq baseline from our `Model Zoo <http://parl.ai/docs/zoo.html>`_,
 we could do the following:
 
 .. code-block:: bash
 
-  # Evaluate seq2seq model trained on twitter from our model zoo
-  python examples/eval_model.py -t twitter -m legacy:seq2seq:0 -mf models:twitter/seq2seq/twitter_seq2seq_model
+  # Evaluate seq2seq model trained on convai2 from our model zoo
+  python examples/eval_model.py -t twitter -m legacy:seq2seq:0 -mf models:convai2/seq2seq/convai2_self_seq2seq_model
 
 
 Finally, let's print some of our transformer's predictions with the same display_model script from above.

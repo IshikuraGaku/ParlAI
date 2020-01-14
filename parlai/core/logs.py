@@ -17,19 +17,19 @@ extended to any other tool like visdom.
 import os
 import json
 import numbers
-
-try:
-    from tensorboardX import SummaryWriter
-except ImportError:
-    SummaryWriter = None
+from parlai.core.opt import Opt
 
 
 class TensorboardLogger(object):
-    """Log objects to tensorboard."""
+    """
+    Log objects to tensorboard.
+    """
 
     @staticmethod
     def add_cmdline_args(argparser):
-        """Add tensorboard CLI args."""
+        """
+        Add tensorboard CLI args.
+        """
         logger = argparser.add_argument_group('Tensorboard Arguments')
         logger.add_argument(
             '-tblog',
@@ -40,8 +40,12 @@ class TensorboardLogger(object):
             hidden=False,
         )
 
-    def __init__(self, opt):
-        if SummaryWriter is None:
+    def __init__(self, opt: Opt):
+        try:
+            # tensorboard is a very expensive thing to import. Wait until the
+            # last second to import it.
+            from tensorboardX import SummaryWriter
+        except ImportError:
             raise ImportError('Please run `pip install tensorboard tensorboardX`.')
 
         tbpath = opt['model_file'] + '.tensorboard'

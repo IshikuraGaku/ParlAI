@@ -6,7 +6,7 @@ import random
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input_file", default="train_row.json")
+    parser.add_argument("--input_file", default="train_raw.json")
     args = parser.parse_args()
 
     input_txt = open(args.input_file).read()

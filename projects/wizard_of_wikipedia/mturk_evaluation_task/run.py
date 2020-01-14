@@ -1,21 +1,26 @@
+#!/usr/bin/env python3
 # Copyright (c) Facebook, Inc. and its affiliates.
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 from parlai.core.params import ParlaiParser
 from parlai.core.agents import create_agent
-from parlai.core.utils import AttrDict
+from parlai.utils.misc import AttrDict
 from parlai.mturk.core.mturk_manager import MTurkManager
 import parlai.mturk.core.mturk_utils as mturk_utils
 
 from worlds import WizardEval, TopicsGenerator, TopicChooseWorld
 from task_config import task_config
 
+from projects.wizard_of_wikipedia.knowledge_retriever.knowledge_retriever import (
+    KnowledgeRetrieverAgent,
+)
+
 import gc
 import datetime
 import json
 import os
 import sys
-from parlai.core.logging_utils import ParlaiLogger, INFO
+from parlai.utils.logging import ParlaiLogger, INFO
 
 MASTER_QUALIF = {
     'QualificationTypeId': '2F1QJWKUDD8XADTFD2Q0G6UTO95ALH',
@@ -25,8 +30,10 @@ MASTER_QUALIF = {
 
 
 def main():
-    """This task consists of an MTurk agent evaluating a wizard model. They
-    are assigned a topic and asked to chat.
+    """
+    This task consists of an MTurk agent evaluating a wizard model.
+
+    They are assigned a topic and asked to chat.
     """
     start_time = datetime.datetime.today().strftime('%Y-%m-%d-%H-%M')
     argparser = ParlaiParser(False, add_model_args=True)
@@ -40,6 +47,11 @@ def main():
         default=240,
         type=int,
         help='time limit for entering a dialog message',
+    )
+    argparser.add_argument(
+        '--generative-setup',
+        default=False,
+        help='mimic setup for the WoW generator task (use knowledge token)',
     )
     argparser.add_argument(
         '--max-choice-time',
@@ -81,6 +93,13 @@ def main():
         help='Each worker must be unique',
     )
     argparser.add_argument(
+        '--prepend-gold-knowledge',
+        type='bool',
+        default=False,
+        help='Add the gold knowledge to the input text from the human for '
+        'the model observation.',
+    )
+    argparser.add_argument(
         '--mturk-log',
         type=str,
         default='data/mturklogs/wizard_of_wikipedia/{}.log'.format(start_time),
@@ -115,19 +134,43 @@ def main():
     # MODEL CONFIG
     # NOTE: please edit this to test your own models
     config = {
-        'model': 'projects:wizard_of_wikipedia:interactive_retrieval',
-        'retriever_model_file': 'models:wikipedia_full/tfidf_retriever/model',
-        'responder_model_file': 'models:wizard_of_wikipedia/full_dialogue_retrieval_model/model',
+        'model_file': 'models:wizard_of_wikipedia/end2end_generator/model',
+        'generative_setup': True,
+        'prepend_gold_knowledge': True,
+        'model': 'projects:wizard_of_wikipedia:generator',
+        'beam_size': 10,  # add inference arguments here
+        'inference': 'beam',
+        'beam_block_ngram': 3,
     }
 
-    argparser.add_model_subargs(config['model'])  # add model args to opt
+    # add dialogue model args
+    argparser.add_model_subargs(config['model'])
+    # add knowledge retriever args
+    argparser.add_model_subargs('projects:wizard_of_wikipedia:knowledge_retriever')
     start_opt = argparser.parse_args()
 
     inject_override(start_opt, config)
 
     if not start_opt.get('human_eval'):
+        # make dialogue responder model
         bot = create_agent(start_opt)
         shared_bot_params = bot.share()
+        # make knowledge retriever
+        knowledge_opt = {
+            'model': 'projects:wizard_of_wikipedia:knowledge_retriever',
+            'add_token_knowledge': not start_opt['generative_setup'],
+            'datapath': start_opt['datapath'],
+            'interactive_mode': False,  # interactive mode automatically sets fixed cands
+        }
+        # add all existing opt to the knowledge opt, without overriding
+        # the above arguments
+        for k, v in start_opt.items():
+            if k not in knowledge_opt and k not in config:
+                knowledge_opt[k] = v
+
+        knowledge_agent = KnowledgeRetrieverAgent(knowledge_opt)
+        knowledge_agent_shared_params = knowledge_agent.share()
+
     else:
         shared_bot_params = None
 
@@ -249,6 +292,7 @@ def main():
                 model_agent_opt=shared_bot_params,
                 world_tag='conversation t_{}'.format(conv_idx),
                 agent_timeout_shutdown=opt['ag_shutdown_time'],
+                knowledge_retriever_opt=knowledge_agent_shared_params,
             )
             while not world.episode_done():
                 world.parley()

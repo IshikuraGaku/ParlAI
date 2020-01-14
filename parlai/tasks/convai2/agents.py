@@ -6,7 +6,7 @@
 
 from parlai.core.agents import create_task_agent_from_taskname
 from parlai.core.teachers import FbDialogTeacher
-from parlai.core.utils import warn_once
+from parlai.utils.misc import warn_once
 from .build import build
 
 import copy
@@ -95,7 +95,12 @@ class InteractiveTeacher(SelfOriginalTeacher):
     pass
 
 
-def create_agents(opt, task):
+class SelfchatTeacher(SelfOriginalTeacher):
+    # Dummy class to add arguments for interactive world.
+    pass
+
+
+def create_agents(opt):
     if not opt.get('interactive_task', False):
         return create_task_agent_from_taskname(opt)
     else:

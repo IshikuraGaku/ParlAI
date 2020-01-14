@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Copyright (c) Facebook, Inc. and its affiliates.
 # This source code is licensed under the MIT license found in the
@@ -17,20 +17,13 @@ TorchRankerAgents and TorchGeneratorAgents support this.
 """
 
 import torch
-
-try:
-    # We need to run this *very first*, but subprocesses will throw an
-    # exception when running it
-    torch.multiprocessing.set_start_method("spawn")
-except RuntimeError:
-    pass
 import random
 import copy
 import os
 import signal
 import torch.distributed as dist
 import parlai.scripts.train_model as single_train
-import parlai.core.distributed_utils as distributed_utils
+import parlai.utils.distributed as distributed_utils
 
 
 def multiprocess_train(
@@ -95,7 +88,9 @@ def multiprocess_train(
 
 
 def launch_and_train(opt, port):
-    """Perform a fork() to many processes."""
+    """
+    Perform a fork() to many processes.
+    """
     # Launch multiple subprocesses
     spawncontext = torch.multiprocessing.spawn(
         multiprocess_train,

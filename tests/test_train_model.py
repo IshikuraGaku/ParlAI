@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Copyright (c) Facebook, Inc. and its affiliates.
 # This source code is licensed under the MIT license found in the
@@ -9,7 +9,7 @@ Basic tests that ensure train_model.py behaves in predictable ways.
 """
 
 import unittest
-import parlai.core.testing_utils as testing_utils
+import parlai.utils.testing as testing_utils
 
 
 class TestTrainModel(unittest.TestCase):

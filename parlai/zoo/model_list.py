@@ -15,7 +15,7 @@ automatically, e.g.:
 ... code-block:
 
    python examples/interactive.py --model-file
-       "zoo:wikipedia_2016-12-21/tfidf_retriever/drqa_docs"
+       "zoo:wikipedia_20161221/tfidf_retriever/drqa_docs"
 
 
 There are a number of guidelines you should follow in the zoo:
@@ -103,14 +103,14 @@ model_list = [
     },
     {
         "title": "Wikipedia Retriever (used for open SQuAD)",
-        "id": "wikipedia_2016-12-21",
-        "path": "zoo:wikipedia_2016-12-21/tfidf_retriever/drqa_docs",
+        "id": "wikipedia_20161221",
+        "path": "zoo:wikipedia_20161221/tfidf_retriever/drqa_docs",
         "agent": "tfidf_retriever",
         "external_website": "https://github.com/facebookresearch/DrQA",
         "task": "wikipedia:full",
         "example": (
             "python -m parlai.scripts.interactive --model tfidf_retriever "
-            "-mf zoo:wikipedia_2016-12-21/tfidf_retriever/drqa_docs"
+            "-mf zoo:wikipedia_20161221/tfidf_retriever/drqa_docs"
         ),
         "result": (
             """
@@ -248,7 +248,7 @@ model_list = [
             "-mf zoo:light/biranker_dialogue/model"
         ),
         "result": "{'exs': 6623, 'accuracy': 0.7586, 'f1': 0.7802, 'hits@1': 0.759, 'hits@5': 0.965,"  # noqa: E501
-        "'hits@10': 0.994, 'hits@100': 1.0, 'bleu': 0.7255, 'lr': 5e-05, 'num_updates': 15050,"  # noqa: E501
+        "'hits@10': 0.994, 'hits@100': 1.0, 'bleu': 0.7255, 'lr': 5e-05, 'total_train_updates': 15050,"  # noqa: E501
         "'examples': 6623, 'loss': 5307.0, 'mean_loss': 0.8013, 'mean_rank': 1.599, 'train_accuracy': 0}",  # noqa: E501
     },
     {
@@ -292,10 +292,222 @@ model_list = [
         ),
     },
     {
+        "title": "Poly-Encoder Transformer Reddit Pretrained Model",
+        "id": "pretrained_transformers",
+        "path": "zoo:pretrained_transformers/poly_model_huge_reddit",
+        "agent": "transformer/polyencoder",
+        "task": "pretrained_transformers",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "description": (
+            "Poly-Encoder pretrained on Reddit. Use this model as an ``--init-model`` for a poly-encoder "
+            "when fine-tuning on another task. For more details on how to train, see the project page."
+        ),
+        "example": (
+            "python -u examples/train_model.py "
+            "--init-model zoo:pretrained_transformers/poly_model_huge_reddit/model "
+            "-pyt convai2 --shuffle true "
+            "--model transformer/polyencoder --batchsize 256 --eval-batchsize 10 "
+            "--warmup_updates 100 --lr-scheduler-patience 0 --lr-scheduler-decay 0.4 "
+            "-lr 5e-05 --data-parallel True --history-size 20 --label-truncate 72 "
+            "--text-truncate 360 --num-epochs 8.0 --max_train_time 200000 -veps 0.5 "
+            "-vme 8000 --validation-metric accuracy --validation-metric-mode max "
+            "--save-after-valid True --log_every_n_secs 20 --candidates batch --fp16 True "
+            "--dict-tokenizer bpe --dict-lower True --optimizer adamax --output-scaling 0.06 "
+            "--variant xlm --reduction-type mean --share-encoders False "
+            "--learn-positional-embeddings True --n-layers 12 --n-heads 12 --ffn-size 3072 "
+            "--attention-dropout 0.1 --relu-dropout 0.0 --dropout 0.1 --n-positions 1024 "
+            "--embedding-size 768 --activation gelu --embeddings-scale False --n-segments 2 "
+            "--learn-embeddings True --polyencoder-type codes --poly-n-codes 64 "
+            "--poly-attention-type basic --dict-endtoken __start__ "
+            "--model-file <YOUR MODEL FILE>"
+        ),
+        "result": (
+            "(subject to some variance, you may see the following as a result of validation of the model)\n"
+            "{'exs': 7801, 'accuracy': 0.8942 ...}"
+        ),
+    },
+    {
+        "title": "Poly-Encoder Transformer Wikipedia/Toronto Books Pretrained Model",
+        "id": "pretrained_transformers",
+        "path": "zoo:pretrained_transformers/poly_model_huge_wikito",
+        "agent": "transformer/polyencoder",
+        "task": "pretrained_transformers",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "description": (
+            "Poly-Encoder pretrained on Wikipedia/Toronto Books. Use this model as an ``--init-model`` for a poly-encoder "
+            "when fine-tuning on another task. For more details on how to train, see the project page."
+        ),
+        "example": (
+            "python -u examples/train_model.py "
+            "--init-model zoo:pretrained_transformers/poly_model_huge_wikito/model "
+            "-pyt convai2 --shuffle true "
+            "--model transformer/polyencoder --batchsize 256 --eval-batchsize 10 "
+            "--warmup_updates 100 --lr-scheduler-patience 0 --lr-scheduler-decay 0.4 "
+            "-lr 5e-05 --data-parallel True --history-size 20 --label-truncate 72 "
+            "--text-truncate 360 --num-epochs 8.0 --max_train_time 200000 -veps 0.5 "
+            "-vme 8000 --validation-metric accuracy --validation-metric-mode max "
+            "--save-after-valid True --log_every_n_secs 20 --candidates batch --fp16 True "
+            "--dict-tokenizer bpe --dict-lower True --optimizer adamax --output-scaling 0.06 "
+            "--variant xlm --reduction-type mean --share-encoders False "
+            "--learn-positional-embeddings True --n-layers 12 --n-heads 12 --ffn-size 3072 "
+            "--attention-dropout 0.1 --relu-dropout 0.0 --dropout 0.1 --n-positions 1024 "
+            "--embedding-size 768 --activation gelu --embeddings-scale False --n-segments 2 "
+            "--learn-embeddings True --polyencoder-type codes --poly-n-codes 64 "
+            "--poly-attention-type basic --dict-endtoken __start__ "
+            "--model-file <YOUR MODEL FILE>"
+        ),
+        "result": (
+            "(subject to some variance, you may see the following as a result of validation of the model)\n"
+            "{'exs': 7801, 'accuracy': 0.861 ...}"
+        ),
+    },
+    {
+        "title": "Bi-Encoder Transformer Reddit Pretrained Model",
+        "id": "pretrained_transformers",
+        "path": "zoo:pretrained_transformers/poly_model_huge_reddit",
+        "agent": "transformer/biencoder",
+        "task": "pretrained_transformers",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "description": (
+            "Bi-Encoder pretrained on Reddit. Use this model as an ``--init-model`` for a bi-encoder "
+            "when fine-tuning on another task. For more details on how to train, see the project page."
+        ),
+        "example": (
+            "python -u examples/train_model.py "
+            "--init-model zoo:pretrained_transformers/bi_model_huge_reddit/model "
+            "--batchsize 512 -pyt convai2 "
+            "--shuffle true --model transformer/biencoder --eval-batchsize 6 "
+            "--warmup_updates 100 --lr-scheduler-patience 0 "
+            "--lr-scheduler-decay 0.4 -lr 5e-05 --data-parallel True "
+            "--history-size 20 --label-truncate 72 --text-truncate 360 "
+            "--num-epochs 10.0 --max_train_time 200000 -veps 0.5 -vme 8000 "
+            "--validation-metric accuracy --validation-metric-mode max "
+            "--save-after-valid True --log_every_n_secs 20 --candidates batch "
+            "--dict-tokenizer bpe --dict-lower True --optimizer adamax "
+            "--output-scaling 0.06 "
+            "--variant xlm --reduction-type mean --share-encoders False "
+            "--learn-positional-embeddings True --n-layers 12 --n-heads 12 "
+            "--ffn-size 3072 --attention-dropout 0.1 --relu-dropout 0.0 --dropout 0.1 "
+            "--n-positions 1024 --embedding-size 768 --activation gelu "
+            "--embeddings-scale False --n-segments 2 --learn-embeddings True "
+            "--share-word-embeddings False --dict-endtoken __start__ --fp16 True "
+            "--model-file <YOUR MODEL FILE>"
+        ),
+        "result": (
+            "(subject to some variance, you may see the following as a result of validation of the model)\n"
+            "{'exs': 7801, 'accuracy': 0.8686 ...}"
+        ),
+    },
+    {
+        "title": "Bi-Encoder Transformer Wikipedia/Toronto Books Pretrained Model",
+        "id": "pretrained_transformers",
+        "path": "zoo:pretrained_transformers/bi_model_huge_wikito",
+        "agent": "transformer/biencoder",
+        "task": "pretrained_transformers",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "description": (
+            "Bi-Encoder pretrained on Wikipedia/Toronto Books. Use this model as an ``--init-model`` for a poly-encoder "
+            "when fine-tuning on another task. For more details on how to train, see the project page."
+        ),
+        "example": (
+            "python -u examples/train_model.py "
+            "--init-model zoo:pretrained_transformers/bi_model_huge_wikito/model "
+            "--batchsize 512 -pyt convai2 "
+            "--shuffle true --model transformer/biencoder --eval-batchsize 6 "
+            "--warmup_updates 100 --lr-scheduler-patience 0 "
+            "--lr-scheduler-decay 0.4 -lr 5e-05 --data-parallel True "
+            "--history-size 20 --label-truncate 72 --text-truncate 360 "
+            "--num-epochs 10.0 --max_train_time 200000 -veps 0.5 -vme 8000 "
+            "--validation-metric accuracy --validation-metric-mode max "
+            "--save-after-valid True --log_every_n_secs 20 --candidates batch "
+            "--dict-tokenizer bpe --dict-lower True --optimizer adamax "
+            "--output-scaling 0.06 "
+            "--variant xlm --reduction-type mean --share-encoders False "
+            "--learn-positional-embeddings True --n-layers 12 --n-heads 12 "
+            "--ffn-size 3072 --attention-dropout 0.1 --relu-dropout 0.0 --dropout 0.1 "
+            "--n-positions 1024 --embedding-size 768 --activation gelu "
+            "--embeddings-scale False --n-segments 2 --learn-embeddings True "
+            "--share-word-embeddings False --dict-endtoken __start__ --fp16 True "
+            "--model-file <YOUR MODEL FILE>"
+        ),
+        "result": (
+            "(subject to some variance, you may see the following as a result of validation of the model)\n"
+            "{'exs': 7801, 'accuracy': 0.846 ...}"
+        ),
+    },
+    {
+        "title": "Cross-Encoder Transformer Reddit Pretrained Model",
+        "id": "pretrained_transformers",
+        "path": "zoo:pretrained_transformers/cross_model_huge_reddit",
+        "agent": "transformer/crossencoder",
+        "task": "pretrained_transformers",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "description": (
+            "Cross-Encoder pretrained on Reddit. Use this model as an ``--init-model`` for a cross-encoder "
+            "when fine-tuning on another task. For more details on how to train, see the project page."
+        ),
+        "example": (
+            "python -u examples/train_model.py "
+            "--init-model zoo:pretrained_transformers/cross_model_huge_reddit/model "
+            "-pyt convai2 --shuffle true "
+            "--model transformer/crossencoder --batchsize 16 --eval-batchsize 10 "
+            "--warmup_updates 1000 --lr-scheduler-patience 0 --lr-scheduler-decay 0.4 "
+            "-lr 5e-05 --data-parallel True --history-size 20 --label-truncate 72 "
+            "--text-truncate 360 --num-epochs 12.0 --max_train_time 200000 -veps 0.5 "
+            "-vme 2500 --validation-metric accuracy --validation-metric-mode max "
+            "--save-after-valid True --log_every_n_secs 20 --candidates inline --fp16 True "
+            "--dict-tokenizer bpe --dict-lower True --optimizer adamax --output-scaling 0.06 "
+            "--variant xlm --reduction-type first --share-encoders False "
+            "--learn-positional-embeddings True --n-layers 12 --n-heads 12 --ffn-size 3072 "
+            "--attention-dropout 0.1 --relu-dropout 0.0 --dropout 0.1 --n-positions 1024 "
+            "--embedding-size 768 --activation gelu --embeddings-scale False --n-segments 2 "
+            "--learn-embeddings True --dict-endtoken __start__ "
+            "--model-file <YOUR MODEL FILE>"
+        ),
+        "result": (
+            "(subject to some variance, you may see the following as a result of validation of the model)\n"
+            "{'exs': 7801, 'accuracy': 0.903 ...}"
+        ),
+    },
+    {
+        "title": "Cross-Encoder Transformer Wikipedia/Toronto Books Pretrained Model",
+        "id": "pretrained_transformers",
+        "path": "zoo:pretrained_transformers/cross_model_huge_wikito",
+        "agent": "transformer/crossencoder",
+        "task": "pretrained_transformers",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "description": (
+            "Cross-Encoder pretrained on Wikipedia/Toronto Books. Use this model as an ``--init-model`` for a poly-encoder "
+            "when fine-tuning on another task. For more details on how to train, see the project page."
+        ),
+        "example": (
+            "python -u examples/train_model.py "
+            "--init-model zoo:pretrained_transformers/cross_model_huge_wikito/model "
+            "-pyt convai2 --shuffle true "
+            "--model transformer/crossencoder --batchsize 16 --eval-batchsize 10 "
+            "--warmup_updates 1000 --lr-scheduler-patience 0 --lr-scheduler-decay 0.4 "
+            "-lr 5e-05 --data-parallel True --history-size 20 --label-truncate 72 "
+            "--text-truncate 360 --num-epochs 12.0 --max_train_time 200000 -veps 0.5 "
+            "-vme 2500 --validation-metric accuracy --validation-metric-mode max "
+            "--save-after-valid True --log_every_n_secs 20 --candidates inline --fp16 True "
+            "--dict-tokenizer bpe --dict-lower True --optimizer adamax --output-scaling 0.06 "
+            "--variant xlm --reduction-type first --share-encoders False "
+            "--learn-positional-embeddings True --n-layers 12 --n-heads 12 --ffn-size 3072 "
+            "--attention-dropout 0.1 --relu-dropout 0.0 --dropout 0.1 --n-positions 1024 "
+            "--embedding-size 768 --activation gelu --embeddings-scale False --n-segments 2 "
+            "--learn-embeddings True --dict-endtoken __start__ "
+            "--model-file <YOUR MODEL FILE>"
+        ),
+        "result": (
+            "(subject to some variance, you may see the following as a result of validation of the model)\n"
+            "{'exs': 7801, 'accuracy': 0.873 ...}"
+        ),
+    },
+    {
         "title": "Poly-Encoder Transformer ConvAI2 Model",
         "id": "pretrained_transformers",
         "path": "zoo:pretrained_transformers/model_poly",
-        "agent": "transformer/polyencoder",  # noqa: E501
+        "agent": "transformer/polyencoder",
         "task": "convai2",
         "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
         "description": (
@@ -318,7 +530,7 @@ model_list = [
         ),
         "result2": (
             "[ Finished evaluating tasks ['convai2'] using datatype valid ]\n"
-            "{'exs': 7801, 'accuracy': 0.8942, 'f1': 0.9065, 'hits@1': 0.894, 'hits@5': 0.99, 'hits@10': 0.997, 'hits@100': 1.0, 'bleu': 0.8941, 'lr': 5e-09, 'num_updates': 0, 'examples': 7801, 'loss': 3004.0, 'mean_loss': 0.385, 'mean_rank': 1.234, 'mrr': 0.9359}"
+            "{'exs': 7801, 'accuracy': 0.8942, 'f1': 0.9065, 'hits@1': 0.894, 'hits@5': 0.99, 'hits@10': 0.997, 'hits@100': 1.0, 'bleu': 0.8941, 'lr': 5e-09, 'total_train_updates': 0, 'examples': 7801, 'loss': 3004.0, 'mean_loss': 0.385, 'mean_rank': 1.234, 'mrr': 0.9359}"
         ),
     },
     {
@@ -348,7 +560,7 @@ model_list = [
         ),
         "result2": (
             "[ Finished evaluating tasks ['convai2'] using datatype valid ]\n"
-            "{'exs': 7801, 'accuracy': 0.8686, 'f1': 0.8833, 'hits@1': 0.869, 'hits@5': 0.987, 'hits@10': 0.996, 'hits@100': 1.0, 'bleu': 0.8685, 'lr': 5e-09, 'num_updates': 0, 'examples': 7801, 'loss': 28.77, 'mean_loss': 0.003688, 'mean_rank': 1.301, 'mrr': 0.9197}"
+            "{'exs': 7801, 'accuracy': 0.8686, 'f1': 0.8833, 'hits@1': 0.869, 'hits@5': 0.987, 'hits@10': 0.996, 'hits@100': 1.0, 'bleu': 0.8685, 'lr': 5e-09, 'total_train_updates': 0, 'examples': 7801, 'loss': 28.77, 'mean_loss': 0.003688, 'mean_rank': 1.301, 'mrr': 0.9197}"
         ),
     },
     {
@@ -412,7 +624,7 @@ model_list = [
         "title": "Transformer Classifier Single-turn Dialogue Safety Model",
         "id": "dialogue_safety",
         "path": "zoo:dialogue_safety/single_turn/model",
-        "agent": "transformer_classifier",  # noqa: E501
+        "agent": "transformer/classifier",
         "task": "dialogue_safety:adversarial,dialogue_safety:standard",
         "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_safety",
         "description": (
@@ -423,14 +635,14 @@ model_list = [
             "--round 3 -dt test -mf zoo:dialogue_safety/single_turn/model -bs 40"
         ),
         "result": (
-            "{'exs': 3000, 'accuracy': 0.9627, 'f1': 0.9627, 'bleu': 9.627e-10, 'lr': 5e-09, 'num_updates': 0, 'examples': 3000, 'mean_loss': 0.005441, 'class___notok___recall': 0.7833, 'class___notok___prec': 0.8333, 'class___notok___f1': 0.8076, 'class___ok___recall': 0.9826, 'class___ok___prec': 0.9761, 'class___ok___f1': 0.9793, 'weighted_f1': 0.9621}"
+            "{'exs': 3000, 'accuracy': 0.9627, 'f1': 0.9627, 'bleu': 9.627e-10, 'lr': 5e-09, 'total_train_updates': 0, 'examples': 3000, 'mean_loss': 0.005441, 'class___notok___recall': 0.7833, 'class___notok___prec': 0.8333, 'class___notok___f1': 0.8076, 'class___ok___recall': 0.9826, 'class___ok___prec': 0.9761, 'class___ok___f1': 0.9793, 'weighted_f1': 0.9621}"
         ),
     },
     {
         "title": "BERT Classifier Multi-turn Dialogue Safety Model",
         "id": "dialogue_safety",
         "path": "zoo:dialogue_safety/multi_turn/model",
-        "agent": "bert_classifier",  # noqa: E501
+        "agent": "bert_classifier",
         "task": "dialogue_safety:multiturn",
         "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_safety",
         "description": (
@@ -440,7 +652,7 @@ model_list = [
             "python examples/eval_model.py -t dialogue_safety:multiturn -dt test -mf zoo:dialogue_safety/multi_turn/model --split-lines True -bs 40"
         ),
         "result": (
-            "{'exs': 3000, 'accuracy': 0.9317, 'f1': 0.9317, 'bleu': 9.317e-10, 'lr': 5e-09, 'num_updates': 0, 'examples': 3000, 'mean_loss': 0.008921, 'class___notok___recall': 0.7067, 'class___notok___prec': 0.6444, 'class___notok___f1': 0.6741, 'class___ok___recall': 0.9567, 'class___ok___prec': 0.9671, 'class___ok___f1': 0.9618, 'weighted_f1': 0.9331}"
+            "{'exs': 3000, 'accuracy': 0.9317, 'f1': 0.9317, 'bleu': 9.317e-10, 'lr': 5e-09, 'total_train_updates': 0, 'examples': 3000, 'mean_loss': 0.008921, 'class___notok___recall': 0.7067, 'class___notok___prec': 0.6444, 'class___notok___f1': 0.6741, 'class___ok___recall': 0.9567, 'class___ok___prec': 0.9671, 'class___ok___f1': 0.9618, 'weighted_f1': 0.9331}"
         ),
     },
 ]
