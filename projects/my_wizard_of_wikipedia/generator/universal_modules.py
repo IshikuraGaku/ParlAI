@@ -8,7 +8,8 @@ import numpy as np
 import torch as th
 import torch.nn as nn
 
-from parlai.core.utils import neginf
+#from parlai.core.utils import neginf
+from parlai.utils.torch import neginf
 from projects.my_wizard_of_wikipedia.generator.transformer.modules import TransformerGeneratorModel
 
 
