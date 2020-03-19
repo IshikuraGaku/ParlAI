@@ -1,52 +1,2377 @@
-<<<<<<< HEAD
-[wizard_of_wikipedia]: Green
-My favortie color is green because it makes my eyes pop.
-[EndToEnd]: I love the color blue . It ' s a great song .
-[wizard_of_wikipedia]: I used to use blue and yellow paint to make green, so that makes sense
-[EndToEnd]: I think it ' s a lot of creatures that are adapted to their environments .
-[wizard_of_wikipedia]: Thats pretty cool, like a chameleon?
-[EndToEnd]: It was used in the Middle Ages , the color of merchants and bankers .
-[wizard_of_wikipedia]: I never knew that.  Is that why money is green?
-[EndToEnd]: It ' s a color of Ireland and Gaelic culture .
+[WizTeacher]: Red
+Red is my favorite color.  My house, car, and clothes are all red.
+[EndToEnd]: i love red , green and orange .
+[WizTeacher]: What do you think it is about red that makes it so appealing?
+[EndToEnd]: i think it is the color orange , orange , orange , orange , orange , orange , orange , orange , orange orange , orange orange , orange orange , orange orange orange orange , orange orange orange , orange orange , orange orange orange , and orange orange .
+[WizTeacher]: It's also the first color in the rainbow, roy g. biv, right?
+[EndToEnd]: yes , it was a very popular record in the united states .
+[WizTeacher]: I don't mind pink.  My daughter however, goes crazy for pink.  It is her favorite color.
+[EndToEnd]: i love pink , especially when it is mixed with other colors .
+[WizTeacher]: How about purple, do you like purple?
+[EndToEnd]: i like purple because it is a mixture of other colors . i like violet and green .
 - - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Gone with the Wind (film)
-Have you seen the film Gone with the Wind?
-[EndToEnd]: Yes , I have seen it . It was a great movie .
-[wizard_of_wikipedia]: I have not seen it. I have heard it has some Confederate bias. Is that true? I have relatives that fought for the Confederacy so it likely will not bother me.
-[EndToEnd]: It was based on the British war of the American war of the American Civil War .
-[wizard_of_wikipedia]: What kind of personality does Scarlett O'Hara have?
-[EndToEnd]: Yes , it was based on the British war of the American war of the American Civil War .
-[wizard_of_wikipedia]: I imagine she changes throughout the film. Would you say it is for the better or for the worse?
-[EndToEnd]: Yes , it ' s a great idea . It ' s a romantic relationship that is a romantic relationship .
+[WizTeacher]: Brown hair
+[EndToEnd]: i have brown hair . i have brown hair .
+[WizTeacher]: That's nice. Is it long or short hair?
+[EndToEnd]: i have brown hair . it is the second most common color black hair .
+[WizTeacher]: That's true. I guess I would rephrase it as do you have shoulder length hair or longer?
+[EndToEnd]: i do not have a hair but i do know that hair is generally attractive to men and women .
+[WizTeacher]: My friend recently cut off 8 inches of hair to donate to cancer patients so I was curious about hair length. 
+[EndToEnd]: i ' m not sure , but i ' m sure it ' s a lot of fun .
 - - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Dog
-I have a dog named Barney
-[EndToEnd]: I have a dog named the genus " Canis " . " is a member of the genus "
-[wizard_of_wikipedia]: What's it favorite food?
-[EndToEnd]: Dogs are closely related to the wolf
-=======
-[wizard_of_wikipedia]: Gardening
-I like Gardening, even when I've only been doing it for a short time.
-[EndToEnd]: i love gardening , it is considered a relaxing activity .
-[wizard_of_wikipedia]: That sounds great.  I've always thought that I would love living in a farm, but I;ve always lived in the city.  What do you mostly plant?
-[EndToEnd]: i plant plant plant plant plant plant plant plant plant plant , but i have a plant plant plant plant plant plant and a plant plant .
-[wizard_of_wikipedia]: Great, I love the idea of growing my own vegetables and fruits! Do you have animals in the farm?
-[EndToEnd]: i do not like them , but i do know that there are a variety of different types of plant plants , vegetables , and even a variety of different types of plant .
-[wizard_of_wikipedia]: Wow, it sounds amazing, the Micro-pigs are so cute! are they trainable to be well behaved?
-[EndToEnd]: i ' m not sure , but i know that they are the first - time breeding of animal husbandry , and breeding .
+[WizTeacher]: Physical fitness
+Hey, so what do you do in terms of physical fitness?
+[EndToEnd]: i do not exercise , but i do know that it is a health activity that studies physical and physical health benefits .
+[WizTeacher]: That's good. Yeah I try to eat healthy whenever possible but sometimes it is kind of hard. I also try to go to the gym at least once a week.
+[EndToEnd]: i ' m not sure , but i do know that it ' s a major health activity .
+[WizTeacher]: I didn't know that. You would have to be in peak physical shape to make it that long though. 
+[EndToEnd]: yes , it is a very important activity for health and physical health benefits .
+[WizTeacher]: So do you work out often? Do you prefer to do cardio like running, or strength like lifting weights?
+[EndToEnd]: i like to use weights . i like to use a lot of weights .
 - - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Bob Ross
-I would like to know more about bob ross
-[EndToEnd]: he was born in the late 19th century . he was an american painter , painter , television host , television host , television host , television , television , television , television , television , television , television , and television host .
-[wizard_of_wikipedia]: thats cool what else?
-[EndToEnd]: he was created in 1994 and aired on pbs in 1994 .
-[wizard_of_wikipedia]: yes I like to watch that some times
-[EndToEnd]: he was on pbs and host the joy of painting
-[wizard_of_wikipedia]: it ran for a long time
-[EndToEnd]: he was on pbs and host the joy of painting
+[WizTeacher]: Brown hair
+[EndToEnd]: i have brown hair . i have brown hair .
+[WizTeacher]: oh yea? i have black/brown hair
+[EndToEnd]: i have brown hair , it is a pale pigment eumelanin
+[WizTeacher]: oh really? thats cool.
+[EndToEnd]: it is very rare , it occurs naturally in 1 - 2 % of the population
 - - - - - - - - - - - - - - - - - - - - -
-[wizard_of_wikipedia]: Stamp collecting
-[EndToEnd]: stamp collecting is a hobby . it ' s a hobby that proved to be a perfect hobby to collect new stamps .
-[wizard_of_wikipedia]: I have always wondered how this works... grabbing popcorn this will be good
-[EndToEnd]: i like stamps too . they are often collected for their historical value and historical aspects .
->>>>>>> 855fe0557ce9ce65eed4fb84f3a11f7e14c8ee04
+[WizTeacher]: Red
+I love the color red.  What is your favorite color?
+[EndToEnd]: i love red , pink is a pale red color that is a pale red color
+[WizTeacher]: Why is yellow used for cereal?
+[EndToEnd]: it is a cereal cereal cereal cereal cereal cereal cereal cereal cereal cereal from the cereal cereal .
+[WizTeacher]: I just think its a bright red fun color.  I used to have a red VW Bug
+[EndToEnd]: i have a red red red red red red red red red , it is a red red red red red red red red red red red .
+[WizTeacher]: I have heard that is true for sports cars.  I am not sure for a simple car like a Beetle
+[EndToEnd]: i ' ve never had a green green green one .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Gouda cheese
+[EndToEnd]: i love listening to kale , the second most widely known singer of the 20th century .
+[WizTeacher]: Most all cheese if made from Cow milk I think. I'm a fan of Gouda, it is pretty good.
+[EndToEnd]: i agree . it is a form of protein that is produced in milk and milk .
+[WizTeacher]: Yeah, what is your favorite cheese?
+[EndToEnd]: i like mozzarella , and mozzarella . i like mozzarella , cheddar and mozzarella .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Rock and roll
+I love rock and roll music.  Do you know much about the genre?
+[EndToEnd]: i do ! i love rock music , it ' s a genre of rock music that originated in the late 1960s and roll .
+[WizTeacher]: So it has a lot of influences.  When was rock music the most popular?
+[EndToEnd]: i ' m not sure , but i do know that it ' s often accompanied by banjos , folk lyric and harmonies .
+[WizTeacher]: Is rock and roll still popular today?  
+[EndToEnd]: yes , it was popular in the 1940s and early 20th century , and gained popularity in the 1940s .
+[WizTeacher]: I used to listen to the rock band Rolling Stones.  Are they still around today?
+[EndToEnd]: the original members of the band brian jones , mick jagger , keith richards , bill wyman , charlie watts , and ian stewart .
+[WizTeacher]: Wow, that is a long time to be playing music.  I wonder if any other bands have been around that long.
+[EndToEnd]: the rolling stones were the lead singer , brian jones , keith richards , bill wyman , charlie watts , and ian stewart .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Overeating
+I used to have a real issue with overeating.
+[EndToEnd]: me too ! i ' m a little bit of a person , i ' m worried about it .
+[WizTeacher]: Yeah it really is, it causes weight gain and even stuff like diabetes.
+[EndToEnd]: it is a lot of health benefits . it can be sweetened with a lot of health benefits .
+[WizTeacher]: I know, especially in the United States.
+[EndToEnd]: yea and it is very common in many places .
+[WizTeacher]: It really can be, like gorging and then throwing it all up.
+[EndToEnd]: yea and it is good
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: PlayStation
+[EndToEnd]: i love playing halo 3 . it ' s my favorite game console console .
+[WizTeacher]: I enjoy the Playstation too, what kind of games do you play?
+[EndToEnd]: i like to play the playstation 3 . i like the game of thrones .
+[WizTeacher]: Oh I don't play sports games, I like Lego Harry Potter!
+[EndToEnd]: i love the game of game , i like the game of thrones .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Obesity
+Are fat people funiier? Maybe. what do you think?
+[EndToEnd]: i am not a vegan , but i know it is a type of excessive risk of excessive excessive excessive excessive excessive excessive energy .
+[WizTeacher]: Why not accept it? Is it any of your business if someone is fat or not? Does it affect you, really?
+[EndToEnd]: i am not sure , but i do know that it is a very common component in the us .
+[WizTeacher]: And you don't think people should accept you? Should they throw rocks or something? Or not serve you at restaurants? You have hate yourself because you're fat?
+[EndToEnd]: i am not sure but i do know that obesity is the highest in the world .
+[WizTeacher]: It seems to be a symptom of something larger, psychological, environmental, lifestyles. Shaming people isn't going to help. People need other options and people to care for them.
+[EndToEnd]: i agree . i think it ' s a good thing to do . i ' m sure you ' re doing it .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+I would love to drive a Ferrari
+[EndToEnd]: the auto racing of the missouri ozarks
+[WizTeacher]: I actually didnt know that I wonder when the 1st one was made
+[EndToEnd]: the auto racing of the auto racing of the missouri ozars to the lamborghini
+[WizTeacher]: do you know if  they still build them today
+[EndToEnd]: i am not sure but i know that the company was founded in 1948
+[WizTeacher]: oh wow interesting, do they still make them in Italy
+[EndToEnd]: the lamborghini is the official name of the auto racing of the auto racing and the lamborghini of the lamborghini
+[WizTeacher]: I wonder if we make any in the US
+[EndToEnd]: yea i think they are very popular
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+Jazz doesn't make any sense to me.  Is there any order to it at all?
+[EndToEnd]: i like jazz music . it ' s a very popular genre .
+[WizTeacher]: I don't even know what blues music is, what is that?
+[EndToEnd]: i like classical music , but i like the sound of the sound of the classical style .
+[WizTeacher]: Jazz just sounds like a lot of noise to me which makes me think it is some sort of modern statement or something.  Is it a newer style of music?
+[EndToEnd]: i ' m not sure , but i know that there are a lot of different styles of music .
+[WizTeacher]: Kenny G is the only jazz artist I really know.  Is Kenny G smooth jazz?
+[EndToEnd]: kenny is a great singer . kenny is a singer and dancer .
+[WizTeacher]: I didn't say I like Kenny G.  Listening to Kenny G makes my ears bleed and my brain go numb.
+[EndToEnd]: i love that song , i love how he is a singer and emotional voice .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+[EndToEnd]: red is my favorite color . it ' s the color between red and orange on the spectrum of visible light .
+[WizTeacher]: It's never been one I've gravitated towards. But I'm open to learning more about all colors. What can you tell me about it to get me interested?
+[EndToEnd]: well , it is a color between blue and red .
+[WizTeacher]: Forest green, I think. That.. sounds kind of cool, that it was a symbolism for victory. To have such a strong association with a color, especially back then because winning was so important. Are there any more fun facts?
+[EndToEnd]: i think it ' s a very interesting thing . i think it ' s a very interesting thing to know about .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Hair coloring
+I've never dyed my hair before, but I've considered it! 
+[EndToEnd]: i have never had red hair .
+[WizTeacher]: I once had a friend telly me i should dye it a gray ombre, but I am honestly too lazy to care that much. I also like my natural hair color (dark brown)
+[EndToEnd]: i have a blonde hair color . it ' s a pale pigment eumelanin .
+[WizTeacher]: It's kind of a trend right now, I guess. I've met a few young guys that dye their heir gray. It's more of a silver, really.
+[EndToEnd]: i ' m not sure what the red blonde is .
+[WizTeacher]: Hair coloring
+[EndToEnd]: i have never heard of that . i have heard that it is a very interesting subject .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Clown
+[EndToEnd]: i love watching comedians . i like to watch the action of comedy .
+[WizTeacher]: really? How fun! How long have you been doing that?
+[EndToEnd]: i have not seen any of the dancers but i know it was a show that was a part of the show .
+[WizTeacher]: that's awesome! So do you use a specific make up and clothes?
+[EndToEnd]: i do not like to play but i do like to play a clothing label .
+[WizTeacher]: honestly, i'm a little bit scared of clowns. i think it's because of the movie IT by Stephen King
+[EndToEnd]: i think it would be a scary movie to watch . i think i ' m a fan of watching movies .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Target Corporation
+[EndToEnd]: i am a huge fan of the internet .
+[WizTeacher]: Oh I go there all the time! It's a lot better than most stores honestly.
+[EndToEnd]: i agree . i like shopping at walmart , which is a multinational retail corporation that operates in hypermarkets , discount department stores , and discount corporation .
+[WizTeacher]: Who is he exactly? I've never heard of him.
+[EndToEnd]: he was born in august 28 , 1948 .
+[WizTeacher]: Is that where the first store was too?
+[EndToEnd]: it was founded in 1971 in seattle , washington .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: I love mac and cheese. Any kinda carb really lol.
+[EndToEnd]: pasta is a staple food in sicily .
+[WizTeacher]: I like them when they are cooked the right way. I don't like them dry. I wish I could make them. 
+[EndToEnd]: i love pasta too ! i also like pasta with pasta and pasta .
+[WizTeacher]: Yes that's how I like them also. I've never had them fried.
+[EndToEnd]: i ' ve never had them , but i ' m not sure what you ' re doing .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Twin
+[EndToEnd]: i have a friend who was a child .
+[WizTeacher]: Me too.  Is there a strong resemblance?
+[EndToEnd]: i have a friend who is a fan of rodder .
+[WizTeacher]: Is it similar to the bond of identical twins?
+[EndToEnd]: i think it is a good one . i also like two brothers .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+I love rap music
+[EndToEnd]: i love the music that incorporates rhyme and rhythmic speech
+[WizTeacher]: Yeah I would kind of hope his real first name isn't Snoop
+[EndToEnd]: he is a personality personality personality . he is a personality personality personality .
+[WizTeacher]: Ah, he has been around for a while.
+[EndToEnd]: he was a great singer and songwriter .
+[WizTeacher]: He discovered quite a talent
+[EndToEnd]: he sold over 35 million albums worldwide .
+[WizTeacher]:  I love that he is still relevant
+[EndToEnd]: he sold over 35 million albums worldwide
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Sobriety
+Sobriety is an issue that is difficult for many individuals.
+[EndToEnd]: yea , i agree with you , i am a lot of sad .
+[WizTeacher]: Yes, please tell me the definition.
+[EndToEnd]: they are a good point to divorce . they are often able to move to the state to sosoess .
+[WizTeacher]: Yes, I believe that staying sober is difficult for many people.
+[EndToEnd]: i agree , i think it is hard to learn to learn .
+[WizTeacher]: I was married to an alcoholic who struggled with staying sober for almost 20 years. Even after rehab, he still struggles.
+[EndToEnd]: i agree . i think he is a good deal of it .
+[WizTeacher]: Although this is the first time I have ever heard that statement, I believe that there are many factors that contribute to dependency issues later in life.
+[EndToEnd]: i think it is true , but i think it is still a good thing to do .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+I love the number 7.  What do you think about that?
+[EndToEnd]: i do ! i love the story of the story .
+[WizTeacher]: It has been lucky for me and I like that it is used in slot machines.
+[EndToEnd]: i ' ve never been to one but i ' ve heard that it ' s a bit more fun .
+[WizTeacher]: I guess it depends on how you define a big win.  I think 7 is lucky certain cultures.  Do you know if that's true?
+[EndToEnd]: i think so . i think it ' s a very popular game .
+[WizTeacher]: Also isn't it used in like the seven wonders of the world and things like that?
+[EndToEnd]: i ' m not sure , but i know that there are many different types of things that are not really sure .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+Do you know anything about the car brand Ferrari?
+[EndToEnd]: i know that the auto racing of the auto racing of the missouri ozarks .
+[WizTeacher]: Oh fancy, how long has the brand been around?
+[EndToEnd]: the auto racing of the auto racing of the missouri ozars .
+[WizTeacher]: Interesting, what else can you tell me about the brand in general?
+[EndToEnd]: he is the official name of the auto racing of the auto racing of the auto racing of the auto association of missouri .
+[WizTeacher]: That's true, it's probably a very fun kind of car to drive. Can you tell me more about the life of Enzo Ferrari?
+[EndToEnd]: i ' ve heard that he is a sports car . i ' ve heard that the lamborghini is a sports car .
+[WizTeacher]: Do you know how much it cost at that time?
+[EndToEnd]: i ' m not sure , but i know that the price of the cost of $ 100 , 000 dollars in the us .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+[EndToEnd]: i love jazz music . it ' s a genre of music that originated in the early 20th century .
+[WizTeacher]: really? It reminds me of that movie where he's obsessed with jazz
+[EndToEnd]: jazz music is a very popular music .
+[WizTeacher]: wow really? I never really got into it!
+[EndToEnd]: i like jazz music .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+my wife has brown hair, it's so pretty i really love it
+[EndToEnd]: i love brown hair ! i had a hair color black and brown hair .
+[WizTeacher]: black hair is pretty too! i love natural colors, don't really like pink and green hair
+[EndToEnd]: i have a hair color that is characterized by low levels of the dark pigment eumelanin .
+[WizTeacher]: yes she is, she used to use Henna to dye her hair red. i mean it wasn't really red it just looked brown with red tint
+[EndToEnd]: i ' m not sure , but i know that red hair varies from hues from deep burgundy to strawberry blonde .
+[WizTeacher]: that's what i thought but apparently a lot of people from her home country (kazakhstan) use henna to dye hair.
+[EndToEnd]: i ' ve never heard of that . i ' ve heard that . i ' ve never heard of it .
+[WizTeacher]: she has ash brown hair.
+[EndToEnd]: i ' m not sure , but i know that it ' s a scale of light blond , and a light blond .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+Hi! My favorite food is pasta! I could eat it everyday. How about you?
+[EndToEnd]: i love pasta ! i love italian cuisine .
+[WizTeacher]: Awesome! I love rigatoni!  It's great with a white sauce!
+[EndToEnd]: i love pasta too ! i like pasta with pasta and pasta . i also like pasta with pasta .
+[WizTeacher]: Yes! Is all pasta originally from Italy? Do you know? I want to try authentic Italian pasta.
+[EndToEnd]: yes ! i love pasta ! i also like linguine , which is a pasta pasta pasta , and pasta .
+[WizTeacher]: Fascinating! Do you know how long it took for the cuisine to spread across the globe?
+[EndToEnd]: well , it was first recorded in the 14th century .
+[WizTeacher]: I see, that makes sense! Well there are so many different types of pasta to try! What would you try?
+[EndToEnd]: i like pasta pasta , pasta , and pasta . i like pasta with pasta and pasta .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+I love jazz. I listen to it whilst working and studying.
+[EndToEnd]: i love classical music .
+[WizTeacher]: I can see why, so many popular Jazz musicians are from old US.
+[EndToEnd]: jazz music is popular in the early 20th century .
+[WizTeacher]: Do you know any jazz bands that you could recommend?
+[EndToEnd]: i like jazz , but i like to listen to jazz music .
+[WizTeacher]: Ok is there any fun fact you know about jazz?
+[EndToEnd]: i have not heard of jazz music but i do know that it is a very popular jazz jazz .
+[WizTeacher]: really, I had no idea! I thought it was an American creation!
+[EndToEnd]: i think it is a very popular genre .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+[EndToEnd]: i love to play the suv .
+[WizTeacher]: I like to watch races . I know the Ferrari is a race car and is in the Formula One races. But no one in particular.
+[EndToEnd]: yes , the lamborghini is the official name of the auto racing of the auto racing , and the wagiver .
+[WizTeacher]: Yeah, I know. I like their road cars . The racing cars are just for racing I thought. Like the Formula one races
+[EndToEnd]: yes , the lamborghini is the official name of the auto racing of the auto racing , and the wagiver .
+[WizTeacher]: I don't know a lot about them. But I like watching races on TV. I have seen their logo and I like it alot.
+[EndToEnd]: the lamborghini is the official name of the auto racing of the auto racing , and the wagiver .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+Have you ever thought about red foods? Do you know what makes them red?
+[EndToEnd]: red is the color of red , red , orange , and orange on the spectrum of visible light .
+[WizTeacher]: It's much worse than that actually. The dye Red 40 is actually made from crushed red beetles. My daughter, who is vegetarian, found that out.
+[EndToEnd]: i have heard that red wine is a very important color .
+[WizTeacher]: Yes, but as she has learned more, I have also. Gelatin in foods (Jello) is made from boiled animal bones. I'm not vegetarian, but even I limit red foods and gelatin now.
+[EndToEnd]: i ' ve never heard of that . i ' ve heard that . i ' m sure it ' s a good thing to eat .
+[WizTeacher]: They say red sky at night is a sailor's delight, but red sky in morning, sailors take warning.
+[EndToEnd]: i ' ve never heard of that . i ' ve heard that . i ' ve never heard of that .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Shower
+[EndToEnd]: i love to sing , i love to sing in the shower .
+[WizTeacher]: It would be like living in the stone age.  WHen were showers first invented?
+[EndToEnd]: the greeks used the greeks for the greeks and ancient greeks .
+[WizTeacher]: When did modern showers become common
+[EndToEnd]: yes , it was a long time ago , but it was a long time ago .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Black hair
+[EndToEnd]: black hair is my favorite black black black black black .
+[WizTeacher]: Really?  Tell me more about this.
+[EndToEnd]: it is a pale pigment characterized by low levels of the dark pigment eumelanin
+[WizTeacher]: That makes sense. I wonder what is least common?
+[EndToEnd]: it is a low amounts of hair and a low amounts of eumelanin
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+My favorite number is 7, I dont know I just feel it is lucky
+[EndToEnd]: i have never heard of it . i know that it is a very hard time to get out of the same day .
+[WizTeacher]: Do you know anything about the number 7?
+[EndToEnd]: i ' m not sure , but i know that it ' s about 3 million dollars .
+[WizTeacher]: I think in the NFL their was a very famous player who had the number 7 but I cant remember his name
+[EndToEnd]: he is a legend . he is a legend in the us .
+[WizTeacher]: That is probably who im thinking of, I know some number in sports are reserved for certain postions.
+[EndToEnd]: i think it is cool how many people play with it .
+[WizTeacher]: That is kinda cool.
+[EndToEnd]: yeah , it is a very popular sport .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: Pasta is my favorite food!!! I could eat it for every meal, but I like my absolute favorite dish is fettuccine alfredo! 
+[EndToEnd]: i love pasta too ! i also like the pasta pasta . it ' s a pasta pasta maker .
+[WizTeacher]: That's interesting! It's also interesting how many other cultures have made pasta a part of their cuisine. Like Italian, Asian food uses a lot of different pastas. 
+[EndToEnd]: pasta pasta is a staple in sicily .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+[EndToEnd]: i love justin timberlake . he is a personality personality personality .
+[WizTeacher]: Wow! Didn't know about that ,would love to know more about the rap icon
+[EndToEnd]: he has sold over 35 million albums worldwide .
+[WizTeacher]: Nice,Dr Dre,is surely a great producer.what's more
+[EndToEnd]: he has sold over 35 million albums worldwide .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: List of art media
+[EndToEnd]: i love to listen to art music . i love art .
+[WizTeacher]: oh yea? is that used to paint?
+[EndToEnd]: yes , it is art art art .
+[WizTeacher]: oh thats cool. is that what you use?
+[EndToEnd]: i like clay , clay , ceramics , ceramics , ceramics , ceramics , and ceramics .
+[WizTeacher]: have any famous artists used it?
+[EndToEnd]: i am not sure but i do know that art is used for art and art productions
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Hair coloring
+I just dyed my hair a purplish red last friday.
+[EndToEnd]: i love red hair , i like red hair .
+[WizTeacher]: It was called deep violet but because I still had red in my hair it turned out a pretty purple and red color.
+[EndToEnd]: i ' ve never had red hair . i ' ve heard it ' s a red color that ' s bright red .
+[WizTeacher]: I did it myself. I usually have it done by a professional but I wanted to try it myself.
+[EndToEnd]: i have a red white white white white white and red red .
+[WizTeacher]: Definitely, it took me 30ish minutes and cost me $7
+[EndToEnd]: i ' m not sure what you mean . i ' m sure you ' re doing it for me .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Hair coloring
+[EndToEnd]: i love to eat fruit , i have a friend who has a hair color .
+[WizTeacher]: I think it is too. I changed my hair color in the past from black to dark blonde, it was interesting.
+[EndToEnd]: i love dark pigment ! it ' s a pale pigment characterized by low levels of the dark pigment eumelanin .
+[WizTeacher]: Not really, I do not like bleaching, I just used a regular hair dye and surprisingly it worked, just turned out a different shade than expected.
+[EndToEnd]: i have never had hair , but i have heard that it is a very difficult color to keep it in the morning .
+[WizTeacher]: This sounds like a lot. It doesn't surprise me though, women like change, it's boring to always look the same.
+[EndToEnd]: i agree . i think it ' s a good thing to do .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Wine tasting
+I have never been wine tasting but I am really interested in it. What do you know about wine tasting?
+[EndToEnd]: i love wine , wine , wine , wine , etc .
+[WizTeacher]: So is wine cheap or expensive. How is wine even made?
+[EndToEnd]: it is a mixture of yeast and yeast . it is made from rice and then then baked .
+[WizTeacher]: Okay nice. What are the different types of wine?
+[EndToEnd]: wine is a wine that is made from cereal wine .
+[WizTeacher]: Do the flavors change depending on the color. What about red wine?
+[EndToEnd]: i think it is a wine wine that gives the risk of wine and wine .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+[EndToEnd]: i have been working 7 times for 7 years now .
+[WizTeacher]: Well liking or not liking numbers I really have not thought about
+[EndToEnd]: i think it ' s a good idea . i ' m sure you ' re talking about the same thing .
+[WizTeacher]: numbers in different fonts are interesting to look at
+[EndToEnd]: i think it is a very interesting topic .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baking
+I can bake a mean cake. Have you ever baked?
+[EndToEnd]: i do not . i like baked baked baked goods .
+[WizTeacher]: What do you like to bake? I have made bread from scratch
+[EndToEnd]: i like baking pies , but i like baking pies . i like baking pies .
+[WizTeacher]: That sounds delicious. I need to bake more
+[EndToEnd]: i like baking pies , but i like baking pies .
+[WizTeacher]: Heat is essential to so much food!
+[EndToEnd]: i like to cook hot cakes , and baking a lot of food .
+[WizTeacher]: I bet that it is important for sanitation
+[EndToEnd]: i agree , i like to use a lot of vitamin c to treat and help them
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+I just love pasta - do you?
+[EndToEnd]: i love pasta ! i love italian cuisine .
+[WizTeacher]: I just love all the different toppings you can put on it - and you can get so creative with them also
+[EndToEnd]: pasta is a traditional italian dish , usually made from a wheat dough , which is usually made from a wheat dough .
+[WizTeacher]: wow - I didn't realize that many lived there.
+[EndToEnd]: i have heard that it was first recorded in the 14th century .
+[WizTeacher]: Does fresh pasta taste a lot different?
+[EndToEnd]: pasta pasta is usually made with fresh pasta or pasta . it is usually dried with fresh pasta .
+[WizTeacher]: I like pizza also - it's probably my favorite dish - oh and lasagna - ok just all of it
+[EndToEnd]: i like all kinds of meats , vegetables , meats and condiments .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Overeating
+Overeating is a serious problem in the USA.
+[EndToEnd]: i agree . i feel like i need to avoid eating food . it is a emotional emotional activity that is necessary to maintain and maintain and emotional behavior .
+[WizTeacher]: Fast food chains also make it worse, I would say.
+[EndToEnd]: i like to eat mine with cheese , lettuce , bacon , and onion .
+[WizTeacher]: Yes, I agree. I think Americans need to rethink their food choices.
+[EndToEnd]: i agree , i think it is a good thing to eat .
+[WizTeacher]: I agree. I think that the school systems should get involved.
+[EndToEnd]: i agree , i think it is important to find out that you can find a lot of money and you can find a good diet
+[WizTeacher]: I agree. There were many initiatives in the last decade that helped.
+[EndToEnd]: i agree , i think it is a good thing to do .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+Hi. I really love pasta. What about you?
+[EndToEnd]: i love pasta too ! i love italian cuisine .
+[WizTeacher]: If I had to choose, I'd say spaghetti is my favorite pasta.
+[EndToEnd]: pasta pasta is a traditional italian dish . i like pasta with pasta and pasta .
+[WizTeacher]: And it's versatile. You can have it with pesto sauce, tomato sauce, or just a little olive oil.
+[EndToEnd]: pasta pasta is a traditutated dish that is made from a wheat dough , which is usually made from a wheat dough .
+[WizTeacher]: It has. I prefer homemade pasta. What about you?
+[EndToEnd]: i like pasta , pasta , and pasta . i like pasta with pasta and pasta .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+I just love pasta but I cant eat it right now
+[EndToEnd]: i love pasta too ! i love italian food .
+[WizTeacher]: it has too many carbs for a low cal diet, I think Italy where it was first eaten right?
+[EndToEnd]: i ' m not sure , but i know that it ' s a tradition that we eat today .
+[WizTeacher]: no rice or rice flour either, coconut flour or almond flour only. I wonder how many pasta dishes there are, probably too many variations to count I suppose
+[EndToEnd]: i ' m not sure , but i do know that it ' s a very popular dish .
+[WizTeacher]: oh really I like all the shapes and types
+[EndToEnd]: yes , it is very popular in many different ways .
+[WizTeacher]: oh actually that is way more then I even imagined.
+[EndToEnd]: i agree . it is very simple .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+As weird as it might sound, sometimes I imagine heaven being a giant bowl of never ending pasta. And I just wade in marinara sauce for eternity, slurping noodles. Weird, yeah?
+[EndToEnd]: i love the tomato sauce , which is a traditional italian dish . i like the tomato sauce that comes from the sauce .
+[WizTeacher]: Well, I can't be the only one who's had this fantasy then. 1154 is a long time ago. Did they make it similar to how it is done in modern times?
+[EndToEnd]: i ' m not sure , but i do know that it was a staple for many years .
+[WizTeacher]: Interesting. What is the most popular form of pasta? I would guess spaghetti, but I don't really know.
+[EndToEnd]: i ' m not sure , but i know that spaghetti is a french pasta pasta pasta , which is a casserole baked in the oven .
+[WizTeacher]: Well, we both know Italy is famous for pasta. Are there any other countries who make their own version?
+[EndToEnd]: i ' m not sure , but i do know that they are typically served with rice , but i do know that they are typically served with different ingredients .
+[WizTeacher]: Those ingredients must have really helped bring pasta to the next level. I wonder if sailors ate pasta.
+[EndToEnd]: i ' m not sure , but i do know that pasta is a staple for many different pastas .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+[EndToEnd]: i have brown hair . i have brown hair .
+[WizTeacher]: Is it really? I know red hair is the least common, so is blond the most common?
+[EndToEnd]: it occurs naturally in 1 - 2 % of the population
+[WizTeacher]: Oh well that's interesting. Do you know the percentage of redheads in the world?
+[EndToEnd]: yes , it is more commonly in northern or western european ancestry
+[WizTeacher]: That is so low. I know redheads have a weird reaction towards anesthesia which makes surgery more complicated.
+[EndToEnd]: red hair is only 1 - 2 % of the population
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: Do you like Marinara sauce or Alfredo?
+[EndToEnd]: i love pasta with garlic and garlic .
+[WizTeacher]: What about meat?
+[EndToEnd]: onions are the most widely cultivated vegetable in the genus " allium "
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+Red is my favorite color, it's so powerful and aggressive I feel like.
+[EndToEnd]: i like blue too . it is a color intermediate between blue and red .
+[WizTeacher]: Really, do you know exactly what wavelength the color red occurs at?
+[EndToEnd]: red is the color of red , red , red , green and red .
+[WizTeacher]: Oh wow that is a big range. Red has so many hues too, it's such an interesting color.
+[EndToEnd]: yes , red hair is a color that is used in various colors .
+[WizTeacher]: That's really neat, I think red has a large psychological component to it also, do you know anything about the psychology of colors?
+[EndToEnd]: i don ' t know much about blue but i know that hue is associated with hue , chroma and lightness .
+[WizTeacher]: It sounds like it has such a deep history to it then, can you tell me more about color theory?
+[EndToEnd]: i ' m not sure , but i know that it ' s a theory that is used to create colors that are used to create a specific color .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Child care
+[EndToEnd]: i have a brother who is a child , she is a care parent , children , and children .
+[WizTeacher]: Yes, I would always be nervous about what happens during the time away from my children.
+[EndToEnd]: i think it ' s important to have children that are a child care care care for children .
+[WizTeacher]: Actual references from close friends would be the only way I would go with a babysitter
+[EndToEnd]: i have a family boy , and a family boy . i have a baby boy and girls .
+[WizTeacher]: Absolutely.  It would be perfect to have a family member involved.  The extra pure love is key!
+[EndToEnd]: i agree , i think it is a good thing to do . i would like to try to see if i was younger .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Niagara Falls
+Hi we are discuss about the world famous niagara falls
+[EndToEnd]: i love the niagara falls in the niagara falls metropolitan area of niagara falls in the niagara falls metropolitan area .
+[WizTeacher]: Yes, What are the three different waterfalls cn you please share with me
+[EndToEnd]: the national scenic national park is located in the united states .
+[WizTeacher]: Which view is most beautiful view
+[EndToEnd]: the united states is set in the united states between 31 states and canada .
+[WizTeacher]: Oh name itself its so nice. Any new upadtes about that falls
+[EndToEnd]: the united states is set in the united states between 31 states and canada
+[WizTeacher]: Okay super and good romantic location. All the very best for marriage conples
+[EndToEnd]: i agree , i love the fact that it is a very popular spot in the west
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+I have brown hair and I wear wigs and extensions
+[EndToEnd]: i love brown hair . it varies from brown to brown to brown .
+[WizTeacher]: But a lot of people think I should go with blonde instead of brown hair. But I like my brown hair
+[EndToEnd]: i have brown hair , black hair is my favorite color .
+[WizTeacher]: yes it natrualy brown but I been thinking about adding some other colors with streaks of brown in it
+[EndToEnd]: i have brown hair , brown sugar , brown sugar , brown sugar , brown sugar , brown sugar , brown sugar , brown brown brown brown and brown .
+[WizTeacher]: Yea it is but I guess i am trying to keep my brown hair but satisfy other people as well
+[EndToEnd]: i have a hair color , i have a hair and i have a baby baby .
+[WizTeacher]: I think lighter colors like light brown on me keeps me looking young.  I am 46 years old after all
+[EndToEnd]: i ' m not sure what you mean . i ' m sure you ' re talking about it .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Child care
+I used to work outside of the home. It was difficult finding reliable child care.
+[EndToEnd]: i have been working for a child . i was a child and i was a child .
+[WizTeacher]: I do have children. Two boys. How about you?
+[EndToEnd]: i have 2 kids , but i am not sure about it . i do know that it is a very popular child .
+[WizTeacher]: Yes, it's definitely better to have young children in a place that will aid in their social and intellectual development.
+[EndToEnd]: that ' s true , i ' m sure it ' s a good thing to do . i ' m sure it ' s a good deal of that .
+[WizTeacher]: I wish there were more commercial daycares open for those that have to work third shift. Unfortunately, those are few and far between.
+[EndToEnd]: that ' s true . i ' m sure you ' re right . i ' ve been working for a while .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+[EndToEnd]: i love jazz music . it ' s a genre of music that originated in the early 20th century .
+[WizTeacher]: I love jazz music.
+[EndToEnd]: i love jazz music .
+[WizTeacher]: oh yea thats cool.
+[EndToEnd]: it is a brass instrument . it is a brass instrument that is used in classical music .
+[WizTeacher]: oh wow thats pretty sweet.
+[EndToEnd]: i love jazz music .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+[EndToEnd]: i love jazz music . it ' s a genre of music that originated in the early 20th century .
+[WizTeacher]: I love jazz! Sinatra and Tony Bennett are my two favorites. Diana Krall is also a good new singer.
+[EndToEnd]: i like jazz music . it originated in the early 19th century .
+[WizTeacher]: Correct! It has deep roots in those genres. I love the trumpet in certain jazz songs.
+[EndToEnd]: i like jazz music , blues , and jazz .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Chronic fatigue syndrome
+Hello. I have chronic fatigue syndrome, which means I'm always low on energy.
+[EndToEnd]: that ' s a shame . did you have depression ? it ' s a disorder that is a disorder that can cause anxiety disorders , depression , and depression .
+[WizTeacher]: Thankfully mine is not too severe, but I do suffer from long-term fatigue. Unfortunately there is no cure.
+[EndToEnd]: i ' m sorry to hear that . i ' m sorry to hear that . i ' m sorry to hear that .
+[WizTeacher]: Mine is genetic.
+[EndToEnd]: i ' m not sure , but i know it ' s a mental health system .
+[WizTeacher]: Fatigue, memory problems, muscle and joint pain.
+[EndToEnd]: i ' m not sure , but i know it ' s a very difficult process .
+[WizTeacher]: Yes, the medication does help somewhat.
+[EndToEnd]: i have heard of it , it is a very helpful subject .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+I think Snoop Dogg is a ok rapper
+[EndToEnd]: he is a personality personality personality . he is a personality personality and he is a personality personality .
+[WizTeacher]: Do you think he was every a real gangster
+[EndToEnd]: he was a great singer and songwriter .
+[WizTeacher]: His real name is Calvin? that is funny!
+[EndToEnd]: he was a great singer and songwriter .
+[WizTeacher]: That is great he has always been kinda over rated if you ask me
+[EndToEnd]: i think he has sold over 35 million albums worldwide .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+[EndToEnd]: i love to play the suv .
+[WizTeacher]: Aren't they really fast?
+[EndToEnd]: yes , the lamborghini is the official name of the auto racing of the auto racing .
+[WizTeacher]: I think they would have too much power for me haha
+[EndToEnd]: yes , the auto racing racing racing is a great performance manufacturer .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Niagara Falls
+My moms family lives in upstate New York, when I was a kid I got to walk over to the Canadian side and had the most beautiful view of Niagara Falls. Only went once but I remember it like it was yesterday. Do you know anything about it or have you seen it?
+[EndToEnd]: i have , it is located in niagara falls , niagara falls , niagara falls , new york , the niagara falls in the niagara falls metropolitan area .
+[WizTeacher]: I remember a bunch of people used to try to go down it in barrels, talk about an intense way to die. Sorry, did I just get morbid with this? ANyway, it's huge!
+[EndToEnd]: i have never been to the state of atlanta , but i have heard it is a very popular state .
+[WizTeacher]: Ok... shocked over here! Had no idea America had a Falls. They are all connected I assume?
+[EndToEnd]: i ' m not sure , but i do know that it ' s a very popular company .
+[WizTeacher]: I am tempted to go, if you aren't messing with me. 35 years old and I have never even heard of it. I think everyone has heard of Niagara Falls though. Do you think Niagara is bigger? I bet that's why
+[EndToEnd]: i ' m not sure , but i know the new york falls along the edge of the new york metropolitan area , along the edge of the new york metropolitan area .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+I really enjoy the color red. It can denote passion and love. What is your favorite color?
+[EndToEnd]: i love yellow , which is between green and orange on the spectrum of visible light .
+[WizTeacher]: That is true. I really enjoy the color green, as well. It seems like such a friendly color most of the time
+[EndToEnd]: red is a color intermediate between blue and red .
+[WizTeacher]: I did not know that. I hope that Earth does not end up like Mars
+[EndToEnd]: i think it is a good thing to see . red is a good color .
+[WizTeacher]: That's a fun fact. Red can be a very passionate color.
+[EndToEnd]: i have heard of red wine , red , red , red , red , blue , and red wine .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Gouda cheese
+I'm looking for a new recipe and want to experiment with gouda cheese.  Do you have any ideas?
+[EndToEnd]: i agree . i love cheese , but i think it ' s a great way to find something that ' s what you ' re talking about .
+[WizTeacher]: So it's mild.  That's great to know. What else can you tell me about gouda?
+[EndToEnd]: i think it ' s more of a flat crust . i ' m not sure what you ' re talking about . i ' m sure it ' s called " gouda " is the second most widely accessible " .
+[WizTeacher]: 1184?  That's amazing.  I had no idea about the history of gouda.  I've wanted to cook with it for a while now, but it's expensive.
+[EndToEnd]: i ' m not sure , but i ' m sure it ' s a lot of a chemical chemical chemical chemical .
+[WizTeacher]: That is so interesting.  I wish I could negotiate the price at my local grocery store:)
+[EndToEnd]: i agree . i think that ' s what i ' m looking for . i ' m sure the price of the cost of employees is worth a month .
+[WizTeacher]: You're right...we've come a long way since then, however, I do love to go to outdoor farmer's markets which gives me that old world feel.
+[EndToEnd]: i agree . i would love to go to a local store . i would love to go to a local store someday someday .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baking
+I love to bake cakes. My wife married me because she loves my cakes so much.
+[EndToEnd]: i love cupcakes ! i love how they are baked in a small paper .
+[WizTeacher]: She jokes around that I'm The Cake Boss after the tv show.What's your favorite flavor of cake?
+[EndToEnd]: i love chocolate cake . i like the cake frosting and frosting .
+[WizTeacher]: What type of bread is the most commonly baked?
+[EndToEnd]: i ' m not sure but i do know that baked goods are commonly baked in the oven .
+[WizTeacher]: What kind of bread types are there?
+[EndToEnd]: well , ingredients vary widely in ways , ingredients and ingredients vary widely .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Dog biscuit
+How did the idea of dog biscuit come about?
+[EndToEnd]: i ' m not sure , but i know they are a type of dog that comes from a " sweet " dog .
+[WizTeacher]: Wow so it has been around for hundreds of years!
+[EndToEnd]: they are made with maple syrup , beans , and maple syrup .
+[WizTeacher]: how can they get?
+[EndToEnd]: they are very popular . they are usually used for their bite and a lot of people get them .
+[WizTeacher]: What is a dog biscuit usually made up of?
+[EndToEnd]: they are flat flat and flat flat . they are usually flat and flat .
+[WizTeacher]: Thanks for enlightening me about dog biscuit
+[EndToEnd]: i think they are more popular than a bread bread . they have been baked in a draft .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+[EndToEnd]: i love justin timberlake . he is a personality personality personality .
+[WizTeacher]: Hey Snoop, nice to meet you. I'm Jazzzzy. Real name Jasmine.
+[EndToEnd]: i love her too ! he has sold over 35 million albums worldwide .
+[WizTeacher]: Ahhhh! lol, my bad. Didn't get the 411 on the convo. So wasn't sure what wuz up. Yeah, Snoop Dogg's interesting. Been around a while. I saw him in one of the Pitch Perfect movies.
+[EndToEnd]: i think he is the best . he ' s also a legend of the game . he ' s also a legend .
+[WizTeacher]: Yeah, agree! And very cool to sell so many records. Not really my genre. But cool anyway. Are you a fan then?
+[EndToEnd]: i like the song " the " hard " and " rock " .
+[WizTeacher]: Nope, who are they?
+[EndToEnd]: i don ' t know much about him , but i do know that he is a producer and producer .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: List of art media
+I like drawing but have lost my touch. I've tried painting but no good. Do you enjoy making art?
+[EndToEnd]: i do not use a drawing method but i do enjoy it .
+[WizTeacher]: Do you know a lot about the different types of art media? I have tried a lot of different stuff just not that artistic
+[EndToEnd]: i ' m not sure , but i do know that it ' s a very difficult process to draw .
+[WizTeacher]: My uncle could do wonders with wood. It's so amazing to watch something being made. Have you ever tried it?
+[EndToEnd]: i have not , but i have done it for a while . i was a dancer and i was a dancer .
+[WizTeacher]: Oh that's fun to watch when a pottery wheel is being used. It changes so quickly but easy to mess us too
+[EndToEnd]: i ' ve been to a lot of salt water above my area . i ' m sure it ' s a good sport . i ' ll have to do it with it .
+[WizTeacher]: What other ways to make art do you know of? 
+[EndToEnd]: i ' m not sure , but i do know that the oldest pottery was in 17500 bc .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Child care
+[EndToEnd]: i have a brother who is a child , she is a care parent , children , and children .
+[WizTeacher]: What do you enjoy most about this age group?
+[EndToEnd]: i am a parent and i am a parent and i spend care of the day .
+[WizTeacher]: What is most difficult about this age group?
+[EndToEnd]: i am not sure but children are the first children to have children to be educated and parents in children .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+[EndToEnd]: i love to play the suv .
+[WizTeacher]: I'd love one too! Which model would you buy?
+[EndToEnd]: i like the lamborghini , the lamborghini of the auto racing , and the wagars of the wagiver .
+[WizTeacher]: Wow! I had no idea Ferrari has been around that long! Do you know how many cars the company produces per year?
+[EndToEnd]: i believe so , the official name of the auto racing of the auto racing , the wagiver , the official auto of the auto racing of the auto manufacturer of the auto racing , and the official auto manufacturer of the official auto manufacturer of the official auto of the auto manufacturer of the official auto manufacturer of the lamborghini .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+I am a men and i struggle with my family because i want to have long hair and they dont let me, i have pretty brown hair!
+[EndToEnd]: i have brown hair , black hair is my favorite color .
+[WizTeacher]: Actually yes i like to feel free! im straight one of my concersn also is if girls will like me with long hair
+[EndToEnd]: i agree , in some cultures , women are attractive to men and women .
+[WizTeacher]: Thats good to know! im a little bit insecure! but i think brown hair is still manly! blonde hair its more for girls
+[EndToEnd]: i have a hair head and i have a hair head and i have a hair head and i have a hair head .
+[WizTeacher]: Cool i did not know that, its funny because im from latin american descendanst and its very strange to have brown hair like me, everyone have dark hair! 
+[EndToEnd]: i think it ' s a shame that hair is more of a hair color .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+Snoop Doggy Dog is one of my favorite dudes.
+[EndToEnd]: he is a great personality . he has sold over 35 million albums worldwide .
+[WizTeacher]: That's his real name? I've never even heard it before.
+[EndToEnd]: he has sold over 35 million albums worldwide .
+[WizTeacher]: Yeah it sounds way too long to be catchy.
+[EndToEnd]: yea , they have sold over 35 million albums worldwide
+[WizTeacher]: Oh I know, he is insanely famous at this point.
+[EndToEnd]: he was a great singer and songwriter .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+[EndToEnd]: i have brown hair . i have brown hair .
+[WizTeacher]: I love brown hair, I was born with brown hair.
+[EndToEnd]: i have brown hair . i have a black hair color .
+[WizTeacher]: Wow, I would have thought blonde hair was most common. 
+[EndToEnd]: i have brown hair , it is a pale pigment eumelanin
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Obesity
+i wish i could lose weight, i'm so obese 
+[EndToEnd]: that ' s true . obesity is a medical medical program that is obese .
+[WizTeacher]: i don't even know how i became so obese
+[EndToEnd]: it ' s hard to say that obesity is the highest in the world .
+[WizTeacher]: i do workout but i think i overeat. I tend to eat a lot when i'm stressed
+[EndToEnd]: i agree . i am not sure what you mean .
+[WizTeacher]: that's really scary. thank you for the helpful info
+[EndToEnd]: i am not sure what you mean . i do know that it is a very difficult job to do .
+[WizTeacher]: i should definitely give up on sugar and chips
+[EndToEnd]: i agree . i am not sure what you mean . i ' m sure you ' re doing a lot of calories .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Gouda cheese
+I don't know anything about  gouda cheese, can you enlighten me more about this?
+[EndToEnd]: i know that it is the most widely widely found in africa .
+[WizTeacher]: wow that is so cool so is this made from a particular breed of cow?
+[EndToEnd]: it is made from milk and milk and milk .
+[WizTeacher]: ok what else can you tell me about this?
+[EndToEnd]: i think it is a good thing . it is a thin crust that is made from different meats .
+[WizTeacher]: thank you for the information
+[EndToEnd]: i think it is true . i think it ' s more of a climate than the african americans .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Niagara Falls
+Have you ever been to Niagara Falls? It is such an awesome sight to behold.
+[EndToEnd]: i have never been to the niagara falls metropolitan area in the niagara falls metropolitan area .
+[WizTeacher]: There are so many things to do. I would most certainly see the falls first and make sure that you take a picture. 
+[EndToEnd]: i ' m not sure but i know it ' s a city in the niagara falls metropolitan area .
+[WizTeacher]: There are many places you can take a picture. There are a few lookout points. There is also a casino if you like gambling.
+[EndToEnd]: i ' ve been to a casino before , but i ' ve been to a cruise near a cruise . i ' ve been to a casino and it ' s a bit more of a casino .
+[WizTeacher]: I love playing slots. I love playing the slots in Vegas. The slots have a good payout and great incentives at some of the casinos.
+[EndToEnd]: i agree . i like to play the outcome of money and try to win money for money .
+[WizTeacher]: I've never been to Atlantic City. I have heard that Atlantic City has kind of lost its sparkle? The city has become rough? Is that true?
+[EndToEnd]: i ' m not sure , but i do know that there are a lot of different things that are moving to the city .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+I love Jazz music me and my friends go to a local Jazz club twice a month.
+[EndToEnd]: jazz music is a genre of jazz music that originated in the early 19th century .
+[WizTeacher]: That is great who is your favorite Jazz singer?
+[EndToEnd]: i like the song " the " master of rock " .
+[WizTeacher]: It is so crazy you said I promise I love Sarah Vaughan as well was going to tell you that my favorite song of hers is the man I love very classic. lol
+[EndToEnd]: i like the rock band rock . i like the rock band . i like the rock band .
+[WizTeacher]: She is her vocals and her sound is very unique she was a great women in the Jazz world. 
+[EndToEnd]: i love her too . she is also a love of a baby baby . she is a love of a baby . she is a love of a baby .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Manta ray
+I am really scared of Manta ray's since i say it killed the crocodile hunter
+[EndToEnd]: i ' m scared of them . they also have a breathing breathing breathing breathing attack .
+[WizTeacher]: im not sure if they are poisonous but they have a big sharp dagger on their tailes
+[EndToEnd]: yea they are very good .
+[WizTeacher]: Yes they do, one time i was in the ocean and saw one jumped like 20ft away from me i was so scared
+[EndToEnd]: yea i have heard that they are very scary
+[WizTeacher]: that is so sad i dint know, i have the fact that there is so much plastic at the beach that is probably the reason
+[EndToEnd]: yea they are very dangerous .
+[WizTeacher]: yeah that is why every time i head to the beach i try to gather as much trash as posible
+[EndToEnd]: yea and it is a good place to catch them
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baking
+[EndToEnd]: i love baking pies . i bake it for a while . i bake it in a bakery .
+[WizTeacher]: I love baking too! Cheesecakes are my speciality.
+[EndToEnd]: i like to add a lot of toppings like fruit , cream , and sugar .
+[WizTeacher]: Yep I usually bake with bain maries to avoid burning.
+[EndToEnd]: yes , i like baking baking cakes , but i also like baking baking it .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Sobriety
+[EndToEnd]: i am a big fan of the topic of divorce .
+[WizTeacher]: Wow congratulations on your sobriety!  That is an awesome accomplishment.  My dad got sober when I was a child.
+[EndToEnd]: that ' s awesome . did you notice that ? did you have any physical problems ?
+[WizTeacher]: Did you use a specific treatment program to help you achieve your goal?
+[EndToEnd]: i did not . i was a child and i was a child . i was a child and i was a child .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baker
+My friend has been sending me pictures of all the baked goods she has made recently. She must be so talented to be a baker!
+[EndToEnd]: she is a baker who sells pastries and pies . she is a baker who sells pastries and pies .
+[WizTeacher]: Yes, but I don't think she has ever used beer froth before! Can you tell me more?
+[EndToEnd]: well , it was brewed over 7000 years !
+[WizTeacher]: That is really interesting. I've had fermented cabbage and it's delicious. What other types of things can you bake?
+[EndToEnd]: i like baking pies , but i like baking flour , eggs , and other ingredients .
+[WizTeacher]: I guess opinions will vary, I love sourdough bread! Do you know how they make rye bread?
+[EndToEnd]: i ' m not sure , but i know that they are made by the wheat tortilla , but they are very different .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Rock and roll
+[EndToEnd]: i love rock music , it ' s a rock music that originated in the late 1960s and roll roll .
+[WizTeacher]: I'm not really into it but I would like to know more
+[EndToEnd]: i like rock music , it is a genre of rock and roll that developed in the late 1960s and roll .
+[WizTeacher]: who are some famous rock and roll singers?
+[EndToEnd]: i ' m not sure but rock music is a popular genre of rock music that developed in the late 1960s and roll .
+[WizTeacher]: oh that's right, i've heard that! I was never a huge fan of Elvis but he was great. I would love to learn more about him
+[EndToEnd]: i think he is a very talented singer .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+[EndToEnd]: red is my favorite color . it ' s the color between red and orange on the spectrum of visible light .
+[WizTeacher]: I love red too! 
+[EndToEnd]: red is the color between green and orange on the spectrum of visible light
+[WizTeacher]: Really? What about pink? I like pink too.. is there red in pink?
+[EndToEnd]: i have a red , blue is one of the three primary colors .
+[WizTeacher]: Oh nice!
+[EndToEnd]: i like pink , it is a pale red color that is a pale red color .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Alien invasion
+[EndToEnd]: i am a big fan of alien alien life . it is a science fiction genre that was adapted to alien life .
+[WizTeacher]: Oh, I've never seen that. What's it about?
+[EndToEnd]: it is a sequation of alien life , and it is a science fiction genre that was adapted to alien life .
+[WizTeacher]: Oh, gotcha. I didn't realize alien invasion was a movie genre.
+[EndToEnd]: i think it would be interesting to know that the genre is typically used in futuristic science , technology , science , and science .
+[WizTeacher]: I think I remember that. I'm not into that genre so much. I prefer comedies or dramatic shows.
+[EndToEnd]: i like the ones that are very popular . i like the ones that are not really good .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Overeating
+I used to have quite the problem with overeating, as I used to be pretty chubby myself. Have you had that issue?
+[EndToEnd]: i have not , but i have never had a red cream . i have a friend who was a little bit of a dog .
+[WizTeacher]: That's true, since there are so many gigantic meals during that time and people don't care as much.
+[EndToEnd]: i ' m not sure , but i ' m sure you ' re going to be careful .
+[WizTeacher]: We certainly do encourage overeating in some cases, but it seems to be very rare and it seems like weight loss stuff is really popular around that time too.
+[EndToEnd]: i agree , i ' m sure you ' re right . i ' ve been watching it since it ' s a very popular activity .
+[WizTeacher]: I would bet that you're right about that. People get very self conscious around the holidays because of all the food.
+[EndToEnd]: i agree . i ' m glad i could get a lot of money and try to try to try to save money .
+[WizTeacher]: Good to hear, there's also a lot of self control involved in losing weight that a lot of people just don't seem to have.
+[EndToEnd]: i agree . i think it ' s important to have a balance of balance .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+Do you like Snoop Dogg I think he is overrated 
+[EndToEnd]: he is a personality personality personality . he is a personality personality and he is a personality personality .
+[WizTeacher]: Yeah he is dad old now in his life
+[EndToEnd]: he was a great singer and songwriter .
+[WizTeacher]: O wow I had no idea he was so popular,.
+[EndToEnd]: he has sold over 35 million albums worldwide .
+[WizTeacher]: What do you think his best song is?
+[EndToEnd]: he has been on a lot of awards , including justin timberlake , kevin badass , and kevin greats .
+[WizTeacher]: I did no know anyone still played his music on the radio.
+[EndToEnd]: he was a great singer and songwriter .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baking
+[EndToEnd]: i love baking pies . i bake it for a while . i bake it in a bakery .
+[WizTeacher]: Do you know when baking first originated?
+[EndToEnd]: i am not sure but i know flour and flour are made from flour and flour .
+[WizTeacher]: What are the main baked good that are popular around the world?
+[EndToEnd]: baking is a baked item in the world , and it is commonly baked in many different ways .
+[WizTeacher]: What is the process of making bread?
+[EndToEnd]: well , baking is a baked item in many different ways .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+I absolutely love the color red. Strawberries are red and ladybugs, many of my favorites.
+[EndToEnd]: i love strawberries too ! they are a hybrid , and are a hybrid .
+[WizTeacher]: I never knew that. Cool.
+[EndToEnd]: i think it is a lot of fun . i also like red wine , which is why it is so beautiful .
+[WizTeacher]: Sometimes. I remember them using them to teach me growing up. I've never had anyone ask me about indigo.
+[EndToEnd]: i ' ve never heard of yellow , but i ' ve heard it ' s a pretty interesting thing to do .
+[WizTeacher]: Sure, red is a rather narrow topic. I just keep thinking of all of my favorite things that are red. Like cars.
+[EndToEnd]: i like red , green , blue , red , blue , blue , blue , etc .
+[WizTeacher]: Well, that is another thing. Although, I have to admit I don't really enjoy getting blood drawn.
+[EndToEnd]: i ' m not sure what you mean . i ' m sure you ' re talking about it .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Superman
+My favorite super hero is Superman. Can you tell me anything about him?
+[EndToEnd]: i know , i know superman is a comic book that is based on dc comics .
+[WizTeacher]: Cool when was the first Superman comic made?
+[EndToEnd]: he was created in 1939 and published by bob kane and bill finger .
+[WizTeacher]: Wow that is a long time ago. I have seen all of the movies. I really liked Christopher Reeves as him.
+[EndToEnd]: i think he was so good . he was a legend in the 60s .
+[WizTeacher]: I like the Man of Steel but didn't like that movie very much. I love the backstory of Superman.
+[EndToEnd]: i think he was a legend . i think he was a legend .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+7 has always been my favorite number. It's very lucky for me.
+[EndToEnd]: i have never been to one . i have never been to one before .
+[WizTeacher]: Yes, I know. It is also an interesting number (7 deadly sins, etc) and can be known to be a lucky number
+[EndToEnd]: yes , it is a shame that humans can survive in a lot of different cultures .
+[WizTeacher]: That is interesting!
+[EndToEnd]: i think it is a very common one .
+[WizTeacher]: That is some great information. Is there anything else you know?
+[EndToEnd]: i think so , but i know that there are a lot of different types of things that are considered to be a major part of the world .
+[WizTeacher]: You have educated me very well on the number 7. Thank you.
+[EndToEnd]: i ' ve heard of it . it ' s a great game to watch . it ' s a great game .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Harley-Davidson
+What do you think of harley-davidson motorcycles?
+[EndToEnd]: i know that they were founded in 1903 .
+[WizTeacher]: Have you ever ridden a motorcycle before? I have a motorcycle, but it's not a harley-davidson.
+[EndToEnd]: i ' ve never been to one before , but i know they were founded in 1903 .
+[WizTeacher]: That's so cool. I didn't know that. What kind of bicycle do you ride? 
+[EndToEnd]: i have not been to one but i know that louis vuitton was founded in 1903 .
+[WizTeacher]: It sounds hard to do mountain biking, but I think I would still try it. My friend likes to mountain bike in Colorado.
+[EndToEnd]: i would love to go to the park and see the name of the road .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Gospel music
+Do you ever enjoy listening to gospel music?
+[EndToEnd]: i love it too ! i love the southern church .
+[WizTeacher]: I like that too. For me, even though I was not raised in an African American church tradition, I still enjoy the sound of gospel as a departure from what I grew up with. 
+[EndToEnd]: i think it ' s a very popular music . it ' s mostly a mix of music and music .
+[WizTeacher]: Do you have a favorite R&B artist?
+[EndToEnd]: i like the song " the " hard " and " pop " .
+[WizTeacher]: I have heard of her but don't know many of her songs.  I will check her out! Has she put out any albums recently?
+[EndToEnd]: i ' m not sure , but i do know that she has a lot of success . i think she ' s a huge fan of her albums .
+[WizTeacher]: Oh I never knew about the family group!  Sounds like she has been in the music business a long time!  Are there other R&B artists you like? 
+[EndToEnd]: i have heard of her . she is a very talented singer . she is a very talented singer .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+I love pasta. Havent had it in a while.
+[EndToEnd]: i love italian cuisine .
+[WizTeacher]: Is there a good italian place where you live?
+[EndToEnd]: pasta pasta is usually dried with fresh fresh pasta or pasta .
+[WizTeacher]: Very specific. How do you know so much about pasta?
+[EndToEnd]: pasta pasta is a staple in sicily .
+[WizTeacher]: Ive never heard any one call it noodles before.
+[EndToEnd]: pasta pasta is usually made from a wheat dough , which is usually made from a wheat dough .
+[WizTeacher]: Thats cool. I wish I had a pasta machine. Arent they very expensive?
+[EndToEnd]: yes , they are flour and flour .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+I have brown hair. It is very common in human beings.
+[EndToEnd]: i have brown hair , black hair is my favorite color .
+[WizTeacher]: That's what I said, haha. I wish I had red hair. I think it looks really cool.
+[EndToEnd]: red hair is only 1 - 2 % of the population .
+[WizTeacher]: I think red hair is mostly present in northern climates. It is pretty rare where I live.
+[EndToEnd]: i think it ' s a shame that only 1 - 2 % of the population have red hair .
+[WizTeacher]: Mine is on the lighter side. The sun makes it look almost blonde at times.
+[EndToEnd]: i think blondes are more desirable than people . i think blondes are more desirable than being more desirable .
+[WizTeacher]: That seems to happen a lot. I wonder what causes hair to change color like that.
+[EndToEnd]: i think it ' s a shame that the color is actually referred to as a low levels of eumelanin .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Manta ray
+Manta rays are kinda scary, I would be afraid to swim with them.
+[EndToEnd]: i ' m afraid of breathing breathing breathing attacks .
+[WizTeacher]: Wasn't he killed by a sting ray ? What is the difference between the two ?
+[EndToEnd]: he is a member of the genus " ray " , hence the name .
+[WizTeacher]: I thought it was longer, but yes the world lost a great guy.
+[EndToEnd]: i ' m not sure , but i do know that it ' s a shame that the only person died in 2012
+[WizTeacher]: That's what happens when you become famous, look at Gordon Ramsey, now he only does shows because he makes more than in restaurants.
+[EndToEnd]: i ' m not sure , but i know he ' s a huge fan of him .
+[WizTeacher]: That good to hear, what kind of work was he doing ?
+[EndToEnd]: he was a member of the state of the state and it was a very successful producer .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: i love pasta too
+[EndToEnd]: i love italian cuisine .
+[WizTeacher]: that is a long time for pasta
+[EndToEnd]: pasta is a staple food in sicily .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baker
+i love baking ,i bake cakes for my family every weekends
+[EndToEnd]: i love baked cakes , but i like baking pies .
+[WizTeacher]: yes i usually bake also bread once in a while
+[EndToEnd]: i bake pies , but i bake it for a while . i like flour and flour flour .
+[WizTeacher]: i love hot bread thats y sometimes i do it
+[EndToEnd]: i like to bake flour and baked in a wheat tortilla .
+[WizTeacher]: i have never tried honey i will give it a try next time
+[EndToEnd]: i have never had it before . i have never had it before .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+My husbands favorite color is red.  do you like that color?
+[EndToEnd]: i love red , green , and orange .
+[WizTeacher]: Scarlet and grey is Ohio State colors which is why my husband loves red so much!
+[EndToEnd]: i love red hair , it ' s a great color .
+[WizTeacher]: wow that is interesting.  
+[EndToEnd]: red is a color that is used to be used in various cultures .
+[WizTeacher]: Wow that is really interesting I didn't know that.  The color red has a lot of history with it then
+[EndToEnd]: i think it is interesting that red color is a color that is used to be used in color theory .
+[WizTeacher]: or the saying about red sky at night..sailors delight or something like that
+[EndToEnd]: red red red red red red was a hit in 2012 .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+[EndToEnd]: red is my favorite color . it ' s the color between red and orange on the spectrum of visible light .
+[WizTeacher]: It is red
+[EndToEnd]: it lies between violet and green on the spectrum of visible light .
+[WizTeacher]: OK tell me more about red colour 
+[EndToEnd]: it lies between violet and green on the spectrum of visible light .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Physical fitness
+[EndToEnd]: i ' m a yoga instructor . it ' s a health activity that studies physical and physical health benefits .
+[WizTeacher]: I need to! It' been a while but I was way into fitness. Now my fitness is fitness this donut in my mouth. What all do you do? Way interested. 
+[EndToEnd]: well , it can reduce the risk of chronic disease , such as heart disease , heart disease , and immune system .
+[WizTeacher]: I used to LOVE going to the gym. My life had some changes recently, it's hard getting back in the swing of things. I do, however walk 30 minutes a day. Do you stick with a certain diet?
+[EndToEnd]: i ' m not sure , but i do know that it ' s a chronic disease that reduces disease and can reduce disease of the immune system .
+[WizTeacher]: I think it sounds great. I did low-calorie for years. I looked fly but was tired a lot. Yours sounds much better.
+[EndToEnd]: i ' m not sure , but i ' m sure you ' re doing a lot of calories . i ' m sure you ' re going to a dietary diet .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Physical fitness
+I really enjoy exercising and physical fitness.  Do you work out?
+[EndToEnd]: i do ! i do not have a physical fitness instructor . i do it for health and physical health benefits .
+[WizTeacher]: How often should I work out?
+[EndToEnd]: i ' m not sure , but i do know that it ' s a chronic disease that reduces disease and reduces disease .
+[WizTeacher]: That is definitely a plus.  Why should I not work out every day?  Would it be bad for me?
+[EndToEnd]: well , it can reduce the risk of chronic disease , such as heart disease , heart disease , and immune system .
+[WizTeacher]: Yeah, I wouldn't want to overwork myself.  I do want to be fit and prevent disease and getting overweight.  Is it better to do cardio or weights?
+[EndToEnd]: i ' m not sure , but i do know that it ' s a major health activity that can be very difficult to increase your health .
+[WizTeacher]: High blood pressure is a problem in my family.  Will this help with that?
+[EndToEnd]: i am not sure , but i do know that it is a very difficult process to increase the risk of cancer .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+[EndToEnd]: i love jazz music . it ' s a genre of music that originated in the early 20th century .
+[WizTeacher]: Yes, I love jazz music! It's very relaxing to me. Who is your favorite jazz musician?
+[EndToEnd]: i like beethoven , the most famous composer , and beethoven .
+[WizTeacher]: I can believe that! I'm a big fan of the sound of the brass instruments used in jazz music. Do you know what they are?
+[EndToEnd]: i ' m not sure , but i do know that jazz is a jazz band .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+[EndToEnd]: i love jazz music . it ' s a genre of music that originated in the early 20th century .
+[WizTeacher]: I love Jazz! Who's your favorite artist?
+[EndToEnd]: i like jazz music . i like jazz , jazz , jazz , and jazz .
+[WizTeacher]: Ah, do you know where jazz was invented?
+[EndToEnd]: i ' m not sure , but i know that classical music was invented in naples .
+[WizTeacher]: Oh cool! Anything else cool about Jazz you can tell me?
+[EndToEnd]: i ' m not sure , but i do know that jazz music is a major part of the jazz orchestra .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+[EndToEnd]: red is my favorite color . it ' s the color between red and orange on the spectrum of visible light .
+[WizTeacher]: I agree, red reminds me of roses.
+[EndToEnd]: red is a color intermediate between blue and red .
+[WizTeacher]: I do not think I have! Is Guns N' Roses a famous band?
+[EndToEnd]: i don ' t know , but i do know that they have a lot of power to survive .
+[WizTeacher]: I see. And who are the band members?
+[EndToEnd]: i ' m not sure , but i do know that they are members of the band .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baker
+[EndToEnd]: i am a baker who works at a bakery .
+[WizTeacher]: great how are you?
+[EndToEnd]: i do not own a baker ' s baker .
+[WizTeacher]: oh I love to bake.  Baking with chocolate is my favorite.  What type of bakery do you have?
+[EndToEnd]: i like baking pies . i like to bake them in my spare time .
+[WizTeacher]: The one on tv?
+[EndToEnd]: i like to bake pies . i like to bake pies . i like to bake pies .
+[WizTeacher]: Yes, I'm familiar with the show.  so what do you do there?
+[EndToEnd]: i like to bake it . i like to bake my own cake .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Wine tasting
+[EndToEnd]: i love wine , what about you ?
+[WizTeacher]: Yes my personal favorite wines to try are white wines.
+[EndToEnd]: i like to make wine wine , wine , wine , and wine .
+[WizTeacher]: Do you have a personal favorite aroma of your own?
+[EndToEnd]: i like red wine , but i like to use a variety of colors .
+[WizTeacher]: It really is crazy how many small subtle flavors they can squeeze into the liquid.
+[EndToEnd]: i ' m not sure , but i know that it ' s a very popular flavor .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Programmer
+[EndToEnd]: i am a pilot . i am a fan of the fact that i am a fan of the fact that i am a fan of them .
+[WizTeacher]: That sounds interesting, what kind of software did you create?
+[EndToEnd]: i was a pilot and i was a pilot . i was a pilot and i was a pilot teacher .
+[WizTeacher]: That sounds complicated. How long did it take you to learn to do that?
+[EndToEnd]: i am not sure , but i know it is a very difficult process .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Obesity
+Are you aware of the increasing risk of obesity
+[EndToEnd]: it is ! obesity is the highest in the world .
+[WizTeacher]: Yes it is horible and the SAD( standard american diet) is a huge contribitor
+[EndToEnd]: yes , it is a very important alternative to the united states .
+[WizTeacher]: I agree I think it could be the level of comfort and lack of physical labor?
+[EndToEnd]: yes , it is a very important alternative to the united states .
+[WizTeacher]: I agree, People need to eat healthier and have a more active lifestyle
+[EndToEnd]: yes , it is a good alternative to the health rate .
+[WizTeacher]: I agree completely
+[EndToEnd]: yes , and in 2015 , obesity is estimated to be 2 . 4 billion people per year .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+[EndToEnd]: i love to play the suv .
+[WizTeacher]: I know a bit about it, why don't you tell me some more about it though?
+[EndToEnd]: well the name of the auto racing of the auto racing , and the official auto of the auto racing of the auto manufacturer of the auto manufacturer of the lamborghini .
+[WizTeacher]: Interesting, I didn't know it was so old. Can you tell me anything else?
+[EndToEnd]: the lamborghini is the official name of the auto racing of the auto racing , and the lamborghini of the lamborghini .
+[WizTeacher]: I would have thought Apple or Google would have won, guess not.
+[EndToEnd]: i think it is the official name of the auto racing of the auto racing .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Target Corporation
+I like target but they are a little pricey 
+[EndToEnd]: that ' s awesome ! what type of marketing do you have ?
+[WizTeacher]: Cool! How much is there revenue ?
+[EndToEnd]: they range in wide range from retail stores to a wide range of services .
+[WizTeacher]: Interesting! please tell me more about this company.
+[EndToEnd]: i think they have a large amount of money .
+[WizTeacher]: I never knew that! How many stores are there?
+[EndToEnd]: i ' m not sure but i know that it was founded in 1971 by seattle washington .
+[WizTeacher]: Thanks for the info!
+[EndToEnd]: i have never been to seattle , but i have heard it is very popular
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Clown
+[EndToEnd]: i love watching comedians . i like to watch the action of comedy .
+[WizTeacher]: Yes, i'm not scared personally but they just annoy me so much hahaha, is there any history behind clowns?
+[EndToEnd]: i think they are a bit more of a guy . i think they ' re pretty cool .
+[WizTeacher]: wow, when i was young my parents dressed me as a clown and i think that i s the reason i hate them, what about you?
+[EndToEnd]: i think it ' s a bit of a guy . i like to play the song " house " and " the bird " .
+[WizTeacher]: hahahah yea i know movies make it so much worse, but overall i'ts a way to make a living and i respect that
+[EndToEnd]: i agree . i think it ' s a shame that they ' re so good to see what they ' re doing .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+[EndToEnd]: i have brown hair . i have brown hair .
+[WizTeacher]: I have brown hair, but it was actually pretty blond when I was small.
+[EndToEnd]: i have a hair color , it ' s a pale pigment eumelanin .
+[WizTeacher]: I wonder how the melanin changes- like hair gets lighter after time in the sun.
+[EndToEnd]: it is a recessive allele on chromosome 16 and has a recessive allele on chromosome 16 .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Dog biscuit
+[EndToEnd]: i love dogs ! they are a type of dog that is a type of dog .
+[WizTeacher]: I love treating my dog to some treats too. Dog biscuits, especially organic ones, can be hard to come across these days.
+[EndToEnd]: i love the sweet cookie cookie . they are a type of dog that comes from the uk .
+[WizTeacher]: I like how sometimes the dog biscuits are shaped as a bone, which makes it easier for the dog to want to eat it!
+[EndToEnd]: i agree . i like the ones that are eaten as a snack .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Twin
+[EndToEnd]: i have a friend who was a child .
+[WizTeacher]: Awesome. That's rare!
+[EndToEnd]: i have never had one . i had a friend who was a little bit of a man .
+[WizTeacher]: Do twins run in the family?
+[EndToEnd]: i think it ' s a bit different than i ' m not sure . i ' m not sure what the rules were .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Clown
+[EndToEnd]: i love watching comedians . i like to watch the action of comedy .
+[WizTeacher]: I'm not sure how I really feel about clowns. I never thought about it much until the media started making them scary.
+[EndToEnd]: i think it ' s a bit more fun . i think it ' s a bit more fun .
+[WizTeacher]: I saw that plus the remake and the remake makes clowns a lot more scarier. I'm surprised they still have them in the circus.
+[EndToEnd]: i agree . i think they are more of a circus .
+[WizTeacher]: Clowns were so innocent I'm not sure when they started getting a bad rap.
+[EndToEnd]: i think it would be a bit more fun to watch . i think i ' m a bit more into it .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: I love pasta so much so I agree.
+[EndToEnd]: i love italian cuisine .
+[WizTeacher]: That makes a lot of sense to me.
+[EndToEnd]: italian cuisine is very popular in italy
+[WizTeacher]: Yeah, there are so many pasta dishes and types.
+[EndToEnd]: pasta is a staple food in sicily .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+& is my favorite number
+[EndToEnd]: i love the song of the song , what about you ?
+[WizTeacher]: Really? I know nothing about the history its just been a lucky number for me gambling lol
+[EndToEnd]: yea its a very simple one
+[WizTeacher]: Wow that is interesting, what else do you know about my lucky number 7?
+[EndToEnd]: i dont know about that but i do know that there are a lot of different types of religion .
+[WizTeacher]: Oh ok do other cultures think its a lucky number too?
+[EndToEnd]: yes , it is a very similar one , but it is a bit more likely to be a bit more advanced than a curve .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Programmer
+I want to learn how to program computers, so I can find more work.
+[EndToEnd]: i ' m not sure what you mean . i ' m sure you ' re doing a lot of money .
+[WizTeacher]: I know a bit about C++ but what is Python? Is it similar?
+[EndToEnd]: it ' s a type of design that ' s not really a bit more knowledgeable about it . it ' s a type of game that ' s not only a type of design .
+[WizTeacher]: I see. My brother is a 3D programmer and uses C++ for his work. So, Python is not as versatile? I remember when I first learned how to write and use a function.
+[EndToEnd]: i ' m not sure , but i know that it ' s a very important thing to do .
+[WizTeacher]: Right. I was only about 8 years old when the first "PC's" were released like the Tandy Color Computer and the TRS-80 hehe.
+[EndToEnd]: i ' m not sure , but i know that the director of a computer engineer , he ' s a director who played a computer engineer and he ' s a director of a computer engineer .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Obesity
+I have been trying to lose my pregnancy weight recently and just started a new exercise program this week.
+[EndToEnd]: i have been drinking a lot of weight loss , but i ' m not sure how long it is .
+[WizTeacher]: Only tiny 5 pound weights for my arms while I am cycling
+[EndToEnd]: that ' s cool . do you use weighted bars to repeatedly repeatedly cook the dumbells ?
+[WizTeacher]: I think it will be a while before that. I'm trying to increase the reps first.
+[EndToEnd]: i ' m not sure , but i ' m sure you ' re right .
+[WizTeacher]: How does that effect fat burning?
+[EndToEnd]: i am not sure , but i do know that it is a type of exercise that can be difficult to increase the weight of the weight .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+[EndToEnd]: i love jazz music . it ' s a genre of music that originated in the early 20th century .
+[WizTeacher]: jazz is very soothing, i like it as well
+[EndToEnd]: jazz music is a genre of jazz music that originated in the 19th century .
+[WizTeacher]: frank sinatra is my fav
+[EndToEnd]: i love frank sinatra ' s voice . he ' s a voice artist and he ' s still the best artist ever .
+[WizTeacher]: thats some crazy numbers!
+[EndToEnd]: i like that music is very popular .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+[EndToEnd]: i love to play the suv .
+[WizTeacher]: those are really beautiful. i prefer Lamborghini though 
+[EndToEnd]: the lamborghini is the official name of the auto racing of the auto racing , and the wagiver .
+[WizTeacher]: Wow, long time ago! Do you know any other fun facts about ferrarri
+[EndToEnd]: lamborghs is the official name of the auto racing of the auto racing of the auto racing of the auto manufacturer of the auto manufacturer of the lamborghini
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+I love the taste of pasta mixed with tomato sauce and shredded cheese all over it
+[EndToEnd]: i love pasta too ! i like pasta with pasta and pasta .
+[WizTeacher]: Olive Garden is the place that makes the best pastas. I try to visit the place as much I can with my friends
+[EndToEnd]: i love pasta too , especially vegetables .
+[WizTeacher]: I think Italians have special genes that makes them so adept at preparing pastas
+[EndToEnd]: i agree . i like pasta and cheese and pasta .
+[WizTeacher]: I don't know how they do it, but no matter how hard I try to prepare one at home, mine ends up with some peculiar taste
+[EndToEnd]: i agree . i like to eat it too .
+[WizTeacher]: Then, I think I would be spending my money out in these Italian restaurants for much years to come, just for pastas
+[EndToEnd]: i agree . i love pasta and pasta .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+[EndToEnd]: i love justin timberlake . he is a personality personality personality .
+[WizTeacher]: Oh yeah. He's great. I like almost all his songs
+[EndToEnd]: he is a great singer . he has sold over 35 million albums worldwide .
+[WizTeacher]: I have Bush, it is really really good. His real name is Calvin Cordozar Broadus Jr. and is from Long Beach
+[EndToEnd]: i ' m not sure , but i do know he ' s a legend .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 1980s in music
+I love the music from the eighties, do you?
+[EndToEnd]: i do ! i love rock music .
+[WizTeacher]: I liked KC & the sunshine band and the Gap band in the eighties
+[EndToEnd]: i love the music of the band . i love the song " the song " the clash " .
+[WizTeacher]: Yes the eighties were all about disco music and club music
+[EndToEnd]: i ' m not sure , but i do know that disco was a popular genre of disco music during the 1970s .
+[WizTeacher]: The eighties had what were called big hair bands, like poison, good looking guys with big hair
+[EndToEnd]: i think they are a lot of popular music .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Hair coloring
+Hai
+[EndToEnd]: i love hair , especially when i was younger .
+[WizTeacher]: Yes
+[EndToEnd]: i like to wear hair salons , hair salons , and hair salons .
+[WizTeacher]: I am cover with grey color
+[EndToEnd]: blue is a color intermediate between blue and red
+[WizTeacher]: In salon
+[EndToEnd]: i like to wear hair salons , hair salons , and hair salons
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+I love ferrari's I have riven quite  a few before. I like the red one espicially.
+[EndToEnd]: i love the lamborghini , the lamborghini of the auto racing , and the wagars of the wagiver .
+[WizTeacher]: They sure do. I agree 100 percent. I would love to own soem day My friend has one and he lets me drive it, Nice friend.
+[EndToEnd]: i agree . i love the idea of the civic .
+[WizTeacher]: Yes. Very prestigious. I think that Kobe Bryant had one custom designed for him to be able to fit in it.
+[EndToEnd]: i think it is the official auto of the auto racing of the auto racing .
+[WizTeacher]: Not any bigger in size. They extended the track in the seat to slide back further. :less space behind him.
+[EndToEnd]: i agree . i think it ' s a very interesting sport .
+[WizTeacher]: I did not know that. Interesting. I am not surprised. though. Did it say how much?
+[EndToEnd]: i ' m not sure , but i know that it was a very popular company .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Physical fitness
+[EndToEnd]: i ' m a yoga instructor . it ' s a health activity that studies physical and physical health benefits .
+[WizTeacher]: That is crazy I guess I am not fit either but I just got a gym membership
+[EndToEnd]: that ' s true . i ' m sure you ' re doing a lot of work .
+[WizTeacher]: Oh I am the same way! I eat really healthy but I have sleeping problems! What other standards are there?
+[EndToEnd]: i am not sure but i do know that it is a type of exercise that can be difficult to help with your health .
+[WizTeacher]: Oh I guess I haven't thought of how recently popular they have become. Have you tried crossfit?
+[EndToEnd]: i have not , but i have done it for a while . i was a kid and i was a kid .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baking
+I just love to bake. I'm always in the kitchen baking something.
+[EndToEnd]: i love baking baked baked goods .
+[WizTeacher]: I really like to bake cakes, there are so many options with that. Bread is most common but I have not tried my own yet
+[EndToEnd]: i like to bake it , i bake it for a while . i bake it in the oven . i like to bake it .
+[WizTeacher]: I enjoy baking chocolate chip cookies, never last long though. I also like making oatmeal, those are my second favorite
+[EndToEnd]: i like chocolate cake , but i like chocolate chips and eggs .
+[WizTeacher]: Oh how interesting! Wonder why her name is never associated with any cookies then?
+[EndToEnd]: i ' m not sure , but i know that there are so many types of chocolate , nuts , chocolate , chocolate , chocolate , chocolate , and chocolate chips .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+Ferrari makes really great looking cars.
+[EndToEnd]: i know , the name of the auto racing of the auto racing , and the wagiver is the official name of the auto racing of the auto manufacturer of the auto racing .
+[WizTeacher]: That's something I never knew. I would love to own one some day.
+[EndToEnd]: the lamborghini is the official name of the auto racing of the auto racing , and the wagiver .
+[WizTeacher]: I'm sure I'll never be able to afford such a car but I can definitely dream about it.
+[EndToEnd]: i agree . i think the civic is a very popular car .
+[WizTeacher]: Same. I'm curious to see if it looks anything like the current models whatsoever.
+[EndToEnd]: i think the lamborghini is the official name of the auto racing of the auto racing .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Dog biscuit
+[EndToEnd]: i love dogs ! they are a type of dog that is a type of dog .
+[WizTeacher]: You buy your dog? What do you buy your dog?
+[EndToEnd]: i like the sweet dog . i like the sweet dog .
+[WizTeacher]: Dog biscuits are probably pretty good for them. Does your dog like them?
+[EndToEnd]: i like the sweet dog . i like the ones that are made by a thick dog .
+[WizTeacher]: That's good to hear. Do you ever feed him real meat?
+[EndToEnd]: i have a pet dog . i have a cat . i have a cat .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Niagara Falls
+Have you ever been to niagara falls? It is quite the sight!
+[EndToEnd]: i have never been to the niagara falls metropolitan area in the niagara falls metropolitan area .
+[WizTeacher]: Yeah, I do not live too far away luckily, so I have been a couple of times
+[EndToEnd]: i ' ve been to the midwest , the niagara falls metropolitan area in the niagara falls part of the niagara falls metropolitan area .
+[WizTeacher]: Who is TRL? I have been to NYC several times, Times Square is amazing
+[EndToEnd]: i have never been to the theme theater but i have heard it is very popular .
+[WizTeacher]: Oh okay, that may have been before my time. But yeah, NYC is definitely worth the visit!
+[EndToEnd]: i ' ve never played it , but i ' ve heard it ' s the most common game in the game .
+[WizTeacher]: I am not the biggest fan, are they still popular?
+[EndToEnd]: i ' m not sure , but i know that it was released in 2009 and was released in 2009 .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Gouda cheese
+[EndToEnd]: i love listening to kale , the second most widely known singer of the 20th century .
+[WizTeacher]: i dont think ive had it. is it yellow ish or white ish like mozzarella?
+[EndToEnd]: i like mozzarella , and mozzarella . it ' s also one of the most popular meats in the world .
+[WizTeacher]: ohh where is gouda? is that in italy?
+[EndToEnd]: i ' m not sure , but i know that the word " gougouo " is the second most widely known in africa .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+I have brown hair that's so light that when you look at it under certain types of light, it looks blonde!
+[EndToEnd]: i have blonde hair , it ' s a pale pigment eumelanin .
+[WizTeacher]: I don't know if I want to be common though. Should I dye it so it's not brown anymore?
+[EndToEnd]: i ' m not sure , but i know that it ' s brown and brown .
+[WizTeacher]: Because if I dye it cadet blue, I'm worried that means I'll have to join the Air Force.
+[EndToEnd]: i ' d like to see the air air . i ' ve been watching it since i was a kid .
+[WizTeacher]: Brown hair or not, I don't know about all that. Foreigner worship doesn't sound like something I'd be interested in...
+[EndToEnd]: i ' ve never heard of that . i ' ve never been to a garden , but i ' d like to try to try to try it .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: Ooh, I love pasta! Lasagna is my favorite style of pasta. What is yours?
+[EndToEnd]: i like pasta with cheese and cheese . i like the pasta and cheese and tomato sauce .
+[WizTeacher]: That sounds delicious! Do you prefer more vegetables in your pasta dishes or do you like chicken or Italian meatballs?
+[EndToEnd]: i like pasta with pasta , but i like pasta with pasta and pasta . i like pasta with pasta and pasta .
+[WizTeacher]: I actually never heard of sugar beets before. What type of texture does it have?
+[EndToEnd]: i like a lot of pasta , but i like it with a wheat dough . it ' s a type of pasta that ' s made from pasta .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+[EndToEnd]: i have brown hair . i have brown hair .
+[WizTeacher]: Neat! Do you like it? Is it natural or did you dye it? 
+[EndToEnd]: no , i don ' t . i like blue , but i like blue , which is a color between blue and red .
+[WizTeacher]: Neat! I personally have blonde hair..What is the most common har color?
+[EndToEnd]: i have a hair color that is a recessive allele on chromosome 16 .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Target Corporation
+I love shopping at Target, its so much better than Walmart even if its a little more expensive.
+[EndToEnd]: i agree . i like shopping at walmart , which is a multinational retail corporation that operates in hypermarkets , discount department stores , and discount corporation .
+[WizTeacher]: Really, I heard they had to close their whole Canadian operation because of poor sales.
+[EndToEnd]: i agree . they have 11 , 703 stores in 28 countries .
+[WizTeacher]: Where is that ? In Ohio ?
+[EndToEnd]: i ' m not sure , but i know that the company has a wide range of employees .
+[WizTeacher]: Here in Texas, its pretty successful too I think hahaha
+[EndToEnd]: i agree . i ' ve never been to the us . i ' ve heard that it ' s a very popular company .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+My favorite color is red. I think it looks great by itself or contrasted with blue. Do you like red?
+[EndToEnd]: i love blue , it is a color intermediate between blue and red .
+[WizTeacher]: Yes, there are so many shades of red. I think my favorite one is firehouse red, which is very bright and luminous. Red is also a primary color.
+[EndToEnd]: i like red , but i like red , red , blue , red , blue , and red .
+[WizTeacher]: That is a great point. They must have attached a lot of significance to red. I wonder if they even dressed in red.
+[EndToEnd]: i think it is a very pale red red red red red red red red red , and yellow .
+[WizTeacher]: Interesting. I think of Mardi Gras today where there are many revelers wearing red. It is a very festive color!
+[EndToEnd]: i have never seen that . i have heard that it is a very popular color in the united states .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+Hi
+[EndToEnd]: i love jazz music . it ' s a genre of music that originated in the early 20th century .
+[WizTeacher]: Interesting. Do you enjoy Jazz?
+[EndToEnd]: i like it . it is a form of hip hop music developed in the bronx in new york city .
+[WizTeacher]: What is your favorite style of Jazz?
+[EndToEnd]: i like the rock style style , but i like the sound of the classic rock .
+[WizTeacher]: Awesome. I enjoy Chicago style Jazz 
+[EndToEnd]: i like jazz music .
+[WizTeacher]: Yes. True. I play the trumpet, do you play any instruments?
+[EndToEnd]: i played the piano . i played the piano and play the piano .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+[EndToEnd]: red is my favorite color . it ' s the color between red and orange on the spectrum of visible light .
+[WizTeacher]: Red is a very nice color. Vibrant and looks good on cars.
+[EndToEnd]: yes , it is one of the three primary colors .
+[WizTeacher]: Scarlet is a beautiful shade of red! Crimson is another if I'm not wrong?
+[EndToEnd]: i think it ' s a bit more of a color . i think it ' s a hue that is associated with red and red .
+[WizTeacher]: Wow, that's crazy. I know most people consider pink and red very different colors, but I can see how pink could be a shade of red, mixed with white.
+[EndToEnd]: i think it ' s a beautiful color . i think it ' s a hue that is associated with red , red , blue , red , blue , and blue .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Manta ray
+[EndToEnd]: i ' m thinking of getting a landinca man .
+[WizTeacher]: That would be such an incredible experience.. Where did it happen at?
+[EndToEnd]: it is a pretty good place to see . it is a very difficult job .
+[WizTeacher]: That's super cool, I've always wanted to try it. Seeing as you got to do it in Hawaii makes it all the cooler! Manta Rays are very fascinating.  
+[EndToEnd]: i ' m not sure , but i ' m sure it ' s a bit of a chemical chemical .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+Jazz is some of my favorite music, since it is so relaxing.
+[EndToEnd]: i love classical music . it ' s a very popular music .
+[WizTeacher]: That makes sense, since it is reminiscent of the blues.
+[EndToEnd]: i like jazz music .
+[WizTeacher]: I thought so! I love the instruments that they use in jazz too.
+[EndToEnd]: i like jazz music .
+[WizTeacher]: Saxophones are my favorite of all the instruments that they use, honestly.
+[EndToEnd]: i like the sound of the piano .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+I like red color
+[EndToEnd]: red is the color between red and orange on the spectrum of visible light .
+[WizTeacher]: I am not too sure of that but I would say I love red cars and roses
+[EndToEnd]: i like red roses .
+[WizTeacher]: i like red toyota camry sport versions 
+[EndToEnd]: i like the red wings , but i like the bright blue ones .
+[WizTeacher]: That is true. The rainbow will be incomplete without the red color. I also like red colors on cakes
+[EndToEnd]: i think it is a very intense color .
+[WizTeacher]: The red blood cells make the important unit of human life
+[EndToEnd]: i think it is important to see the red red eyes and red eyes .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Carolines on Broadway
+[EndToEnd]: i love watching broadway shows , especially when i was in the shower .
+[WizTeacher]: Caroline of Broadway? No,tell me more about it
+[EndToEnd]: i think it ' s more of a guy . it ' s a bit different than the american ballet .
+[WizTeacher]: Top comedians ? Any names that readily comes to mind?
+[EndToEnd]: yes , jokes are often referred to as a punch liners , jokes , and jokes .
+[WizTeacher]: That's great ,what city in US is times square? That produces great comedians
+[EndToEnd]: i think it ' s funny how many comedians are on the side of the show .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Obesity
+[EndToEnd]: i am addicted to obesity . it ' s a risk of excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive risk of excessive excessive excessive excessive excessive excessive excessive energy .
+[WizTeacher]: i know all about it
+[EndToEnd]: it is very healthy , obesity rates in the united states have the highest rates of obesity in the world .
+[WizTeacher]: what is considered obese ?
+[EndToEnd]: it is a obesity system that has the highest rates in the world .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Physical fitness
+[EndToEnd]: i ' m a yoga instructor . it ' s a health activity that studies physical and physical health benefits .
+[WizTeacher]: What sports are best for physical fitness?
+[EndToEnd]: physical fitness is a major part of physical health benefits , and physical health benefits .
+[WizTeacher]: Physical fitness also helps with stress.
+[EndToEnd]: it is a very important exercise , physical , mental , and physical health benefits .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: Pasta is the best! I think spaghetti is my favorite dish!
+[EndToEnd]: pasta is a staple food in italy .
+[WizTeacher]: Do you know how to make your own pasta?
+[EndToEnd]: pasta pasta is usually made from a wheat dough , which is usually made from a wheat dough .
+[WizTeacher]: Interesting! I might have to try that sometime. I usually buy store noodles.
+[EndToEnd]: pasta pasta is usually made from a wheat dough , which is usually made from a wheat dough .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+[EndToEnd]: i have brown hair . i have brown hair .
+[WizTeacher]: I have blue hair, and my hair type is 4A
+[EndToEnd]: black hair is my favorite color . i like black hair .
+[WizTeacher]: That's cool I didn't knoow that. I do know that blue dyes have stronger ions, which makes it harder  to remove.
+[EndToEnd]: yes , it is a pale pigment eumelanin
+[WizTeacher]: Oh okay that is cool, so our hair are kind of like plants?
+[EndToEnd]: i ' m not sure , but i do know that it ' s a plant that can be found in many different parts of the world .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: Nice! I love it too! I favorite is gnocchi made from potatoes. 
+[EndToEnd]: i love potato too ! i like how it is made from breadcrumbs , meat , and sour cream .
+[WizTeacher]: Really? I didn't know that. Do you know how many types of pasta there are?
+[EndToEnd]: well , pasta is usually made from a wheat dough , which is usually made from a wheat dough , which is a type of pasta .
+[WizTeacher]: What?! That's crazy, it's so many. Is there a reason for all the different shapes? Do they all taste the same?
+[EndToEnd]: i ' m not sure , but i do know that pasta is usually made with fresh pasta and fresh pasta .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+[EndToEnd]: red is my favorite color . it ' s the color between red and orange on the spectrum of visible light .
+[WizTeacher]: I love the color red!
+[EndToEnd]: red is a color intermediate between blue and red .
+[WizTeacher]: I wonder how they obtain red dye.
+[EndToEnd]: i don ' t know but i know that hue is associated with red or red .
+[WizTeacher]: I wonder what other meanings red takes on.
+[EndToEnd]: it was the color worn by roman magistrates , and the rulers of the byzantine empire .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+Lets talk about red, Super stylish, and bulls love the color.
+[EndToEnd]: red is my favorite color , it is the color between red and orange on the spectrum of visible light .
+[WizTeacher]: No I don't have favorites just my flavor of the week. You know how it is.
+[EndToEnd]: i think it ' s a mix of different colors . there are some green and violet .
+[WizTeacher]: Haha wow, only uneducated people would think it is sand.
+[EndToEnd]: i agree . i think it ' s a very interesting thing to see .
+[WizTeacher]: Yeah I mean the earth is 3rd so not sure how you would think we could go to mars and its the 6th
+[EndToEnd]: mars is cold and cold cold , and cold cold cold weather is cold and cold .
+[WizTeacher]: Kyrie Irvin's I call them, they are special people. 
+[EndToEnd]: i think it would be a bit more of a man , i think .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Fiction
+I love to read fiction how about you?
+[EndToEnd]: i do like to read . i love fiction books .
+[WizTeacher]: Yeah some are really good! do you have a favorite?
+[EndToEnd]: i like to read . i like to play the harry potter series .
+[WizTeacher]: Yeah like lovecraft?
+[EndToEnd]: i think it is a genre of fiction that is very popular .
+[WizTeacher]: That is really cool!
+[EndToEnd]: i love the old old story , i think it is a classic .
+[WizTeacher]: You know a ton. what else should i know aout it?
+[EndToEnd]: i am not sure but i do know that there are many different names of horror and horror books .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baker
+[EndToEnd]: i am a baker who works at a bakery .
+[WizTeacher]: Hi Jim, I am thinking of opening my own bakery since I enjoy baking. Do you think I should sell baked cookies or pizza?
+[EndToEnd]: i ' m not sure , but i do know that baked goods are usually baked in the oven .
+[WizTeacher]: I see, do I need to marinate the cookies in oil before I serve them?
+[EndToEnd]: i like to bake flour and butter .
+[WizTeacher]: Thanks for the tip, I have big trouble with dough that sticks to the pan and doesn't come off! Should I serve sushi along with cookies?
+[EndToEnd]: i ' m not sure , but i do know that there are so many types of ingredients like nuts , nuts , chocolate , chocolate , chocolate , and nuts .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+Hi, I love pasta. Do you?
+[EndToEnd]: i love pasta ! i love italian cuisine .
+[WizTeacher]: Yes its so easy to make! Do you eat pasta with meatballs? 
+[EndToEnd]: i do ! i love spaghetti and meatballs , which is a dish consisting of tomato sauce and meatballs .
+[WizTeacher]: Yes! So delicious! I didn't know that, is pasta very popular in the U.S?
+[EndToEnd]: yes , it is ! it ' s a dish consisting of tomato sauce and meatballs .
+[WizTeacher]: Yes lots of Italian dishes have influenced U.S. culture. Pizza is another one I think.
+[EndToEnd]: i love pizza too ! i like all kinds of meats and vegetables .
+[WizTeacher]: I see, how is pizza sold? 
+[EndToEnd]: well , it ' s a traditional italian dish consisting of yeasted flatbread typically topped with tomato sauce and cheese and cheese .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Rock and roll
+Rock and roll is my favorite music !
+[EndToEnd]: i love rock music , it ' s a popular music that originated in the late 1960s and roll .
+[WizTeacher]: Is there anything else that you could tell me about rock and roll?
+[EndToEnd]: rock music is a music that originated in the late 1960s and roll .
+[WizTeacher]: One of my favorite artist would have to be johnny cash
+[EndToEnd]: i like his music , he has sold more than 90 million records worldwide .
+[WizTeacher]: Ring of fire is my favorite johnny cash song !
+[EndToEnd]: i love his music , he is one of the best selling music artists of all time .
+[WizTeacher]: Very interesting.  You should check him out sometime very good artist
+[EndToEnd]: he is one of the best selling music artists of all time .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Gospel music
+I'm not a big fan of gospel music but I occasionally hear it on long road trips. 
+[EndToEnd]: i like to listen to gospel music .
+[WizTeacher]: Yeah they used to play it in my youth group a long time ago when i used to go to church. 
+[EndToEnd]: i agree . i like to listen to music and listen to music .
+[WizTeacher]: Oh so it's like when I see those choir ladies singing in movies then?
+[EndToEnd]: i think so , i think it is a lot of fun . i think the lyrics are a bit more popular .
+[WizTeacher]: What other kind of music do churches usually have?
+[EndToEnd]: i like the sound of the music .
+[WizTeacher]: Wow I didn't realize that it was that old. 
+[EndToEnd]: it was associated with gospel music and gospel music .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+What is your favorite number? Mine is the number 7
+[EndToEnd]: i love the song " the light " juicy " .
+[WizTeacher]: I just remembered a joke from when I was a Kid. "Why was 6 afraid of 7?'
+[EndToEnd]: i think it was a little bit more of a guy . i think it was a bit more fun .
+[WizTeacher]: Really? I didn't know that. Why was it changed from the curved J to the 7 it is today?
+[EndToEnd]: i am not sure but i know it was made in the middle ages .
+[WizTeacher]: I guess that would make sense. 
+[EndToEnd]: it is a very similar to a family .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Gospel music
+[EndToEnd]: i love listening to gospel music .
+[WizTeacher]: I'm not really into Gospel music. I prefer country music
+[EndToEnd]: i like to listen to country music . i like to listen to the ballads and dance tunes .
+[WizTeacher]: Well i love christian music but not baptist type of music with a lot of yelling. i prefer classical hymns
+[EndToEnd]: i like to listen to the music of the music , but i like the music of the music .
+[WizTeacher]: okay thats interesting. Who are some famous gospel singers?
+[EndToEnd]: i am not sure but i do know that gospel music is a popular singer .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Child care
+[EndToEnd]: i have a brother who is a child , she is a care parent , children , and children .
+[WizTeacher]: I have kids too but I dont know If I could trust them with a stranger
+[EndToEnd]: i agree , kids are very important for kids , and children are also known as children , children , children , children , children , children , children , children , and children .
+[WizTeacher]: Yeah they need to be shaped as young as possible.
+[EndToEnd]: that is true , i think it is a good thing to do .
+[WizTeacher]: Yeah I think it is important for the direct family to be involved.
+[EndToEnd]: i agree , i think it is a good thing to do .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baking
+Hi, I really enjoy baking. My favorite things to bake are cookies, brownies and cake. How about you?
+[EndToEnd]: i love baking cakes ! i like baking pies , but i like baking them .
+[WizTeacher]: I've never baked bread,but would like to try. That would be a very useful skill. 
+[EndToEnd]: i agree , i like to bake bread , but i also like to bake them .
+[WizTeacher]: You're right. I enjoy the sweet treats best though. I like the way they make my kitchen smell and watching others enjoy them. 
+[EndToEnd]: i love to bake them too ! i like to bake them with butter and frosting .
+[WizTeacher]: Oh yes, very much so. There isn't a day that goes by when I don't have something mixing or baking in the oven. 
+[EndToEnd]: i agree . i like to bake a lot of different ways .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+I love rap music.
+[EndToEnd]: i love the music that incorporates rhyme and rhythmic speech
+[WizTeacher]: Neither do I, I prefer USA rap.
+[EndToEnd]: i like rap too . i like the flow of rap and rap .
+[WizTeacher]: Snoop Dogg
+[EndToEnd]: i like kevin badats . he has been a professional personality for a while . he has been on for a while .
+[WizTeacher]: I have met Snoop Dogg before. He was really cool.
+[EndToEnd]: i like his albums , they have sold over 35 million albums worldwide .
+[WizTeacher]: I love Gin and Juice also. But I would say Who Am I.
+[EndToEnd]: i love justin timberlake . he was a great singer and songwriter .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: Yes; I am a pasta eater too.  I shouldn't have the carbs, I guess; but pasta is great.  Spaghetti is among my favorite meals.
+[EndToEnd]: i love pasta too ! i like pasta with pasta and pasta . i like pasta with pasta and pasta .
+[WizTeacher]: Yes; I am also a fan of fettuccine, too.  What about you?  Is there much difference between fettuccine and spaghetti?
+[EndToEnd]: i like the pasta pasta . it is a pasta pasta pasta .
+[WizTeacher]: Interesting.  What other types of pastas are there?
+[EndToEnd]: pasta is usually made from a wheat dough , which is usually made from a wheat dough , which is usually made from a wheat dough .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Harley-Davidson
+[EndToEnd]: i love louis vuitton . it ' s a american motorcycle manufacturer .
+[WizTeacher]: yes i love harleys
+[EndToEnd]: they are a pretty cool motorcycle company . they were founded in 1903 .
+[WizTeacher]: not yet I just got an awesome scooter that goes 70 so my  next bike will be a harley
+[EndToEnd]: i know , they were founded in 1903 .
+[WizTeacher]: yes , a buddy made in the usa
+[EndToEnd]: i know that louis vuitton was founded in 1903 .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Alien invasion
+Alien invasion movies are terrifying for me. Have you ever seen Alien?
+[EndToEnd]: i have not , but i have seen a few movies . i have never been .
+[WizTeacher]: Yes basically. Do you like the alien sci fi genre?
+[EndToEnd]: i am not sure but i do know that there are a lot of different themes that are dead .
+[WizTeacher]: Did Stargate ever win any Emmys? I know it went on for a really long time
+[EndToEnd]: i think it is a great one . it is a very recent event that is a battle of alien life
+[WizTeacher]: The tv channel syfy has had a lot of success, so I am not surprised that Stargate had won.
+[EndToEnd]: i think it is a good one . it was a very popular film .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baking
+[EndToEnd]: i love baking pies . i bake it for a while . i bake it in a bakery .
+[WizTeacher]: Yes, I prefer baking over microwaving, etc.
+[EndToEnd]: i like to bake baking , baking , baking , baking , baking , and baking in ovens .
+[WizTeacher]: I like baking pizza rolls because I'm bad at baking real goods like cake and bread.
+[EndToEnd]: i like baking pies , but i like baking pies .
+[WizTeacher]: I forgot you can bake cookies too. How long has baking been part of our culture?
+[EndToEnd]: i ' m not sure , but i know that there are so many types of ingredients like nuts , nuts , chocolate , chocolate , chocolate , chocolate , chocolate , chocolate chocolate , chocolate , chocolate chocolate chips , and nuts .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+[EndToEnd]: i love to play the suv .
+[WizTeacher]: Is that in Italy?
+[EndToEnd]: yes , the name of the auto racing , the wagiver , the official auto of the auto racing of the auto manufacturer of the auto manufacturer of the auto manufacturer of the lamborghini
+[WizTeacher]: Interesting. How fast can A Ferrari go?
+[EndToEnd]: the auto racing of the auto racing of the missouri ozars to the lamborghini
+[WizTeacher]: How many Ferraris are made a year?
+[EndToEnd]: i am not sure but i know that it is a japanese car that is made by the lamborghini
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+Hi, I love some fresh pasta, do you ever eat it?
+[EndToEnd]: i love pasta ! i love italian cuisine .
+[WizTeacher]: Pasta
+[EndToEnd]: pasta pasta is usually made from a wheat dough , which is usually made from a wheat dough .
+[WizTeacher]: That's interesting, also pasta is considered a staple food of traditional Italian cuisine.
+[EndToEnd]: pasta pasta is a staple in sicily .
+[WizTeacher]: I agree, you even see it on television. I've heard that the first reference to pasta is dated back to 1154 in Sicily.
+[EndToEnd]: pasta is a staple food in sicily . it was first recorded in sicily in the 14th century .
+[WizTeacher]: even though it is not the most healthy food, pasta is largely made up of starch with moderate amounts of protein and manganese included.
+[EndToEnd]: yes , it is very popular in the us , but it is very popular in many different ways .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Hair coloring
+[EndToEnd]: i love to eat fruit , i have a friend who has a hair color .
+[WizTeacher]: Not at all, but I see a lot of people that do especially on my college campus.
+[EndToEnd]: i like blue too , it is a mix of red and blue .
+[WizTeacher]: Most of the ones that I have seen are the girls that really like to dye their hair blue or red.
+[EndToEnd]: i have never seen red hair .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Superman
+I really  love Superman and the the comics
+[EndToEnd]: i love superman , the dc comics , and superman .
+[WizTeacher]: I never knew that, maybe it was his alter ego?
+[EndToEnd]: i ' m not sure , but i do know that he was a genius .
+[WizTeacher]: That is kind of exciting, Superman is from the 40's isnt it?
+[EndToEnd]: i ' m not sure , but i do know that superman was the most famous superhero in the world .
+[WizTeacher]: Superman has always been an American hero, I think not so much anymore people seem to like the for violent heroes
+[EndToEnd]: i think so too . i think the flash is the best .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+I am into sax easy jazz, how about you?
+[EndToEnd]: i do not like classical music . i like classical music .
+[WizTeacher]: I'm realatively new at it, but picked up onsax players like Roger Elliot, Kenny G, and some others - do youcare for Sax music?
+[EndToEnd]: i like to play live live live live live live in a country . i like to play live live live live .
+[WizTeacher]: That was one of his better works - I also really got into Cand Dulfer
+[EndToEnd]: i love that song , it ' s a great rock rock and roll hall of fame .
+[WizTeacher]: I did not know that - she sure can play some cool music
+[EndToEnd]: i like the song " the baby " , it was a christian song .
+[WizTeacher]: You really know a lot about her, I was most taken by her rendition of "Lily was here"
+[EndToEnd]: i think it is a very interesting one , i think it is a very interesting thing to know .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Superman
+[EndToEnd]: i love superman , i think superman is my favorite superhero .
+[WizTeacher]: Your second favorite? Who is your top favorite?
+[EndToEnd]: i like superman , batman , and the flash .
+[WizTeacher]: I like Batman too. Much cooler than Superman. Do you like the Batman movies?
+[EndToEnd]: i like superman , batman , and batman .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Conductor (rail)
+I work for a railroad company as a train conductor.
+[EndToEnd]: that ' s awesome ! i used to work with a little bit of a single road .
+[WizTeacher]: Yep! I make sure that the train runs on schedule and I also direct the train's movement.
+[EndToEnd]: that ' s awesome ! i ' ve been working for a while . i ' m sure it ' s a lot of fun .
+[WizTeacher]: Unfortunately, I don't work internationally, but I have been on trains when I visited other countries. What other names do they have for a conductor?
+[EndToEnd]: they were used to perform in many different styles of musicians . they were called " the choir " .
+[WizTeacher]: That's so strange! Conductor sounds much cooler. I can understand "manager" but "guard" is a little strange.
+[EndToEnd]: i think it ' s a very interesting thing . i ' m sure it ' s a bit more like a thing .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Rock and roll
+[EndToEnd]: i love rock music , it ' s a rock music that originated in the late 1960s and roll roll .
+[WizTeacher]: Gotta love some Rock and Roll.  It's one of my favorites as well.
+[EndToEnd]: i love rock music , it ' s a popular genre of rock and roll .
+[WizTeacher]: Indeed it did.  I was speaking to a friend earlier about James Brown and how he influenced so many genres of music starting in the 60's.
+[EndToEnd]: i love that song .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Twin
+[EndToEnd]: i have a friend who was a child .
+[WizTeacher]: My two little sisters were twins. How do twins develope?
+[EndToEnd]: i was a child who was a child . i was a child who was a child .
+[WizTeacher]: Fraternal. We thought they were gonna be identical.
+[EndToEnd]: i ' m not sure , but i know that they were first used in the early 1950s .
+[WizTeacher]: Not much really. Is there anything more you could me about it?
+[EndToEnd]: i am not sure , but i know there are three major types of metal , and 16 - 15 - 10 . 5 % of the three - - three - - thirds of the three - - - time .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Hair coloring
+[EndToEnd]: i love to eat fruit , i have a friend who has a hair color .
+[WizTeacher]: wow that is awesome what made you want to get purple hair
+[EndToEnd]: purple is a color that is purple .
+[WizTeacher]: hahah that is funny and really interesting can you tell me mroe about the color purple
+[EndToEnd]: purple is associated with royalty , magic , mystery and piety .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baker
+My dream job that I was able to land is a baker. 
+[EndToEnd]: i ' m a baker who works at a bakery .
+[WizTeacher]: I run my own bakery so I can work with the homeless as well.
+[EndToEnd]: that ' s awesome ! i ' m glad i could afford to work for a small bakery .
+[WizTeacher]: Mostly gluten free bread and sweets. 
+[EndToEnd]: i bake flour and flour flour . i bake it in a oven .
+[WizTeacher]: It is a texture issue and most of the food doesn't taste good. 
+[EndToEnd]: i ' m not sure , but i do know that they are firm , firm , and firm .
+[WizTeacher]: I prefer wood, it gives a better flavor. 
+[EndToEnd]: i like baking pies . i like baking pies .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Niagara Falls
+Niagara Falls seems so breathtaking and I would love to visit one day. It is actually on my bucket list.
+[EndToEnd]: i love the niagara falls in the niagara falls metropolitan area of niagara falls .
+[WizTeacher]: So have you actually seen the falls? What was that like?
+[EndToEnd]: it is located in niagara falls niagara falls , niagara falls , niagara falls , niagara falls in the niagara falls metropolitan area .
+[WizTeacher]: Do you live in New York? I recently visited New York city this past year and I fell in love.
+[EndToEnd]: i have been to the niagara falls metropolitan area in niagara falls , niagara falls .
+[WizTeacher]: You live close to me! I live in Florida and I love to visit Atlanta, the home of "The Walking Dead" which is my favorite show.
+[EndToEnd]: i love the beach , it is a great place to see .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Ferrari
+[EndToEnd]: i love to play the suv .
+[WizTeacher]: Whoa! Congrats man. I bet it's really fun to drive?
+[EndToEnd]: i think it is the official name of the auto racing of the auto racing .
+[WizTeacher]: How long have Ferrari's been made? Do you get lots of attention from other guys or girls?
+[EndToEnd]: i have a lot of the sports of the honda auto , which is the official name of the auto racing of the auto racing .
+[WizTeacher]: Nice. Do you know how many horse power it has?
+[EndToEnd]: i am not sure but i know that the commercial commercial commercial sports market was made by the honda motor .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Obesity
+[EndToEnd]: i am addicted to obesity . it ' s a risk of excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive risk of excessive excessive excessive excessive excessive excessive excessive energy .
+[WizTeacher]: Yes, it is a medical problem.  You need to change your diet.
+[EndToEnd]: yes , it is a high fat , adequate protein , low carb diet , and low carb diet .
+[WizTeacher]: Yes, I was overweight.  I lost 50 pounds.
+[EndToEnd]: i agree . obesity is the highest in the world .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Physical fitness
+Are you into physical fitness? I play league tennis a couple of days a week to try and stay fit.
+[EndToEnd]: i ' m a little bit more of a physical fitness person myself . it ' s a great skill to exercise .
+[WizTeacher]: It does take a lot of time. This is why I love tennis. I get to participate in an activity that I enjoy and exercise at the same time! lol
+[EndToEnd]: it is a very difficult activity to do . it ' s a great skill to exercise and physical health benefits .
+[WizTeacher]: Did you enjoy it there? How were the trainers? I've never found them very helpful unless you paid for a personal trainer.
+[EndToEnd]: i ' m not sure , but i do know that it ' s a lot of fun .
+[WizTeacher]: Wow! That is as large franchise! I am not much of a gym person. I tend to quit. Tennis is really the only activity that I find I can maintain.
+[EndToEnd]: it is very important to have a wide variety of health benefits , and physical benefits .
+[WizTeacher]: This is very true! I'm afraid my diet is not consistent with a healthy lifestyle! lol I need to work on that!
+[EndToEnd]: yes , it is a health activity that can be very healthy and health benefits .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Niagara Falls
+[EndToEnd]: i love the midwest , the niagara falls in the niagara falls metropolitan area of the niagara falls .
+[WizTeacher]: oh where are those again?
+[EndToEnd]: its a city in niagara falls in the niagara falls metropolitan area
+[WizTeacher]: huh, how many are there?
+[EndToEnd]: the national scenic border between the united states and the united states .
+[WizTeacher]: oh i thought it was one
+[EndToEnd]: the niagara falls falls in the niagara falls metropolitan area of the united states
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Sobriety
+[EndToEnd]: i am a big fan of the topic of divorce .
+[WizTeacher]: Thats a good choice. Alcohol is just never the answer for anything.
+[EndToEnd]: it is a mental disorder that involves drinking alcohol
+[WizTeacher]: Yes, unfortunately many mothers drink alcohol during pregnancy which can cause the baby to have some health issue.
+[EndToEnd]: i agree , i think it is a lot of fun . i think it ' s a shame that some people have a lot of health benefits .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: San Diego Comic-Con
+[EndToEnd]: i ' m a big fan of san diego . i ' m not a big fan of san diego .
+[WizTeacher]: I hear it's the best one.  I'd be interested in going but it is too far away.
+[EndToEnd]: san diego is a great place to visit san diego . it ' s a great place to see .
+[WizTeacher]: That is the comic-con that Adam Savage from Mythbusters always dresses up in a costume. People there try to figure out which one he is.
+[EndToEnd]: i agree . i like the bright color that is what i like to watch .
+[WizTeacher]: Indeed, it was a good one.  My favorite costume of his was the space suit from 2001 Space Odyssey with a working air pump backpack thing!
+[EndToEnd]: that ' s awesome ! i ' ve been to the last few years . i ' ve been to the last few years .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+[EndToEnd]: i have been working 7 times for 7 years now .
+[WizTeacher]: oh the number 7 is sweet.. thats my fav number as well
+[EndToEnd]: yea its one of the best
+[WizTeacher]: thats very interesting
+[EndToEnd]: i think it is a very good one . it is a very popular one .
+[WizTeacher]: when did they start doing that
+[EndToEnd]: i agree , i think it is a good place to get into .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: San Diego Comic-Con
+I am planning a trip to San Diego Comic Con, have you been?
+[EndToEnd]: i have not , but i have been to the resort resort resort resort .
+[WizTeacher]: What is your favorite thing about comic con?
+[EndToEnd]: i like the ones from the beach .
+[WizTeacher]: I am going to see the walking dead characters
+[EndToEnd]: san diego is a san diego resort resort chain
+[WizTeacher]: Four days is long enough to see it all!
+[EndToEnd]: san diego is a san diego resort chain
+[WizTeacher]: I heard that as well. what would you suggest I do first?
+[EndToEnd]: i ' m not sure , but i do know that it ' s a major event in the united states .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Chronic fatigue syndrome
+Have you ever heard of Chronic Fatigue Syndrome?
+[EndToEnd]: i have not heard of that . i know that it is a disorder that is a disorder that is unknown .
+[WizTeacher]: There has been very little research until recently and it was often misdiagnosed as Fibromyalgia. Many doctors think its linked to the Epstein Barre virus which causes Mono. Do you know anyone with Mono or Chronic Fatigue Syndrome?
+[EndToEnd]: i ' m not sure , but i know it ' s a mental illness that was a mental illness .
+[WizTeacher]: It is still being researched. I also had mono and it has led to me having CFS. It is now know as Myalgic Encephalomyalitis or ME. Have you heard of the #MillionsMissing movement?
+[EndToEnd]: i have not , but i have heard it is a very popular one .
+[WizTeacher]: Yes. It was all over the news a few months ago and created an online movement of people telling their stories of being sick with CFS and other invisible illnesses
+[EndToEnd]: i ' m not sure , but i know that it ' s a very common problem .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+[EndToEnd]: i love jazz music . it ' s a genre of music that originated in the early 20th century .
+[WizTeacher]: I don't know much about jazz, but I do like music.  Do you like any other types of music?
+[EndToEnd]: i like classical music . i like jazz music .
+[WizTeacher]: I'm afraid you've touched upon another genre of music I'm not very familiar with.  Do you know anything about classic rock?
+[EndToEnd]: i like folk music . it consists of ballads and dance tunes with banjos and harmonies .
+[WizTeacher]: Who (or which group) is considered the first classic rock star?
+[EndToEnd]: i think they are a classic . led zeppelin , black sabbath and deep purple are the most famous .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Chronic fatigue syndrome
+I think I might have chronic fatigue syndrome because I'm so tired all the time
+[EndToEnd]: that ' s a good idea . i ' m sorry to hear that .
+[WizTeacher]: I have been fatigue for awhile now. What kind of symptoms do you mean?
+[EndToEnd]: i ' m sorry to hear that . i ' m sorry to hear that . i ' m sorry to hear that . i ' m sorry to hear that .
+[WizTeacher]: Yes, it is unexplained. No matter how much I rest I'm still tired. Is pain a symptom as well?
+[EndToEnd]: i ' m not sure , but i know it ' s a very difficult process to get rid of .
+[WizTeacher]: I'll have to talk to my doctor about that. Does cognitive behavioral therapy mean I need a psychiatrist?
+[EndToEnd]: it is a mental health disorder that focuses on mental and mental health . it can be helpful .
+[WizTeacher]: I definitely will talk to them about that medication. I hope it doesn't have any weird side effects.
+[EndToEnd]: i think it ' s a good thing to do . it ' s a very helpful thing .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baking
+[EndToEnd]: i love baking pies . i bake it for a while . i bake it in a bakery .
+[WizTeacher]: yes i actually have a lot of experience in baking especially cakes and brownies
+[EndToEnd]: i like cookies , cookies , chocolate , or dessert .
+[WizTeacher]: Instead of putting the oven 350 like the recipe calls for, I lower the temperature to 300-325 and let it bake a little longer instead of blasting it with high heat
+[EndToEnd]: i do like to bake cakes . i like to bake them with butter and frosting .
+[WizTeacher]: As long as you keep your eye on the oven at all times its easier to gradually adjust the baking temperature as needed 
+[EndToEnd]: i agree . i think it ' s a good thing to do . i ' ve always wanted to try to make a cake at home .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+I think that chestnut brown is a beautiful color of hair, but most women tend to dye their hair when it's brown. Do you think natural brown hair is pretty?
+[EndToEnd]: i ' m not sure , but i do know that it ' s a pale pigment eumelanin and is also a combination of dark pigment eumelanin .
+[WizTeacher]: Would you consider dying your hair a crazy color for a month if you knew you could get it back to its original color at the end of the month?
+[EndToEnd]: i ' m not sure , but i know that it ' s a red color that gives me a deep burgundy or bright copper .
+[WizTeacher]: What color would you choose and why? Would you hide the color from others when going out for that month, or would you embrace the change and see what happened
+[EndToEnd]: i guess it would be a good idea to get rid of it . i would like to try it to get rid of it .
+[WizTeacher]: Hahaha. I think I would love to have a neon color head of hair, but I think I would have to have an excuse for dying it. My friends and family would think I had gone crazy if I just did it for no reason, but I actually think it would be quite fun to do.
+[EndToEnd]: i ' m not sure , but i ' m sure you ' re right . i ' ll have to be careful with it .
+[WizTeacher]: I have not seen that show, other than the commercials for it. What color is his hair in that show?
+[EndToEnd]: i think it ' s a color that ' s a color . i think it ' s a pretty good color .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Soldier
+Hi - My husband is a career soldier. He is currently stationed in Japan.
+[EndToEnd]: that ' s awesome ! what kind of training do you like to know about him ?
+[WizTeacher]: He's been in Japan for two years. Yes, he was in Afghanistan for 4 years. 
+[EndToEnd]: that was a good question . i was a child who was a child .
+[WizTeacher]: He has send the same thing. We sent him some really warm blankets to help him, but he said the cold just sets into your bones.
+[EndToEnd]: he was a guy who was a guy who was a part of the army soldier who ran the flight of the army .
+[WizTeacher]: Is that the film with Mark Walhberg? If so, yes I have. It was very emotional.
+[EndToEnd]: i have seen it in the park . i was a fan of the show that he played in the park .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+I like Snoop Dogg's music. Specifically drop it like its hot
+[EndToEnd]: i love her song ! he has sold over 35 million albums worldwide .
+[WizTeacher]: I never knew that, how long has Dr. Dre been around?
+[EndToEnd]: he was a very popular singer and songwriter .
+[WizTeacher]: How big is Snoop Dogg's rapping career?
+[EndToEnd]: he has been a professional professional and has been on for a while . he has been a professional actor for a while .
+[WizTeacher]: Good grief that must help his smoking habit well.
+[EndToEnd]: i agree . i think it ' s a shame that it ' s a shame that it ' s a lot of health and mental health .
+[WizTeacher]: Snoop Dogg actually browses on Reddit frequently and is a moderator of a sub Reddit that is dedicated to him. I like how much he interacts with his fans.
+[EndToEnd]: he has also been known as " the best - selling " , including " the voice of the game " , " the voice of the game " , " and " the voice of the game " .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: San Diego Comic-Con
+[EndToEnd]: i ' m a big fan of san diego . i ' m not a big fan of san diego .
+[WizTeacher]: What exactly is it for?
+[EndToEnd]: it is a top of the top resort resort .
+[WizTeacher]: Is it all movies and TV or just certain genres?
+[EndToEnd]: i think it is more of a film , but i do know that it is a popular feature
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Sobriety
+I dont like alchohol. I have never drank it!
+[EndToEnd]: i agree . i like to smoke too . i also like to try to try to try to try to try to sososososoess .
+[WizTeacher]: I see, is it the same as a sobriety test done by law enforcement? 
+[EndToEnd]: i agree . i also like to play the tracks . i ' ve heard that it ' s a great sport .
+[WizTeacher]: Yes that makes sense. What else do you know about sobriety? 
+[EndToEnd]: i am not sure but i do know that in the us they are safe .
+[WizTeacher]: I think one should always be sober given that it is a natural state. Do you agree?
+[EndToEnd]: i am not sure but i do know that people are able to hold their birth and keep birth and keep birth in the state .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+my favorite color is red 
+[EndToEnd]: red is my favorite color . it is between green and orange on the spectrum of visible light .
+[WizTeacher]: oh that i did not know, anything else you can tell me about the color red ?
+[EndToEnd]: red is a color that is used to create red color , red , red , red , red , red , red , red , red , red , red , red , red , red , red , red , red , red , red , red , red , and red .
+[WizTeacher]: do you see the color red in nature a lot ?
+[EndToEnd]: i do not know what hue is ? i know that hue is a hue of red , chroma and lightness .
+[WizTeacher]: oh wow thats cool
+[EndToEnd]: red wine is a source of power to create a source of power to produce a source of power .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Wine tasting
+[EndToEnd]: i love wine , what about you ?
+[WizTeacher]: That is cool.I like to drink every once and a while but I prefer only a couple shots of whiskey. I don't drink beer
+[EndToEnd]: i like whiskey , it is a type of distilled beverage made from fermented grain mash .
+[WizTeacher]: Yes most acceptable form of partying. Did you know that our ancestors made beer as early as 5000 bc?
+[EndToEnd]: yes , alcohol use can be used for alcohol , or alcohol .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+[EndToEnd]: red is my favorite color . it ' s the color between red and orange on the spectrum of visible light .
+[WizTeacher]: Mine too! Its said that red makes a person appear more attractive, like an illusion of sorts!
+[EndToEnd]: i agree ! i ' ve never heard of that . i ' m sure it ' s a little different .
+[WizTeacher]: Oh no! I need a new car now. Lol
+[EndToEnd]: i ' m not sure , but i know that red is a very pale red color .
+[WizTeacher]: Yeah!!! I wonder when the color red first appeared in pigments according to humans?
+[EndToEnd]: i ' m not sure , but i know that it ' s a very popular color .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Snoop Dogg
+Snoop dog is my idol, he is my favorite artist in the world.
+[EndToEnd]: i love her song , she is a singer and songwriter .
+[WizTeacher]: yeah and he really supports weed which in my opinion is pretty nice, do you know when he was born?
+[EndToEnd]: he has sold over 35 million albums worldwide .
+[WizTeacher]: yea, i thought so i think it's crazy that he has been famous for so long. 
+[EndToEnd]: he has sold over 35 million albums worldwide .
+[WizTeacher]: Wow, it's been so long i remembered like it was yesterday when he came up with that album.
+[EndToEnd]: he sold over 200 albums worldwide .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+I love jazz music but I don't know much about it .Call you tell me more?
+[EndToEnd]: i know a bit about jazz music . it originated in the 19th century .
+[WizTeacher]: I know it is,more descriptive pls
+[EndToEnd]: it is a classical music genre that combines classical music and jazz .
+[WizTeacher]: Don't understand! When was the first jazz music record?
+[EndToEnd]: i am not sure but i do know that classical music was invented in naples .
+[WizTeacher]: WNO was the first jazz artist ever recorded?
+[EndToEnd]: i am not sure but i know that it was invented in london .
+[WizTeacher]: Do you know Any popular renowned jazz artist?
+[EndToEnd]: yes , i think jazz is the most popular
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+My favorite color is red! I think it is bright and cheerful. Do you know anything about the color red?
+[EndToEnd]: i do ! i like red , but i think it ' s a hue that is associated with red , red , red , blue , and red .
+[WizTeacher]: That's really cool. What do they say about how the color red makes you feel?
+[EndToEnd]: i think it ' s a mix of different colors . i like the color azure , green and blue .
+[WizTeacher]: That sounds neat. What else do you know about the color red?
+[EndToEnd]: i believe it is a hue , chroma and lightness .
+[WizTeacher]: Is red a really popular color?
+[EndToEnd]: red is a pale red red red red , red , and red red .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Wine tasting
+I love going on wine tasting tours in the Niagara region
+[EndToEnd]: i love the taste of wine , what about you ?
+[WizTeacher]: It is a great experience.  Not only do you get buzzed but you learn how to drink wine properly.  It sounds pompous but it really makes a difference.
+[EndToEnd]: i think it is a good one . it is a type of wine that can be prepared with a lot of different flavors .
+[WizTeacher]: Depending on where the wine hits your tongue it tastes completely different.  This is why different types of wine are served in different glasses 
+[EndToEnd]: i think it is a good one . i think it is a very important thing to do .
+[WizTeacher]: Did the Romans or Greeks have wine tastings similar to common day wine tastings?
+[EndToEnd]: i ' m not sure , but i do know that it ' s a very popular process .
+[WizTeacher]: Where and how did it originate?  I always assumed the Romans had a hand in it. 
+[EndToEnd]: it was first used in the 17th century .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+Do you like Jazz Music. I'm getting into it as I get older. 
+[EndToEnd]: i love jazz music . it is a latin word " jazz " which is a jazz form of jazz .
+[WizTeacher]: Yes, I listen to it at night while I cook dinner. It helps me wind down from a stressful day. 
+[EndToEnd]: i agree . i like to play music . i like to play the music and listen to it .
+[WizTeacher]: What's ragtime? I've not herd of it.
+[EndToEnd]: i ' m not sure , but i do know that it ' s a very popular music .
+[WizTeacher]: Wow, I'll have to check it out. But tonight is a classic Jazz night.
+[EndToEnd]: i love jazz music . it ' s a very popular genre .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baker
+I love going to the bakery and seeing the baker cook stuff. Do you know any cool stuff about bakers? 
+[EndToEnd]: i do ! i love baker ' s baker ' s baker ' s baker ' s baker ' s baker ' s bakery .
+[WizTeacher]: Thats neat, I bet that baking has a very long heritage, Did people in the stone age know how to bake food? 
+[EndToEnd]: i ' m not sure , but i know that they are made from flour and flour .
+[WizTeacher]: wow the greeks had ovens? thats really cool. What kind of ovens did they use? Was it coal or fire? 
+[EndToEnd]: the history of baking was invented in the 19th century .
+[WizTeacher]: Oh alright, That makes sense, since wood is easily available and I dont think greeks knew what coals were back then. What else do you know about bakers? 
+[EndToEnd]: the history of baking was invented in the 19th century .
+[WizTeacher]: I had a feeling bakers started in Europe. Since there is a lot of cuisines from Europe that are baked. 
+[EndToEnd]: yes , the history of baking was invented in the 19th century .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+[EndToEnd]: red is my favorite color . it ' s the color between red and orange on the spectrum of visible light .
+[WizTeacher]: I love red because it sets me apart 
+[EndToEnd]: red is the color between green and orange
+[WizTeacher]: Yea its so baffling why the creator chose that color for such important item 
+[EndToEnd]: i have a red red red red red red red .
+[WizTeacher]: I thought the color for nobility was purple. And red for danger to make people intimidated
+[EndToEnd]: i agree . it was the color worn by roman magistrates and the rulers of the byzantine empire .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Manta ray
+I once swam with manta rays. They are beautiful creatures.
+[EndToEnd]: i agree . they are usually made by the same ones .
+[WizTeacher]: What do manta rays eat?
+[EndToEnd]: they are poisonous , and they are mostly found in the ocean .
+[WizTeacher]: Are manta rays at risk of being endangered?
+[EndToEnd]: they are . they are mostly found in the form of the air .
+[WizTeacher]: That's good to know. How do they reproduce?
+[EndToEnd]: they can be found in the us .
+[WizTeacher]: Wow, so that may make the treat of being endangered worse. What does "manta" mean?
+[EndToEnd]: not sure but they are mostly harmless for animals and can be found in the us .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Clown
+I am so scared of clowns. What can you tell me about them?
+[EndToEnd]: i know a bit about clowns , but i know a lot about them . they are similar to comedians , like clowns , or clowns .
+[WizTeacher]: Maybe it is the movie It that caused my fears.
+[EndToEnd]: i think it ' s a bit more fun . it ' s a form of riding , or comedy .
+[WizTeacher]: That is correct. Pennywise looks so creepy. I know it's just a movie but I'm afraid there is a real killer clown.
+[EndToEnd]: i think it ' s a shame that you can see it in the shower .
+[WizTeacher]: I hope so. I would get nightmares if I saw one like Pennywise.
+[EndToEnd]: i ' m not sure how many people don ' t like it . i ' ve seen a few movies and movies .
+[WizTeacher]: Thanks for your reassurances. I will try to get over my irrational fears. But you said "most cases".
+[EndToEnd]: i think it ' s a shame that you ' re feeling like you ' re feeling like you ' re talking about it .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Dog biscuit
+My dog loves dog biscuits I think he is obsessed with them
+[EndToEnd]: i love them too ! they are a type of dog that comes from a " sweet " dog .
+[WizTeacher]: Oh no there are some that are soft and chewy, made my milk bone
+[EndToEnd]: i love them too ! they have a rich starch rich diet .
+[WizTeacher]: I have seen those as well. They even have some softy ones made from duck
+[EndToEnd]: i like the sweet cookie cookie .
+[WizTeacher]: Yeah there are some made specifically for that
+[EndToEnd]: yea i like the sweet cookie cookie
+[WizTeacher]: No but it sounds interesting. Have you seen the dog biscuits shaped like post men?
+[EndToEnd]: i have not , but i have a dog . i have a friend who is a jack jack .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Chronic fatigue syndrome
+Have you ever heard of Chronic fatigue syndrome?
+[EndToEnd]: i have not heard of that . i know that it is a disorder that is a disorder that is unknown .
+[WizTeacher]: I have not, it sounds like something that would be awful, what are some of the characteristics of it?
+[EndToEnd]: i ' m not sure , but i know it ' s a disorder that causes the brain to function .
+[WizTeacher]: Oh no, that is awful, so I assume they have no cure for it then
+[EndToEnd]: i ' m not sure , but i know it ' s a very difficult process to get rid of .
+[WizTeacher]: Darn, is it pretty common in the United States
+[EndToEnd]: yes , it is . it is a very common alternative to medical procedures .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Superman
+Superman is my favorite superhero, do you know anything about him?
+[EndToEnd]: i know , i know he is a comic book from dc comics .
+[WizTeacher]: Ok cool so what can you tell me about him that I may not know?
+[EndToEnd]: i ' m not sure , but i know that he ' s known for his books , but i know that he ' s known as " the flash " .
+[WizTeacher]: If I remember the story he grew up in Kansas right?
+[EndToEnd]: i think it ' s a pretty good one . i think it ' s a pretty popular film .
+[WizTeacher]: And I think he was adopted by an older couple if I remember correctly
+[EndToEnd]: i ' ve heard of that . i ' ve heard he ' s a man named after a jdie . he ' s a man named after a jdie . he ' s a man named after a jjdie .
+[WizTeacher]: Yes now its coming back to me I think I saw that in the movie
+[EndToEnd]: that is a great one . i ' ve never seen that one . i ' ve heard that it was a very interesting one .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Obesity
+[EndToEnd]: i am addicted to obesity . it ' s a risk of excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive excessive risk of excessive excessive excessive excessive excessive excessive excessive energy .
+[WizTeacher]: It can be pretty hard to lose weight, but I know there are some good diets you can try.  Have you tried any diets?
+[EndToEnd]: i have tried it , but i have to try it . it is low - carbohydrate diet , low - carbohydrate diet , and low carb diet .
+[WizTeacher]: Do the low carb diets have a name?  Is Atkins a low carb diet?
+[EndToEnd]: yes , it is a low - carbohydrate diet , low carbohydrate diet , and low carb diet .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baking
+[EndToEnd]: i love baking pies . i bake it for a while . i bake it in a bakery .
+[WizTeacher]: I love to eat baked goods, but am the world's worst baker! What other types of food are baked?
+[EndToEnd]: i like baking pies , cookies , pastries , and pies .
+[WizTeacher]: Wonderful. Any idea where the concept of baking things came from?
+[EndToEnd]: baking pies are usually baked in a variety of ways .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Chili pepper
+[EndToEnd]: i love chili peppers ! they originated in mexico in the south california .
+[WizTeacher]: Oh dude, I love hot and spicy food. Sign me up! What was the last spicy stuff you ate?
+[EndToEnd]: i like the red hot chili peppers . they are a funk rock band formed in 1983 .
+[WizTeacher]: Hmm, I've never had much Thai food. It seems a bit too exotic, but actually, I don't have any idea what it's like. What is it like?
+[EndToEnd]: i like chicken and chicken . it ' s a good flavor .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Superman
+Superman is my favorite hero.
+[EndToEnd]: i love superman , the dc comics , and superman .
+[WizTeacher]: Yes he is. Didn't he grow up in Kansas
+[EndToEnd]: i think he is the most famous superhero of superman .
+[WizTeacher]: That's right. I liked the Superman movies too
+[EndToEnd]: i loved that too . i was thinking of seeing the movies .
+[WizTeacher]: When was the second Superman movie released?
+[EndToEnd]: i ' m not sure but i know that the first superman appeared in 1938 .
+[WizTeacher]: You know a lot about Superman, do you have any other info about him?
+[EndToEnd]: i have not seen any of his cars but i do know that it is very interesting .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Physical fitness
+[EndToEnd]: i ' m a yoga instructor . it ' s a health activity that studies physical and physical health benefits .
+[WizTeacher]: What types of exercise do you prefer?
+[EndToEnd]: i like to exercise . it can reduce the risk of physical disease .
+[WizTeacher]: Do you like a particular sport?
+[EndToEnd]: i like to exercise . it can reduce the risk of physical disease .
+[WizTeacher]: Do you get a lot of injuries playing rugby? Perhaps your general fitness routine helps minimize injuries?
+[EndToEnd]: yes , it is a health component , and physical health benefits .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Baker
+I've got banana bread in the oven right now -- do you bake?
+[EndToEnd]: i do ! i bake it for a while . i bake it for a while . i bake it in a oven .
+[WizTeacher]: Totally.  What's your favorite thing to bake?  Do you have any secrets?
+[EndToEnd]: i like to bake my own . i like to bake them in my own store .
+[WizTeacher]: I didn't realize tacos could be baked.  I suppose the tortillas can.  Tell me more about baking, though.
+[EndToEnd]: i like to add guacamole , onions , and onions to my tacos .
+[WizTeacher]: Wasn't American corn at one point called maize?
+[EndToEnd]: yes , it is . i think it is a very popular baking corn cake .
+[WizTeacher]: That's a long time ago.  So, does that mean the Aztecs grew it?
+[EndToEnd]: yes , they are very popular in mexico and europe .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+So I am a big pasta fan.  I grew up on it and I don't even come from an Italian family.  Do you like pasta?
+[EndToEnd]: i do ! i love italian cuisine .
+[WizTeacher]: I knew it went back a long ways, but I was unaware it was that long ago.  I like the fact that there are so many pasta dishes to choose from
+[EndToEnd]: pasta pasta is a staple in sicily .
+[WizTeacher]: Lasagna is good.  I really enjoy seafood lasagna.  Also I appreciate Cannelloni 
+[EndToEnd]: i love pasta too ! i also like pasta and cheese .
+[WizTeacher]: Yes it has.  It has come a long way from just plain noodles and olive oil
+[EndToEnd]: i agree . i love pasta and pasta too .
+[WizTeacher]: I do too.  It is much better
+[EndToEnd]: pasta is usually made with fresh fresh pasta or pasta .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: San Diego Comic-Con
+I would like to go to the San Diego comic con one day.  have you ever been?
+[EndToEnd]: i have not , but i have been to the beach , it is a great place to see .
+[WizTeacher]: I have seen on the internet that people dress up as their favorite characters.  Would i be out of place if i dressed up like Mr. Pickles, the dog from the cartoon network?
+[EndToEnd]: i ' m not sure , but i do know that there are a lot of different names , like the " the theme " , " the best " .
+[WizTeacher]: If i understand correctly, they just sit around and read comic books?  Between the costume, airfare, hotel, and meals, it seems like quite an expensive hobby.
+[EndToEnd]: i agree . i love to see the show that they are very good .
+[WizTeacher]: I'm sure that San Diego is beautiful and they have a wonderful time.  If they get bored, they could always visit the San Diego Zoo!!!!!
+[EndToEnd]: i ' ll have to check out san diego . it ' s a san diego resort chain .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+What is your favorite number?
+[EndToEnd]: i like the light green , but i like the best .
+[WizTeacher]: 7 is my favorite.  It's a powerful number. What do you like about 17?
+[EndToEnd]: i like the green green green , which is my favorite .
+[WizTeacher]: 17 still has 7 in it so I like it too.  Do you have another favorite?
+[EndToEnd]: i like the song " gilda " which is my favorite .
+[WizTeacher]: 8 is good, it's a round number.  I like 5 too.
+[EndToEnd]: i like to play the sound of a song .
+[WizTeacher]: Hmmm, that's interesting, I am not sure what you mean.
+[EndToEnd]: i am not sure but i do know that it is a very difficult topic
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: List of water sports
+[EndToEnd]: i love to swim . it ' s a sport sport that involves recreational activities .
+[WizTeacher]: Yes I enjoy water skiing myself. It is hard to learn but once you get the hang of it it is very fun.
+[EndToEnd]: i like to play the board and play the hang of it .
+[WizTeacher]: Another great water sport is marco polo. My kids love to play it every time they go swimming.
+[EndToEnd]: i agree . i like to swim and swim for the beach .
+[WizTeacher]: Yeah I have seen some of the tricks they do. It's crazy how good they are with the flips.
+[EndToEnd]: i agree . i like the fact that it is a sport that is played on the side of the olympics .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Carolines on Broadway
+[EndToEnd]: i love watching broadway shows , especially when i was in the shower .
+[WizTeacher]: I haven't! I've never been to New York. What is so awesome about that venue?
+[EndToEnd]: broadway theatre is a professional theatre that is located in the 41 professional theatres .
+[WizTeacher]: Have you seen any great comedians there? I love stand-up comedy!
+[EndToEnd]: i have never been to one . i love watching the comedy shows .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+[EndToEnd]: i have been working 7 times for 7 years now .
+[WizTeacher]: Mine happens to be 7 as well! Many seems to associate 7 as being a lucky number.
+[EndToEnd]: i ' m not sure what you mean . i ' m a fan of the " good " .
+[WizTeacher]: Yes, there are various other prime numbers as well!
+[EndToEnd]: i ' m not sure , but i know that is why the name is unknown .
+[WizTeacher]: I did not know that, I just know of a few prime numbers, like 2, 3, 5, 7, 11, and 13
+[EndToEnd]: i have heard of that .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Rock and roll
+[EndToEnd]: i love rock music , it ' s a rock music that originated in the late 1960s and roll roll .
+[WizTeacher]: whos your favorite musician?
+[EndToEnd]: i like the song " the " rock " , " the best " , " the song " , " the bass " , and " rock " .
+[WizTeacher]: nice did not know that.  I'm more into the later music 90s and 2000s.
+[EndToEnd]: i think it ' s interesting that they experimented with skiffle , psychedelia and indian music .
+[WizTeacher]: Some great music has come out of that.  Hoepfully it just keeps getting better.
+[EndToEnd]: i agree . i like the older ones that were inspired by alternative rock and saxon .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Manta ray
+[EndToEnd]: i ' m thinking of getting a landinca man .
+[WizTeacher]: That sounds amazing! Where did you do that and what was it like?
+[EndToEnd]: i used to use the x x in the middle of the galaxy .
+[WizTeacher]: You are so lucky to experience that. What are manta rays like - I've never seen one?
+[EndToEnd]: i have seen a few sharks , but i have seen a few sharks on the beach .
+[WizTeacher]: Woah, sound a bit scary. But in a good way. Are they fierce creatures?
+[EndToEnd]: yes , they have a strong body with a strong tube and a retractable shaped body .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+[EndToEnd]: i love pasta ! i love pasta , which is a type of pasta with a wheat dough with a wheat dough .
+[WizTeacher]: Italian food is delicious, what was the first pasta served?
+[EndToEnd]: pasta pasta is a staple in sicily .
+[WizTeacher]: Oh wow that is a lot there.  What is the most popular type in Italy?
+[EndToEnd]: pasta pasta and pasta are usually made from a wheat dough , which is usually made from a wheat dough .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Child care
+Working at a daycare is tough work. I'm so exhausted everyday when I get home. Kids can be quite a handful!
+[EndToEnd]: i ' m sorry to hear that . i ' m glad that children are so important to care for kids .
+[WizTeacher]: Yeah, I know. lol. Kids have so much energy. They are always all over the place. It's hard to have a silent moment!
+[EndToEnd]: that ' s true . it ' s a great way to educate children . it ' s hard to think that the first children were first used in the late 18th century .
+[WizTeacher]: Have you ever had to babysit or look after a child?
+[EndToEnd]: i have not , but i have done a couple of times . i was a child and i was a child .
+[WizTeacher]: It's a very important job, I might add, If were going to talk facts! haha. 
+[EndToEnd]: i agree , i think it is a very important thing to do .
+[WizTeacher]: Many people think that a daycare shouldn't really be the person taking care of children. That they are much better off at home with their parents/guardians 
+[EndToEnd]: i agree , it is also known as children ' s children ' s children , children , children , children , children , children , children , children , children , children , children , children , children , children , children , children , children , children , children , children , children , and even children .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+I want you to know that my favorite color is red.
+[EndToEnd]: i love red , yellow is the color between green and orange on the spectrum of visible light
+[WizTeacher]: Have you ever seen a red panda? They are rather amazing.
+[EndToEnd]: i have not , but i know they are native to china .
+[WizTeacher]: Yes, did you know that China owns all pandas in the world? We only have them in zoos because we lease them.
+[EndToEnd]: i have never owned a zoo but i have owned a zoo . i have never owned one .
+[WizTeacher]: Yes, this is true but still only for a lease. Any babys the panda has still belongs to china. It is truly a weird thing. Red pandas are the best for this reason.
+[EndToEnd]: i ' m not sure , but i do know that they are so good .
+[WizTeacher]: The red panda is not related to the giant panda. Whereas the giant panda belongs to Family: Ursidae (Bears), the red panda belongs to its own taxonomically unique Family: Ailuridae
+[EndToEnd]: i ' m not sure , but they eat bamboo , which is a diet that eats bamboo .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Wine tasting
+Wine tasting always seemed so pretentious to me.
+[EndToEnd]: i agree . i love the wine clash .
+[WizTeacher]: I still like drinking wine more than other alcohol tho
+[EndToEnd]: i know , it is a drug and mental health disorder
+[WizTeacher]: Yea its very important it has a good taste
+[EndToEnd]: i agree , i think it is important to have a lot of taste and taste like beer .
+[WizTeacher]: it would be nice but everyone seems a bit too snobbish.
+[EndToEnd]: i like to eat them too .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+[EndToEnd]: red is my favorite color . it ' s the color between red and orange on the spectrum of visible light .
+[WizTeacher]: Red hair looks great on girls dont feel bad about it.
+[EndToEnd]: i think it ' s a red blonde , but i ' m not sure what you ' re talking about . i ' m glad that it ' s a red blonde .
+[WizTeacher]: I have heard it is kinda rare
+[EndToEnd]: i ' m not sure , but i know that red hair is very rare , and less rare .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+My favorite color is Red.
+[EndToEnd]: red is my favorite color . it is between green and orange on the spectrum of visible light .
+[WizTeacher]: I would have to say that my favorite shade has to be Crimson. 
+[EndToEnd]: i like blue too . it is a mix of red and blue .
+[WizTeacher]: I would have to say my favorite shade would be Crimson
+[EndToEnd]: i love red wine , it ' s a very intense color .
+[WizTeacher]: Isn't red also a primary color?
+[EndToEnd]: i think it ' s a color that ' s associated with the hue , chroma and lightness .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+I like the color red.
+[EndToEnd]: red is the color between red and orange on the spectrum of visible light .
+[WizTeacher]: My favorite color is blue but I like red because my hair is red
+[EndToEnd]: red is the color between green and orange
+[WizTeacher]: I never knew that
+[EndToEnd]: it is a dominant wavelength between 450 and 495 nanometres .
+[WizTeacher]: I did know that
+[EndToEnd]: red is a color model that is used in various colors such as red , green , red , green , and blue .
+[WizTeacher]: Me too, but I do not usually associate the two
+[EndToEnd]: i think it is interesting that hue is associated with red or red .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Chronic fatigue syndrome
+[EndToEnd]: i am a teen , i am a teen .
+[WizTeacher]: That sound miserable.  What causes chronic fatigue?
+[EndToEnd]: it is a genetic disorder . it is a combo of genetic and environmental factors .
+[WizTeacher]: Interesting.  Is it more common in children or adults?
+[EndToEnd]: it is a very common alternative . it can be hard to help with the stress .
+[WizTeacher]: That is scary.  Chronic usually means that it lasts for a long time, but just how long does it last on average?
+[EndToEnd]: it is a normal medical issue . it can be hard to get worse .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Rock and roll
+I enjoy rock and roll music. I recently took a trip to the Rock and Roll hall of fame which was fantastic. Do you like rock music?
+[EndToEnd]: i love rock music , it ' s a rock music that originated in the late 1960s and roll .
+[WizTeacher]: YEah, Led Zepplin, The Guess Who- those guys were great. Modern rock is so different. I can't stand Fall Out Boy, for example. 
+[EndToEnd]: i like the song " rock " which is a very popular rock band .
+[WizTeacher]: It seems like all music is auto-tuned these days- you would never have heard that in Classic Rock. 
+[EndToEnd]: i ' ve never heard of that . i ' ve heard that . i ' ve never heard of it . i ' ve heard of it .
+[WizTeacher]: That's so true! I see lots of classic rock t-shirts on teens but I suspect they've never heard the music. 
+[EndToEnd]: i agree . i ' ve heard that ' s what i ' m doing . i ' m sure you ' ll have to check out the music .
+[WizTeacher]: The MTV years were my formative years- and wow, music videos were so novel then. I loved that channel!
+[EndToEnd]: i love that too ! i love the old old old ones that were made by the old age of 10 years ago .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Clown
+We had circus in the area last week.  I am not a fan of the clowns. Are you? 
+[EndToEnd]: i ' ve never been to a circus . i ' ve been a bit of a casino .
+[WizTeacher]: the comedy style of clowns , playing the fool, has a long history in many countries. 
+[EndToEnd]: i ' m not sure , but i know that they were a very popular circus in the past .
+[WizTeacher]: I think the fear of clowns is a psychiatric condition that is called coulrophobia. 
+[EndToEnd]: i agree . i think that is why people have to laugh tracks . the term " live audience " is used to perform audience audiences .
+[WizTeacher]: Yeah, I guess there are different types. The white makeup and big red mouth are what creep me out, plus some horror movies. 
+[EndToEnd]: i think they are a bit more of a horror film , but i ' m not sure what the lyrics are .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Hair coloring
+Do you dye your hair?
+[EndToEnd]: i do not have any color dye , but i do know that i use a dye dye to prevent the skin from the skin .
+[WizTeacher]: I dye it a medium brown because I'm starting to get white hairs. I hate them!
+[EndToEnd]: i ' m not sure what you mean . i ' m glad they ' re red hair . i ' m not sure what you ' re talking about .
+[WizTeacher]: I do it myself. It's too expensive for me to do it a salon. I'm actually do for another dye job soon because my white hairs are starting to show again. 
+[EndToEnd]: i ' m not sure , but i do know that it ' s a very relaxing activity .
+[WizTeacher]: Oh wow, I didn't know that! Do you know what is the most popular color people choose to dye their hair?
+[EndToEnd]: i ' m not sure , but i do know that they are mostly used for color colors .
+[WizTeacher]: Interesting. I wonder how hair dyeing came about.
+[EndToEnd]: i ' m not sure , but i know that it ' s a very pale red color .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Physical fitness
+[EndToEnd]: i ' m a yoga instructor . it ' s a health activity that studies physical and physical health benefits .
+[WizTeacher]: I used to but i don't really anymore.  What kind of exercise do you do?
+[EndToEnd]: i like to exercise . it can reduce the risk of physical disease .
+[WizTeacher]: I don't really like to exercise anymore. i just don't have the time. 
+[EndToEnd]: i ' m not sure , but i do know that it ' s a chronic disease that reduces disease and reduces disease .
+[WizTeacher]: yes i know i should make time for it, and i could stand to lose a few pounds.  sometimes life gets too hectic though. 
+[EndToEnd]: i agree . i also like to take a lot of chronic diseases and exercise .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Pasta
+i love me some pasta
+[EndToEnd]: i love pasta too ! i love italian cuisine .
+[WizTeacher]: when was it created
+[EndToEnd]: pasta is a staple food in italy
+[WizTeacher]: what can you make with it
+[EndToEnd]: pasta pasta is a staple in sicily
+[WizTeacher]: whats the top dish to make
+[EndToEnd]: pasta pasta is usually made from a wheat dough , which is usually made from a wheat dough .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Obesity
+I have a cousin who is obese can you tell me more about this topic? 
+[EndToEnd]: well , it ' s a medical program that ' s obese . it ' s a medical program that ' s not only obese .
+[WizTeacher]: Wow is there any way to help with obesity? 
+[EndToEnd]: it is a common obesity system , but it has the highest rates in the world .
+[WizTeacher]: What would be a good diet plan to help reduce body fat and obesity? 
+[EndToEnd]: it is a high fat , adequate protein , low carb diet , and low carb diet
+[WizTeacher]: Oh okay I have heard of a keto diet before. What types of exercise would you recommend to help reduce obesity? 
+[EndToEnd]: it is a high fat , adequate protein , low carb diet , and low carb diet .
+[WizTeacher]: That is great I will recommend all these to my cousin. he loves swimming! 
+[EndToEnd]: i would recommend you to try it .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Target Corporation
+I go to Target all the time, do you?
+[EndToEnd]: i do not have a specific group of local media .
+[WizTeacher]: I assume that it is just before Walmart, but still huge.
+[EndToEnd]: yes , walmart is a multinational retail corporation that operates in hypermarkets , discount department stores , and discount department stores .
+[WizTeacher]: They really do, at least over here in the US.
+[EndToEnd]: yea , i think they are very expensive .
+[WizTeacher]: Minnesota of all places? Huh, that's cool.
+[EndToEnd]: yea , i think it is very interesting .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Hair coloring
+Right now I have bright purple hair!
+[EndToEnd]: purple is a color intermediate between blue and red .
+[WizTeacher]: Yes, I had it professionally done.
+[EndToEnd]: i love that it comes from old french word " blund and blont " .
+[WizTeacher]: I have done that in the past but I didn't want to mess it up.
+[EndToEnd]: i can imagine that . i wish i could grow it .
+[WizTeacher]: I was tired of the same old blonde.
+[EndToEnd]: i have never had blonde hair . i have a friend who had blonde hair .
+[WizTeacher]: I'm sure it's in even more popular in the U.S.
+[EndToEnd]: i ' m not sure what the highest level of international culture is .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Hair coloring
+[EndToEnd]: i love to eat fruit , i have a friend who has a hair color .
+[WizTeacher]: I've been thinking of coloring my hair but I can't decide between letting a professional do it, or do it myself. What do you think?
+[EndToEnd]: i like to wear red hair , but i don ' t like to wear them .
+[WizTeacher]: It would probably be cheaper if I did!  Coloring one's hair is a popular thing to do, isn't it?
+[EndToEnd]: i have a hair color , but i ' m not sure what colors do you like to buy them ?
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Jazz
+[EndToEnd]: i love jazz music . it ' s a genre of music that originated in the early 20th century .
+[WizTeacher]: Yeah jazz music is ok.  Who is your favorite artist? 
+[EndToEnd]: i like the english rock band , formed in 1985 .
+[WizTeacher]: What do you think of Miles Davis? 
+[EndToEnd]: i ' m not sure , but i do know that it ' s a very popular artist .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Gospel music
+I love Gospel music,it inspires me alot
+[EndToEnd]: i like gospel music . it is a christian music genre that is associated with christian music .
+[WizTeacher]: How about you favorite gospel artist?
+[EndToEnd]: i like the song " the " pink " , which is a classic .
+[WizTeacher]: Fred Hammond, don't Moen et al, you can name yours too.Guess you have the information already?
+[EndToEnd]: i think it is a very popular one . i think it is a very popular song .
+[WizTeacher]: So there are classifications of Christian music. Do you know them?
+[EndToEnd]: i am not sure but i do know that christian music is mostly christian , but i do know that there are many christian groups .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Manta ray
+[EndToEnd]: i ' m thinking of getting a landinca man .
+[WizTeacher]: Yeah I was deep sea fishing and it took almost 30 minutes for me to reel one in because they are so strong.
+[EndToEnd]: i was a child and i was a child . i was a child and i was a child .
+[WizTeacher]: Well you have to think they are built to be strong underwater. So when you fish them they are literal battles to reel them in.
+[EndToEnd]: i ' ve never been to a lake near the gulf of mexico .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: San Diego Comic-Con
+Do you know much about the San Diego Comic-Con - or Comic Con in general?
+[EndToEnd]: i ' m not sure but i know it ' s a san diego resort in san diego .
+[WizTeacher]: I've never been - but I think my kids and husband would like to go to one.
+[EndToEnd]: san diego is a san diego resort chain . it ' s a san diego resort chain .
+[WizTeacher]: I would imagine there are many of interesting people there, in addition to the celebrities.
+[EndToEnd]: i ' ve never been to the united states , but i ' d love to see the food industry .
+[WizTeacher]: It would be interesting if some of the actors from the Marvel movies would be there.
+[EndToEnd]: i think they are a lot of fun , but i ' m not sure what the movies are .
+[WizTeacher]: Yeah, it was filmed in Atlanta - about 30 minutes from me!
+[EndToEnd]: i ' m not sure what the movie is . i ' ve seen it a few times .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: 7
+7 is my favourite lucky number!
+[EndToEnd]: oh wow ! i love that !
+[WizTeacher]: Really? What other cultures have history with the letter?
+[EndToEnd]: i am not sure , but i know that it is a middle east of spain and has a very distinct name .
+[WizTeacher]: Cool! I always wondered why the letter looked the way it did!
+[EndToEnd]: i think it is a very interesting topic .
+[WizTeacher]: Interesting!
+[EndToEnd]: yes , it is a type of game that is used in the european european union and the two two other two other european elements .
+[WizTeacher]: Toooo cool! I look at the number in such a different way!
+[EndToEnd]: i like the song song that is used in the game .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Sobriety
+[EndToEnd]: i am a big fan of the topic of divorce .
+[WizTeacher]: I actually do. It is a difficult struggle. Do you know someone as well?
+[EndToEnd]: i do not . i do use a lot of personal drinking . i ' m not sure how much it ' s . i ' m not good at it .
+[WizTeacher]: I agree. It is not something I can imagine dealing with personally!
+[EndToEnd]: i agree . i also like to use a lot of drugs to promote and promote and promote alcohol .
+[WizTeacher]: I didn't know that. It is a very common and widespread problem it seems.
+[EndToEnd]: i agree . i think it ' s a shame that it ' s a shame that it ' s not too bad .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Brown hair
+I have brown hair, but it's pretty light. So light that sometimes under the right lighting it looks blond!
+[EndToEnd]: i ' m not sure what the hair color is ? i know it ' s a pale pigment eumelanin .
+[WizTeacher]: Is it weird that I'm a little jealous? I mean, I don't want to go full grey yet, but I'm about to be 30 and I'm hoping for some nice salt & pepper in the beard soon.
+[EndToEnd]: i ' m not sure what you mean . i ' m sure you ' re doing it .
+[WizTeacher]: I'm a little bit more worried about the pigmentation on my skin. Feeling pretty pale. I need to spend some more time outside.
+[EndToEnd]: i think it ' s a shame that you ' re not only blonde , but i ' m sure you ' re not alone . i ' m sure you ' re talking about red hair .
+[WizTeacher]: That's me too! I wonder if having brown hair somehow makes you more likely to have trouble tanning.
+[EndToEnd]: i ' m not sure , but i ' m sure it ' s a lot of a person .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Sobriety
+I'd love to know more about sobriety and how I can be sober
+[EndToEnd]: i agree . i am sorry to hear that . i ' m glad they are overable to keep my home . i ' m glad they are overable to be able to keep my hands out .
+[WizTeacher]: What does it take to be in this state?
+[EndToEnd]: it is a good point . it is often connected to the state of law .
+[WizTeacher]: Yes I take a beer that contains 6% and it knocks me off every time i take it
+[EndToEnd]: i have heard that in some places they are overable to sosososot .
+[WizTeacher]: Is there any medication to make one sober?
+[EndToEnd]: i have heard that it is a good alternative to the risk of health .
+[WizTeacher]: I wish the research centers and alcohol companies can invest so as to help find a medication that can make people sober
+[EndToEnd]: i agree . i ' m glad i could get a good deal with that .
+- - - - - - - - - - - - - - - - - - - - -
+[WizTeacher]: Red
+I don't like the color red that much what about you?
+[EndToEnd]: red is the color of red , red , green , and orange on the spectrum of visible light .
+[WizTeacher]: Oh really?, could you tell me some more interesting facts about the color red?
+[EndToEnd]: well , it is a hue of hue , chroma and lightness .
