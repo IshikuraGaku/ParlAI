@@ -1042,7 +1042,7 @@ class TransformerEncoder(nn.Module):
         """
         mask = input != self.padding_idx
         if positions is None:
-            positions = (mask.cumsum(dim=1, dtype=torch.int64) - 1).clamp_(min=0)
+            positions = (mask.cumsum(dim=1, dtype=th.int64) - 1).clamp_(min=0)
         tensor = self.embeddings(input)
         if self.embeddings_scale:
             tensor = tensor * np.sqrt(self.dim)
@@ -1059,7 +1059,7 @@ class TransformerEncoder(nn.Module):
 
         if self.n_segments >= 1:
             if segments is None:
-                segments = torch.zeros_like(input)
+                segments = th.zeros_like(input)
             tensor = tensor + self.segment_embeddings(segments)
 
         if self.variant == 'xlm':
@@ -1245,7 +1245,7 @@ class TransformerDecoder(nn.Module):
 
         seq_len = input.size(1)
         positions = input.new(seq_len).long()
-        positions = torch.arange(seq_len, out=positions).unsqueeze(0)
+        positions = th.arange(seq_len, out=positions).unsqueeze(0)
         tensor = self.embeddings(input)
         if self.embeddings_scale:
             tensor = tensor * np.sqrt(self.dim)
@@ -1343,7 +1343,7 @@ class TransformerDecoderLayer(nn.Module):
         bsz = x.size(0)
         time = x.size(1)
         # make sure that we don't look into the future
-        mask = torch.tril(x.new(time, time).fill_(1))
+        mask = th.tril(x.new(time, time).fill_(1))
         # broadcast across batch
         mask = mask.unsqueeze(0).expand(bsz, -1, -1)
         return mask
