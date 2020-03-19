@@ -4,8 +4,9 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
-"""Simple loop which sets up a remote connection. The paired agent can run this
-same loop but with the '--remote-host' flag set. For example...
+"""
+Simple loop which sets up a remote connection. The paired agent can run this same loop
+but with the '--remote-host' flag set. For example...
 
 Agent 1:
 python remote.py
@@ -32,7 +33,7 @@ from parlai.agents.remote_agent.remote_agent import RemoteAgentAgent
 from parlai.agents.local_human.local_human import LocalHumanAgent
 from parlai.core.params import ParlaiParser
 from parlai.core.agents import create_agent
-from parlai.core.logging_utils import logger
+from parlai.utils.logging import logger
 from parlai.core.worlds import DialogPartnerWorld, create_task
 
 import random

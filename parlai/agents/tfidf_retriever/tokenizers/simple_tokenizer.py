@@ -4,13 +4,13 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
-"""Basic tokenizer that splits text into alpha-numeric tokens and
-non-whitespace tokens.
+"""
+Basic tokenizer that splits text into alpha-numeric tokens and non-whitespace tokens.
 """
 
 import regex
 from .tokenizer import Tokens, Tokenizer
-from parlai.core.logging_utils import logger
+from parlai.utils.logging import logger
 
 
 class SimpleTokenizer(Tokenizer):

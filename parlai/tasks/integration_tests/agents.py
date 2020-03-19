@@ -5,18 +5,24 @@
 # LICENSE file in the root directory of this source tree.
 
 """
-These agents contain a number of "unit test" corpora, or
-fake corpora that ensure models can learn simple behavior easily.
-They are useful as unit tests for the basic models.
+These agents contain a number of "unit test" corpora, or fake corpora that ensure models
+can learn simple behavior easily. They are useful as unit tests for the basic models.
 
 The corpora are all randomly, but deterministically generated
 """
 
-from parlai.core.teachers import DialogTeacher
+from parlai.core.agents import Teacher
+from parlai.core.teachers import FixedDialogTeacher, DialogTeacher, AbstractImageTeacher
+from parlai.core.opt import Opt
 from torch.utils.data import Dataset
 import copy
 import random
 import itertools
+import os
+from PIL import Image
+import string
+import json
+from abc import ABC
 
 # default parameters
 VOCAB_SIZE = 7
@@ -26,21 +32,22 @@ NUM_TRAIN = 500
 NUM_TEST = 100
 
 
-class CandidateTeacher(DialogTeacher):
+class CandidateBaseTeacher(Teacher, ABC):
     """
-    Candidate teacher produces several candidates, one of which is a repeat
-    of the input. A good ranker should easily identify the correct response.
+    Base Teacher.
+
+    Contains some functions that are useful for all the subteachers.
     """
 
     def __init__(
         self,
-        opt,
-        shared=None,
-        vocab_size=VOCAB_SIZE,
-        example_size=EXAMPLE_SIZE,
-        num_candidates=NUM_CANDIDATES,
-        num_train=NUM_TRAIN,
-        num_test=NUM_TEST,
+        opt: Opt,
+        shared: dict = None,
+        vocab_size: int = VOCAB_SIZE,
+        example_size: int = EXAMPLE_SIZE,
+        num_candidates: int = NUM_CANDIDATES,
+        num_train: int = NUM_TRAIN,
+        num_test: int = NUM_TEST,
     ):
         """
         :param int vocab_size: size of the vocabulary
@@ -61,24 +68,27 @@ class CandidateTeacher(DialogTeacher):
 
         # set up the vocabulary
         self.words = list(map(str, range(self.vocab_size)))
-
         super().__init__(opt, shared)
 
-    def num_episodes(self):
+    def build_corpus(self):
+        """
+        Build corpus; override for customization.
+        """
+        return [list(x) for x in itertools.permutations(self.words, self.example_size)]
+
+    def num_episodes(self) -> int:
         if self.datafile == 'train':
             return self.num_train
         else:
             return self.num_test
 
-    def num_examples(self):
+    def num_examples(self) -> int:
         return self.num_episodes()
 
-    def setup_data(self, fold):
+    def _setup_data(self, fold: str):
         # N words appearing in a random order
         self.rng = random.Random(42)
-        full_corpus = [
-            list(x) for x in itertools.permutations(self.words, self.example_size)
-        ]
+        full_corpus = self.build_corpus()
         self.rng.shuffle(full_corpus)
 
         it = iter(full_corpus)
@@ -105,6 +115,63 @@ class CandidateTeacher(DialogTeacher):
         # make sure the corpus is actually text strings
         self.corpus = [' '.join(x) for x in self.corpus]
 
+
+class FixedDialogCandidateTeacher(CandidateBaseTeacher, FixedDialogTeacher):
+    """
+    Base Candidate Teacher.
+
+    Useful if you'd like to test the FixedDialogTeacher
+    """
+
+    def __init__(self, *args, **kwargs):
+        """
+        Override to build candidates.
+        """
+        super().__init__(*args, **kwargs)
+        opt = args[0]
+        if 'shared' not in kwargs:
+            self._setup_data(opt['datatype'].split(':')[0])
+            self._build_candidates()
+        else:
+            shared = kwargs['shared']
+            self.corpus = shared['corpus']
+            self.cands = shared['cands']
+        self.reset()
+
+    def share(self):
+        shared = super().share()
+        shared['corpus'] = self.corpus
+        shared['cands'] = self.cands
+        return shared
+
+    def _build_candidates(self):
+        self.cands = []
+        for i in range(len(self.corpus)):
+            cands = []
+            for j in range(NUM_CANDIDATES):
+                offset = (i + j) % len(self.corpus)
+                cands.append(self.corpus[offset])
+            self.cands.append(cands)
+
+    def get(self, episode_idx: int, entry_idx: int = 0):
+        return {
+            'text': self.corpus[episode_idx],
+            'episode_done': True,
+            'labels': [self.corpus[episode_idx]],
+            'label_candidates': self.cands[episode_idx],
+        }
+
+
+class CandidateTeacher(CandidateBaseTeacher, DialogTeacher):
+    """
+    Candidate teacher produces several candidates, one of which is a repeat of the
+    input.
+
+    A good ranker should easily identify the correct response.
+    """
+
+    def setup_data(self, fold):
+        super()._setup_data(fold)
         for i, text in enumerate(self.corpus):
             cands = []
             for j in range(NUM_CANDIDATES):
@@ -115,10 +182,10 @@ class CandidateTeacher(DialogTeacher):
 
 class CandidateTeacherDataset(Dataset):
     """
-    Candidate Teacher, in Pytorch Dataset form
+    Candidate Teacher, in Pytorch Dataset form.
 
-    Identical setup. Only difference is a `self.data` object, which contains
-    all the episodes in the task.
+    Identical setup. Only difference is a `self.data` object, which contains all the
+    episodes in the task.
     """
 
     def __init__(
@@ -148,13 +215,13 @@ class CandidateTeacherDataset(Dataset):
     def __getitem__(self, index):
         return (index, self.data[index])
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self.num_examples()
 
-    def num_episodes(self):
+    def num_episodes(self) -> int:
         return len(self.data)
 
-    def num_examples(self):
+    def num_examples(self) -> int:
         return self.num_episodes()
 
     def setup_data(self, fold):
@@ -221,11 +288,7 @@ class MultipassTeacher(CandidateTeacher):
     """
     Multiturn teacher, where each episode goes:
 
-    call      response
-    1         1
-    2         1 2
-    3         1 2 3
-    4         1 2 3 4
+    call      response 1         1 2         1 2 3         1 2 3 4         1 2 3 4
     """
 
     def num_examples(self):
@@ -243,7 +306,8 @@ class MultipassTeacher(CandidateTeacher):
 
 
 class MultiturnCandidateTeacher(CandidateTeacher):
-    """Splits inputs/targets by spaces into multiple turns.
+    """
+    Splits inputs/targets by spaces into multiple turns.
 
     Good for testing models that use the dialog history.
     """
@@ -268,8 +332,9 @@ class MultiturnCandidateTeacher(CandidateTeacher):
 
 class NocandidateTeacher(CandidateTeacher):
     """
-    Strips the candidates so the model can't see any options. Good for testing
-    simple generative models.
+    Strips the candidates so the model can't see any options.
+
+    Good for testing simple generative models.
     """
 
     def setup_data(self, fold):
@@ -278,10 +343,35 @@ class NocandidateTeacher(CandidateTeacher):
             yield (t, a), e
 
 
+class RepeatWordsTeacher(NocandidateTeacher):
+    """
+    Each input/output pair is a word repeated n times.
+
+    Useful for testing beam-blocking.
+    """
+
+    def __init__(self, *args, **kwargs):
+        # Set sizes so that we have appropriate number of examples (700)
+        kwargs['vocab_size'] = 70
+        kwargs['example_size'] = 11
+        super().__init__(*args, **kwargs)
+
+    def build_corpus(self):
+        """
+        Override to repeat words.
+        """
+        return [
+            [x for _ in range(l)]
+            for l in range(1, self.example_size)
+            for x in self.words
+        ]
+
+
 class MultiturnNocandidateTeacher(MultiturnCandidateTeacher):
     """
-    Strips the candidates so the model can't see any options. Good for testing
-    simple generative models.
+    Strips the candidates so the model can't see any options.
+
+    Good for testing simple generative models.
     """
 
     def setup_data(self, fold):
@@ -353,6 +443,60 @@ class BadExampleTeacher(CandidateTeacher):
 
         newget.case = random.randint(0, self.NUM_CASES)
         return newget
+
+
+class ImageTeacher(AbstractImageTeacher):
+    """
+    Teacher which provides images and captions.
+
+    In __init__, setup some fake images + features
+    """
+
+    def __init__(self, opt, shared=None):
+        self._setup_test_data(opt)
+        super().__init__(opt, shared)
+
+    def _setup_test_data(self, opt):
+        datapath = os.path.join(opt['datapath'], 'ImageTeacher')
+        imagepath = os.path.join(datapath, 'images')
+        os.makedirs(imagepath, exist_ok=True)
+
+        self.image_features_path = os.path.join(datapath, 'image_features')
+
+        # Create fake images and features
+        imgs = [f'img_{i}' for i in range(10)]
+        for i, img in enumerate(imgs):
+            image = Image.new('RGB', (100, 100), color=i)
+            image.save(os.path.join(imagepath, f'{img}.jpg'), 'JPEG')
+
+        # write out fake data
+        for dt in ['train', 'valid', 'test']:
+            random.seed(42)
+            data = [
+                {
+                    'image_id': img,
+                    'text': ''.join(
+                        random.choice(string.ascii_uppercase) for _ in range(10)
+                    ),
+                }
+                for img in imgs
+            ]
+            with open(os.path.join(datapath, f'{dt}.json'), 'w') as f:
+                json.dump(data, f)
+
+    def get_image_features_path(self, task, image_model_name, dt):
+        """
+        Return path dummy image features.
+        """
+        return self.image_features_path
+
+    def image_id_to_image_path(self, image_id):
+        """
+        Return path to image on disk.
+        """
+        return os.path.join(
+            self.opt['datapath'], 'ImageTeacher/images', f'{image_id}.jpg'
+        )
 
 
 class DefaultTeacher(CandidateTeacher):
