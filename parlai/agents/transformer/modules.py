@@ -929,6 +929,8 @@ class MultiHeadAttention(nn.Module):
 
         nn.init.xavier_normal_(self.out_lin.weight)
 
+        self.random_vanilla = True
+
     def forward(self, query, key=None, value=None, mask=None):
         """Forward pass."""
         # TODO: there are a lot of parameters to document here.
@@ -970,8 +972,15 @@ class MultiHeadAttention(nn.Module):
         k = prepare_head(self.k_lin(key))
         v = prepare_head(self.v_lin(value))
 
-        dot_prod = q.div_(scale).bmm(k.transpose(1, 2))
-        # [B * n_heads, query_len, key_len]
+        if self.random_vanilla:
+            dot_prod = q.div_(scale).bmm(k.transpose(1, 2))
+            torch.manual_seed(2434)
+            #なんでもいい乱数固定
+            #ブロードキャストで低い次元から合わせられる？
+            dot_prod += torch.rand(query_len, key_len)
+        else:
+            dot_prod = q.div_(scale).bmm(k.transpose(1, 2))
+            # [B * n_heads, query_len, key_len]
         attn_mask = (
             (mask == 0)
             .view(batch_size, 1, -1, key_len)
