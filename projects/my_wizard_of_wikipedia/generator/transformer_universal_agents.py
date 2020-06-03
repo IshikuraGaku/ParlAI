@@ -99,7 +99,7 @@ class EndToEndAgent(_GenericWizardAgent):
     def __init__(self, opt, shared=None):
         super().__init__(opt, shared)
         self._vectorize_text = lru_cache(int(2 ** 20))(self._vectorize_text)
-        self.use_outloss = False
+        self.use_outloss = True
         self.use_KCEloss = True
 
         # knowledge truncate defaults to the same as --truncate
@@ -133,11 +133,21 @@ class EndToEndAgent(_GenericWizardAgent):
         #[2]はタプルencoder_statesらしい
         #[2][0]は(B,T,256) [2][1]は(B,T)全部１マスク？ [2][2]はctx_know_attn?
 
-        if use_KCEloss:
+        if self.use_KCEloss:
             #[B,N,L]だと思う確認してない,0番目が正解？
-            labeled_knowladge = batch.know_vec[:,batch.cs_ids]
-            cross_entropy = torch.nn.CrossEntropyLoss()
-            KCE_loss = -cross_entropy(model_output, labeled_knowladge)
+            labeled_knowledge = batch.know_vec[th.arange(0,batch.cs_ids.shape[0],1), batch.cs_ids]
+
+            #それぞれ2時限目が違う
+            if labeled_knowledge.shape[1] > model_output[0].shape[1]:
+                labeled_knowledge = labeled_knowledge[:,0:model_output[0].shape[1]] 
+            else:
+                temp = th.zeros((labeled_knowledge.shape[0] ,model_output[0].shape[1]-labeled_knowledge.shape[1]),device=labeled_knowledge.device, dtype=labeled_knowledge.dtype)
+                labeled_knowledge = th.cat([labeled_knowledge, temp], axis=1)
+                
+
+            score_view = model_output[0].reshape(-1, model_output[0].size(-1))
+            cross_entropy = th.nn.CrossEntropyLoss()
+            KCE_loss = -cross_entropy(score_view, labeled_knowledge.reshape(-1))
 
         notnull = batch.label_vec.ne(self.NULL_IDX)
         num_tokens = notnull.long().sum().item()
@@ -172,7 +182,7 @@ class EndToEndAgent(_GenericWizardAgent):
             know_loss /= num_tokens
             out_loss /= num_tokens
 
-            if self.use_outloss and use_KCEloss:
+            if self.use_outloss and self.use_KCEloss:
                 alpha = self.knowledge_alpha / 3
                 beta = alpha
                 gamma =  alpha

@@ -114,7 +114,7 @@ def _build_encoder(
 ):
     return TransformerEncoder(
         n_heads=opt['n_heads'],
-        n_layers=opt['n_layers'],
+        n_layers=1,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -139,7 +139,7 @@ def _build_decoder(
 ):
     return TransformerDecoder(
         n_heads=opt['n_heads'],
-        n_layers=opt['n_layers'],
+        n_layers=5,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -213,7 +213,7 @@ class TransformerMemNetModel(nn.Module):
         self.reduction_type = opt.get('reduction_type', 'mean')
         self.n_segments = opt.get('n_segments', 0)
 
-        self.context_encoder = _build_universal_encoder(
+        self.context_encoder = _build_encoder(
             opt,
             dictionary,
             self.embeddings,
@@ -1390,7 +1390,7 @@ class TransformerGeneratorModel(TorchGeneratorModel):
             n_positions=n_positions,
             n_segments=n_segments,
         )
-        self.decoder = _build_universal_decoder(
+        self.decoder = _build_decoder(
             opt, dictionary, self.embeddings, self.pad_idx, n_positions=n_positions
         )
 
