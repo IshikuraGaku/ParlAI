@@ -98,7 +98,8 @@ class EndToEndAgent(_GenericWizardAgent):
     def __init__(self, opt, shared=None):
         super().__init__(opt, shared)
         self._vectorize_text = lru_cache(int(2 ** 20))(self._vectorize_text)
-        self.use_outloss = False
+        self.use_outloss = True
+        self.use_KCEloss = False
 
         # knowledge truncate defaults to the same as --truncate
         self.knowledge_truncate = opt.get('knowledge_truncate')
@@ -119,6 +120,12 @@ class EndToEndAgent(_GenericWizardAgent):
         # first compute our regular forced decoding loss
         token_loss, model_output = super().compute_loss(batch, return_output=True)
         ctx_out_attn = self.model.encoder.output_choose_knowledge(model_output[1])
+
+        if use_KCEloss:
+            #[B,N,L]だと思う確認してない,0番目が正解？
+            labeled_knowladge = batch.know_vec[:,batch.cs_ids]
+            cross_entropy = torch.nn.CrossEntropyLoss()
+            KCE_loss = -cross_entropy(model_output, labeled_knowladge)
 
         notnull = batch.label_vec.ne(self.NULL_IDX)
         num_tokens = notnull.long().sum().item()
@@ -152,11 +159,16 @@ class EndToEndAgent(_GenericWizardAgent):
             # know_loss and token_loss
             know_loss /= num_tokens
             out_loss /= num_tokens
-
-            if self.use_outloss:
-                self.knowledge_alpha = self.knowledge_alpha / 2
-                self.knowledge_beta = self.knowledge_alpha
-                loss = (1 - self.knowledge_alpha - self.knowledge_beta) * token_loss + self.knowledge_beta * out_loss + self.knowledge_alpha * know_loss
+            
+            if self.use_outloss and use_KCEloss:
+                alpha = self.knowledge_alpha / 3
+                beta = alpha
+                gamma =  alpha
+                loss = (1 - alpha - beta - gamma) * token_loss + beta * out_loss + alpha * know_loss + gamma * KCE_loss
+            elif self.use_outloss:
+                alpha = self.knowledge_alpha / 2
+                beta = alpha
+                loss = (1 - alpha - beta) * token_loss + beta * out_loss + alpha * know_loss
             else:
                 loss = (1 - self.knowledge_alpha) * token_loss + self.knowledge_alpha * know_loss
 
