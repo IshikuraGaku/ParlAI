@@ -14,13 +14,15 @@ This module also supports special segments (ala BERT;
 https://arxiv.org/abs/1810.04805), and a few different variations seen in the
 literature (BERT and XLM; https://arxiv.org/abs/1901.07291).
 """
+import math
+from typing import Dict, Tuple
+
+import numpy as np
 
 import torch as th
 import torch.nn as nn
 import torch.nn.functional as F
 
-import math
-import numpy as np
 
 from parlai.core.torch_generator_agent import TorchGeneratorModel
 from parlai.core.utils import warn_once
