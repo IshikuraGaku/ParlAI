@@ -21,6 +21,9 @@ from .transformer_universal_modules import EndToEndModel
 
 from parlai.tasks.wizard_of_wikipedia.agents import TOKEN_KNOWLEDGE
 
+import warnings
+warnings.filterwarnings("ignore")
+
 TOKEN_DIALOG = '__dialog__'
 
 
@@ -183,10 +186,13 @@ class EndToEndAgent(_GenericWizardAgent):
             out_loss /= num_tokens
 
             if self.use_outloss and self.use_KCEloss:
-                alpha = self.knowledge_alpha / 3
+                gamma = self.knowledge_alpha / 10
+                alpha = self.knowledge_alpha / 2
                 beta = alpha
-                gamma =  alpha
                 loss = (1 - alpha - beta - gamma) * token_loss + beta * out_loss + alpha * know_loss + gamma * KCE_loss
+                while loss < 0:
+                    gamma = gamma / 10
+                    loss = (1 - alpha - beta - gamma) * token_loss + beta * out_loss + alpha * know_loss + gamma * KCE_loss
             elif self.use_outloss:
                 alpha = self.knowledge_alpha / 2
                 beta = alpha
