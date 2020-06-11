@@ -167,6 +167,8 @@ class EndToEndAgent(_GenericWizardAgent):
             self.metrics['know_chance'] += know_chance
             self.metrics['bsz'] += batch.text_vec.size(0)
             self.metrics['know_acc'] += know_acc
+            self.metrics['nll_loss'] = 0
+            self.metrics['nll_loss'] += token_loss.item()
 
             know_loss = th.nn.functional.cross_entropy(
                 ctx_know_attn,
