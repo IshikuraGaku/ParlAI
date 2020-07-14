@@ -968,9 +968,11 @@ class TransformerEncoder(nn.Module):
         self.dropout = nn.Dropout(p=dropout)
         self.variant = variant
         self.n_segments = n_segments
-
         self.n_positions = n_positions
         self.out_dim = embedding_size
+
+        self.res_net = True
+
         assert (
             embedding_size % n_heads == 0
         ), 'Transformer embedding size must be a multiple of n_heads'
@@ -1070,8 +1072,17 @@ class TransformerEncoder(nn.Module):
         tensor = self.dropout(tensor)
 
         tensor *= mask.unsqueeze(-1).type_as(tensor)
-        for i in range(self.n_layers):
-            tensor = self.layers[i](tensor, mask)
+
+        if self.res_net:
+            res_tensor = tensor
+            res_lambda = 0.2
+            for i in range(self.n_layers):
+                tensor = (1-res_lambda)*tensor + res_lambda*tensor
+                tensor = self.layers[i](tensor, mask)
+                res_tensor = tensor
+        else:
+            for i in range(self.n_layers):
+                tensor = self.layers[i](tensor, mask)
 
         tensor *= self.output_scaling
         if self.reduction_type == 'first':
@@ -1190,9 +1201,11 @@ class TransformerDecoder(nn.Module):
         self.variant = variant
         self.embeddings_scale = embeddings_scale
         self.dropout = nn.Dropout(p=dropout)  # --dropout
-
         self.n_positions = n_positions
         self.out_dim = embedding_size
+
+        self.res_net = True
+
         assert (
             embedding_size % n_heads == 0
         ), 'Transformer embedding size must be a multiple of n_heads'
@@ -1262,8 +1275,16 @@ class TransformerDecoder(nn.Module):
         tensor = tensor + self.position_embeddings(positions).expand_as(tensor)
         tensor = self.dropout(tensor)  # --dropout
 
-        for layer in self.layers:
-            tensor = layer(tensor, encoder_output, encoder_mask)
+        if self.res_net:
+            res_lambda = 0.2
+            res_tensor = tensor
+            for layer in self.layers:
+                tensor = (1-res_lambda)*tensor + res_lambda*res_tensor
+                tensor = layer(tensor, encoder_output, encoder_mask)
+                res_tensor = tensor
+        else:
+            for layer in self.layers:
+                tensor = layer(tensor, encoder_output, encoder_mask)
 
         return tensor, None
 
@@ -1599,7 +1620,7 @@ class ACT_basic(nn.Module):
         self.p.bias.data.fill_(1) 
         self.threshold = 1 - 0.01
 
-    def forward(self, tensor, inputs, mask, fn, time_enc, pos_enc, max_hop, encoder_output=None):
+    def forward(self, tensor, inputs, mask, fn, time_enc, pos_enc, max_hop, encoder_output=None, res_net=True):
         # init_hdd
         ## [B, S]
         halting_probability = th.zeros(inputs.shape[0],inputs.shape[1]).cuda()
@@ -1615,11 +1636,17 @@ class ACT_basic(nn.Module):
         positions = inputs.new(seq_len).long()
         positions = th.arange(seq_len, out=positions).unsqueeze(0)
         # for l in range(self.num_layers):
+        if res_net:
+            res_tensor = tensor
+            res_lambda = 0.2
         while( ((halting_probability < self.threshold) & (n_updates < max_hop)).byte().any()):
             #any() 1つでも0以外があればTrue
             #while(((n_updates < max_hop)).byte().any()):なぜかError
             # Add timing signal
-            tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
+            if res_net:
+                tensor = (1-res_lambda)*tensor + res_lambda*res_tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)
+            else:
+                tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
 
             p = self.sigma(self.p(tensor)).squeeze(-1)
             # Mask for inputs which have not halted yet
@@ -1656,6 +1683,9 @@ class ACT_basic(nn.Module):
             else:
                 # apply transformation on the tensor
                 tensor = fn(tensor, mask)
+                
+            if res_net:
+                res_tensor = tensor
 
             # update running part in the weighted tensor and keep the rest
             if tensor.size() == previous_tensor.size():
