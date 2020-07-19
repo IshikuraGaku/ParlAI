@@ -65,7 +65,7 @@ class ContextKnowledgeEncoder(nn.Module):
         self.soft_attention = False
         #self.n_use_knowlege = 5 #使う知識数
         self.knowledge_lamda = 1
-
+        self.ck_mask =None
         self.know_tokens = None
         self.cs_ids = None
         self.use_cs_ids =None
