@@ -67,7 +67,6 @@ class ContextKnowledgeEncoder(nn.Module):
         self.knowledge_lamda = 1
 
         self.know_tokens = None
-        self.ck_mask = None
         self.cs_ids = None
         self.use_cs_ids =None
 
@@ -79,7 +78,7 @@ class ContextKnowledgeEncoder(nn.Module):
         #use_cs_ids trainならTrue
 
         self.know_tokens = know_tokens
-        self.ck_mask = ck_mask
+       
         self.cs_ids = cs_ids
         self.use_cs_ids = use_cs_ids
 
@@ -99,8 +98,8 @@ class ContextKnowledgeEncoder(nn.Module):
 
         ck_attn = th.bmm(know_use, context_use.unsqueeze(-1)).squeeze(-1)
         # fill with near -inf
-        ck_attn.masked_fill_(~ck_mask, neginf(context_encoded.dtype))
 
+        ck_attn.masked_fill_(ck_mask==0, neginf(context_encoded.dtype))
         if self.soft_attention:
             # pick the true chosen sentence. remember that TransformerEncoder outputs
             #   (batch, time, embed)
@@ -170,7 +169,8 @@ class ContextKnowledgeEncoder(nn.Module):
         ck_attn = th.bmm(know_use, context_use.unsqueeze(-1)).squeeze(-1)
         # fill with near -inf
         #~はInvert-2^(N-1) to 2^(N-1)-1
-        ck_attn.masked_fill_(~self.ck_mask, neginf(context_encoded.dtype))
+       
+        #ck_attn.masked_fill_(~self.ck_mask, neginf(context_encoded.dtype))
 
         # pick the true chosen sentence. remember that TransformerEncoder outputs
         #   (batch, time, embed)

@@ -102,8 +102,8 @@ class EndToEndAgent(_GenericWizardAgent):
     def __init__(self, opt, shared=None):
         super().__init__(opt, shared)
         self._vectorize_text = lru_cache(int(2 ** 20))(self._vectorize_text)
-        self.use_outloss = True
-        self.use_KCEloss = True
+        self.use_outloss = False
+        self.use_KCEloss = False
 
         # knowledge truncate defaults to the same as --truncate
         self.knowledge_truncate = opt.get('knowledge_truncate')
@@ -321,7 +321,7 @@ class EndToEndAgent(_GenericWizardAgent):
         batch['know_vec'] = knowledge_vec
         batch['ck_mask'] = ck_mask
         batch['cs_ids'] = cs_ids
-        batch['use_cs_ids'] = is_training
+        batch['use_cs_ids'] = is_training 
         batch['knowledge'] = np.array(flattened_knowledge).reshape(N, K)
         return batch
 
