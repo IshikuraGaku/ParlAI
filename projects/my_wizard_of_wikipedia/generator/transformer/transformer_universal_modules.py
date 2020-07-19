@@ -139,7 +139,7 @@ def _build_decoder(
 ):
     return TransformerDecoder(
         n_heads=opt['n_heads'],
-        n_layers=5,
+        n_layers=1,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -971,7 +971,7 @@ class TransformerEncoder(nn.Module):
         self.n_positions = n_positions
         self.out_dim = embedding_size
 
-        self.res_net = True
+        self.res_net = False
 
         assert (
             embedding_size % n_heads == 0
@@ -1204,7 +1204,7 @@ class TransformerDecoder(nn.Module):
         self.n_positions = n_positions
         self.out_dim = embedding_size
 
-        self.res_net = True
+        self.res_net = False
 
         assert (
             embedding_size % n_heads == 0
@@ -1619,8 +1619,9 @@ class ACT_basic(nn.Module):
         self.p = nn.Linear(hidden_size,1)  
         self.p.bias.data.fill_(1) 
         self.threshold = 1 - 0.01
+        self.res_net = False
 
-    def forward(self, tensor, inputs, mask, fn, time_enc, pos_enc, max_hop, encoder_output=None, res_net=True):
+    def forward(self, tensor, inputs, mask, fn, time_enc, pos_enc, max_hop, encoder_output=None):
         # init_hdd
         ## [B, S]
         halting_probability = th.zeros(inputs.shape[0],inputs.shape[1]).cuda()
@@ -1636,14 +1637,14 @@ class ACT_basic(nn.Module):
         positions = inputs.new(seq_len).long()
         positions = th.arange(seq_len, out=positions).unsqueeze(0)
         # for l in range(self.num_layers):
-        if res_net:
+        if self.res_net:
             res_tensor = tensor
             res_lambda = 0.2
         while( ((halting_probability < self.threshold) & (n_updates < max_hop)).byte().any()):
             #any() 1つでも0以外があればTrue
             #while(((n_updates < max_hop)).byte().any()):なぜかError
             # Add timing signal
-            if res_net:
+            if self.res_net:
                 tensor = (1-res_lambda)*tensor + res_lambda*res_tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)
             else:
                 tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
@@ -1684,7 +1685,7 @@ class ACT_basic(nn.Module):
                 # apply transformation on the tensor
                 tensor = fn(tensor, mask)
                 
-            if res_net:
+            if self.res_net:
                 res_tensor = tensor
 
             # update running part in the weighted tensor and keep the rest
