@@ -118,7 +118,7 @@ class ContextKnowledgeEncoder(nn.Module):
             _, T, D = know_encoded.size()
             # finally, concatenate it all
             
-            know_encoded.masked_fill_(know_mask=0, 0)
+            know_encoded.masked_fill_(know_mask==0, 0)
             
             full_enc = th.cat([(know_encoded.reshape((N*K, -1)) * th.nn.functional.softmax((ck_attn * self.knowledge_lamda), dim=1).reshape(-1,1).expand(N*K, T*D)).reshape((N,K,T,D)).sum(dim=1), context_encoded], dim=1)
             full_mask = th.cat([know_mask[th.arange(N, device=cs_ids.device) * K], context_mask], dim=1)
