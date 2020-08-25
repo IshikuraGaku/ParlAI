@@ -103,6 +103,59 @@ def _build_universal_decoder(
         n_segments=n_segments,
     )
 
+def _build_universal_multilayer_encoder(
+    opt,
+    dictionary,
+    embedding=None,
+    padding_idx=None,
+    reduction_type='mean',
+    n_positions=1024,
+    n_segments=0,
+):
+    return UniversalTransformerMultiLayerEncoder(
+        n_heads=opt['n_heads'],
+        n_layers=3,
+        embedding_size=opt['embedding_size'],
+        ffn_size=opt['ffn_size'],
+        vocabulary_size=len(dictionary),
+        embedding=embedding,
+        dropout=opt['dropout'],
+        attention_dropout=opt['attention_dropout'],
+        relu_dropout=opt['relu_dropout'],
+        padding_idx=padding_idx,
+        learn_positional_embeddings=opt['learn_positional_embeddings'],
+        embeddings_scale=opt['embeddings_scale'],
+        reduction_type=reduction_type,
+        n_positions=n_positions,
+        n_segments=n_segments,
+        activation=opt['activation'],
+        variant=opt['variant'],
+        output_scaling=opt['output_scaling'],
+    )
+
+
+def _build_universal_multilayer_decoder(
+    opt, dictionary, embedding=None, padding_idx=None, n_positions=1024, n_segments=0
+):
+    return UniversalTransformerMultiLayerDecoder(
+        n_heads=opt['n_heads'],
+        n_layers=3,
+        embedding_size=opt['embedding_size'],
+        ffn_size=opt['ffn_size'],
+        vocabulary_size=len(dictionary),
+        embedding=embedding,
+        dropout=opt['dropout'],
+        attention_dropout=opt['attention_dropout'],
+        relu_dropout=opt['relu_dropout'],
+        padding_idx=padding_idx,
+        learn_positional_embeddings=opt['learn_positional_embeddings'],
+        embeddings_scale=opt['embeddings_scale'],
+        n_positions=n_positions,
+        activation=opt['activation'],
+        variant=opt['variant'],
+        n_segments=n_segments,
+    )
+
 def _build_encoder(
     opt,
     dictionary,
@@ -180,6 +233,78 @@ def get_n_positions_from_options(opt):
             n_positions = 1024
     return n_positions
 
+class TransformerGeneratorModel(TorchGeneratorModel):
+    """Implements a full generator model, with one encoder and one decoder."""
+    #_build_universal_encoder と _build_encoderで切り替えられるはず
+
+    def __init__(self, opt, dictionary):
+        self.pad_idx = dictionary[dictionary.null_token]
+        self.start_idx = dictionary[dictionary.start_token]
+        self.end_idx = dictionary[dictionary.end_token]
+        super().__init__(self.pad_idx, self.start_idx, self.end_idx)
+        self.embeddings = _create_embeddings(
+            dictionary, opt['embedding_size'], self.pad_idx
+        )
+
+        if opt.get('n_positions'):
+            # if the number of positions is explicitly provided, use that
+            n_positions = opt['n_positions']
+        else:
+            # else, use the worst case from truncate
+            n_positions = max(
+                opt.get('truncate') or 0,
+                opt.get('text_truncate') or 0,
+                opt.get('label_truncate') or 0,
+            )
+            if n_positions == 0:
+                # default to 1024
+                n_positions = 1024
+        n_segments = opt.get('n_segments', 0)
+
+        if n_positions < 0:
+            raise ValueError('n_positions must be positive')
+
+        self.encoder = _build_encoder(
+            opt,
+            dictionary,
+            self.embeddings,
+            self.pad_idx,
+            reduction_type=None,
+            n_positions=n_positions,
+            n_segments=n_segments,
+        )
+        self.decoder = _build_decoder(
+            opt, dictionary, self.embeddings, self.pad_idx, n_positions=n_positions
+        )
+
+    def reorder_encoder_states(self, encoder_states, indices):
+        """
+        Reorder the encoder states.
+
+        See ``TorchGeneratorModel.reorder_encoder_states`` for a description.
+        """
+        enc, mask = encoder_states
+        if not th.is_tensor(indices):
+            indices = th.LongTensor(indices).to(enc.device)
+        enc = th.index_select(enc, 0, indices)
+        mask = th.index_select(mask, 0, indices)
+        return enc, mask
+
+    def reorder_decoder_incremental_state(self, incremental_state, inds):
+        """
+        Reorder the decoder incremental state.
+
+        Not implemented in Transformers, since ``incremental_state`` is always None.
+        """
+        # no support for incremental decoding at this time
+        return None
+
+    def output(self, tensor):
+        """Compute output logits."""
+        # project back to vocabulary
+        output = F.linear(tensor, self.embeddings.weight)
+        return output
+
 
 class TransformerMemNetModel(nn.Module):
     """Model which takes context, memories, candidates and encodes them."""
@@ -213,6 +338,7 @@ class TransformerMemNetModel(nn.Module):
         self.reduction_type = opt.get('reduction_type', 'mean')
         self.n_segments = opt.get('n_segments', 0)
 
+        
         self.context_encoder = _build_encoder(
             opt,
             dictionary,
@@ -344,6 +470,260 @@ class TransformerResponseWrapper(nn.Module):
         """Forward pass."""
         return self.mlp(self.transformer(*args))
 
+
+class UniversalTransformerMultiLayerEncoder(nn.Module):
+    """
+    Transformer encoder module.
+
+    :param int n_heads: the number of multihead attention heads.
+    :param int n_layers: number of transformer layers.
+    :param int embedding_size: the embedding sizes. Must be a multiple of n_heads.
+    :param int ffn_size: the size of the hidden layer in the FFN
+    :param embedding: an embedding matrix for the bottom layer of the transformer.
+        If none, one is created for this encoder.
+    :param float dropout: Dropout used around embeddings and before layer
+        layer normalizations. This is used in Vaswani 2017 and works well on
+        large datasets.
+    :param float attention_dropout: Dropout performed after the multhead attention
+        softmax. This is not used in Vaswani 2017.
+    :param float relu_attention: Dropout used after the ReLU in the FFN. Not used
+        in Vaswani 2017, but used in Tensor2Tensor.
+    :param int padding_idx: Reserved padding index in the embeddings matrix.
+    :param bool learn_positional_embeddings: If off, sinusoidal embeddings are
+        used. If on, position embeddings are learned from scratch.
+    :param bool embeddings_scale: Scale embeddings relative to their dimensionality.
+        Found useful in fairseq.
+    :param bool reduction: If true, returns the mean vector for the entire encoding
+        sequence.
+    :param int n_positions:
+        Size of the position embeddings matrix.
+    :param int n_segments:
+        Number of segments/lang/sentence embeddings.
+    :param activation:
+        Type of nonlinear activation. Can be relu or gelu.
+    :param variant:
+        Which transformer architecture to use. Could be AIAYN or XLM.
+        Future versions may support things like GPT-2, ...
+    :param output_scaling:
+        Scale the outputs by a given scalar
+    """
+
+    #この辺はなるべく変えたくない
+    def __init__(
+        self,
+        n_heads,
+        n_layers,
+        embedding_size,
+        ffn_size,
+        vocabulary_size,
+        embedding=None,
+        dropout=0.0,
+        attention_dropout=0.0,
+        relu_dropout=0.0,
+        padding_idx=0,
+        learn_positional_embeddings=False,
+        embeddings_scale=False,
+        reduction_type='mean',
+        n_positions=1024,
+        activation='relu',
+        variant='aiayn',
+        n_segments=0,
+        output_scaling=1.0,
+        act=True
+    ):
+        super(UniversalTransformerEncoder, self).__init__()
+
+        self.embedding_size = embedding_size
+        self.ffn_size = ffn_size
+        self.n_layers = n_layers
+        self.n_heads = n_heads
+        self.dim = embedding_size
+        self.embeddings_scale = embeddings_scale
+        self.reduction_type = reduction_type
+        self.padding_idx = padding_idx
+        # this is --dropout, not --relu-dropout or --attention-dropout
+        self.dropout = nn.Dropout(p=dropout)
+        self.variant = variant
+        self.n_segments = n_segments
+
+        self.n_positions = n_positions
+        self.out_dim = embedding_size
+        assert (
+            embedding_size % n_heads == 0
+        ), 'Transformer embedding size must be a multiple of n_heads'
+
+        # check input formats:
+        if embedding is not None:
+            assert (
+                embedding_size is None or embedding_size == embedding.weight.shape[1]
+            ), "Embedding dim must match the embedding size."
+
+        if embedding is not None:
+            self.embeddings = embedding
+        else:
+            raise AssertionError(
+                "This code should not execute. Left here in case we want to enable it."
+            )
+            assert padding_idx is not None
+            self.embeddings = nn.Embedding(
+                vocabulary_size, embedding_size, padding_idx=padding_idx
+            )
+            nn.init.normal_(self.embeddings.weight, 0, embedding_size ** -0.5)
+
+        # Not Error check
+        # create the timing embeddings
+        # this make each layer embedding
+        self.timing_embeddings = nn.Embedding(n_layers, embedding_size)
+        if not learn_positional_embeddings:
+            create_position_codes(
+                n_layers, embedding_size, out=self.timing_embeddings.weight
+            )
+        else:
+            nn.init.normal_(self.timing_embeddings.weight, 0, embedding_size ** -0.5)
+
+        # create the positional embeddings
+        self.position_embeddings = nn.Embedding(n_positions, embedding_size)
+        if not learn_positional_embeddings:
+            create_position_codes(
+                n_positions, embedding_size, out=self.position_embeddings.weight
+            )
+        else:
+            nn.init.normal_(self.position_embeddings.weight, 0, embedding_size ** -0.5)
+
+        # embedding normalization
+        if self.variant == 'xlm':
+            self.norm_embeddings = LayerNorm(self.dim, eps=LAYER_NORM_EPS)
+        elif self.variant == 'aiayn':
+            pass
+        else:
+            raise ValueError("Can't handle --variant {}".format(self.variant))
+
+        if self.n_segments >= 1:
+            self.segment_embeddings = nn.Embedding(self.n_segments, self.dim)
+        
+        self.act = act
+        if(self.act):
+            self.act_fn_layers = nn.ModuleList()
+            for _ in range(self.n_layers):
+                self.act_fn_layers.append(
+                    ACT_basic(self.dim)
+                )
+
+        # build the model
+        self.enc_layers = nn.ModuleList()
+        for _ in range(self.n_layers):
+            self.enc_layers.append(
+                UniversalTransformerEncoderLayer(
+                    n_heads,
+                    embedding_size,
+                    ffn_size,
+                    attention_dropout=attention_dropout,
+                    relu_dropout=relu_dropout,
+                    dropout=dropout,
+                    variant=variant,
+                    activation=activation,
+                )
+            )
+        self.output_scaling = output_scaling
+
+        self.num = 0
+        self.num_of_layer_list = th.tensor([0,0,0,0,0,0]).cuda()
+
+    def forward(self, input, positions=None, segments=None):
+        """
+        Forward pass.
+
+        :param LongTensor[batch,seqlen] input:
+            The input IDs
+        :param BoolTensor[batch,seqlen] mask:
+            The attention mask; 1 means attend, 0 means ignore.
+        :param LongTensor[batch,seqlen]:
+            If provided, additionally adds ``segments`` as extra embedding features.
+        """
+        mask = input != self.padding_idx
+        if positions is None:
+            positions = (mask.cumsum(dim=1, dtype=th.int64) - 1).clamp_(min=0)
+        #未確認tensror[batch,secLen,emb]
+        tensor = self.embeddings(input)
+        if self.embeddings_scale:
+            tensor = tensor * np.sqrt(self.dim)
+
+        if positions.max().item() > self.n_positions:
+            warn_once(
+                'You are inputting a sequence of {x} length, but only have '
+                '--n-positions {y}. Set --truncate or increase --n-positions'.format(
+                    x=positions.max().item(), y=self.n_positions
+                )
+            )
+        #tensor = tensor + self.position_embeddings(positions).expand_as(tensor)
+
+        if self.n_segments >= 1:
+            if segments is None:
+                segments = th.zeros_like(input)
+            tensor = tensor + self.segment_embeddings(segments)
+
+        if self.variant == 'xlm':
+            tensor = _normalize(tensor, self.norm_embeddings)
+
+        # --dropout on the embeddings
+        tensor = self.dropout(tensor)
+
+        tensor *= mask.unsqueeze(-1).type_as(tensor)
+
+        if(self.act):
+            for i in range(self.n_layers):
+                tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, mask, self.enc_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers)
+            #return tensor, (remainders, n_updates)
+            """
+            n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
+
+            self.num += len(n_update)
+            for i in range(self.n_layers):
+                self.num_of_layer_list[i] += th.sum((n_update == th.tensor([i+1]).float().cuda()).int())
+            
+            average = 0
+            for i in range(self.n_layers):
+                average += (i+1) * self.num_of_layer_list[i]
+                print(average)
+            average /= self.num
+            
+            variance = 0
+            for i in range(self.n_layers):
+                variance += ((i+1 - average) * (i+1 - average) * self.num_of_layer_list[i])
+            variance /= self.num
+            print(self.num_of_layer_list)
+            print("enc average")
+            print(average)
+            print("enc variance")
+            print(variance)
+            """
+        else:
+            ##ここでループここにPosとTimEmbedding
+            for i in range(self.n_layers):
+                #tensorの形がわかんねえ予想(b, s, emb)
+                tensor = tensor + self.position_embeddings(positions).expand_as(tensor)#[s,emb]
+                tensor = tensor + self.timing_embeddings(th.tensor([i], device=input.device)).expand_as(tensor)#emb
+                tensor = self.enc(tensor, mask)
+
+        tensor *= self.output_scaling
+        if self.reduction_type == 'first':
+            return tensor[:, 0, :]
+        elif self.reduction_type == 'max':
+            return tensor.max(dim=1)[0]
+        elif self.reduction_type == 'mean':
+            divisor = mask.float().sum(dim=1).unsqueeze(-1).clamp(min=1).type_as(tensor)
+            output = tensor.sum(dim=1) / divisor
+            return output
+        elif self.reduction_type == 'none' or self.reduction_type is None:
+            output = tensor
+            return output, mask
+        else:
+            raise ValueError(
+                "Can't handle --reduction-type {}".format(self.reduction_type)
+            )
+
+
+class UniversalTransformerMultiLayerEncoderLayer(nn.Module):
 
 class UniversalTransformerEncoder(nn.Module):
     """
@@ -724,19 +1104,28 @@ class UniversalTransformerDecoder(nn.Module):
         
         self.act = act
         if(self.act):
-            self.act_fn = ACT_basic(self.dim)
+            self.act_fn_layers = nn.ModuleList()
+            for _ in range(self.n_layers):
+                self.act_fn_layers.append(
+                    ACT_basic(self.dim)
+                )
 
         # build the model
-        self.dec =  UniversalTransformerDecoderLayer(
-                n_layers,
-                n_heads,
-                embedding_size,
-                ffn_size,
-                attention_dropout=attention_dropout,
-                relu_dropout=relu_dropout,
-                dropout=dropout,
-                activation=activation,
-                variant=variant,
+        
+        self.dec_layers = nn.ModuleList()
+        for _ in range(self.n_layers): 
+            self.enc_layers.append(
+                UniversalTransformerDecoderLayer(
+                    n_layers,
+                    n_heads,
+                    embedding_size,
+                    ffn_size,
+                    attention_dropout=attention_dropout,
+                    relu_dropout=relu_dropout,
+                    dropout=dropout,
+                    activation=activation,
+                    variant=variant,
+                )
             )
 
         self.num = 0
@@ -773,7 +1162,8 @@ class UniversalTransformerDecoder(nn.Module):
         tensor = self.dropout(tensor + self.position_embeddings(positions).expand_as(tensor))
 
         if (self.act):
-            tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+            for i in range(self.n_layers):
+                tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, encoder_mask, self.dec_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
 
             """
             #tensor, (remainders, n_updates)            
@@ -1369,80 +1759,6 @@ class TransformerDecoderLayer(nn.Module):
         # broadcast across batch
         mask = mask.unsqueeze(0).expand(bsz, -1, -1)
         return mask
-
-
-class TransformerGeneratorModel(TorchGeneratorModel):
-    """Implements a full generator model, with one encoder and one decoder."""
-    #_build_universal_encoder と _build_encoderで切り替えられるはず
-
-    def __init__(self, opt, dictionary):
-        self.pad_idx = dictionary[dictionary.null_token]
-        self.start_idx = dictionary[dictionary.start_token]
-        self.end_idx = dictionary[dictionary.end_token]
-        super().__init__(self.pad_idx, self.start_idx, self.end_idx)
-        self.embeddings = _create_embeddings(
-            dictionary, opt['embedding_size'], self.pad_idx
-        )
-
-        if opt.get('n_positions'):
-            # if the number of positions is explicitly provided, use that
-            n_positions = opt['n_positions']
-        else:
-            # else, use the worst case from truncate
-            n_positions = max(
-                opt.get('truncate') or 0,
-                opt.get('text_truncate') or 0,
-                opt.get('label_truncate') or 0,
-            )
-            if n_positions == 0:
-                # default to 1024
-                n_positions = 1024
-        n_segments = opt.get('n_segments', 0)
-
-        if n_positions < 0:
-            raise ValueError('n_positions must be positive')
-
-        self.encoder = _build_encoder(
-            opt,
-            dictionary,
-            self.embeddings,
-            self.pad_idx,
-            reduction_type=None,
-            n_positions=n_positions,
-            n_segments=n_segments,
-        )
-        self.decoder = _build_decoder(
-            opt, dictionary, self.embeddings, self.pad_idx, n_positions=n_positions
-        )
-
-    def reorder_encoder_states(self, encoder_states, indices):
-        """
-        Reorder the encoder states.
-
-        See ``TorchGeneratorModel.reorder_encoder_states`` for a description.
-        """
-        enc, mask = encoder_states
-        if not th.is_tensor(indices):
-            indices = th.LongTensor(indices).to(enc.device)
-        enc = th.index_select(enc, 0, indices)
-        mask = th.index_select(mask, 0, indices)
-        return enc, mask
-
-    def reorder_decoder_incremental_state(self, incremental_state, inds):
-        """
-        Reorder the decoder incremental state.
-
-        Not implemented in Transformers, since ``incremental_state`` is always None.
-        """
-        # no support for incremental decoding at this time
-        return None
-
-    def output(self, tensor):
-        """Compute output logits."""
-        # project back to vocabulary
-        output = F.linear(tensor, self.embeddings.weight)
-        return output
-
 
 class BasicAttention(nn.Module):
     """Implements simple/classical attention."""
