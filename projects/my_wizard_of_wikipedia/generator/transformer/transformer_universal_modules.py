@@ -531,7 +531,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         output_scaling=1.0,
         act=True
     ):
-        super(UniversalTransformerEncoder, self).__init__()
+        super(UniversalTransformerMultiLayerEncoder, self).__init__()
 
         self.embedding_size = embedding_size
         self.ffn_size = ffn_size
