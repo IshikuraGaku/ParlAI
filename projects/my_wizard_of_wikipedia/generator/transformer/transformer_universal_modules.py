@@ -677,7 +677,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
                 for i in range(self.n_layers):
                     tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, mask, self.enc_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers)
                     tmp_tensor = tensor.clone()
-                    tensor += res_tensor
+                    tensor = tensor + res_tensor
                     res_tensor = tmp_tensor.clone()
 
             else:
@@ -934,7 +934,7 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
                 for i in range(self.n_layers):
                     tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, encoder_mask, self.dec_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
                     tmp_tensor = tensor.clone()
-                    tensor += res_tensor
+                    tensor = tensor + res_tensor
                     res_tensor = tmp_tensor.clone()
             else:
                 for i in range(self.n_layers):
