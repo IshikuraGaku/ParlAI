@@ -167,7 +167,7 @@ def _build_encoder(
 ):
     return TransformerEncoder(
         n_heads=opt['n_heads'],
-        n_layers=1,
+        n_layers=4,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -192,7 +192,7 @@ def _build_decoder(
 ):
     return TransformerDecoder(
         n_heads=opt['n_heads'],
-        n_layers=1,
+        n_layers=4,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
