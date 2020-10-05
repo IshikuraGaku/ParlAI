@@ -175,7 +175,7 @@ class EndToEndAgent(_GenericWizardAgent):
                     reduction='mean',
                 )
                 self.metrics['know_loss'] += know_loss.item() * batch.text_vec.size(0)
-                 know_loss /= num_tokens
+                know_loss /= num_tokens
 
             if self.use_outloss:
                 out_loss = th.nn.functional.cross_entropy(
