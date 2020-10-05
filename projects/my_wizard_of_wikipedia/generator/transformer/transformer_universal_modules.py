@@ -1889,7 +1889,7 @@ class TransformerEncoderLayer(nn.Module):
         if self.knowledge_split:
             self.ffn = TransformerFFN(
             embedding_size,
-            embedding_size * 3 / 2
+            embedding_size * 3 / 2,
             ffn_size,
             relu_dropout=relu_dropout,
             activation=self.activation,
