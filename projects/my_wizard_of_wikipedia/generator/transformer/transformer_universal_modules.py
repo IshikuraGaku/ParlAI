@@ -1889,12 +1889,12 @@ class TransformerEncoderLayer(nn.Module):
         if self.knowledge_split:
             self.ffn = TransformerFFN_in_out_diff(
             embedding_size,
-            embedding_size * 3 / 2,
+            int(embedding_size * 3 / 2),
             ffn_size,
             relu_dropout=relu_dropout,
             activation=self.activation,
             )  
-            self.norm2 = LayerNorm(embedding_size * 3 / 2, eps=LAYER_NORM_EPS)
+            self.norm2 = LayerNorm(int(embedding_size * 3 / 2), eps=LAYER_NORM_EPS)
 
         else:
             self.ffn = TransformerFFN(
