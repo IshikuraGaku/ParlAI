@@ -91,11 +91,11 @@ class ContextKnowledgeEncoder(nn.Module):
             know_encoded, know_mask = self.transformer(know_tokens.reshape(-1, Tk))
 
             # compute our sentence embeddings for context and knowledge
-            context_use = universal_sentence_embedding(context_encoded[:,:,int(self.embed_dim/2)], context_mask)
-            know_use = universal_sentence_embedding(know_encoded[:,:,int(self.embed_dim/2)], know_mask)
+            context_use = universal_sentence_embedding(context_encoded[:,:,:int(self.embed_dim/2)], context_mask)
+            know_use = universal_sentence_embedding(know_encoded[:,:,:int(self.embed_dim/2)], know_mask)
             
-            context_encoded = context_encoded[:,:,-self.embed_dim]
-            know_encoded = know_encoded[:,:,-self.embed_dim]
+            context_encoded = context_encoded[:,:,-self.embed_dim:]
+            know_encoded = know_encoded[:,:,-self.embed_dim:]
 
                         # remash it back into the shape we need
             know_use = know_use.reshape(N, know_tokens.size(1), int(self.embed_dim/2)) / np.sqrt(self.embed_dim/2)
