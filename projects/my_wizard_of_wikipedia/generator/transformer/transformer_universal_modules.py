@@ -1758,20 +1758,20 @@ class TransformerEncoder(nn.Module):
                         activation=activation,
                     )
                 )
+            self.layers.append(
                 self.layers.append(
-                    self.layers.append(
-                    TransformerEncoderLayer(
-                        n_heads,
-                        embedding_size,
-                        ffn_size,
-                        attention_dropout=attention_dropout,
-                        relu_dropout=relu_dropout,
-                        dropout=dropout,
-                        variant=variant,
-                        activation=activation,
-                        knowledge_split=True,
-                    )
+                TransformerEncoderLayer(
+                    n_heads,
+                    embedding_size,
+                    ffn_size,
+                    attention_dropout=attention_dropout,
+                    relu_dropout=relu_dropout,
+                    dropout=dropout,
+                    variant=variant,
+                    activation=activation,
+                    knowledge_split=True,
                 )
+            )
         else:
             for _ in range(self.n_layers):
                 self.layers.append(
@@ -1886,6 +1886,7 @@ class TransformerEncoderLayer(nn.Module):
             n_heads, embedding_size, dropout=attention_dropout  # --attention-dropout
         )
         self.norm1 = LayerNorm(embedding_size, eps=LAYER_NORM_EPS)
+
         if self.knowledge_split:
             self.ffn = TransformerFFN(
             embedding_size,
@@ -1895,7 +1896,8 @@ class TransformerEncoderLayer(nn.Module):
             activation=self.activation,
             )  
             self.norm2 = LayerNorm(embedding_size * 3 / 2, eps=LAYER_NORM_EPS)
-        else: 
+
+        else:
             self.ffn = TransformerFFN(
             embedding_size,
             ffn_size,
