@@ -128,7 +128,8 @@ class EndToEndAgent(_GenericWizardAgent):
         
         token_loss, model_output = super().compute_loss(batch, return_output=True)
         #インスタンス化が必要
-        ctx_out_attn = self.model.encoder.output_choose_knowledge(model_output[1])
+        if self.use_outloss:
+            ctx_out_attn = self.model.encoder.output_choose_knowledge(model_output[1])
         #token_lossはtensorで値は１つ
         #model_outputはタプル長さは3，Bではない？
         #model_output[0]は(B,T,単語数) scores?
@@ -146,7 +147,6 @@ class EndToEndAgent(_GenericWizardAgent):
             else:
                 temp = th.zeros((labeled_knowledge.shape[0] ,model_output[0].shape[1]-labeled_knowledge.shape[1]),device=labeled_knowledge.device, dtype=labeled_knowledge.dtype)
                 labeled_knowledge = th.cat([labeled_knowledge, temp], axis=1)
-                
 
             score_view = model_output[0].reshape(-1, model_output[0].size(-1))
             cross_entropy = th.nn.CrossEntropyLoss()
@@ -168,23 +168,27 @@ class EndToEndAgent(_GenericWizardAgent):
             self.metrics['bsz'] += batch.text_vec.size(0)
             self.metrics['know_acc'] += know_acc
 
-            know_loss = th.nn.functional.cross_entropy(
-                ctx_know_attn,
-                batch.cs_ids,
-                reduction='mean',
-            )
-            out_loss = th.nn.functional.cross_entropy(
-                ctx_out_attn,
-                batch.cs_ids,
-                reduction='mean',
-            )
-            self.metrics['know_loss'] += know_loss.item() * batch.text_vec.size(0)
-            self.metrics['out_loss'] += out_loss.item() * batch.text_vec.size(0)
+            if self.use_KCEloss:
+                know_loss = th.nn.functional.cross_entropy(
+                    ctx_know_attn,
+                    batch.cs_ids,
+                    reduction='mean',
+                )
+                self.metrics['know_loss'] += know_loss.item() * batch.text_vec.size(0)
+                 know_loss /= num_tokens
+
+            if self.use_outloss:
+                out_loss = th.nn.functional.cross_entropy(
+                    ctx_out_attn,
+                    batch.cs_ids,
+                    reduction='mean',
+                )
+                self.metrics['out_loss'] += out_loss.item() * batch.text_vec.size(0)
+                out_loss /= num_tokens
+            
             # in the original paper the loss was scaled by num_tokens for both
             # know_loss and token_loss
-            know_loss /= num_tokens
-            out_loss /= num_tokens
-
+           
             if self.use_outloss and self.use_KCEloss:
                 gamma = self.knowledge_alpha / 10
                 alpha = self.knowledge_alpha / 2
