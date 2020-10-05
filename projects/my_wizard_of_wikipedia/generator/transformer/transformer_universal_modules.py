@@ -1759,7 +1759,6 @@ class TransformerEncoder(nn.Module):
                     )
                 )
             self.layers.append(
-                self.layers.append(
                 TransformerEncoderLayer(
                     n_heads,
                     embedding_size,
