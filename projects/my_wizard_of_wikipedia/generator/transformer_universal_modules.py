@@ -99,7 +99,7 @@ class ContextKnowledgeEncoder(nn.Module):
 
                         # remash it back into the shape we need
             know_use = know_use.reshape(N, know_tokens.size(1), int(self.embed_dim/2)) / np.sqrt(self.embed_dim/2)
-            context_use = text_use / np.sqrt(self.embed_dim/2)
+            context_use = context_use / np.sqrt(self.embed_dim/2)
         else:
             # make all the knowledge into a 2D matrix to encode
             N, K, Tk = know_tokens.size()
@@ -111,7 +111,7 @@ class ContextKnowledgeEncoder(nn.Module):
 
             # remash it back into the shape we need
             know_use = know_use.reshape(N, know_tokens.size(1), self.embed_dim) / np.sqrt(self.embed_dim)
-            context_use = text_use / np.sqrt(self.embed_dim)
+            context_use = context_use / np.sqrt(self.embed_dim)
 
         ck_attn = th.bmm(know_use, context_use.unsqueeze(-1)).squeeze(-1)
         # fill with near -inf
