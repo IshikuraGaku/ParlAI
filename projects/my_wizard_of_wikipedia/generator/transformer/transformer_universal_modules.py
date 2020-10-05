@@ -1698,6 +1698,7 @@ class TransformerEncoder(nn.Module):
         self.out_dim = embedding_size
 
         self.res_net = False
+        self.knowledge_split = True
 
         assert (
             embedding_size % n_heads == 0
@@ -1743,19 +1744,48 @@ class TransformerEncoder(nn.Module):
 
         # build the model
         self.layers = nn.ModuleList()
-        for _ in range(self.n_layers):
-            self.layers.append(
-                TransformerEncoderLayer(
-                    n_heads,
-                    embedding_size,
-                    ffn_size,
-                    attention_dropout=attention_dropout,
-                    relu_dropout=relu_dropout,
-                    dropout=dropout,
-                    variant=variant,
-                    activation=activation,
+        if self.knowledge_split:
+            for _ in range(self.n_layers-1):
+                self.layers.append(
+                    TransformerEncoderLayer(
+                        n_heads,
+                        embedding_size,
+                        ffn_size,
+                        attention_dropout=attention_dropout,
+                        relu_dropout=relu_dropout,
+                        dropout=dropout,
+                        variant=variant,
+                        activation=activation,
+                    )
                 )
-            )
+                self.layers.append(
+                    self.layers.append(
+                    TransformerEncoderLayer(
+                        n_heads,
+                        embedding_size,
+                        ffn_size,
+                        attention_dropout=attention_dropout,
+                        relu_dropout=relu_dropout,
+                        dropout=dropout,
+                        variant=variant,
+                        activation=activation,
+                        knowledge_split=True,
+                    )
+                )
+        else:
+            for _ in range(self.n_layers):
+                self.layers.append(
+                    TransformerEncoderLayer(
+                        n_heads,
+                        embedding_size,
+                        ffn_size,
+                        attention_dropout=attention_dropout,
+                        relu_dropout=relu_dropout,
+                        dropout=dropout,
+                        variant=variant,
+                        activation=activation,
+                    )
+                )
         self.output_scaling = output_scaling
 
     def forward(self, input, positions=None, segments=None):
@@ -1844,23 +1874,35 @@ class TransformerEncoderLayer(nn.Module):
         dropout=0.0,
         activation='relu',
         variant=None,
+        knowledge_split=False,
     ):
         super().__init__()
         self.dim = embedding_size
         self.ffn_dim = ffn_size
         self.activation = activation
         self.variant = variant
+        self.knowledge_split = knowledge_split
         self.attention = MultiHeadAttention(
             n_heads, embedding_size, dropout=attention_dropout  # --attention-dropout
         )
         self.norm1 = LayerNorm(embedding_size, eps=LAYER_NORM_EPS)
-        self.ffn = TransformerFFN(
+        if self.knowledge_split:
+            self.ffn = TransformerFFN(
+            embedding_size,
+            embedding_size * 3 / 2
+            ffn_size,
+            relu_dropout=relu_dropout,
+            activation=self.activation,
+            )  
+            self.norm2 = LayerNorm(embedding_size * 3 / 2, eps=LAYER_NORM_EPS)
+        else: 
+            self.ffn = TransformerFFN(
             embedding_size,
             ffn_size,
             relu_dropout=relu_dropout,
             activation=self.activation,
-        )
-        self.norm2 = LayerNorm(embedding_size, eps=LAYER_NORM_EPS)
+            )
+            self.norm2 = LayerNorm(embedding_size, eps=LAYER_NORM_EPS)
         self.dropout = nn.Dropout(p=dropout)
 
     def forward(self, tensor, mask):
@@ -2262,6 +2304,34 @@ class TransformerFFN(nn.Module):
         x = self.relu_dropout(x)  # --relu-dropout
         x = self.lin2(x)
         return x
+
+class TransformerFFN_in_out_diff(nn.Module):
+    """Implements the FFN part of the transformer."""
+
+    def __init__(self, dimin, dimout, dim_hidden, relu_dropout=0, activation='relu'):
+        super(TransformerFFN, self).__init__()
+        self.relu_dropout = nn.Dropout(p=relu_dropout)
+        if activation == 'relu':
+            self.nonlinear = F.relu
+        elif activation == 'gelu':
+            self.nonlinear = gelu
+        else:
+            raise ValueError(
+                "Don't know how to handle --activation {}".format(activation)
+            )
+        self.lin1 = nn.Linear(dimin, dim_hidden)
+        self.lin2 = nn.Linear(dim_hidden, dimout)
+        nn.init.xavier_uniform_(self.lin1.weight)
+        nn.init.xavier_uniform_(self.lin2.weight)
+        # TODO: initialize biases to 0
+
+    def forward(self, x):
+        """Forward pass."""
+        x = self.nonlinear(self.lin1(x))
+        x = self.relu_dropout(x)  # --relu-dropout
+        x = self.lin2(x)
+        return x
+
 
 ### CONVERTED FROM https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/research/universal_transformer_util.py#L1062
 class ACT_basic(nn.Module):

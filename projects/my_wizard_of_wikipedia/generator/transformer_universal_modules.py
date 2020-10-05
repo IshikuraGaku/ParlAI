@@ -65,6 +65,7 @@ class ContextKnowledgeEncoder(nn.Module):
         self.soft_attention = False
         #self.n_use_knowlege = 5 #使う知識数
         self.knowledge_lamda = 1
+        self.knowledge_split = True
         self.ck_mask =None
         self.know_tokens = None
         self.cs_ids = None
@@ -84,17 +85,33 @@ class ContextKnowledgeEncoder(nn.Module):
 
         context_encoded, context_mask = self.transformer(src_tokens)
 
-        # make all the knowledge into a 2D matrix to encode
-        N, K, Tk = know_tokens.size()
-        know_encoded, know_mask = self.transformer(know_tokens.reshape(-1, Tk))
+        if self.knowledge_split:
+                        # make all the knowledge into a 2D matrix to encode
+            N, K, Tk = know_tokens.size()
+            know_encoded, know_mask = self.transformer(know_tokens.reshape(-1, Tk))
 
-        # compute our sentence embeddings for context and knowledge
-        context_use = universal_sentence_embedding(context_encoded, context_mask)
-        know_use = universal_sentence_embedding(know_encoded, know_mask)
+            # compute our sentence embeddings for context and knowledge
+            context_use = universal_sentence_embedding(context_encoded[:,:,self.embed_dim/2], context_mask)
+            know_use = universal_sentence_embedding(know_encoded[:,:,self.embed_dim/2], know_mask)
+            
+            context_encoded = context_encoded[:,:,-self.embed_dim]
+            know_encoded = know_encoded[:,:,-self.embed_dim]
 
-        # remash it back into the shape we need
-        know_use = know_use.reshape(N, know_tokens.size(1), self.embed_dim) / np.sqrt(self.embed_dim)
-        context_use /= np.sqrt(self.embed_dim)
+                        # remash it back into the shape we need
+            know_use = know_use.reshape(N, know_tokens.size(1), self.embed_dim/2) / np.sqrt(self.embed_dim/2)
+            context_use = text_use / np.sqrt(self.embed_dim/2)
+        else:
+            # make all the knowledge into a 2D matrix to encode
+            N, K, Tk = know_tokens.size()
+            know_encoded, know_mask = self.transformer(know_tokens.reshape(-1, Tk))
+
+            # compute our sentence embeddings for context and knowledge
+            context_use = universal_sentence_embedding(context_encoded, context_mask)
+            know_use = universal_sentence_embedding(know_encoded, know_mask)
+
+            # remash it back into the shape we need
+            know_use = know_use.reshape(N, know_tokens.size(1), self.embed_dim) / np.sqrt(self.embed_dim)
+            context_use = text_use / np.sqrt(self.embed_dim)
 
         ck_attn = th.bmm(know_use, context_use.unsqueeze(-1)).squeeze(-1)
         # fill with near -inf
