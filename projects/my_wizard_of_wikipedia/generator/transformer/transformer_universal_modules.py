@@ -2310,7 +2310,7 @@ class TransformerFFN_in_out_diff(nn.Module):
     """Implements the FFN part of the transformer."""
 
     def __init__(self, dimin, dimout, dim_hidden, relu_dropout=0, activation='relu'):
-        super(TransformerFFN, self).__init__()
+        super(TransformerFFN_in_out_diff, self).__init__()
         self.relu_dropout = nn.Dropout(p=relu_dropout)
         if activation == 'relu':
             self.nonlinear = F.relu
