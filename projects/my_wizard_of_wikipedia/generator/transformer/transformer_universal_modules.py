@@ -1887,7 +1887,7 @@ class TransformerEncoderLayer(nn.Module):
         self.norm1 = LayerNorm(embedding_size, eps=LAYER_NORM_EPS)
 
         if self.knowledge_split:
-            self.ffn = TransformerFFN(
+            self.ffn = TransformerFFN_in_out_diff(
             embedding_size,
             embedding_size * 3 / 2,
             ffn_size,
