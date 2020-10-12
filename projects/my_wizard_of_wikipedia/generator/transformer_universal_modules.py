@@ -121,8 +121,8 @@ class ContextKnowledgeEncoder(nn.Module):
             know_use = universal_sentence_embedding(know_compression, know_mask, use_mask=False)
 
             # remash it back into the shape we need
-            know_use = know_use.reshape(N, know_tokens.size(1), Tk) / np.sqrt(Tk)
-            context_use = context_use / np.sqrt(Tk)
+            know_use = know_use.reshape(N, know_compression.size(1), know_compression.size(2)) / np.sqrt(know_compression.size(2))
+            context_use = context_use / np.sqrt(context_compression.size(2))
         else:
             # make all the knowledge into a 2D matrix to encode
             context_encoded, context_mask = self.transformer(src_tokens)
