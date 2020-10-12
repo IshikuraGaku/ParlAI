@@ -103,7 +103,7 @@ class ContextKnowledgeEncoder(nn.Module):
                         # remash it back into the shape we need
             know_use = know_use.reshape(N, know_tokens.size(1), int(self.embed_dim/2)) / np.sqrt(self.embed_dim/2)
             context_use = context_use / np.sqrt(self.embed_dim/2)
-        elif: self.knowledge_compression:
+        elif self.knowledge_compression:
             # make all the knowledge into a 2D matrix to encode
             context_encoded, context_compression, context_mask = self.transformer(src_tokens)
             N, K, Tk = know_tokens.size()
