@@ -35,7 +35,7 @@ def universal_sentence_embedding(sentences, mask, sqrt=True, use_mask=True):
         divisor = mask.sum(dim=1).view(-1, 1).float()
         if sqrt:
             divisor = divisor.sqrt()
-        sentence_sums /= divisor
+        sentence_sums = sentence_sums / divisor
     return sentence_sums
 
 
@@ -155,7 +155,7 @@ class ContextKnowledgeEncoder(nn.Module):
                 temp[0] = 1
 
             weight_abs = th.abs(softmax_cs_weight - true_ids_weight)
-            weight_abs *= weight_abs
+            weight_abs = weight_abs * weight_abs
             _, T, D = know_encoded.size()
             # finally, concatenate it all
             
@@ -208,7 +208,7 @@ class ContextKnowledgeEncoder(nn.Module):
 
         # remash it back into the shape we need
         know_use = know_use.reshape(N, self.know_tokens.size(1), self.embed_dim) / np.sqrt(self.embed_dim)
-        context_use /= np.sqrt(self.embed_dim)
+        context_use = context_use / np.sqrt(self.embed_dim)
 
         ck_attn = th.bmm(know_use, context_use.unsqueeze(-1)).squeeze(-1)
         # fill with near -inf
