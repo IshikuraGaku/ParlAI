@@ -63,7 +63,7 @@ class ContextKnowledgeEncoder(nn.Module):
         self.embeddings = transformer.embeddings
         self.embed_dim = transformer.embeddings.embedding_dim
         self.transformer = transformer
-        self.knowledge_compression = transformer.knoledge_compression
+        self.knowledge_compression = transformer.knowledge_compression
         self.soft_attention = False
         #self.n_use_knowlege = 5 #使う知識数
         self.knowledge_lamda = 1
