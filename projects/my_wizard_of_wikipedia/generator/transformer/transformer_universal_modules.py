@@ -1698,7 +1698,8 @@ class TransformerEncoder(nn.Module):
         self.out_dim = embedding_size
 
         self.res_net = False
-        self.knowledge_split = True
+        self.knowledge_split = False
+        self.knowledge_compression = True
 
         assert (
             embedding_size % n_heads == 0
@@ -1742,6 +1743,10 @@ class TransformerEncoder(nn.Module):
         if self.n_segments >= 1:
             self.segment_embeddings = nn.Embedding(self.n_segments, self.dim)
 
+
+        if self.knowledge_compression:
+            
+
         # build the model
         self.layers = nn.ModuleList()
         if self.knowledge_split:
@@ -1771,6 +1776,31 @@ class TransformerEncoder(nn.Module):
                     knowledge_split=True,
                 )
             )
+        elif self.knowledge_compression:
+            for _ in range(self.n_layers):
+                self.layers.append(
+                    TransformerEncoderLayer(
+                        n_heads,
+                        embedding_size,
+                        ffn_size,
+                        attention_dropout=attention_dropout,
+                        relu_dropout=relu_dropout,
+                        dropout=dropout,
+                        variant=variant,
+                        activation=activation,
+                    )
+                )
+                self.layers.append(
+                    TransformerFFN_in_out_diff(
+                        embedding_size,
+                        10,
+                        ffn_size,
+                        relu_dropout=relu_dropout,
+                        activation=self.activation,
+                        normalize=True,
+                        )  
+                        
+                )
         else:
             for _ in range(self.n_layers):
                 self.layers.append(
@@ -1895,7 +1925,6 @@ class TransformerEncoderLayer(nn.Module):
             activation=self.activation,
             )  
             self.norm2 = LayerNorm(int(embedding_size * 3 / 2), eps=LAYER_NORM_EPS)
-
         else:
             self.ffn = TransformerFFN(
             embedding_size,
@@ -2312,9 +2341,10 @@ class TransformerFFN(nn.Module):
 class TransformerFFN_in_out_diff(nn.Module):
     """Implements the FFN part of the transformer."""
 
-    def __init__(self, dimin, dimout, dim_hidden, relu_dropout=0, activation='relu'):
+    def __init__(self, dimin, dimout, dim_hidden, relu_dropout=0, activation='relu', normalize=False):
         super(TransformerFFN_in_out_diff, self).__init__()
         self.relu_dropout = nn.Dropout(p=relu_dropout)
+        self.normalize = normalize
         if activation == 'relu':
             self.nonlinear = F.relu
         elif activation == 'gelu':
@@ -2327,6 +2357,8 @@ class TransformerFFN_in_out_diff(nn.Module):
         self.lin2 = nn.Linear(dim_hidden, dimout)
         nn.init.xavier_uniform_(self.lin1.weight)
         nn.init.xavier_uniform_(self.lin2.weight)
+        if self.normalize:
+            self.norm = LayerNorm(dim_hidden, eps=LAYER_NORM_EPS)
         # TODO: initialize biases to 0
 
     def forward(self, x):
@@ -2334,6 +2366,8 @@ class TransformerFFN_in_out_diff(nn.Module):
         x = self.nonlinear(self.lin1(x))
         x = self.relu_dropout(x)  # --relu-dropout
         x = self.lin2(x)
+        if self.normalize:
+            x = self.norm(x)
         return x
 
 
