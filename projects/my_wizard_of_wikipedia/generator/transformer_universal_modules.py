@@ -63,15 +63,22 @@ class ContextKnowledgeEncoder(nn.Module):
         self.embeddings = transformer.embeddings
         self.embed_dim = transformer.embeddings.embedding_dim
         self.transformer = transformer
-        self.knowledge_compression = transformer.knowledge_compression
+
         self.soft_attention = False
         #self.n_use_knowlege = 5 #使う知識数
         self.knowledge_lamda = 1
-        self.knowledge_split = True
+        
         self.ck_mask =None
         self.know_tokens = None
         self.cs_ids = None
         self.use_cs_ids =None
+
+        try:
+            self.knowledge_compression = transformer.knowledge_compression
+            self.knowledge_split = transformer.knowledge_split
+        except:
+            self.knowledge_compression = False
+            self.knowledge_split = False
 
     def forward(self, src_tokens, know_tokens, ck_mask, cs_ids, use_cs_ids):
         # encode the context, pretty basic
