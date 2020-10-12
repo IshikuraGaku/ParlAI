@@ -2358,7 +2358,7 @@ class TransformerFFN_in_out_diff(nn.Module):
             self.norm = LayerNorm(dim_hidden, eps=LAYER_NORM_EPS)
         # TODO: initialize biases to 0
 
-    def forward(self, x):
+    def forward(self, x, mask=None):
         """Forward pass."""
         x = self.nonlinear(self.lin1(x))
         x = self.relu_dropout(x)  # --relu-dropout
