@@ -1787,17 +1787,17 @@ class TransformerEncoder(nn.Module):
                         activation=activation,
                     )
                 )
-                self.layers.append(
-                    TransformerFFN_in_out_diff(
-                        embedding_size,
-                        10,
-                        ffn_size,
-                        relu_dropout=relu_dropout,
-                        activation=activation,
-                        normalize=True,
-                        )  
+            self.layers.append(
+                TransformerFFN_in_out_diff(
+                    embedding_size,
+                    10,
+                    ffn_size,
+                    relu_dropout=relu_dropout,
+                    activation=activation,
+                    normalize=True,
+                )  
                         
-                )
+            )
         else:
             for _ in range(self.n_layers):
                 self.layers.append(
