@@ -1875,11 +1875,17 @@ class TransformerEncoder(nn.Module):
             return tensor[:, 0, :]
         elif self.reduction_type == 'max':
             return tensor.max(dim=1)[0]
-        elif self.reduction_type == 'mean':
+        elif self.reduction_type == 'mean': 
             divisor = mask.float().sum(dim=1).unsqueeze(-1).clamp(min=1).type_as(tensor)
             output = tensor.sum(dim=1) / divisor
             return output
-        elif self.reduction_type is None or 'none' in self.reduction_type:
+        elif self.knowledge_compression:#追加
+            output = tensor
+            ret = (output, knowledge_tensor, mask)
+            if self.reduction_type == 'none_with_pos_embs':
+                ret = (output, mask, position_embs)
+            return ret
+        elif self.reduction_type is None or 'none' in self.reduction_type:#これbuild_encoderで指定？
             output = tensor
             ret = (output, mask)
             if self.reduction_type == 'none_with_pos_embs':

@@ -13,7 +13,7 @@ from projects.my_wizard_of_wikipedia.generator.transformer.transformer_universal
 
 
 
-def universal_sentence_embedding(sentences, mask, sqrt=True):
+def universal_sentence_embedding(sentences, mask, sqrt=True, use_mask=True):
     """
     Perform Universal Sentence Encoder averaging (https://arxiv.org/abs/1803.11175).
 
@@ -31,10 +31,11 @@ def universal_sentence_embedding(sentences, mask, sqrt=True):
         sentences.permute(0, 2, 1),
         mask.float().unsqueeze(-1)
     ).squeeze(-1)
-    divisor = mask.sum(dim=1).view(-1, 1).float()
-    if sqrt:
-        divisor = divisor.sqrt()
-    sentence_sums /= divisor
+    if use_mask:
+        divisor = mask.sum(dim=1).view(-1, 1).float()
+        if sqrt:
+            divisor = divisor.sqrt()
+        sentence_sums /= divisor
     return sentence_sums
 
 
@@ -62,6 +63,7 @@ class ContextKnowledgeEncoder(nn.Module):
         self.embeddings = transformer.embeddings
         self.embed_dim = transformer.embeddings.embedding_dim
         self.transformer = transformer
+        self.knowledge_compression = transformer.knoledge_compression
         self.soft_attention = False
         #self.n_use_knowlege = 5 #使う知識数
         self.knowledge_lamda = 1
@@ -83,10 +85,11 @@ class ContextKnowledgeEncoder(nn.Module):
         self.cs_ids = cs_ids
         self.use_cs_ids = use_cs_ids
 
-        context_encoded, context_mask = self.transformer(src_tokens)
+        
 
         if self.knowledge_split:
-                        # make all the knowledge into a 2D matrix to encode
+            # make all the knowledge into a 2D matrix to encode
+            context_encoded, context_mask = self.transformer(src_tokens)
             N, K, Tk = know_tokens.size()
             know_encoded, know_mask = self.transformer(know_tokens.reshape(-1, Tk))
 
@@ -100,8 +103,22 @@ class ContextKnowledgeEncoder(nn.Module):
                         # remash it back into the shape we need
             know_use = know_use.reshape(N, know_tokens.size(1), int(self.embed_dim/2)) / np.sqrt(self.embed_dim/2)
             context_use = context_use / np.sqrt(self.embed_dim/2)
+        elif: self.knowledge_compression:
+            # make all the knowledge into a 2D matrix to encode
+            context_encoded, context_compression, context_mask = self.transformer(src_tokens)
+            N, K, Tk = know_tokens.size()
+            know_encoded, know_compression know_mask = self.transformer(know_tokens.reshape(-1, Tk))
+
+            # compute our sentence embeddings for context and knowledge
+            context_use = universal_sentence_embedding(context_compression, context_mask, use_mask=False)
+            know_use = universal_sentence_embedding(know_compression, know_mask, use_mask=False)
+
+            # remash it back into the shape we need
+            know_use = know_use.reshape(N, know_tokens.size(1), self.embed_dim) / np.sqrt(self.embed_dim)
+            context_use = context_use / np.sqrt(self.embed_dim)
         else:
             # make all the knowledge into a 2D matrix to encode
+            context_encoded, context_mask = self.transformer(src_tokens)
             N, K, Tk = know_tokens.size()
             know_encoded, know_mask = self.transformer(know_tokens.reshape(-1, Tk))
 
