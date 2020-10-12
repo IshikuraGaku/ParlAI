@@ -2359,7 +2359,7 @@ class TransformerFFN_in_out_diff(nn.Module):
         nn.init.xavier_uniform_(self.lin1.weight)
         nn.init.xavier_uniform_(self.lin2.weight)
         if self.normalize:
-            self.norm = LayerNorm(dim_hidden, eps=LAYER_NORM_EPS)
+            self.norm = LayerNorm(dimout, eps=LAYER_NORM_EPS)
         # TODO: initialize biases to 0
 
     def forward(self, x):
