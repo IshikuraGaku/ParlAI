@@ -1862,6 +1862,10 @@ class TransformerEncoder(nn.Module):
                 tensor = (1-res_lambda)*tensor + res_lambda*tensor
                 tensor = self.layers[i](tensor, mask)
                 res_tensor = tensor
+        elif self.knowledge_compression:
+            for i in range(self.n_layers):
+                tensor = self.layers[i](tensor, mask)
+            knowledge_tensor = self.layers[self.n_layers](tensor)
         else:
             for i in range(self.n_layers):
                 tensor = self.layers[i](tensor, mask)
@@ -2358,7 +2362,7 @@ class TransformerFFN_in_out_diff(nn.Module):
             self.norm = LayerNorm(dim_hidden, eps=LAYER_NORM_EPS)
         # TODO: initialize biases to 0
 
-    def forward(self, x, mask=None):
+    def forward(self, x):
         """Forward pass."""
         x = self.nonlinear(self.lin1(x))
         x = self.relu_dropout(x)  # --relu-dropout
