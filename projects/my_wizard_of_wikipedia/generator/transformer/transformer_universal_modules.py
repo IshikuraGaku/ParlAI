@@ -673,7 +673,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         # --dropout on the embeddings
         tensor = self.dropout(tensor)
 
-        tensor *= mask.unsqueeze(-1).type_as(tensor)
+        tensor = tensor * mask.unsqueeze(-1).type_as(tensor)
 
         if(self.act):
             if self.res_net:
@@ -721,7 +721,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
                 tensor = tensor + self.timing_embeddings(th.tensor([i], device=input.device)).expand_as(tensor)#emb
                 tensor = self.enc(tensor, mask)
 
-        tensor *= self.output_scaling
+        tensor = tensor * self.output_scaling
         if self.reduction_type == 'first':
             return tensor[:, 0, :]
         elif self.reduction_type == 'max':
@@ -777,7 +777,7 @@ class UniversalTransformerMultiLayerEncoderLayer(nn.Module):
         tensor = _normalize(tensor, self.norm1)
         tensor = tensor + self.dropout(self.ffn(tensor))
         tensor = _normalize(tensor, self.norm2)
-        tensor *= mask.unsqueeze(-1).type_as(tensor)
+        tensor = tensor * mask.unsqueeze(-1).type_as(tensor)
         return tensor
 
 class UniversalTransformerMultiLayerDecoder(nn.Module):
@@ -1259,7 +1259,7 @@ class UniversalTransformerEncoder(nn.Module):
         # --dropout on the embeddings
         tensor = self.dropout(tensor)
 
-        tensor *= mask.unsqueeze(-1).type_as(tensor)
+        tensor = tensor * mask.unsqueeze(-1).type_as(tensor)
 
         if(self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
@@ -1295,7 +1295,7 @@ class UniversalTransformerEncoder(nn.Module):
                 tensor = tensor + self.timing_embeddings(th.tensor([i], device=input.device)).expand_as(tensor)#emb
                 tensor = self.enc(tensor, mask)
 
-        tensor *= self.output_scaling
+        tensor = tensor * self.output_scaling
         if self.reduction_type == 'first':
             return tensor[:, 0, :]
         elif self.reduction_type == 'max':
@@ -1351,7 +1351,7 @@ class UniversalTransformerEncoderLayer(nn.Module):
         tensor = _normalize(tensor, self.norm1)
         tensor = tensor + self.dropout(self.ffn(tensor))
         tensor = _normalize(tensor, self.norm2)
-        tensor *= mask.unsqueeze(-1).type_as(tensor)
+        tensor = tensor * mask.unsqueeze(-1).type_as(tensor)
         return tensor
 
 
@@ -1853,7 +1853,7 @@ class TransformerEncoder(nn.Module):
         # --dropout on the embeddings
         tensor = self.dropout(tensor)
 
-        tensor *= mask.unsqueeze(-1).type_as(tensor)
+        tensor = tensor * mask.unsqueeze(-1).type_as(tensor)
 
         if self.res_net:
             res_tensor = tensor
@@ -1870,7 +1870,7 @@ class TransformerEncoder(nn.Module):
             for i in range(self.n_layers):
                 tensor = self.layers[i](tensor, mask)
 
-        tensor *= self.output_scaling
+        tensor = tensor * self.output_scaling
         if self.reduction_type == 'first':
             return tensor[:, 0, :]
         elif self.reduction_type == 'max':
@@ -1951,7 +1951,7 @@ class TransformerEncoderLayer(nn.Module):
         else:
             tensor = tensor + self.dropout(self.ffn(tensor))
         tensor = _normalize(tensor, self.norm2)
-        tensor *= mask.unsqueeze(-1).type_as(tensor)
+        tensor = tensor * mask.unsqueeze(-1).type_as(tensor)
         return tensor
 
 
