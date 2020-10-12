@@ -1793,7 +1793,7 @@ class TransformerEncoder(nn.Module):
                         10,
                         ffn_size,
                         relu_dropout=relu_dropout,
-                        activation=self.activation,
+                        activation=activation,
                         normalize=True,
                         )  
                         
