@@ -1742,9 +1742,6 @@ class TransformerEncoder(nn.Module):
 
         if self.n_segments >= 1:
             self.segment_embeddings = nn.Embedding(self.n_segments, self.dim)
-
-
-        if self.knowledge_compression:
             
 
         # build the model
