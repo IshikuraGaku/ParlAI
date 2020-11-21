@@ -78,6 +78,7 @@ def _build_universal_multilayer_encoder(
         activation=opt['activation'],
         variant=opt['variant'],
         output_scaling=opt['output_scaling'],
+        act_l2=False,
     )
 
 
@@ -101,6 +102,7 @@ def _build_universal_multilayer_decoder(
         activation=opt['activation'],
         variant=opt['variant'],
         n_segments=n_segments,
+        act_l2=False,
     )
 
 def _build_universal_encoder(
@@ -131,6 +133,7 @@ def _build_universal_encoder(
         activation=opt['activation'],
         variant=opt['variant'],
         output_scaling=opt['output_scaling'],
+        act_l2=False,
     )
 
 
@@ -154,6 +157,7 @@ def _build_universal_decoder(
         activation=opt['activation'],
         variant=opt['variant'],
         n_segments=n_segments,
+        act_l2=False,
     )
 
 def _build_encoder(
@@ -530,7 +534,8 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         n_segments=0,
         output_scaling=1.0,
         act=True,
-        res_net=False
+        res_net=False,
+        act_l2=False
     ):
         super(UniversalTransformerMultiLayerEncoder, self).__init__()
 
@@ -550,6 +555,8 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         self.n_positions = n_positions
         self.out_dim = embedding_size
         self.res_net = res_net
+        self.act_l2 = act_l2
+        self.act_loss = None
         if res_net:
             self.res_norm = LayerNorm(embedding_size, eps=LAYER_NORM_EPS)
 
@@ -674,7 +681,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         tensor = self.dropout(tensor)
 
         tensor = tensor * mask.unsqueeze(-1).type_as(tensor)
-
+        
         if(self.act):
             if self.res_net:
                 res_tensor = tensor.clone()
@@ -689,6 +696,11 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
             else:
                 for i in range(self.n_layers):
                     tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, mask, self.enc_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers)
+                    if self.act_loss is None:
+                        self.act_loss = th.mean(remainders + n_updates)
+                        
+                    else:
+                        self.act_loss = self.act_loss + th.mean(remainders + n_updates)
                 #return tensor, (remainders, n_updates)
             """
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
@@ -824,7 +836,8 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
         variant='aiayn',
         activation='relu',
         act=True,    #add ACT
-        res_net=False
+        res_net=False,
+        act_l2=False
     ):
         super().__init__()
         self.embedding_size = embedding_size
@@ -840,6 +853,8 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
         self.n_positions = n_positions
         self.out_dim = embedding_size
         self.res_net = res_net
+        self.act_l2 = act_l2
+        self.act_loss = None
         if res_net:
             self.res_norm = LayerNorm(embedding_size, eps=LAYER_NORM_EPS)
 
@@ -947,7 +962,10 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
             else:
                 for i in range(self.n_layers):
                     tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, encoder_mask, self.dec_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
-
+                    if self.act_loss is None:
+                        self.act_loss = th.mean(remainders + n_updates)
+                    else:
+                        self.act_loss = self.act_loss + th.mean(remainders + n_updates)
             """
             #tensor, (remainders, n_updates)            
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
@@ -1128,7 +1146,8 @@ class UniversalTransformerEncoder(nn.Module):
         variant='aiayn',
         n_segments=0,
         output_scaling=1.0,
-        act=True
+        act=True,
+        act_l2=False
     ):
         super(UniversalTransformerEncoder, self).__init__()
 
@@ -1147,6 +1166,7 @@ class UniversalTransformerEncoder(nn.Module):
 
         self.n_positions = n_positions
         self.out_dim = embedding_size
+        self.act_l2 = act_l2
         self.act_loss = None
         assert (
             embedding_size % n_heads == 0
@@ -1400,7 +1420,8 @@ class UniversalTransformerDecoder(nn.Module):
         n_segments=0,
         variant='aiayn',
         activation='relu',
-        act=True    #add ACT
+        act=True,    #add ACT
+        act_l2=False
     ):
         super().__init__()
         self.embedding_size = embedding_size
@@ -1416,6 +1437,7 @@ class UniversalTransformerDecoder(nn.Module):
         self.n_positions = n_positions
         self.out_dim = embedding_size
         self.act_loss = None
+        self.act_l2 = act_l2
         assert (
             embedding_size % n_heads == 0
         ), 'Transformer embedding size must be a multiple of n_heads'
@@ -1702,6 +1724,7 @@ class TransformerEncoder(nn.Module):
         self.res_net = False
         self.knowledge_split = False
         self.knowledge_compression = False
+        self.act_loss = None
 
         assert (
             embedding_size % n_heads == 0
@@ -2015,6 +2038,7 @@ class TransformerDecoder(nn.Module):
         self.out_dim = embedding_size
 
         self.res_net = False
+        self.act_loss = None
 
         assert (
             embedding_size % n_heads == 0
