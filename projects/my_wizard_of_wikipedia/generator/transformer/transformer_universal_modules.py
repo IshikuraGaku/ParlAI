@@ -701,7 +701,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
                         act_loss_tmp = th.mean(remainders + n_updates)
                     else:
                         act_loss_tmp = act_loss_tmp + th.mean(remainders + n_updates)
-                self.act_loss = act_loss_tmp
+                self.act_loss = act_loss_tmp / self.n_layers
                 #return tensor, (remainders, n_updates)
             """
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
@@ -968,7 +968,7 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
                         act_loss_tmp = th.mean(remainders + n_updates)
                     else:
                         act_loss_tmp = act_loss_tmp + th.mean(remainders + n_updates)
-                self.act_loss = act_loss_tmp
+                self.act_loss = act_loss_tmp / self.n_layers
             """
             #tensor, (remainders, n_updates)            
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
