@@ -264,7 +264,7 @@ class TransformerGeneratorModel(TorchGeneratorModel):
         if n_positions < 0:
             raise ValueError('n_positions must be positive')
 
-        self.encoder = _build_universal_multilayer_encoder(
+        self.encoder = _build_universal_encoder(
             opt,
             dictionary,
             self.embeddings,
@@ -273,7 +273,7 @@ class TransformerGeneratorModel(TorchGeneratorModel):
             n_positions=n_positions,
             n_segments=n_segments,
         )
-        self.decoder = _build_universal_multilayer_decoder(
+        self.decoder = _build_universal_decoder(
             opt, dictionary, self.embeddings, self.pad_idx, n_positions=n_positions
         )
 
@@ -1147,6 +1147,7 @@ class UniversalTransformerEncoder(nn.Module):
 
         self.n_positions = n_positions
         self.out_dim = embedding_size
+        self.act_loss = None
         assert (
             embedding_size % n_heads == 0
         ), 'Transformer embedding size must be a multiple of n_heads'
@@ -1263,6 +1264,7 @@ class UniversalTransformerEncoder(nn.Module):
 
         if(self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
+            self.act_loss = th.mean(remainders + n_updates)
             #return tensor, (remainders, n_updates)
             """
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
@@ -1413,6 +1415,7 @@ class UniversalTransformerDecoder(nn.Module):
 
         self.n_positions = n_positions
         self.out_dim = embedding_size
+        self.act_loss = None
         assert (
             embedding_size % n_heads == 0
         ), 'Transformer embedding size must be a multiple of n_heads'
@@ -1498,9 +1501,8 @@ class UniversalTransformerDecoder(nn.Module):
         tensor = self.dropout(tensor + self.position_embeddings(positions).expand_as(tensor))
 
         if (self.act):
-            for i in range(self.n_layers):
-                tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
-
+            tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+            self.act_loss = th.mean(remainders + n_updates)
             """
             #tensor, (remainders, n_updates)            
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])

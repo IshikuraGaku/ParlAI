@@ -187,6 +187,12 @@ class EndToEndAgent(_GenericWizardAgent):
             
             # in the original paper the loss was scaled by num_tokens for both
             # know_loss and token_loss
+            if self.model.encoder.transformer.act_loss is not None:
+                token_loss = token_loss + self.model.encoder.transformer.act_loss + self.model.decoder.transformer.act_loss
+                print("YES")
+                print(self.model.encoder.transformer.act_loss)
+                print(self.model.decoder.transformer.act_loss)
+
            
             if self.use_outloss and self.use_KCEloss:
                 gamma = self.knowledge_alpha / 10
