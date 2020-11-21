@@ -694,13 +694,14 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
                     
 
             else:
+                act_loss_tmp = None
                 for i in range(self.n_layers):
                     tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, mask, self.enc_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers)
-                    if self.act_loss is None:
-                        self.act_loss = th.mean(remainders + n_updates)
-                        
+                    if act_loss_tmp is None:
+                        act_loss_tmp = th.mean(remainders + n_updates)
                     else:
-                        self.act_loss = self.act_loss + th.mean(remainders + n_updates)
+                        act_loss_tmp = act_loss_tmp + th.mean(remainders + n_updates)
+                self.act_loss = act_loss_tmp
                 #return tensor, (remainders, n_updates)
             """
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
@@ -960,12 +961,14 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
                     tensor = _normalize(tensor, self.res_norm)
                     res_tensor = tmp_tensor.clone()
             else:
+                act_loss_tmp = None
                 for i in range(self.n_layers):
                     tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, encoder_mask, self.dec_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
-                    if self.act_loss is None:
-                        self.act_loss = th.mean(remainders + n_updates)
+                    if act_loss_tmp is None:
+                        act_loss_tmp = th.mean(remainders + n_updates)
                     else:
-                        self.act_loss = self.act_loss + th.mean(remainders + n_updates)
+                        act_loss_tmp = act_loss_tmp + th.mean(remainders + n_updates)
+                self.act_loss = act_loss_tmp
             """
             #tensor, (remainders, n_updates)            
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
