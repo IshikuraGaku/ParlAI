@@ -61,7 +61,7 @@ def _build_universal_multilayer_encoder(
 ):
     return UniversalTransformerMultiLayerEncoder(
         n_heads=opt['n_heads'],
-        n_layers=3,
+        n_layers=4,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -86,7 +86,7 @@ def _build_universal_multilayer_decoder(
 ):
     return UniversalTransformerMultiLayerDecoder(
         n_heads=opt['n_heads'],
-        n_layers=3,
+        n_layers=4,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -264,7 +264,7 @@ class TransformerGeneratorModel(TorchGeneratorModel):
         if n_positions < 0:
             raise ValueError('n_positions must be positive')
 
-        self.encoder = _build_encoder(
+        self.encoder = _build_universal_multilayer_encoder(
             opt,
             dictionary,
             self.embeddings,
@@ -273,7 +273,7 @@ class TransformerGeneratorModel(TorchGeneratorModel):
             n_positions=n_positions,
             n_segments=n_segments,
         )
-        self.decoder = _build_decoder(
+        self.decoder = _build_universal_multilayer_decoder(
             opt, dictionary, self.embeddings, self.pad_idx, n_positions=n_positions
         )
 
@@ -530,7 +530,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         n_segments=0,
         output_scaling=1.0,
         act=True,
-        res_net=True
+        res_net=False
     ):
         super(UniversalTransformerMultiLayerEncoder, self).__init__()
 
@@ -824,7 +824,7 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
         variant='aiayn',
         activation='relu',
         act=True,    #add ACT
-        res_net=True
+        res_net=False
     ):
         super().__init__()
         self.embedding_size = embedding_size
@@ -1499,7 +1499,7 @@ class UniversalTransformerDecoder(nn.Module):
 
         if (self.act):
             for i in range(self.n_layers):
-                tensor, (remainders, n_updates) = self.act_fn_layers(tensor, input, encoder_mask, self.dec_layers, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+                tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
 
             """
             #tensor, (remainders, n_updates)            
@@ -1699,7 +1699,7 @@ class TransformerEncoder(nn.Module):
 
         self.res_net = False
         self.knowledge_split = False
-        self.knowledge_compression = True
+        self.knowledge_compression = False
 
         assert (
             embedding_size % n_heads == 0
