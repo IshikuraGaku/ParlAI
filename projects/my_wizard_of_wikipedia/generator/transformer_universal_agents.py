@@ -112,6 +112,16 @@ class EndToEndAgent(_GenericWizardAgent):
         self.max_knowledge = opt.get('max_knowledge')
         self.knowledge_alpha = opt['knowledge_alpha']
 
+        def backward(self, loss):
+            if self.opt.get('update_freq', 1) > 1:
+                # gradient accumulation, but still need to average across the minibatches
+                loss = loss / self.opt['update_freq']
+
+            if self.fp16:
+                self.optimizer.backward(loss, update_master_grads=False)
+            else:
+                loss.backward(retain_graph=True)
+
     def _dummy_batch(self, bsz, maxlen):
         batch = super()._dummy_batch(bsz, maxlen)
         batch['know_vec'] = th.zeros(bsz, 2, 2).long().cuda()
