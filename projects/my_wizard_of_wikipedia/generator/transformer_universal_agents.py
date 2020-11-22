@@ -188,23 +188,24 @@ class EndToEndAgent(_GenericWizardAgent):
             # in the original paper the loss was scaled by num_tokens for both
             # know_loss and token_loss
             if self.model.encoder.transformer.act_loss is not None:
-                token_loss = token_loss + self.model.encoder.transformer.act_loss + self.model.decoder.transformer.act_loss
-
+                token_act_loss = token_loss + self.model.encoder.transformer.act_loss + self.model.decoder.transformer.act_loss
+            else:
+                token_act_loss = token_loss
            
             if self.use_outloss and self.use_KCEloss:
                 gamma = self.knowledge_alpha / 10
                 alpha = self.knowledge_alpha / 2
                 beta = alpha
-                loss = (1 - alpha - beta - gamma) * token_loss + beta * out_loss + alpha * know_loss + gamma * KCE_loss
+                loss = (1 - alpha - beta - gamma) * token_act_loss + beta * out_loss + alpha * know_loss + gamma * KCE_loss
                 while loss < 0:
                     gamma = gamma / 10
-                    loss = (1 - alpha - beta - gamma) * token_loss + beta * out_loss + alpha * know_loss + gamma * KCE_loss
+                    loss = (1 - alpha - beta - gamma) * token_act_loss + beta * out_loss + alpha * know_loss + gamma * KCE_loss
             elif self.use_outloss:
                 alpha = self.knowledge_alpha / 2
                 beta = alpha
-                loss = (1 - alpha - beta) * token_loss + beta * out_loss + alpha * know_loss
+                loss = (1 - alpha - beta) * token_act_loss + beta * out_loss + alpha * know_loss
             else:
-                loss = (1 - self.knowledge_alpha) * token_loss + self.knowledge_alpha * know_loss
+                loss = (1 - self.knowledge_alpha) * token_act_loss + self.knowledge_alpha * know_loss
             #todo
 
         if return_output:
