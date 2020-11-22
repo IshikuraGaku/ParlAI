@@ -62,6 +62,7 @@ def _build_universal_multilayer_encoder(
     return UniversalTransformerMultiLayerEncoder(
         n_heads=opt['n_heads'],
         n_layers=3,
+        n_rec=3,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -88,6 +89,7 @@ def _build_universal_multilayer_decoder(
     return UniversalTransformerMultiLayerDecoder(
         n_heads=opt['n_heads'],
         n_layers=3,
+        n_rec=3,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -517,6 +519,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         self,
         n_heads,
         n_layers,
+        n_rec,
         embedding_size,
         ffn_size,
         vocabulary_size,
@@ -542,6 +545,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         self.embedding_size = embedding_size
         self.ffn_size = ffn_size
         self.n_layers = n_layers
+        self.n_rec = n_rec
         self.n_heads = n_heads
         self.dim = embedding_size
         self.embeddings_scale = embeddings_scale
@@ -585,10 +589,10 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         # Not Error check
         # create the timing embeddings
         # this make each layer embedding
-        self.timing_embeddings = nn.Embedding(n_layers, embedding_size)
+        self.timing_embeddings = nn.Embedding(n_rec, embedding_size)
         if not learn_positional_embeddings:
             create_position_codes(
-                n_layers, embedding_size, out=self.timing_embeddings.weight
+                n_rec, embedding_size, out=self.timing_embeddings.weight
             )
         else:
             nn.init.normal_(self.timing_embeddings.weight, 0, embedding_size ** -0.5)
@@ -686,7 +690,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
             if self.res_net:
                 res_tensor = tensor.clone()
                 for i in range(self.n_layers):
-                    tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, mask, self.enc_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers)
+                    tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, mask, self.enc_layers[i], self.timing_embeddings, self.position_embeddings, self.n_rec)
                     tmp_tensor = tensor.clone()
                     tensor = tensor + res_tensor
                     tensor = _normalize(tensor, self.res_norm)
@@ -696,7 +700,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
             else:
                 act_loss_tmp = None
                 for i in range(self.n_layers):
-                    tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, mask, self.enc_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers)
+                    tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, mask, self.enc_layers[i], self.timing_embeddings, self.position_embeddings, self.n_rec)
                     if act_loss_tmp is None:
                         act_loss_tmp = th.mean(remainders + n_updates)
                     else:
@@ -822,6 +826,7 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
         self,
         n_heads,
         n_layers,
+        n_rec,
         embedding_size,
         ffn_size,
         vocabulary_size,
@@ -844,6 +849,7 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
         self.embedding_size = embedding_size
         self.ffn_size = ffn_size
         self.n_layers = n_layers
+        self.n_rec = n_rec
         self.n_heads = n_heads
         self.dim = embedding_size
         self.activation = activation
@@ -875,10 +881,10 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
         # Not Error check
         # create the timing embeddings
         # this make each layer embedding
-        self.timing_embeddings = nn.Embedding(n_layers, embedding_size)
+        self.timing_embeddings = nn.Embedding(n_rec, embedding_size)
         if not learn_positional_embeddings:
             create_position_codes(
-                n_layers, embedding_size, out=self.timing_embeddings.weight
+                n_rec, embedding_size, out=self.timing_embeddings.weight
             )
         else:
             nn.init.normal_(self.timing_embeddings.weight, 0, embedding_size ** -0.5)
@@ -955,7 +961,7 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
             if self.res_net:
                 res_tensor = tensor.clone()
                 for i in range(self.n_layers):
-                    tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, encoder_mask, self.dec_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+                    tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, encoder_mask, self.dec_layers[i], self.timing_embeddings, self.position_embeddings, self.n_rec, encoder_output)
                     tmp_tensor = tensor.clone()
                     tensor = tensor + res_tensor
                     tensor = _normalize(tensor, self.res_norm)
@@ -963,7 +969,7 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
             else:
                 act_loss_tmp = None
                 for i in range(self.n_layers):
-                    tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, encoder_mask, self.dec_layers[i], self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
+                    tensor, (remainders, n_updates) = self.act_fn_layers[i](tensor, input, encoder_mask, self.dec_layers[i], self.timing_embeddings, self.position_embeddings, self.n_rec, encoder_output)
                     if act_loss_tmp is None:
                         act_loss_tmp = th.mean(remainders + n_updates)
                     else:
