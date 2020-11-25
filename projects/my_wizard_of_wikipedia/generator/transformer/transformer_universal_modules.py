@@ -135,7 +135,7 @@ def _build_universal_encoder(
         activation=opt['activation'],
         variant=opt['variant'],
         output_scaling=opt['output_scaling'],
-        act_l2=False,
+        act_l2=True,
     )
 
 
@@ -159,7 +159,7 @@ def _build_universal_decoder(
         activation=opt['activation'],
         variant=opt['variant'],
         n_segments=n_segments,
-        act_l2=False,
+        act_l2=True,
     )
 
 def _build_encoder(
@@ -270,7 +270,7 @@ class TransformerGeneratorModel(TorchGeneratorModel):
         if n_positions < 0:
             raise ValueError('n_positions must be positive')
 
-        self.encoder = _build_universal_multilayer_encoder(
+        self.encoder = _build_universal_encoder(
             opt,
             dictionary,
             self.embeddings,
@@ -279,7 +279,7 @@ class TransformerGeneratorModel(TorchGeneratorModel):
             n_positions=n_positions,
             n_segments=n_segments,
         )
-        self.decoder = _build_universal_multilayer_decoder(
+        self.decoder = _build_universal_decoder(
             opt, dictionary, self.embeddings, self.pad_idx, n_positions=n_positions
         )
 
