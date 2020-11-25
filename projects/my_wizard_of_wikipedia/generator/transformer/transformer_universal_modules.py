@@ -1294,7 +1294,14 @@ class UniversalTransformerEncoder(nn.Module):
         if(self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, mask, self.enc, self.timing_embeddings, self.position_embeddings, self.n_layers)
             self.act_loss = th.mean(remainders + n_updates)
-            #return tensor, (remainders, n_updates)
+            if self.act_l2:
+                tmp_act_l2_loss = None
+                for param in self.act_fn.parameters:
+                    if tmp_act_l2_loss is None:
+                        tmp_act_l2_loss = th.norm(param)
+                    else:
+                        tmp_act_l2_loss =  tmp_act_l2_loss + th.norm(param)
+                self.act_loss = self.act_loss + tmp_act_l2_loss
             """
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
 
@@ -1534,6 +1541,14 @@ class UniversalTransformerDecoder(nn.Module):
         if (self.act):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
             self.act_loss = th.mean(remainders + n_updates)
+            if self.act_l2:
+                    tmp_act_l2_loss = None
+                for param in self.act_fn.parameters:
+                    if tmp_act_l2_loss is None:
+                        tmp_act_l2_loss = th.norm(param)
+                    else:
+                        tmp_act_l2_loss =  tmp_act_l2_loss + th.norm(param)
+                self.act_loss = self.act_loss + tmp_act_l2_loss
             """
             #tensor, (remainders, n_updates)            
             n_update = n_updates.reshape(n_updates.shape[0]*n_updates.shape[1])
