@@ -61,8 +61,8 @@ def _build_universal_multilayer_encoder(
 ):
     return UniversalTransformerMultiLayerEncoder(
         n_heads=opt['n_heads'],
-        n_layers=3,
-        n_rec=3,
+        n_layers=4,
+        n_rec=2,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -88,8 +88,8 @@ def _build_universal_multilayer_decoder(
 ):
     return UniversalTransformerMultiLayerDecoder(
         n_heads=opt['n_heads'],
-        n_layers=3,
-        n_rec=3,
+        n_layers=4,
+        n_rec=2,
         embedding_size=opt['embedding_size'],
         ffn_size=opt['ffn_size'],
         vocabulary_size=len(dictionary),
@@ -270,7 +270,7 @@ class TransformerGeneratorModel(TorchGeneratorModel):
         if n_positions < 0:
             raise ValueError('n_positions must be positive')
 
-        self.encoder = _build_universal_encoder(
+        self.encoder = _build_universal_multilayer_encoder(
             opt,
             dictionary,
             self.embeddings,
@@ -279,7 +279,7 @@ class TransformerGeneratorModel(TorchGeneratorModel):
             n_positions=n_positions,
             n_segments=n_segments,
         )
-        self.decoder = _build_universal_decoder(
+        self.decoder = _build_universal_multilayer_decoder(
             opt, dictionary, self.embeddings, self.pad_idx, n_positions=n_positions
         )
 
