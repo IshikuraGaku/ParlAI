@@ -1542,7 +1542,7 @@ class UniversalTransformerDecoder(nn.Module):
             tensor, (remainders, n_updates) = self.act_fn(tensor, input, encoder_mask, self.dec, self.timing_embeddings, self.position_embeddings, self.n_layers, encoder_output)
             self.act_loss = th.mean(remainders + n_updates)
             if self.act_l2:
-                    tmp_act_l2_loss = None
+                tmp_act_l2_loss = None
                 for param in self.act_fn.parameters():
                     if tmp_act_l2_loss is None:
                         tmp_act_l2_loss = th.norm(param)
