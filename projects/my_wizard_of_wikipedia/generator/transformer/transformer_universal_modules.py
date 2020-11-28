@@ -2644,7 +2644,10 @@ class ACT_Light(nn.Module):
         # need to mask out the padded chars
         sentences = sentences.permute(0, 2, 1)
         mask_tmp = mask.float().unsqueeze(-1) 
-        sentence_sums = th.bmm(sentences, mask_tmp).squeeze(-1)
+        sentence_sums = th.bmm(sentences, mask_tmp)
+        print(sentences.shape)
+        print(mask_tmp.shape)
+        sentemces_sums = sentences_sums.squeeze(-1)
         if use_mask:
             divisor = mask.sum(dim=1).view(-1, 1).float()
             if sqrt:
