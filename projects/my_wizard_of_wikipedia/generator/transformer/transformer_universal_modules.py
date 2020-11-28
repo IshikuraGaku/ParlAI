@@ -2669,5 +2669,5 @@ class ACT_Light(nn.Module):
             sentence_sums = sentence_sums / divisor
         else:
             dec_len = sentences.shape[1]
-            sentence_sums = sentences.sum(1) / sqrt(dec_len)
+            sentence_sums = sentences.sum(1) / dec_len.sqrt()
         return sentence_sums
