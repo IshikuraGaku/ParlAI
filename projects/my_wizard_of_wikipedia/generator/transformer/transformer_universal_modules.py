@@ -2547,7 +2547,7 @@ class ACT_Light(nn.Module):
         ## [B, S]
         n_updates = th.zeros(inputs.shape[0]).cuda()
         ## [B, S, HDD]
-        previous_tensor = th.zeros_like(inputs).type(th.FloatTensor).cuda()
+        previous_tensor = th.zeros_like(tensor).type(th.FloatTensor).cuda()
 
         step = 0
         seq_len = inputs.size(1)
@@ -2607,12 +2607,20 @@ class ACT_Light(nn.Module):
             if self.res_net:
                 res_tensor = tensor
 
+
+            if tensor.size() == previous_tensor.size():
+                previous_tensor = (tensor * update_weights) + (previous_tensor * (1 - update_weights))
+            else:
+                previous_tensor = (tensor * update_weights) + (previous_tensor * (1 - update_weights))
+
+
             # update running part in the weighted tensor and keep the rest
+            """
             if tensor.size() == previous_tensor.size():
                 previous_tensor = (tensor * update_weights.unsqueeze(-1)) + (previous_tensor * (1 - update_weights.unsqueeze(-1)))
             else:
                 previous_tensor = (tensor * update_weights.unsqueeze(-1)) + (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
-
+            """
             ## previous_tensor is actually the new_tensor at end of hte loop 
             ## to save a line I assigned to previous_tensor so in the next 
             ## iteration is correct. Notice that indeed we return previous_tensor
