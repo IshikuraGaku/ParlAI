@@ -2642,7 +2642,7 @@ class ACT_Light(nn.Module):
         """
 
         # need to mask out the padded chars
-        sentences = sentences.permute(0, 2, 1)
+        #sentences = sentences.permute(0, 2, 1)
         mask_tmp = mask.float().unsqueeze(-1) 
         sentence_sums = th.bmm(sentences, mask_tmp)
         print(sentences.shape)
