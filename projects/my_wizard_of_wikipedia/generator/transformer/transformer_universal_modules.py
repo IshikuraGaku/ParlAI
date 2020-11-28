@@ -2609,7 +2609,7 @@ class ACT_Light(nn.Module):
 
 
             if tensor.size() == previous_tensor.size():
-                previous_tensor = (tensor * update_weights) + (previous_tensor * (1 - update_weights))
+                previous_tensor = (tensor * update_weights.unsqueeze(-1).unsqueeze(-1)) + (previous_tensor * (1 - update_weights.unsqueeze(-1).unsqueeze(-1)))
             else:
                 previous_tensor = (tensor * update_weights) + (previous_tensor * (1 - update_weights))
 
