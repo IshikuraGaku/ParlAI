@@ -2645,7 +2645,7 @@ class ACT_Light(nn.Module):
         #sentences = [B,L,emb]
         #sentences = sentences.permute(0, 2, 1)
 
-        sentence_sums = (sentences * mask.float().unsqueeze(-1)).sum(dim=2)
+        sentence_sums = (sentences * mask.float().unsqueeze(-1)).sum(dim=1)
 
         if use_mask:
             divisor = mask.sum(dim=1).view(-1, 1).float()
