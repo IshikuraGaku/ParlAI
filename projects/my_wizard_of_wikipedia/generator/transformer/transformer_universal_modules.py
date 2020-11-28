@@ -2566,7 +2566,7 @@ class ACT_Light(nn.Module):
             else:
                 tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
 
-            seq_vec = universal_sentence_embedding(tensor, mask)
+            seq_vec = self.universal_sentence_embedding(tensor, mask)
 
             p = self.sigma(self.p(seq_vec)).squeeze(-1)
             # Mask for inputs which have not halted yet
