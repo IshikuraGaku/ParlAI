@@ -2622,7 +2622,7 @@ class ACT_Light(nn.Module):
             step+=1
         return previous_tensor, (remainders, n_updates)
     
-    def universal_sentence_embedding(sentences, mask, sqrt=True, use_mask=True):
+    def universal_sentence_embedding(self, sentences, mask, sqrt=True, use_mask=True):
         """
         Perform Universal Sentence Encoder averaging (https://arxiv.org/abs/1803.11175).
         This is really just sum / sqrt(len).
