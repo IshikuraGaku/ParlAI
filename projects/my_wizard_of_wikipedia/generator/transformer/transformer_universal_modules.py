@@ -2650,8 +2650,7 @@ class ACT_Light(nn.Module):
         # need to mask out the padded chars
         #sentences = [B,L,emb]
         #sentences = sentences.permute(0, 2, 1)
-        print(sentences.shape)
-        print(mask.shape)
+
 
         #sentence_sums = (sentences * mask.float().unsqueeze(-1)).sum(dim=1)
         #encoderでは作用するがDecoderでは作用しない
