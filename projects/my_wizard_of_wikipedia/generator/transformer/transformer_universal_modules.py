@@ -2645,9 +2645,10 @@ class ACT_Light(nn.Module):
         #sentences = [B,L,emb]
         #sentences = sentences.permute(0, 2, 1)
         mask_tmp = mask.float().unsqueeze(-1) 
-        sentence_sums = th.bmm(sentences, mask_tmp)
         print(sentences.shape)
         print(mask_tmp.shape)
+        sentence_sums = th.bmm(sentences, mask_tmp)
+
         sentemces_sums = sentences_sums.squeeze(-1)
         if use_mask:
             divisor = mask.sum(dim=1).view(-1, 1).float()
