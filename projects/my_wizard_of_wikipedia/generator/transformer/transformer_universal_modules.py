@@ -2533,7 +2533,7 @@ class ACT_basic(nn.Module):
 
 class ACT_Light(nn.Module):
     def __init__(self, hidden_size):
-        super(ACT_Light, self).__init__()
+        super(ACT_, self).__init__()
         self.sigma = nn.Sigmoid()
         self.p = nn.Linear(hidden_size,1)  
         self.p.bias.data.fill_(1) 
@@ -2549,6 +2549,7 @@ class ACT_Light(nn.Module):
         ## [B, S, HDD]
         previous_tensor = th.zeros_like(inputs).type(th.FloatTensor).cuda()
 
+        step = 0
         seq_len = inputs.size(1)
         positions = inputs.new(seq_len).long()
         positions = th.arange(seq_len, out=positions).unsqueeze(0)
@@ -2618,6 +2619,7 @@ class ACT_Light(nn.Module):
 
             #print("step")
             #print(step)
+            step+=1
         return previous_tensor, (remainders, n_updates)
     
     def universal_sentence_embedding(sentences, mask, sqrt=True, use_mask=True):
