@@ -2626,7 +2626,7 @@ class ACT_Light(nn.Module):
             ## iteration is correct. Notice that indeed we return previous_tensor
 
             #print("step")
-            #print(step)
+            print(step)
             step+=1
         return previous_tensor, (remainders, n_updates)
     
