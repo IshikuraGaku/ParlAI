@@ -136,6 +136,7 @@ def _build_universal_encoder(
         variant=opt['variant'],
         output_scaling=opt['output_scaling'],
         act_l2=True,
+        light_act=True,
     )
 
 
@@ -160,6 +161,7 @@ def _build_universal_decoder(
         variant=opt['variant'],
         n_segments=n_segments,
         act_l2=True,
+        light_act=True,
     )
 
 def _build_encoder(
@@ -1156,7 +1158,8 @@ class UniversalTransformerEncoder(nn.Module):
         n_segments=0,
         output_scaling=1.0,
         act=True,
-        act_l2=False
+        act_l2=False,
+        light_act=False
     ):
         super(UniversalTransformerEncoder, self).__init__()
 
@@ -1176,6 +1179,7 @@ class UniversalTransformerEncoder(nn.Module):
         self.n_positions = n_positions
         self.out_dim = embedding_size
         self.act_l2 = act_l2
+        self.light_act = light_act
         self.act_loss = None
         assert (
             embedding_size % n_heads == 0
@@ -1232,7 +1236,10 @@ class UniversalTransformerEncoder(nn.Module):
         
         self.act = act
         if(self.act):
-            self.act_fn = ACT_basic(self.dim)
+            if self.light_act:
+                self.act_fn = ACT_light(self.dim)
+            else:
+                self.act_fn = ACT_basic(self.dim)
 
         # build the model
         self.enc = UniversalTransformerEncoderLayer(
@@ -1438,6 +1445,7 @@ class UniversalTransformerDecoder(nn.Module):
         activation='relu',
         act=True,    #add ACT
         act_l2=False
+        light_act=False
     ):
         super().__init__()
         self.embedding_size = embedding_size
@@ -1454,6 +1462,7 @@ class UniversalTransformerDecoder(nn.Module):
         self.out_dim = embedding_size
         self.act_loss = None
         self.act_l2 = act_l2
+        self.light_act = light_act
         assert (
             embedding_size % n_heads == 0
         ), 'Transformer embedding size must be a multiple of n_heads'
@@ -1489,7 +1498,10 @@ class UniversalTransformerDecoder(nn.Module):
         
         self.act = act
         if(self.act):
-            self.act_fn = ACT_basic(self.dim)
+            if self.light_act:
+                self.act_fn = ACT_light(self.dim)
+            else:
+                self.act_fn = ACT_basic(self.dim)
 
         # build the model
         
@@ -2518,3 +2530,117 @@ class ACT_basic(nn.Module):
             #print("step")
             #print(step)
         return previous_tensor, (remainders, n_updates)
+
+class ACT_Light(nn.Module):
+    def __init__(self, hidden_size):
+        super(ACT_basic, self).__init__()
+        self.sigma = nn.Sigmoid()
+        self.p = nn.Linear(hidden_size,1)  
+        self.p.bias.data.fill_(1) 
+        self.threshold = 1 - 0.01
+        self.res_net = False
+
+    def forward(self, tensor, inputs, mask, fn, time_enc, pos_enc, max_hop, encoder_output=None):
+        halting_probability = th.zeros(inputs.shape[0]).cuda()
+        ## [B, S]
+        remainders = th.zeros(inputs.shape[0]).cuda()
+        ## [B, S]
+        n_updates = th.zeros(inputs.shape[0]).cuda()
+        ## [B, S, HDD]
+        previous_tensor = th.zeros_like(inputs).type(th.FloatTensor).cuda()
+
+        seq_len = inputs.size(1)
+        positions = inputs.new(seq_len).long()
+        positions = th.arange(seq_len, out=positions).unsqueeze(0)
+        # for l in range(self.num_layers):
+        if self.res_net:
+            res_tensor = tensor
+            res_lambda = 0.2
+        while( ((halting_probability < self.threshold) & (n_updates < max_hop)).byte().any()):
+            #any() 1つでも0以外があればTrue
+            #while(((n_updates < max_hop)).byte().any()):なぜかError
+            # Add timing signal
+            if self.res_net:
+                tensor = (1-res_lambda)*tensor + res_lambda*res_tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)
+            else:
+                tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
+
+            seq_vec = universal_sentence_embedding(tensor, mask)
+
+            p = self.sigma(self.p(seq_vec)).squeeze(-1)
+            # Mask for inputs which have not halted yet
+            still_running = (halting_probability < 1.0).float()
+
+            # Mask of inputs which halted at this step
+            new_halted = (halting_probability + p * still_running > self.threshold).float() * still_running
+
+            # Mask of inputs which haven't halted, and didn't halt this step
+            still_running = (halting_probability + p * still_running <= self.threshold).float() * still_running
+
+            # Add the halting probability for this step to the halting
+            # probabilities for those input which haven't halted yet
+            halting_probability = halting_probability + p * still_running
+
+            # Compute remainders for the inputs which halted at this step
+            remainders = remainders + new_halted * (1 - halting_probability)
+
+            # Add the remainders to those inputs which halted at this step
+            halting_probability = halting_probability + new_halted * remainders
+
+            # Increment n_updates for all inputs which are still running
+            n_updates = n_updates + still_running + new_halted
+
+            # Compute the weight to be applied to the new tensor and output
+            # 0 when the input has already halted
+            # p when the input hasn't halted yet
+            # the remainders when it halted this step
+            update_weights = (p * still_running + new_halted * remainders).cuda()
+
+            #dec
+            if(encoder_output is not None):
+                tensor = fn(tensor, encoder_output, mask)
+            else:
+                # apply transformation on the tensor
+                tensor = fn(tensor, mask)
+                
+            if self.res_net:
+                res_tensor = tensor
+
+            # update running part in the weighted tensor and keep the rest
+            if tensor.size() == previous_tensor.size():
+                previous_tensor = (tensor * update_weights.unsqueeze(-1)) + (previous_tensor * (1 - update_weights.unsqueeze(-1)))
+            else:
+                previous_tensor = (tensor * update_weights.unsqueeze(-1)) + (previous_tensor.reshape(update_weights.unsqueeze(-1).size()) * (1 - update_weights.unsqueeze(-1)))
+
+            ## previous_tensor is actually the new_tensor at end of hte loop 
+            ## to save a line I assigned to previous_tensor so in the next 
+            ## iteration is correct. Notice that indeed we return previous_tensor
+
+            #print("step")
+            #print(step)
+        return previous_tensor, (remainders, n_updates)
+    
+    def universal_sentence_embedding(sentences, mask, sqrt=True, use_mask=True):
+        """
+    Perform Universal Sentence Encoder averaging (https://arxiv.org/abs/1803.11175).
+
+    This is really just sum / sqrt(len).
+
+    :param Tensor sentences: an N x T x D of Transformer outputs. Note this is
+        the exact output of TransformerEncoder, but has the time axis first
+    :param ByteTensor: an N x T binary matrix of paddings
+
+    :return: an N x D matrix of sentence embeddings
+    :rtype Tensor:
+    """
+    # need to mask out the padded chars
+    sentence_sums = th.bmm(
+        sentences.permute(0, 2, 1),
+        mask.float().unsqueeze(-1)
+    ).squeeze(-1)
+    if use_mask:
+        divisor = mask.sum(dim=1).view(-1, 1).float()
+        if sqrt:
+            divisor = divisor.sqrt()
+        sentence_sums = sentence_sums / divisor
+    return sentence_sums
