@@ -2533,7 +2533,7 @@ class ACT_basic(nn.Module):
 
 class ACT_Light(nn.Module):
     def __init__(self, hidden_size):
-        super(ACT_basic, self).__init__()
+        super(ACT_Light, self).__init__()
         self.sigma = nn.Sigmoid()
         self.p = nn.Linear(hidden_size,1)  
         self.p.bias.data.fill_(1) 
