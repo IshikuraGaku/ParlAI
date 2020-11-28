@@ -2621,18 +2621,16 @@ class ACT_Light(nn.Module):
         return previous_tensor, (remainders, n_updates)
     
     def universal_sentence_embedding(sentences, mask, sqrt=True, use_mask=True):
-            """
+        """
         Perform Universal Sentence Encoder averaging (https://arxiv.org/abs/1803.11175).
-
         This is really just sum / sqrt(len).
-
         :param Tensor sentences: an N x T x D of Transformer outputs. Note this is
-            the exact output of TransformerEncoder, but has the time axis first
+        the exact output of TransformerEncoder, but has the time axis first
         :param ByteTensor: an N x T binary matrix of paddings
-
         :return: an N x D matrix of sentence embeddings
         :rtype Tensor:
         """
+
         # need to mask out the padded chars
         sentence_sums = th.bmm(
             sentences.permute(0, 2, 1),
