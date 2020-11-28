@@ -2651,5 +2651,7 @@ class ACT_Light(nn.Module):
             divisor = mask.sum(dim=1).view(-1, 1).float()
             if sqrt:
                 divisor = divisor.sqrt()
+            print(sentence_sum.shape)
+            print(divisor.shape)
             sentence_sums = sentence_sums / divisor
         return sentence_sums
