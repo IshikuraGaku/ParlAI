@@ -1444,7 +1444,7 @@ class UniversalTransformerDecoder(nn.Module):
         variant='aiayn',
         activation='relu',
         act=True,    #add ACT
-        act_l2=False
+        act_l2=False,
         light_act=False
     ):
         super().__init__()
