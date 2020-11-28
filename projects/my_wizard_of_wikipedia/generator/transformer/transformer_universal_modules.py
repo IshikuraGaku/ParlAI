@@ -1237,7 +1237,7 @@ class UniversalTransformerEncoder(nn.Module):
         self.act = act
         if(self.act):
             if self.light_act:
-                self.act_fn = ACT_light(self.dim)
+                self.act_fn = ACT_Light(self.dim)
             else:
                 self.act_fn = ACT_basic(self.dim)
 
@@ -1499,7 +1499,7 @@ class UniversalTransformerDecoder(nn.Module):
         self.act = act
         if(self.act):
             if self.light_act:
-                self.act_fn = ACT_light(self.dim)
+                self.act_fn = ACT_Light(self.dim)
             else:
                 self.act_fn = ACT_basic(self.dim)
 
