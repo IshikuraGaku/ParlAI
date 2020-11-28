@@ -2649,7 +2649,7 @@ class ACT_Light(nn.Module):
         print(mask_tmp.shape)
         sentence_sums = sentences * mask_tmp
 
-        sentemces_sums = sentences_sums.squeeze(-1)
+        sentemce_sums = sentence_sums.squeeze(-1)
         if use_mask:
             divisor = mask.sum(dim=1).view(-1, 1).float()
             if sqrt:
