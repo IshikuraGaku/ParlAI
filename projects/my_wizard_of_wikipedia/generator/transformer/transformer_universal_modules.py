@@ -2509,9 +2509,11 @@ class ACT_basic(nn.Module):
 
             #dec
             if(encoder_output is not None):
+                #encoderのMask
                 tensor = fn(tensor, encoder_output, mask)
             else:
                 # apply transformation on the tensor
+                #inputから作ったMask
                 tensor = fn(tensor, mask)
                 
             if self.res_net:
@@ -2565,8 +2567,12 @@ class ACT_Light(nn.Module):
                 tensor = (1-res_lambda)*tensor + res_lambda*res_tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)
             else:
                 tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
-
-            seq_vec = self.universal_sentence_embedding(tensor, mask)
+            
+            #dec
+            if(encoder_output is not None):
+                seq_vec = self.universal_sentence_embedding(tensor, mask, use_mask=False)
+            else:
+                seq_vec = self.universal_sentence_embedding(tensor, mask)
 
             p = self.sigma(self.p(seq_vec)).squeeze(-1)
             # Mask for inputs which have not halted yet
@@ -2647,16 +2653,21 @@ class ACT_Light(nn.Module):
         print(sentences.shape)
         print(mask.shape)
 
-        sentence_sums = th.bmm(
-            sentences.permute(0, 2, 1),
-            mask.float().unsqueeze(-1)
-        ).squeeze(-1)
+        #sentence_sums = (sentences * mask.float().unsqueeze(-1)).sum(dim=1)
+        #encoderでは作用するがDecoderでは作用しない
 
         if use_mask:
+            sentence_sums = th.bmm(
+                sentences.permute(0, 2, 1),
+                mask.float().unsqueeze(-1)
+            ).squeeze(-1)
             divisor = mask.sum(dim=1).view(-1, 1).float()
             if sqrt:
                 divisor = divisor.sqrt()
             #print(sentence_sums.shape)
             #print(divisor.shape)
             sentence_sums = sentence_sums / divisor
+        else:
+            dec_len = sentences.shape[1]
+            sentence_sums = sentences.sum(1) / sqrt(dec_len)
         return sentence_sums
