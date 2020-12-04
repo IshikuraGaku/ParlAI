@@ -80,6 +80,7 @@ def _build_universal_multilayer_encoder(
         variant=opt['variant'],
         output_scaling=opt['output_scaling'],
         act_l2=False,
+        light_act=True,
     )
 
 
@@ -105,6 +106,7 @@ def _build_universal_multilayer_decoder(
         variant=opt['variant'],
         n_segments=n_segments,
         act_l2=False,
+        light_act=True,
     )
 
 def _build_universal_encoder(
@@ -540,7 +542,8 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         output_scaling=1.0,
         act=True,
         res_net=False,
-        act_l2=False
+        act_l2=False,
+        light_act=True,
     ):
         super(UniversalTransformerMultiLayerEncoder, self).__init__()
 
@@ -562,6 +565,7 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         self.out_dim = embedding_size
         self.res_net = res_net
         self.act_l2 = act_l2
+        self.light_act = light_act
         self.act_loss = None
         if res_net:
             self.res_norm = LayerNorm(embedding_size, eps=LAYER_NORM_EPS)
@@ -621,11 +625,18 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
         
         self.act = act
         if(self.act):
-            self.act_fn_layers = nn.ModuleList()
-            for _ in range(self.n_layers):
-                self.act_fn_layers.append(
-                    ACT_basic(self.dim)
-                )
+            if self.light_act:
+                self.act_fn_layers = nn.ModuleList()
+                for _ in range(self.n_layers):
+                    self.act_fn_layers.append(
+                        ACT_Light(self.dim)
+                    )
+            else:
+                self.act_fn_layers = nn.ModuleList()
+                for _ in range(self.n_layers):
+                    self.act_fn_layers.append(
+                        ACT_basic(self.dim)
+                    )
 
         # build the model
         self.enc_layers = nn.ModuleList()
@@ -697,8 +708,6 @@ class UniversalTransformerMultiLayerEncoder(nn.Module):
                     tensor = tensor + res_tensor
                     tensor = _normalize(tensor, self.res_norm)
                     res_tensor = tmp_tensor.clone()
-                    
-
             else:
                 act_loss_tmp = None
                 for i in range(self.n_layers):
@@ -845,7 +854,8 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
         activation='relu',
         act=True,    #add ACT
         res_net=False,
-        act_l2=False
+        act_l2=False,
+        light_act=True,
     ):
         super().__init__()
         self.embedding_size = embedding_size
@@ -863,6 +873,7 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
         self.out_dim = embedding_size
         self.res_net = res_net
         self.act_l2 = act_l2
+        self.light_act = light_act
         self.act_loss = None
         if res_net:
             self.res_norm = LayerNorm(embedding_size, eps=LAYER_NORM_EPS)
@@ -902,11 +913,18 @@ class UniversalTransformerMultiLayerDecoder(nn.Module):
         
         self.act = act
         if(self.act):
-            self.act_fn_layers = nn.ModuleList()
-            for _ in range(self.n_layers):
-                self.act_fn_layers.append(
-                    ACT_basic(self.dim)
-                )
+            if self.light_act:
+                self.act_fn_layers = nn.ModuleList()
+                for _ in range(self.n_layers):
+                    self.act_fn_layers.append(
+                        ACT_Light(self.dim)
+                    )
+            else:
+                self.act_fn_layers = nn.ModuleList()
+                for _ in range(self.n_layers):
+                    self.act_fn_layers.append(
+                        ACT_basic(self.dim)
+                    )
 
         # build the model
         
@@ -2567,12 +2585,8 @@ class ACT_Light(nn.Module):
                 tensor = (1-res_lambda)*tensor + res_lambda*res_tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)
             else:
                 tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
-            
-            #dec
-            if(encoder_output is not None):
-                seq_vec = self.universal_sentence_embedding(tensor, mask, use_mask=False)
-            else:
-                seq_vec = self.universal_sentence_embedding(tensor, mask)
+
+            seq_vec = self.universal_sentence_embedding(tensor, mask)
 
             p = self.sigma(self.p(seq_vec)).squeeze(-1)
             # Mask for inputs which have not halted yet
@@ -2632,11 +2646,11 @@ class ACT_Light(nn.Module):
             ## iteration is correct. Notice that indeed we return previous_tensor
 
             #print("step")
-            #print(step)
+            print(step)
             step+=1
         return previous_tensor, (remainders, n_updates)
     
-    def universal_sentence_embedding(self, sentences, mask, sqrt=False, use_mask=True):
+    def universal_sentence_embedding(self, sentences, mask, sqrt=True, use_mask=True):
         """
         Perform Universal Sentence Encoder averaging (https://arxiv.org/abs/1803.11175).
         This is really just sum / sqrt(len).
@@ -2650,7 +2664,8 @@ class ACT_Light(nn.Module):
         # need to mask out the padded chars
         #sentences = [B,L,emb]
         #sentences = sentences.permute(0, 2, 1)
-
+        print(sentences.shape)
+        print(mask.shape)
 
         #sentence_sums = (sentences * mask.float().unsqueeze(-1)).sum(dim=1)
         #encoderでは作用するがDecoderでは作用しない
@@ -2668,5 +2683,5 @@ class ACT_Light(nn.Module):
             sentence_sums = sentence_sums / divisor
         else:
             dec_len = sentences.shape[1]
-            sentence_sums = sentences.sum(1) / dec_len
+            sentence_sums = sentences.sum(1) / sqrt(dec_len)
         return sentence_sums
