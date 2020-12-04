@@ -2585,8 +2585,11 @@ class ACT_Light(nn.Module):
                 tensor = (1-res_lambda)*tensor + res_lambda*res_tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)
             else:
                 tensor = tensor + pos_enc(positions).expand_as(tensor) + time_enc(th.tensor([step], device=inputs.device)).expand_as(tensor)#emb#[s,emb]
-
-            seq_vec = self.universal_sentence_embedding(tensor, mask)
+            
+            if(encoder_output is not None):
+                seq_vec = self.universal_sentence_embedding(tensor, mask, use_mask=False)
+            else:
+                seq_vec = self.universal_sentence_embedding(tensor, mask)
 
             p = self.sigma(self.p(seq_vec)).squeeze(-1)
             # Mask for inputs which have not halted yet
@@ -2646,7 +2649,7 @@ class ACT_Light(nn.Module):
             ## iteration is correct. Notice that indeed we return previous_tensor
 
             #print("step")
-            print(step)
+            #print(step)
             step+=1
         return previous_tensor, (remainders, n_updates)
     
@@ -2664,8 +2667,8 @@ class ACT_Light(nn.Module):
         # need to mask out the padded chars
         #sentences = [B,L,emb]
         #sentences = sentences.permute(0, 2, 1)
-        print(sentences.shape)
-        print(mask.shape)
+        #print(sentences.shape)
+        #print(mask.shape)
 
         #sentence_sums = (sentences * mask.float().unsqueeze(-1)).sum(dim=1)
         #encoderでは作用するがDecoderでは作用しない
